@@ -12,8 +12,10 @@ fi
 
 # Secret guard — the GitHub repo is PUBLIC.
 bad_files=$(git diff --cached --name-only | grep -E '(^|/)\.env($|\.)' | grep -v '\.env\.example$')
-bad_text=$(git diff --cached -U0 | grep -E '^\+' | grep -E 'sk-ant-[a-z]{3}|rzp_live_|rzp_test_[A-Za-z0-9]{8}|gh[op]_[A-Za-z0-9]{20}|postgres(ql)?://[^:/]+:[^@\[:]{6,}@[^l1]' )
-if [ -n "$bad_files$bad_text" ]; then
+added=$(git diff --cached -U0 -- . ':!.claude/autosync.sh' | grep -E '^\+' | grep -v 'YOUR-PASSWORD')
+bad_text=$(printf '%s\n' "$added" | grep -E 'sk-ant-[a-z]{3}|rzp_live_|rzp_test_[A-Za-z0-9]{8}|gh[op]_[A-Za-z0-9]{20}|postgres(ql)?://[^:/]+:[^@:]{6,}@[^l1]')
+rc=$?   # 0 = secret found, 1 = clean, 2 = grep error -> fail closed
+if [ -n "$bad_files" ] || [ "$rc" -ne 1 ]; then
   git reset -q
   echo '{"systemMessage":"Auto-sync BLOCKED: a secret was about to be committed. Nothing was pushed."}'
   exit 0
