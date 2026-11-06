@@ -68,6 +68,8 @@ export function detectExperience(text: string): { min: number | null; max: numbe
   return { min: null, max: null };
 }
 
+const roundOrNull = (n: number | null | undefined) => (typeof n === "number" && Number.isFinite(n) ? Math.round(n) : null);
+
 /** Indian style salary in the text: "₹12 to 18 LPA", "12-18 LPA", "INR 15,00,000". */
 export function detectInrSalary(text: string): { min: number; max: number } | null {
   const lpa = text.match(/(?:₹|inr|rs\.?)?\s*(\d{1,3}(?:\.\d)?)\s*(?:-|to|–)\s*(\d{1,3}(?:\.\d)?)\s*(?:lpa|lakhs?)/i);
@@ -111,8 +113,9 @@ export function normalize(companyId: string, raw: RawJob) {
     employment: raw.employment ?? null,
     experienceMin: exp.min,
     experienceMax: exp.max,
-    salaryMin: raw.salary?.min ?? inr?.min ?? null,
-    salaryMax: raw.salary?.max ?? inr?.max ?? null,
+    // Columns are integers; some boards send decimals (e.g. hourly "60.58").
+    salaryMin: roundOrNull(raw.salary?.min ?? inr?.min),
+    salaryMax: roundOrNull(raw.salary?.max ?? inr?.max),
     salaryCurrency: raw.salary?.currency ?? (inr ? "INR" : null),
     salaryPeriod: raw.salary?.period ?? (inr ? "YEAR" : null),
     skills: extractKeywords(`${raw.title}\n${description}`).slice(0, 15),

@@ -10,12 +10,19 @@ import * as schema from "./schema";
  */
 const globalForDb = globalThis as unknown as { pool?: Pool };
 
+// node-postgres treats `sslmode=require` in the URL as strict verify-full, which overrides the
+// `ssl` option below and rejects hosted providers' private CAs (e.g. Supabase). Strip it from the
+// URL and apply TLS explicitly instead; the connection is still encrypted.
+const rawUrl = process.env.DATABASE_URL;
+const wantsSsl = /[?&]sslmode=(require|verify-ca|verify-full|prefer)\b/.test(rawUrl ?? "");
+const connectionString = rawUrl?.replace(/([?&])sslmode=[^&]*&?/, "$1").replace(/[?&]$/, "");
+
 const pool =
   globalForDb.pool ??
   new Pool({
-    connectionString: process.env.DATABASE_URL,
+    connectionString,
     max: Number(process.env.PG_POOL_MAX ?? 10),
-    ssl: process.env.DATABASE_URL?.includes("sslmode=require") ? { rejectUnauthorized: false } : undefined,
+    ssl: wantsSsl ? { rejectUnauthorized: false } : undefined,
   });
 
 if (process.env.NODE_ENV !== "production") globalForDb.pool = pool;
