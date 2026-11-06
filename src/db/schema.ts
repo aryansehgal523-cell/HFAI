@@ -1,0 +1,235 @@
+import {
+  pgTable, pgEnum, text, integer, boolean, timestamp, jsonb, uniqueIndex, index, primaryKey,
+} from "drizzle-orm/pg-core";
+import { relations } from "drizzle-orm";
+
+const id = () => text("id").primaryKey().$defaultFn(() => crypto.randomUUID());
+const created = () => timestamp("created_at", { withTimezone: true }).defaultNow().notNull();
+const updated = () =>
+  timestamp("updated_at", { withTimezone: true }).defaultNow().notNull().$onUpdate(() => new Date());
+
+// ─── Enums ───────────────────────────────────────────────────
+export const roleEnum = pgEnum("role", ["USER", "ADMIN"]);
+export const planEnum = pgEnum("plan", ["FREE", "PREMIUM"]);
+export const atsEnum = pgEnum("ats", ["GREENHOUSE", "LEVER", "ASHBY", "MANUAL"]);
+export const workModeEnum = pgEnum("work_mode", ["REMOTE", "HYBRID", "ONSITE"]);
+export const appStatusEnum = pgEnum("app_status", [
+  "SAVED", "APPLIED", "INTERVIEWING", "OFFER", "REJECTED", "HIDDEN",
+]);
+
+// ─── Users and auth ─────────────────────────────────────────
+export const users = pgTable("users", {
+  id: id(),
+  name: text("name"),
+  email: text("email").notNull().unique(),
+  phone: text("phone").unique(),
+  emailVerified: timestamp("email_verified", { withTimezone: true }),
+  image: text("image"),
+  passwordHash: text("password_hash"),
+  role: roleEnum("role").default("USER").notNull(),
+  plan: planEnum("plan").default("FREE").notNull(),
+  credits: integer("credits").default(3).notNull(),
+  creditsResetAt: timestamp("credits_reset_at", { withTimezone: true }).defaultNow().notNull(),
+  marketingOptIn: boolean("marketing_opt_in").default(false).notNull(),
+  consentAt: timestamp("consent_at", { withTimezone: true }),
+  createdAt: created(),
+  updatedAt: updated(),
+});
+
+export const oauthAccounts = pgTable(
+  "oauth_accounts",
+  {
+    provider: text("provider").notNull(),
+    providerAccountId: text("provider_account_id").notNull(),
+    userId: text("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+    createdAt: created(),
+  },
+  (t) => [primaryKey({ columns: [t.provider, t.providerAccountId] })],
+);
+
+// ─── Candidate profile ──────────────────────────────────────
+export type ResumeData = {
+  name?: string;
+  headline?: string;
+  contact?: { email?: string; phone?: string; location?: string; links?: string[] };
+  summary?: string;
+  experience: { company: string; title: string; location?: string; start?: string; end?: string; bullets: string[] }[];
+  projects: { name: string; tech?: string[]; link?: string; bullets: string[] }[];
+  education: { school: string; degree: string; start?: string; end?: string; score?: string }[];
+  skills: { group: string; items: string[] }[];
+  achievements: string[];
+};
+
+export const profiles = pgTable("profiles", {
+  id: id(),
+  userId: text("user_id").notNull().unique().references(() => users.id, { onDelete: "cascade" }),
+  headline: text("headline"),
+  location: text("location"),
+  phone: text("phone"),
+  rawResume: text("raw_resume"),
+  data: jsonb("data").$type<ResumeData>(),
+  updatedAt: updated(),
+});
+
+// ─── Companies and jobs ─────────────────────────────────────
+export const companies = pgTable(
+  "companies",
+  {
+    id: id(),
+    name: text("name").notNull(),
+    slug: text("slug").notNull().unique(),
+    website: text("website"),
+    ats: atsEnum("ats").notNull(),
+    atsToken: text("ats_token").notNull(),
+    industry: text("industry"),
+    size: text("size"),
+    hq: text("hq"),
+    active: boolean("active").default(true).notNull(),
+    lastCrawledAt: timestamp("last_crawled_at", { withTimezone: true }),
+    createdAt: created(),
+  },
+  (t) => [uniqueIndex("companies_ats_token_idx").on(t.ats, t.atsToken)],
+);
+
+export const jobs = pgTable(
+  "jobs",
+  {
+    id: id(),
+    companyId: text("company_id").notNull().references(() => companies.id, { onDelete: "cascade" }),
+    externalId: text("external_id").notNull(),
+    title: text("title").notNull(),
+    location: text("location").notNull(),
+    country: text("country"),
+    workMode: workModeEnum("work_mode").default("ONSITE").notNull(),
+    department: text("department"),
+    employment: text("employment"),
+    experienceMin: integer("experience_min"),
+    experienceMax: integer("experience_max"),
+    salaryMin: integer("salary_min"),
+    salaryMax: integer("salary_max"),
+    salaryCurrency: text("salary_currency"),
+    salaryPeriod: text("salary_period"),
+    skills: text("skills").array().default([]).notNull(),
+    description: text("description").notNull(),
+    applyUrl: text("apply_url").notNull(),
+    postedAt: timestamp("posted_at", { withTimezone: true }).notNull(),
+    firstSeenAt: timestamp("first_seen_at", { withTimezone: true }).defaultNow().notNull(),
+    lastSeenAt: timestamp("last_seen_at", { withTimezone: true }).defaultNow().notNull(),
+    closedAt: timestamp("closed_at", { withTimezone: true }),
+    ghostScore: integer("ghost_score").default(0).notNull(),
+    hash: text("hash").notNull(),
+  },
+  (t) => [
+    uniqueIndex("jobs_company_external_idx").on(t.companyId, t.externalId),
+    index("jobs_hash_idx").on(t.hash),
+    index("jobs_posted_idx").on(t.postedAt),
+    index("jobs_closed_idx").on(t.closedAt),
+  ],
+);
+
+export const crawlRuns = pgTable("crawl_runs", {
+  id: id(),
+  startedAt: timestamp("started_at", { withTimezone: true }).defaultNow().notNull(),
+  finishedAt: timestamp("finished_at", { withTimezone: true }),
+  companies: integer("companies").default(0).notNull(),
+  jobsSeen: integer("jobs_seen").default(0).notNull(),
+  jobsNew: integer("jobs_new").default(0).notNull(),
+  jobsClosed: integer("jobs_closed").default(0).notNull(),
+  errors: jsonb("errors").$type<{ company: string; error: string }[]>(),
+});
+
+// ─── Tracker and tailoring ──────────────────────────────────
+export const applications = pgTable(
+  "applications",
+  {
+    id: id(),
+    userId: text("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+    jobId: text("job_id").notNull().references(() => jobs.id, { onDelete: "cascade" }),
+    status: appStatusEnum("status").default("SAVED").notNull(),
+    notes: text("notes"),
+    appliedAt: timestamp("applied_at", { withTimezone: true }),
+    createdAt: created(),
+    updatedAt: updated(),
+  },
+  (t) => [uniqueIndex("applications_user_job_idx").on(t.userId, t.jobId)],
+);
+
+export const tailorings = pgTable(
+  "tailorings",
+  {
+    id: id(),
+    userId: text("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+    jobId: text("job_id").notNull().references(() => jobs.id, { onDelete: "cascade" }),
+    resume: jsonb("resume").$type<ResumeData>().notNull(),
+    coverLetter: text("cover_letter").notNull(),
+    atsBefore: integer("ats_before").notNull(),
+    atsAfter: integer("ats_after").notNull(),
+    missing: text("missing").array().default([]).notNull(),
+    model: text("model").notNull(),
+    inputTokens: integer("input_tokens").default(0).notNull(),
+    outputTokens: integer("output_tokens").default(0).notNull(),
+    createdAt: created(),
+    updatedAt: updated(),
+  },
+  (t) => [uniqueIndex("tailorings_user_job_idx").on(t.userId, t.jobId)],
+);
+
+// ─── Billing ────────────────────────────────────────────────
+export const subscriptions = pgTable("subscriptions", {
+  id: id(),
+  userId: text("user_id").notNull().unique().references(() => users.id, { onDelete: "cascade" }),
+  razorpaySubId: text("razorpay_sub_id").notNull().unique(),
+  planId: text("plan_id").notNull(),
+  interval: text("interval").notNull(),
+  status: text("status").notNull(),
+  currentPeriodEnd: timestamp("current_period_end", { withTimezone: true }),
+  cancelAtPeriodEnd: boolean("cancel_at_period_end").default(false).notNull(),
+  createdAt: created(),
+  updatedAt: updated(),
+});
+
+export const payments = pgTable("payments", {
+  id: id(),
+  userId: text("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+  razorpayPaymentId: text("razorpay_payment_id").notNull().unique(),
+  razorpaySubId: text("razorpay_sub_id"),
+  razorpayOrderId: text("razorpay_order_id"),
+  amount: integer("amount").notNull(), // paise, GST inclusive
+  currency: text("currency").default("INR").notNull(),
+  kind: text("kind").notNull(), // subscription | topup
+  status: text("status").notNull(),
+  invoiceNumber: text("invoice_number").unique(),
+  createdAt: created(),
+});
+
+export const webhookEvents = pgTable("webhook_events", {
+  id: text("id").primaryKey(),
+  type: text("type").notNull(),
+  receivedAt: timestamp("received_at", { withTimezone: true }).defaultNow().notNull(),
+});
+
+export const contactMessages = pgTable("contact_messages", {
+  id: id(),
+  name: text("name").notNull(),
+  email: text("email").notNull(),
+  topic: text("topic").notNull(),
+  message: text("message").notNull(),
+  createdAt: created(),
+});
+
+// ─── Relations ──────────────────────────────────────────────
+export const companiesRelations = relations(companies, ({ many }) => ({ jobs: many(jobs) }));
+export const jobsRelations = relations(jobs, ({ one }) => ({
+  company: one(companies, { fields: [jobs.companyId], references: [companies.id] }),
+}));
+export const applicationsRelations = relations(applications, ({ one }) => ({
+  job: one(jobs, { fields: [applications.jobId], references: [jobs.id] }),
+  user: one(users, { fields: [applications.userId], references: [users.id] }),
+}));
+export const tailoringsRelations = relations(tailorings, ({ one }) => ({
+  job: one(jobs, { fields: [tailorings.jobId], references: [jobs.id] }),
+}));
+
+export type Job = typeof jobs.$inferSelect;
+export type Company = typeof companies.$inferSelect;
+export type User = typeof users.$inferSelect;

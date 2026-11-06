@@ -1,0 +1,16 @@
+node_modules
+.next
+out
+.env
+.env.local
+*.tsbuildinfo
+next-env.d.ts
+.DS_Store
+.vercel
+.data
+
+# secrets — never commit (repo is public)
+.env*
+!.env.example
+*.pem
+.claude/settings.local.json
