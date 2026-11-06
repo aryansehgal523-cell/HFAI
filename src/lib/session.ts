@@ -6,9 +6,19 @@ import { db } from "@/db";
 import { users } from "@/db/schema";
 import { refreshCreditsIfDue } from "./credits";
 
-/** Current user row (fresh from the database) or null. */
+/**
+ * Current user row (fresh from the database) or null.
+ * Session failures (e.g. NEXTAUTH_SECRET missing in production) are logged and treated as
+ * "signed out", so public pages like /jobs and /pricing keep working instead of crashing.
+ */
 export async function getCurrentUser() {
-  const session = await getServerSession(authOptions);
+  let session;
+  try {
+    session = await getServerSession(authOptions);
+  } catch (e) {
+    console.error("[auth] Could not read the session. Check NEXTAUTH_SECRET and NEXTAUTH_URL.", e);
+    return null;
+  }
   if (!session?.user?.id) return null;
   const [user] = await db.select().from(users).where(eq(users.id, session.user.id)).limit(1);
   if (!user) return null;
