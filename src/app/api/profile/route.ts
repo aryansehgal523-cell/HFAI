@@ -3,18 +3,18 @@ import { db } from "@/db";
 import { profiles, type ResumeData } from "@/db/schema";
 import { apiUser, error, json } from "@/lib/api";
 
-const item = z.object({}).passthrough();
+const item = z.looseObject({});
 const schema = z.object({
   headline: z.string().max(200).optional(),
   location: z.string().max(120).optional(),
   phone: z.string().max(30).optional(),
-  data: z.object({
+  data: z.looseObject({
     experience: z.array(item),
     projects: z.array(item),
     education: z.array(item),
     skills: z.array(item),
     achievements: z.array(z.string()),
-  }).passthrough(),
+  }),
 });
 
 /** Save the structured master profile after the user edits it. */

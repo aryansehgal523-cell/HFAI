@@ -20,7 +20,7 @@ const schema = z.object({
   email: z.string().trim().toLowerCase().email(),
   phone: z.string().trim().min(7),
   password: z.string().min(12).max(100).regex(passwordPolicy, "Use 12+ characters, at least 1 uppercase, 1 lowercase, 1 number and 1 symbol."),
-  consent: z.literal(true, { errorMap: () => ({ message: "Accept the Terms and Privacy Policy to continue" }) }),
+  consent: z.literal(true, { error: "Accept the Terms and Privacy Policy to continue" }),
   marketing: z.boolean().optional(),
 });
 

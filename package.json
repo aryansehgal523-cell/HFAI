@@ -27,7 +27,7 @@
     "clsx": "^2.1.1",
     "docx": "^9.0.0",
     "dotenv": "^18.0.9",
-    "drizzle-orm": "^0.36.4",
+    "drizzle-orm": "0.45.4",
     "framer-motion": "^11.11.0",
     "lucide-react": "^0.460.0",
     "next": "15.5.28",
@@ -36,7 +36,7 @@
     "razorpay": "^2.9.4",
     "react": "19.1.10",
     "react-dom": "19.1.10",
-    "zod": "^3.23.8"
+    "zod": "4.6.7"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
@@ -45,7 +45,7 @@
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "autoprefixer": "^10.4.20",
-    "drizzle-kit": "^0.28.1",
+    "drizzle-kit": "0.31.11",
     "postcss": "^8.5.32",
     "tailwindcss": "^3.4.15",
     "tsx": "^4.19.2",

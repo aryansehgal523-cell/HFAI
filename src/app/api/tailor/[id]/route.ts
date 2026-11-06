@@ -5,7 +5,7 @@ import { tailorings, type ResumeData } from "@/db/schema";
 import { apiUser, error, json } from "@/lib/api";
 
 const schema = z.object({
-  resume: z.object({}).passthrough().optional(),
+  resume: z.looseObject({}).optional(),
   coverLetter: z.string().max(10000).optional(),
 });
 
