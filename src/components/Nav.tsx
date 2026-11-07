@@ -25,9 +25,14 @@ export async function Nav() {
               </Link>
             ))}
             {user && (
-              <Link href="/dashboard" className="text-[15px] text-slate transition hover:text-ink">
-                Tracker
-              </Link>
+              <>
+                <Link href="/dashboard" className="text-[15px] text-slate transition hover:text-ink">
+                  Tracker
+                </Link>
+                <Link href="/referrals" className="text-[15px] text-slate transition hover:text-ink">
+                  Referrals
+                </Link>
+              </>
             )}
           </nav>
         </div>

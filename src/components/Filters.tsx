@@ -111,6 +111,7 @@ export function Filters() {
         ))}
       </Group>
       <div className="space-y-3">
+        <Toggle label="Jobs where you know someone" on={sp.get("network") === "1"} onChange={(on) => set("network", on ? "1" : null)} />
         <Toggle label="Only jobs that show salary" on={sp.get("salary") === "with"} onChange={(on) => set("salary", on ? "with" : null)} />
         <Toggle label="Include possible ghost jobs" on={sp.get("ghost") === "1"} onChange={(on) => set("ghost", on ? "1" : null)} />
       </div>

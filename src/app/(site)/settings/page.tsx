@@ -1,20 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { desc, eq } from "drizzle-orm";
+import { desc, eq, sql } from "drizzle-orm";
 import { db } from "@/db";
-import { payments, subscriptions } from "@/db/schema";
+import { connections, payments, subscriptions } from "@/db/schema";
 import { requireUser } from "@/lib/session";
 import { formatINR } from "@/lib/utils";
 import { splitGst } from "@/lib/plans";
-import { CancelPlan, DeleteAccount, TopUp } from "@/components/SettingsActions";
+import { CancelPlan, DeleteAccount, DeleteConnections, TopUp } from "@/components/SettingsActions";
 
 export const metadata: Metadata = { title: "Account and billing" };
 
 export default async function Settings() {
   const user = await requireUser("/settings");
-  const [[sub], pays] = await Promise.all([
+  const [[sub], pays, [{ conns }]] = await Promise.all([
     db.select().from(subscriptions).where(eq(subscriptions.userId, user.id)).limit(1),
     db.select().from(payments).where(eq(payments.userId, user.id)).orderBy(desc(payments.createdAt)).limit(24),
+    db.select({ conns: sql<number>`count(*)::int` }).from(connections).where(eq(connections.userId, user.id)),
   ]);
 
   return (
@@ -84,6 +85,11 @@ export default async function Settings() {
           </div>
         )}
         <p className="mt-4 text-xs text-slate">Need a GST invoice with your company&apos;s GSTIN? <Link href="/contact" className="underline">Contact billing</Link>.</p>
+      </Card>
+
+      <Card title="Your network">
+        <p className="mb-4 text-[15px] text-slate">The LinkedIn connections and contacts you uploaded for the referral engine. Only you can see them.</p>
+        <DeleteConnections count={conns} />
       </Card>
 
       <Card title="Your data">

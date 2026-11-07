@@ -92,3 +92,36 @@ export function DeleteAccount() {
     </div>
   );
 }
+
+export function DeleteConnections({ count }: { count: number }) {
+  const [open, setOpen] = useState(false);
+  const [text, setText] = useState("");
+  const [busy, setBusy] = useState(false);
+  const toast = useToast();
+  const router = useRouter();
+  async function del() {
+    setBusy(true);
+    const res = await fetch("/api/referrals/connections", { method: "DELETE", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ confirm: text }) });
+    const data = await res.json().catch(() => ({}));
+    setBusy(false);
+    if (!res.ok) return toast(data.error ?? "Could not delete your connections", "error");
+    toast(`Deleted ${data.deleted.toLocaleString("en-IN")} connections`);
+    setOpen(false);
+    router.refresh();
+  }
+  if (count === 0) return <p className="text-sm text-slate">You have not uploaded any connections.</p>;
+  return (
+    <div>
+      <button onClick={() => setOpen((o) => !o)} className="btn btn-sm border border-rose/30 text-rose hover:bg-rose-tint">Delete all my connections</button>
+      {open && (
+        <div className="mt-4 rounded-xl bg-rose-tint p-4">
+          <p className="text-sm text-ink">This deletes all {count.toLocaleString("en-IN")} people you uploaded or added. Referral requests you already made keep the person&apos;s name. Type <strong>DELETE</strong> to confirm.</p>
+          <div className="mt-3 flex gap-2">
+            <input value={text} onChange={(e) => setText(e.target.value)} className="field max-w-[200px] bg-white" aria-label="Type DELETE to confirm" />
+            <button onClick={del} disabled={text !== "DELETE" || busy} className="btn btn-sm bg-rose text-white">{busy && <Loader2 className="h-4 w-4 animate-spin" />}Delete connections</button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MapPin, Clock } from "lucide-react";
+import { MapPin, Clock, Users } from "lucide-react";
 import type { JobRow as Row } from "@/lib/jobs-query";
 import { formatSalary, timeAgo } from "@/lib/utils";
 import { prettySkill } from "@/lib/ats";
@@ -15,7 +15,7 @@ function expLabel(min: number | null, max: number | null) {
   return `${min} to ${max} yrs`;
 }
 
-export function JobRow({ job, saved, showSave = true }: { job: Row; saved?: boolean; showSave?: boolean }) {
+export function JobRow({ job, saved, showSave = true, networkCount }: { job: Row; saved?: boolean; showSave?: boolean; networkCount?: number }) {
   const salary = formatSalary(job.salaryMin, job.salaryMax, job.salaryCurrency, job.salaryPeriod);
   const exp = expLabel(job.experienceMin, job.experienceMax);
   const fresh = Date.now() - new Date(job.postedAt).getTime() < 2 * 86_400_000;
@@ -30,7 +30,14 @@ export function JobRow({ job, saved, showSave = true }: { job: Row; saved?: bool
                 {job.title}
               </Link>
             </h3>
-            <p className="mt-0.5 text-[15px] text-ink-soft">{job.companyName}</p>
+            <p className="mt-0.5 flex flex-wrap items-center gap-2 text-[15px] text-ink-soft">
+              {job.companyName}
+              {networkCount ? (
+                <span className="inline-flex items-center gap-1 rounded-full bg-mint-tint px-2 py-0.5 text-xs font-medium text-mint-ink">
+                  <Users className="h-3 w-3" aria-hidden />You know {networkCount}
+                </span>
+              ) : null}
+            </p>
           </div>
           {showSave && (
             <div className="relative z-10">

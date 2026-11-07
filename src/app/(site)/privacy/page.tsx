@@ -24,6 +24,9 @@ export default function Privacy() {
           <tr><td>Uploaded resume files</td><td>The PDF or Word file you upload</td><td>Read once to fill your profile, then discarded. We never store the original file</td></tr>
           <tr><td>Application details</td><td>Phone, city, state, PIN code, profile links, years of experience, current and expected CTC, notice period, work authorisation, relocation, earliest start date, and optional gender, disability and veteran answers (default &ldquo;Prefer not to say&rdquo;)</td><td>To fill job application forms when you ask us to. Optional answers are only used when you choose to fill them</td></tr>
           <tr><td>Job preferences</td><td>Roles you want, preferred cities, work mode, expected salary, notice period</td><td>To rank jobs for you and score your resume against the roles you want</td></tr>
+          <tr><td>Your network</td><td>Contacts you upload from LinkedIn&apos;s Connections.csv or an alumni sheet, or add by hand: name, company, position, profile link, email if LinkedIn included it, when you connected, and how you know them</td><td>To show who you know at each company and draft referral requests. Only you can see them; they are never shown to or used for anyone else, and we never contact them</td></tr>
+          <tr><td>Referral requests</td><td>The messages you draft, who they are for, their status, follow up dates and your notes</td><td>To track your referral requests and remind you to follow up</td></tr>
+          <tr><td>Resume scores</td><td>Your resume score and its breakdown each time it changes</td><td>To show your progress over time</td></tr>
           <tr><td>Usage records</td><td>When you used a metered feature such as a resume upload</td><td>To apply fair use limits</td></tr>
           <tr><td>Activity data</td><td>Jobs you save, statuses in your tracker, tailored resumes and cover letters</td><td>To run the tracker and show your history</td></tr>
           <tr><td>Payment data</td><td>Plan, amount, Razorpay payment and subscription IDs, invoice numbers</td><td>To bill you, issue GST invoices and meet tax law</td></tr>
@@ -61,6 +64,7 @@ export default function Privacy() {
       <h2>7. How long we keep data</h2>
       <ul>
         <li>Account, resume, application details, preferences and tracker data: until you delete your account.</li>
+        <li>Your network: until you delete it (Account and billing, Delete all my connections) or your account. Uploading a newer file updates it in place.</li>
         <li>Uploaded resume files: not kept. The file is read in memory and discarded as soon as your profile is filled.</li>
         <li>Usage records: up to 13 months, then deleted.</li>
         <li>Payment and invoice records: 8 years, as required by Indian tax and company law. These are kept in our accounting system even after account deletion.</li>

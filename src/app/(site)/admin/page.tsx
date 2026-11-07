@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { desc, eq, sql } from "drizzle-orm";
 import { db } from "@/db";
-import { companies, contactMessages, crawlRuns, jobs, payments, tailorings, users } from "@/db/schema";
+import { companies, connections, contactMessages, crawlRuns, jobs, payments, referralRequests, tailorings, users } from "@/db/schema";
 import { requireAdmin } from "@/lib/session";
 import { formatINR, timeAgo } from "@/lib/utils";
 import { AdminCompanies } from "@/components/AdminCompanies";
@@ -11,7 +11,7 @@ export const dynamic = "force-dynamic";
 
 export default async function Admin() {
   await requireAdmin();
-  const [[u], [j], [rev], [ai], companyRows, [lastRun], messages, recentPays] = await Promise.all([
+  const [[u], [j], [rev], [ai], companyRows, [lastRun], messages, recentPays, [ref]] = await Promise.all([
     db.select({
       total: sql<number>`count(*)::int`,
       premium: sql<number>`count(*) filter (where ${users.plan} = 'PREMIUM')::int`,
@@ -34,6 +34,12 @@ export default async function Admin() {
     db.select().from(crawlRuns).orderBy(desc(crawlRuns.startedAt)).limit(1),
     db.select().from(contactMessages).orderBy(desc(contactMessages.createdAt)).limit(10),
     db.select({ amount: payments.amount, kind: payments.kind, createdAt: payments.createdAt, email: users.email }).from(payments).innerJoin(users, eq(users.id, payments.userId)).orderBy(desc(payments.createdAt)).limit(10),
+    db.select({
+      drafted: sql<number>`count(*) filter (where ${referralRequests.createdAt} > now() - interval '30 days')::int`,
+      sent: sql<number>`count(*) filter (where ${referralRequests.sentAt} > now() - interval '30 days')::int`,
+      referred: sql<number>`count(*) filter (where ${referralRequests.status} = 'referred')::int`,
+      networks: sql<number>`(select count(distinct ${connections.userId})::int from ${connections})`,
+    }).from(referralRequests),
   ]);
 
   const stats = [
@@ -42,13 +48,14 @@ export default async function Admin() {
     ["Revenue, 30 days", formatINR(rev.month), "GST inclusive"],
     ["Open jobs", j.open.toLocaleString("en-IN"), `${j.ghost} flagged as ghost`],
     ["Tailorings, 30 days", ai.count.toLocaleString("en-IN"), `${Math.round((ai.tokensIn + ai.tokensOut) / 1000)}k tokens`],
+    ["Referral drafts, 30 days", ref.drafted.toLocaleString("en-IN"), `${ref.sent} sent, ${ref.referred} referred in total, ${ref.networks} networks`],
   ];
 
   return (
     <div className="container-x py-12">
       <h1 className="text-4xl font-semibold">Admin</h1>
 
-      <div className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-5">
+      <div className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-6">
         {stats.map(([label, value, note]) => (
           <div key={label} className="bg-white p-5">
             <p className="text-sm text-slate">{label}</p>

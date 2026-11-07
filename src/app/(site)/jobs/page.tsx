@@ -3,7 +3,8 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { and, eq, inArray, ne } from "drizzle-orm";
 import { db } from "@/db";
-import { applications } from "@/db/schema";
+import { applications, companies } from "@/db/schema";
+import { networkCountsFor } from "@/lib/referrals/store";
 import { JobRow } from "@/components/JobRow";
 import { Filters, SearchBar } from "@/components/Filters";
 import { parseFilters, searchJobs } from "@/lib/jobs-query";
@@ -19,7 +20,15 @@ type SP = Promise<Record<string, string | string[] | undefined>>;
 export default async function JobsPage({ searchParams }: { searchParams: SP }) {
   const sp = await searchParams;
   const filters = parseFilters(sp);
-  const [result, user] = await Promise.all([searchJobs(filters), getCurrentUser()]);
+  const user = await getCurrentUser();
+  if (filters.network && user) {
+    // Same company matching as the job page: aliases plus the strict similarity check.
+    const all = await db.select({ id: companies.id, name: companies.name }).from(companies).where(eq(companies.active, true));
+    const counts = await networkCountsFor(user.id, all.map((c) => c.name));
+    filters.companyIds = all.filter((c) => counts.has(c.name)).map((c) => c.id);
+  }
+  const result = await searchJobs(filters);
+  const networkCounts = user && result.rows.length ? await networkCountsFor(user.id, result.rows.map((r) => r.companyName)) : new Map<string, number>();
 
   let savedIds = new Set<string>();
   if (user && result.rows.length) {
@@ -37,7 +46,7 @@ export default async function JobsPage({ searchParams }: { searchParams: SP }) {
     return `/jobs?${next.toString()}`;
   };
 
-  const heading = filters.q ? `${filters.q} jobs${filters.location ? ` in ${filters.location}` : ""}` : filters.location ? `Jobs in ${filters.location}` : "All open jobs";
+  const heading = filters.network ? "Jobs where you know someone" : filters.q ? `${filters.q} jobs${filters.location ? ` in ${filters.location}` : ""}` : filters.location ? `Jobs in ${filters.location}` : "All open jobs";
 
   return (
     <div className="container-x py-10">
@@ -58,14 +67,14 @@ export default async function JobsPage({ searchParams }: { searchParams: SP }) {
 
           {result.rows.length === 0 ? (
             <div className="py-20 text-center">
-              <p className="font-display text-2xl font-semibold">No jobs match these filters</p>
-              <p className="mt-2 text-slate">Try a broader role name, another city, or clear a filter.</p>
+              <p className="font-display text-2xl font-semibold">{filters.network && !user ? "Sign in to see jobs where you know someone" : "No jobs match these filters"}</p>
+              <p className="mt-2 text-slate">{filters.network ? "Upload your LinkedIn connections on the referrals page, or clear this filter." : "Try a broader role name, another city, or clear a filter."}</p>
               <Link href="/jobs" className="btn-ghost mt-6">Clear search</Link>
             </div>
           ) : (
             <div>
               {result.rows.map((j) => (
-                <JobRow key={j.id} job={j} saved={savedIds.has(j.id)} />
+                <JobRow key={j.id} job={j} saved={savedIds.has(j.id)} networkCount={networkCounts.get(j.companyName)} />
               ))}
             </div>
           )}

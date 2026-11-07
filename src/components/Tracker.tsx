@@ -18,6 +18,11 @@ export type TrackerItem = {
   updatedAt: string;
   tailored: boolean;
   closed: boolean;
+  /** Latest referral request status for this job, if any. */
+  referral?: string | null;
+};
+const REFERRAL_LABEL: Record<string, string> = {
+  drafted: "Referral drafted", sent: "Referral asked", replied: "Contact replied", referred: "Referred", declined: "Referral declined", no_response: "No reply to referral",
 };
 
 const COLUMNS: { key: Status; label: string; dot: string }[] = [
@@ -90,6 +95,11 @@ export function Tracker({ initial }: { initial: TrackerItem[] }) {
                         </div>
                       </div>
                       {it.closed && <p className="mt-2 text-xs text-rose">Listing removed by the company</p>}
+                      {it.referral && (
+                        <Link href="/referrals" className={`mt-2 inline-block rounded-md px-2 py-0.5 text-xs ${it.referral === "referred" ? "bg-mint-tint text-mint-ink" : "bg-cobalt-tint text-ink"}`}>
+                          {REFERRAL_LABEL[it.referral] ?? it.referral}
+                        </Link>
+                      )}
                       <div className="mt-3 flex items-center gap-1.5">
                         <select
                           aria-label="Move to"

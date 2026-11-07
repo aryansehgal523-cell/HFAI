@@ -3,7 +3,7 @@ import Link from "next/link";
 import { and, desc, eq, ne } from "drizzle-orm";
 import { Sparkles } from "lucide-react";
 import { db } from "@/db";
-import { applications, companies, jobs, profiles, tailorings } from "@/db/schema";
+import { applications, companies, jobs, profiles, referralRequests, tailorings } from "@/db/schema";
 import { requireUser } from "@/lib/session";
 import { Tracker, type TrackerItem } from "@/components/Tracker";
 import { PLANS } from "@/lib/plans";
@@ -12,7 +12,7 @@ export const metadata: Metadata = { title: "Application tracker" };
 
 export default async function Dashboard() {
   const user = await requireUser("/dashboard");
-  const [rows, tailored, [profile]] = await Promise.all([
+  const [rows, tailored, [profile], referrals] = await Promise.all([
     db
       .select({
         id: applications.id, jobId: applications.jobId, status: applications.status, updatedAt: applications.updatedAt,
@@ -25,7 +25,13 @@ export default async function Dashboard() {
       .orderBy(desc(applications.updatedAt)),
     db.select({ jobId: tailorings.jobId }).from(tailorings).where(eq(tailorings.userId, user.id)),
     db.select({ id: profiles.id, data: profiles.data }).from(profiles).where(eq(profiles.userId, user.id)).limit(1),
+    db.select({ jobId: referralRequests.jobId, status: referralRequests.status }).from(referralRequests)
+      .where(eq(referralRequests.userId, user.id)).orderBy(desc(referralRequests.updatedAt)),
   ]);
+  // Most advanced status per job wins (referred > replied > sent > ...).
+  const RANK: Record<string, number> = { referred: 6, replied: 5, sent: 4, declined: 3, no_response: 2, drafted: 1 };
+  const referralBy = new Map<string, string>();
+  for (const r of referrals) if ((RANK[r.status] ?? 0) > (RANK[referralBy.get(r.jobId) ?? ""] ?? 0)) referralBy.set(r.jobId, r.status);
   const tailoredSet = new Set(tailored.map((t) => t.jobId));
   const items: TrackerItem[] = rows.map((r) => ({
     id: r.id,
@@ -37,6 +43,7 @@ export default async function Dashboard() {
     updatedAt: r.updatedAt.toISOString(),
     tailored: tailoredSet.has(r.jobId),
     closed: Boolean(r.closedAt),
+    referral: referralBy.get(r.jobId) ?? null,
   }));
   const applied = items.filter((i) => ["APPLIED", "INTERVIEWING", "OFFER"].includes(i.status)).length;
   const allowance = user.plan === "PREMIUM" ? PLANS.monthly.monthlyCredits : PLANS.free.monthlyCredits;

@@ -12,6 +12,9 @@ export type JobFilters = {
   country?: string;
   showGhost?: boolean;
   page?: number;
+  /** "Jobs where you know someone" (resolved to company ids by the page). */
+  network?: boolean;
+  companyIds?: string[];
 };
 
 export const PAGE_SIZE = 20;
@@ -28,6 +31,7 @@ export function parseFilters(sp: Record<string, string | string[] | undefined>):
     salary: one("salary"),
     country: one("country"),
     showGhost: one("ghost") === "1",
+    network: one("network") === "1",
     page: Math.max(1, Number(one("page") ?? 1) || 1),
   };
 }
@@ -46,6 +50,7 @@ export async function searchJobs(f: JobFilters) {
   if (f.location) where.push(ilike(jobs.location, `%${f.location.replace(/[%_]/g, "")}%`));
   if (f.mode?.length) where.push(inArray(jobs.workMode, f.mode as ("REMOTE" | "HYBRID" | "ONSITE")[]));
   if (f.country) where.push(eq(jobs.country, f.country));
+  if (f.companyIds) where.push(f.companyIds.length ? inArray(jobs.companyId, f.companyIds) : sql`false`);
   if (f.salary === "with") where.push(sql`(${jobs.salaryMin} IS NOT NULL OR ${jobs.salaryMax} IS NOT NULL)`);
   if (f.posted) where.push(gte(jobs.postedAt, new Date(Date.now() - Number(f.posted) * 86_400_000)));
   if (f.exp) {
