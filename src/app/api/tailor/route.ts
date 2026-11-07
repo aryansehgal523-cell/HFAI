@@ -7,6 +7,7 @@ import { aiEnabled, tailorForJob } from "@/lib/ai";
 import { atsScore, resumeToText } from "@/lib/ats";
 import { refundCredit, spendCredit } from "@/lib/credits";
 import { getJob } from "@/lib/jobs-query";
+import { PLANS, rupees } from "@/lib/plans";
 
 export const maxDuration = 60;
 
@@ -39,7 +40,7 @@ export async function POST(req: Request) {
   if (!profile?.data) return error("Add your master resume first, then tailor it to jobs.", 412);
 
   if (!(await spendCredit(user.id))) {
-    return error(user.plan === "PREMIUM" ? "You have used all 30 credits this month. Buy a top up pack to keep going." : "You have used your free credits. Upgrade to Premium for 30 a month.", 402);
+    return error(user.plan === "PREMIUM" ? `You have used all ${PLANS.monthly.monthlyCredits} credits this month. Buy a top up pack to keep going.` : `You have used your free credits. Upgrade to Premium for ${PLANS.monthly.monthlyCredits} a month at ${rupees(PLANS.monthly.price)}.`, 402);
   }
 
   try {

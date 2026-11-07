@@ -94,8 +94,10 @@ Create a key at console.anthropic.com and set `ANTHROPIC_API_KEY`. Model names a
 1. Sign up at razorpay.com and complete KYC with your company PAN, GSTIN and bank account. Razorpay checks that your site has the Terms, Privacy, Refund and Contact pages (already built).
 2. Start in **Test Mode**. Settings → API Keys → generate. Set `RAZORPAY_KEY_ID`, `RAZORPAY_KEY_SECRET` and `NEXT_PUBLIC_RAZORPAY_KEY_ID` (same as the key id).
 3. Subscriptions → Plans → create:
-   * "Premium monthly", ₹599, period monthly, interval 1 → paste its id into `RAZORPAY_PLAN_MONTHLY`
-   * "Premium yearly", ₹4,999, period yearly, interval 1 → `RAZORPAY_PLAN_YEARLY`
+   * "Premium monthly", ₹999, period monthly, interval 1 → paste its id into `RAZORPAY_PLAN_MONTHLY`
+   * "Premium yearly", ₹7,999, period yearly, interval 1 → `RAZORPAY_PLAN_YEARLY`
+
+   Prices live in `src/lib/plans.ts` (in paise, GST inclusive) and every price on the site is derived from it. Razorpay plans cannot be edited, so **when the price changes, create two new plans and replace both env values**. Existing subscribers stay on their old plan id and keep renewing at their old price: the webhook grants Premium for any captured subscription payment and never compares the amount with `plans.ts`.
 4. Settings → Webhooks → add `https://yourdomain/api/billing/webhook`, choose a secret (put it in `RAZORPAY_WEBHOOK_SECRET`) and tick: `subscription.activated`, `subscription.charged`, `subscription.pending`, `subscription.cancelled`, `subscription.halted`, `subscription.completed`, `order.paid`.
 5. Test the full flow with Razorpay's test cards and test UPI ids, then switch to live keys.
 

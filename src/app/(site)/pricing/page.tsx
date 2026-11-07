@@ -3,17 +3,24 @@ import { PricingPlans } from "@/components/PricingPlans";
 import { Faq } from "@/components/Faq";
 import { getCurrentUser } from "@/lib/session";
 import { razorpayEnabled } from "@/lib/razorpay";
+import { PLANS, rupees, yearlySavingsPercent } from "@/lib/plans";
+
+const MONTHLY = rupees(PLANS.monthly.price);
+const YEARLY = rupees(PLANS.yearly.price);
+const CREDITS = PLANS.monthly.monthlyCredits;
 
 export const metadata: Metadata = {
   title: "Pricing",
-  description: "Free job search forever. Premium is ₹599 a month for 30 tailored resumes and cover letters.",
+  description: `Free job search forever. Premium is ${MONTHLY} a month or ${YEARLY} a year for ${CREDITS} tailored resumes, the referral engine, one click autofill, AI job matching and an AI coach.`,
 };
 
 const FAQ = [
   { q: "What counts as one application?", a: "One credit covers a resume and cover letter tailored to a single job, including unlimited edits and downloads for that job. Regenerating from scratch uses another credit." },
-  { q: "Do unused credits roll over?", a: "No. Credits refill to 30 every 30 days on Premium and to 3 on Free. Top up packs add 10 extra credits whenever you need them." },
+  { q: "Do unused credits roll over?", a: `No. Credits refill to ${CREDITS} every 30 days on Premium and to ${PLANS.free.monthlyCredits} on Free. Top up packs add ${PLANS.topup.credits} extra credits for ${rupees(PLANS.topup.price)} whenever you need them.` },
   { q: "How do I pay?", a: "UPI AutoPay, debit or credit card, through Razorpay. Your plan renews automatically and you get a GST invoice for every payment." },
-  { q: "Is GST included?", a: "Yes. ₹599 includes 18% GST. The invoice shows the split." },
+  { q: "Is GST included?", a: `Yes. ${MONTHLY} a month and ${YEARLY} a year both include 18% GST. The invoice shows the split.` },
+  { q: "How much do I save on yearly?", a: `${YEARLY} a year works out to about ${yearlySavingsPercent()}% less than paying ${MONTHLY} every month for 12 months.` },
+  { q: "What else does Premium include?", a: "The referral engine (who you know at each company and a drafted request), your resume score before and after every tailoring, one click autofill with the Chrome extension, AI job matching with a daily top 10, and an AI coach for interviews and offers." },
   { q: "How do I cancel?", a: "Go to Account and billing and press Cancel. You keep Premium until the end of the period you've already paid for, and you won't be charged again." },
   { q: "Can I get a refund?", a: "If you were charged and haven't used any Premium credits, write to us within 7 days for a full refund. See the refund policy for details." },
 ];

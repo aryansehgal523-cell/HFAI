@@ -7,6 +7,7 @@ import { XyzCompare } from "@/components/XyzCompare";
 import { Faq } from "@/components/Faq";
 import { JobRow } from "@/components/JobRow";
 import { searchJobs, siteStats } from "@/lib/jobs-query";
+import { PLANS, perApplicationRupees, rupees } from "@/lib/plans";
 
 export const revalidate = 300;
 
@@ -169,9 +170,9 @@ export default async function Home() {
       <section className="container-x py-24">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
           <div>
-            <h2 className="text-4xl font-semibold sm:text-5xl">₹599 a month for 30 tailored applications</h2>
+            <h2 className="text-4xl font-semibold sm:text-5xl">{rupees(PLANS.monthly.price)} a month for {PLANS.monthly.monthlyCredits} tailored applications</h2>
             <p className="mt-5 text-lg text-slate">
-              That&apos;s about ₹20 per job for a rewritten resume, a cover letter and an ATS check. Searching and tracking stay free forever.
+              That&apos;s about ₹{perApplicationRupees()} per job for a rewritten resume, a cover letter and a resume score, plus the referral engine, autofill and your AI coach. Searching and tracking stay free forever.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/pricing" className="btn-ink">Compare plans</Link>
@@ -181,10 +182,12 @@ export default async function Home() {
           <div className="panel overflow-hidden">
             {[
               ["Job search, filters, alerts and tracker", "Free", "Free"],
-              ["Tailored resumes and cover letters", "3 a month", "30 a month"],
-              ["XYZ rewriting and ATS score", "Included", "Included"],
+              ["Tailored resumes and cover letters", `${PLANS.free.monthlyCredits} a month`, `${PLANS.monthly.monthlyCredits} a month`],
+              ["Resume score and match score", "Included", "Before and after, plus AI verdicts"],
+              ["Referral engine", "See how many you know", "Names, drafts and tracking"],
+              ["Autofill and AI coach", "Try autofill 3 times a month", "Included"],
               ["Word and PDF downloads", "PDF only", "PDF and Word"],
-              ["Price", "₹0", "₹599 / month"],
+              ["Price", "₹0", `${rupees(PLANS.monthly.price)} / month`],
             ].map(([f, a, b], i) => (
               <div key={f} className={`grid grid-cols-[1.6fr_1fr_1fr] gap-3 px-5 py-4 text-sm ${i % 2 ? "bg-paper/60" : ""}`}>
                 <span className="text-ink">{f}</span>

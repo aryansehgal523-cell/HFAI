@@ -4,9 +4,12 @@
 cd "$(dirname "$0")/.." || exit 0
 [ -d .git ] || exit 0
 
+# Never auto-push to main (main = live site on Vercel). Work happens on dev; main is merged by hand.
+[ "$(git rev-parse --abbrev-ref HEAD)" = "main" ] && { echo '{"systemMessage":"Auto-sync skipped: on main. Switch to dev (git checkout dev)."}'; exit 0; }
+
 git add -A
 if git diff --cached --quiet; then     # nothing new — just retry any unpushed commits
-  [ -n "$(git log origin/main..HEAD --oneline 2>/dev/null)" ] && git push -q origin HEAD >/dev/null 2>&1
+  [ -n "$(git log @{u}..HEAD --oneline 2>/dev/null)" ] && git push -q origin HEAD >/dev/null 2>&1
   exit 0
 fi
 
