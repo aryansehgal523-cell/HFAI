@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { and, eq } from "drizzle-orm";
 import { ArrowLeft, ExternalLink, MapPin, Briefcase, Clock, AlertTriangle, CheckCircle2 } from "lucide-react";
 import { db } from "@/db";
-import { applications, profiles, tailorings } from "@/db/schema";
+import { applications, connections, profiles, referralRequests, tailorings } from "@/db/schema";
 import { getJob } from "@/lib/jobs-query";
 import { getCurrentUser } from "@/lib/session";
 import { atsScore, prettySkill, resumeToText } from "@/lib/ats";
@@ -12,6 +12,9 @@ import { formatSalary, timeAgo } from "@/lib/utils";
 import { CompanyAvatar } from "@/components/CompanyAvatar";
 import { SaveButton } from "@/components/SaveButton";
 import { TailorButton } from "@/components/TailorButton";
+import { NetworkCard, type NetworkPerson } from "@/components/NetworkCard";
+import { initialsPreview, networkAt } from "@/lib/referrals/store";
+import { alumniSearchUrl, rankPeople } from "@/lib/referrals/rank";
 
 type Params = Promise<{ id: string }>;
 
@@ -40,6 +43,32 @@ export default async function JobPage({ params }: { params: Params }) {
         db.select().from(applications).where(and(eq(applications.userId, user.id), eq(applications.jobId, job.id))).limit(1).then((r) => r[0]),
       ])
     : [undefined, undefined, undefined];
+
+  // Referral engine: who the user knows here. Free users only get a count and initials.
+  let network: React.ComponentProps<typeof NetworkCard> | null = null;
+  if (user) {
+    const [people, [anyConn], requests] = await Promise.all([
+      networkAt(user.id, company.name),
+      db.select({ id: connections.id }).from(connections).where(eq(connections.userId, user.id)).limit(1),
+      db.select({ connectionId: referralRequests.connectionId, status: referralRequests.status }).from(referralRequests)
+        .where(and(eq(referralRequests.userId, user.id), eq(referralRequests.jobId, job.id))),
+    ]);
+    const ranked = rankPeople({ title: job.title, department: job.department }, people);
+    const premium = user.plan === "PREMIUM";
+    const statusBy = new Map(requests.map((r) => [r.connectionId, r.status]));
+    network = {
+      jobId: job.id, jobTitle: job.title, company: company.name, premium,
+      hasNetwork: Boolean(anyConn), count: ranked.length, initials: initialsPreview(ranked),
+      people: premium
+        ? ranked.map((p): NetworkPerson => ({
+            id: p.id, name: `${p.firstName} ${p.lastName}`.trim(), firstName: p.firstName, position: p.position,
+            profileUrl: p.profileUrl, email: p.email, relationship: p.relationship, reason: p.reason, tier: p.tier,
+            requestStatus: statusBy.get(p.id) ?? null,
+          }))
+        : [],
+      alumniUrl: alumniSearchUrl(company.name, profile?.data?.education?.[0]?.school),
+    };
+  }
 
   const match = profile?.data ? atsScore(resumeToText(profile.data), `${job.title}\n${job.description}`, job.skills) : null;
   const salary = formatSalary(job.salaryMin, job.salaryMax, job.salaryCurrency, job.salaryPeriod);
@@ -145,6 +174,7 @@ export default async function JobPage({ params }: { params: Params }) {
               <SaveButton jobId={job.id} initial={Boolean(app && app.status !== "HIDDEN")} />
             </div>
           </div>
+          {network && <div className="mt-6"><NetworkCard {...network} /></div>}
           <p className="mt-4 px-1 text-xs leading-relaxed text-slate">
             Listed from {company.name}&apos;s public career page. HireFlow is not the employer and never charges candidates to apply.
           </p>

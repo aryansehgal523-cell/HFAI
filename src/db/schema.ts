@@ -1,7 +1,7 @@
 import {
   pgTable, pgEnum, text, integer, boolean, timestamp, jsonb, uniqueIndex, index, primaryKey,
 } from "drizzle-orm/pg-core";
-import { relations } from "drizzle-orm";
+import { relations, sql } from "drizzle-orm";
 import type { ApplicationDetails, JobPreferences } from "@/lib/profile-fields";
 import type { ResumeScore } from "@/lib/resumeScore";
 
@@ -17,6 +17,9 @@ export const atsEnum = pgEnum("ats", ["GREENHOUSE", "LEVER", "ASHBY", "MANUAL"])
 export const workModeEnum = pgEnum("work_mode", ["REMOTE", "HYBRID", "ONSITE"]);
 export const appStatusEnum = pgEnum("app_status", [
   "SAVED", "APPLIED", "INTERVIEWING", "OFFER", "REJECTED", "HIDDEN",
+]);
+export const referralStatusEnum = pgEnum("referral_status", [
+  "drafted", "sent", "replied", "referred", "declined", "no_response",
 ]);
 
 // ─── Users and auth ─────────────────────────────────────────
@@ -217,6 +220,75 @@ export const webhookEvents = pgTable("webhook_events", {
   receivedAt: timestamp("received_at", { withTimezone: true }).defaultNow().notNull(),
 });
 
+// ─── Referral engine ────────────────────────────────────────
+/**
+ * People the user knows, imported from LinkedIn's Connections.csv, an alumni sheet, or added
+ * by hand. Private to the user; never shown to or used for anyone else.
+ */
+export const connections = pgTable(
+  "connections",
+  {
+    id: id(),
+    userId: text("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+    firstName: text("first_name").notNull(),
+    lastName: text("last_name").notNull().default(""),
+    nameKey: text("name_key").notNull(), // lower(first last), for de-duplicating rows without a URL
+    profileUrl: text("profile_url"),
+    email: text("email"),
+    company: text("company").notNull(),
+    companyKey: text("company_key").notNull(), // src/lib/referrals/company.ts companyKey()
+    position: text("position"),
+    connectedOn: timestamp("connected_on", { withTimezone: true }),
+    relationship: text("relationship"), // alumni | ex_colleague | friend | family | other
+    batch: text("batch"),
+    source: text("source").notNull(), // linkedin_csv | alumni_csv | manual
+    createdAt: created(),
+    updatedAt: updated(),
+  },
+  (t) => [
+    index("connections_user_company_idx").on(t.userId, t.companyKey),
+    uniqueIndex("connections_user_url_idx").on(t.userId, t.profileUrl).where(sql`${t.profileUrl} is not null`),
+    uniqueIndex("connections_user_name_company_idx").on(t.userId, t.nameKey, t.companyKey).where(sql`${t.profileUrl} is null`),
+  ],
+);
+
+/** Extra company name aliases (normalised), on top of DEFAULT_ALIASES in code. */
+export const companyAliases = pgTable("company_aliases", {
+  alias: text("alias").primaryKey(),
+  canonical: text("canonical").notNull(),
+  createdAt: created(),
+});
+
+export const referralRequests = pgTable(
+  "referral_requests",
+  {
+    id: id(),
+    userId: text("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+    jobId: text("job_id").notNull().references(() => jobs.id, { onDelete: "cascade" }),
+    connectionId: text("connection_id").references(() => connections.id, { onDelete: "set null" }),
+    // Snapshot, so the request still reads well if the connection is deleted later.
+    personName: text("person_name").notNull(),
+    personPosition: text("person_position"),
+    personUrl: text("person_url"),
+    personEmail: text("person_email"),
+    channel: text("channel").notNull(), // linkedin | email
+    tone: text("tone").notNull(), // friendly | formal
+    subject: text("subject"),
+    message: text("message").notNull(),
+    followUpMessage: text("follow_up_message"),
+    status: referralStatusEnum("status").default("drafted").notNull(),
+    sentAt: timestamp("sent_at", { withTimezone: true }),
+    followUpAt: timestamp("follow_up_at", { withTimezone: true }),
+    notes: text("notes"),
+    model: text("model"),
+    inputTokens: integer("input_tokens").default(0).notNull(),
+    outputTokens: integer("output_tokens").default(0).notNull(),
+    createdAt: created(),
+    updatedAt: updated(),
+  },
+  (t) => [index("referral_requests_user_idx").on(t.userId, t.status), index("referral_requests_job_idx").on(t.userId, t.jobId)],
+);
+
 /** History of resume scores, for the trend line and to keep every screen in agreement. */
 export const resumeScores = pgTable(
   "resume_scores",
@@ -270,6 +342,8 @@ export const tailoringsRelations = relations(tailorings, ({ one }) => ({
   job: one(jobs, { fields: [tailorings.jobId], references: [jobs.id] }),
 }));
 
+export type Connection = typeof connections.$inferSelect;
+export type ReferralRequest = typeof referralRequests.$inferSelect;
 export type Job = typeof jobs.$inferSelect;
 export type Company = typeof companies.$inferSelect;
 export type User = typeof users.$inferSelect;

@@ -5,6 +5,7 @@ import { usageEvents } from "@/db/schema";
 /** Metered actions and their fair use limits. */
 export const QUOTAS = {
   resume_upload: { limit: 10, windowMs: 24 * 60 * 60 * 1000, message: "You have uploaded 10 resumes today. Try again tomorrow, or paste the text instead." },
+  referral_draft: { limit: 100, windowMs: 30 * 24 * 60 * 60 * 1000, message: "You have drafted 100 referral requests in the last 30 days, the fair use limit. Edit an existing draft, or try again in a few days." },
 } as const;
 export type UsageKind = keyof typeof QUOTAS;
 

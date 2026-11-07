@@ -66,6 +66,58 @@ function textOf(msg: Anthropic.Message) {
   return msg.content.map((b) => (b.type === "text" ? b.text : "")).join("");
 }
 
+/**
+ * Ask for JSON and validate it. Models occasionally answer in prose or slip a field, so on a
+ * parse or schema failure we retry once, showing the model its reply and the reason it failed.
+ * Token usage covers both attempts.
+ */
+/**
+ * Effort per task. Current Sonnet and Haiku models think adaptively by default, and thinking
+ * tokens count towards max_tokens, so extraction runs at low effort and every call gets a
+ * generous ceiling (you pay for tokens used, not the ceiling).
+ */
+type Effort = "low" | "medium" | "high";
+const MAX_TOKENS = 16000; // non-streaming ceiling; stays under SDK HTTP timeouts
+
+async function callJson<T>(
+  params: { model: string; effort: Effort; system?: string; messages: Anthropic.MessageParam[] },
+  schema: z.ZodType<T>,
+): Promise<{ data: T; inputTokens: number; outputTokens: number }> {
+  let inputTokens = 0;
+  let outputTokens = 0;
+  let messages = params.messages;
+  let lastError: unknown;
+  for (let attempt = 0; attempt < 2; attempt++) {
+    const { effort, ...rest } = params;
+    // output_config is newer than this SDK's types; the API accepts it, so pass it through.
+    const msg = await anthropic().messages.create({
+      ...rest,
+      max_tokens: MAX_TOKENS,
+      messages,
+      output_config: { effort },
+    } as Anthropic.MessageCreateParamsNonStreaming);
+    inputTokens += msg.usage.input_tokens;
+    outputTokens += msg.usage.output_tokens;
+    const text = textOf(msg);
+    try {
+      return { data: parseJson(text, schema), inputTokens, outputTokens };
+    } catch (e) {
+      lastError = e;
+      // Development only: never log model output (it contains resume content) in production.
+      if (process.env.NODE_ENV !== "production") {
+        console.warn(`[ai] unusable reply (attempt ${attempt + 1}, stop=${msg.stop_reason}, out=${msg.usage.output_tokens}, blocks=${msg.content.map((b) => b.type).join("+")}):`, text.slice(0, 300));
+      }
+      const reason = e instanceof z.ZodError ? e.issues.slice(0, 3).map((i) => `${i.path.join(".")}: ${i.message}`).join("; ") : "it was not a JSON object";
+      messages = [
+        ...params.messages,
+        { role: "assistant", content: text || "(empty)" },
+        { role: "user", content: `That reply could not be used because ${reason}. Reply again with ONLY the JSON object, nothing before or after it.` },
+      ];
+    }
+  }
+  throw lastError;
+}
+
 const RESUME_SHAPE = `{"name","headline","contact":{"email","phone","location","links":[]},"summary",
 "experience":[{"company","title","location","start","end","bullets":[]}],
 "projects":[{"name","tech":[],"link","bullets":[]}],
@@ -77,13 +129,13 @@ const PARSE_SYSTEM =
 
 /** Turn pasted resume text into the structured master profile. */
 export async function parseResume(raw: string): Promise<ResumeData> {
-  const msg = await anthropic().messages.create({
+  const { data } = await callJson({
     model: FAST,
-    max_tokens: 4000,
+    effort: "low",
     system: PARSE_SYSTEM,
     messages: [{ role: "user", content: `Return only JSON shaped like ${RESUME_SHAPE}\n\nResume:\n"""${raw.slice(0, 20000)}"""` }],
-  });
-  return parseJson(textOf(msg), resumeSchema) as ResumeData;
+  }, resumeSchema);
+  return data as ResumeData;
 }
 
 /**
@@ -91,9 +143,9 @@ export async function parseResume(raw: string): Promise<ResumeData> {
  * two column layouts and scanned PDFs without a text layer still work.
  */
 export async function parseResumePdf(pdf: Uint8Array): Promise<ResumeData> {
-  const msg = await anthropic().messages.create({
+  const { data } = await callJson({
     model: FAST,
-    max_tokens: 4000,
+    effort: "low",
     system: PARSE_SYSTEM,
     messages: [{
       role: "user",
@@ -102,8 +154,8 @@ export async function parseResumePdf(pdf: Uint8Array): Promise<ResumeData> {
         { type: "text", text: `This PDF is a resume. Return only JSON shaped like ${RESUME_SHAPE}` },
       ],
     }],
-  });
-  return parseJson(textOf(msg), resumeSchema) as ResumeData;
+  }, resumeSchema);
+  return data as ResumeData;
 }
 
 const tailorSchema = z.object({
@@ -148,34 +200,32 @@ Description:
 MASTER PROFILE (JSON)
 ${JSON.stringify(input.profile)}`;
 
-  const msg = await anthropic().messages.create({
+  const { data: parsed, inputTokens, outputTokens } = await callJson({
     model: STRONG,
-    max_tokens: 6000,
+    effort: "high",
     system,
     messages: [{ role: "user", content: user }],
-  });
-  const parsed = parseJson(textOf(msg), tailorSchema);
+  }, tailorSchema);
   return {
     ...parsed,
     missing: parsed.missing ?? [],
     resume: parsed.resume as ResumeData,
     model: STRONG,
-    inputTokens: msg.usage.input_tokens,
-    outputTokens: msg.usage.output_tokens,
+    inputTokens,
+    outputTokens,
   };
 }
 
 /** Extract structured fields from a job description during ingestion (optional, costs tokens). */
 export async function enrichJob(description: string) {
-  const msg = await anthropic().messages.create({
+  const { data } = await callJson({
     model: FAST,
-    max_tokens: 400,
+    effort: "low",
     messages: [{
       role: "user",
       content: `From this job description return only JSON {"experienceMin":number|null,"experienceMax":number|null,"skills":string[] (max 12, lowercase),"salaryMin":number|null,"salaryMax":number|null,"salaryCurrency":string|null}. Use null when not stated.\n\n"""${description.slice(0, 8000)}"""`,
     }],
-  });
-  return parseJson(textOf(msg), z.object({
+  }, z.object({
     experienceMin: z.number().nullable(),
     experienceMax: z.number().nullable(),
     skills: z.array(z.string()),
@@ -183,6 +233,59 @@ export async function enrichJob(description: string) {
     salaryMax: z.number().nullable(),
     salaryCurrency: z.string().nullable(),
   }));
+  return data;
 }
 
 export const aiEnabled = () => Boolean(process.env.ANTHROPIC_API_KEY);
+
+// ─── Referral requests ───────────────────────────────────────
+
+const referralSchema = z.object({
+  subject: opt,
+  message: z.string().min(20),
+  followUp: z.string().min(10),
+});
+
+export type ReferralDraft = z.infer<typeof referralSchema> & { model: string; inputTokens: number; outputTokens: number };
+
+/**
+ * Draft a personal referral request. The caller passes only true facts about the
+ * relationship (src/lib/referrals/draft.ts relationshipFact) and enforces the length.
+ */
+export async function draftReferral(input: {
+  senderName: string;
+  person: { firstName: string; position: string | null };
+  relationshipFact: string | null;
+  job: { title: string; company: string; link: string };
+  resume: ResumeData;
+  tone: "friendly" | "formal";
+  channel: "linkedin" | "email";
+}): Promise<ReferralDraft> {
+  const limit = input.channel === "linkedin" ? "under 550 characters in total (LinkedIn's limit is 600)" : "under 140 words";
+  const system = `You write short, personal referral requests for Indian job seekers. The user will read, edit and send it themselves.
+
+Rules:
+1. Greet the person by first name.
+2. Mention how they know each other ONLY using the relationship fact given. If it is "none", do not claim any shared history.
+3. Name the exact role and company, and include this link exactly once: ${input.job.link}
+4. Give two specific proof points from the resume, each with a number where the resume has one, in XYZ style (what was achieved, measured how, by doing what). Use only facts in the resume. Never invent.
+5. Make one small, clear ask: "Would you be open to referring me, or pointing me to the right person?" (you may adapt the wording to the tone).
+6. Offer to send the resume.
+7. ${input.channel === "email" ? "Also write a short subject line." : "No subject line."} Keep the message ${limit}. Plain text, no emoji, no hashtags.
+8. Tone: ${input.tone === "friendly" ? "warm and casual, like a message to someone you know" : "polite and professional"}.
+9. Also write "followUp": a two sentence nudge to send 5 days later if there is no reply.
+
+Return ONLY JSON: {"subject": string|null, "message": string, "followUp": string}`;
+
+  const user = `Sender: ${input.senderName}
+Person: ${input.person.firstName}${input.person.position ? `, ${input.person.position}` : ""}
+Relationship fact: ${input.relationshipFact ?? "none"}
+Role: ${input.job.title} at ${input.job.company}
+Link: ${input.job.link}
+
+RESUME (JSON)
+${JSON.stringify({ headline: input.resume.headline, summary: input.resume.summary, experience: input.resume.experience.slice(0, 3), projects: input.resume.projects.slice(0, 2) })}`;
+
+  const { data, inputTokens, outputTokens } = await callJson({ model: STRONG, effort: "medium", system, messages: [{ role: "user", content: user }] }, referralSchema);
+  return { ...data, model: STRONG, inputTokens, outputTokens };
+}
