@@ -22,8 +22,10 @@ const nextConfig = {
   outputFileTracingIncludes: {
     "/opengraph-image": ["./node_modules/@fontsource/ibm-plex-sans/files/*.woff"],
     "/twitter-image": ["./node_modules/@fontsource/ibm-plex-sans/files/*.woff"],
-    "/api/resume/pdf": ["./node_modules/pdfkit/js/data/*.afm"],
-    "/api/ext/resume": ["./node_modules/pdfkit/js/data/*.afm"],
+    // pdfkit loads its standard fonts through package.json "imports" (#standard-fonts/*), which
+    // the file tracer does not follow, so ship those modules explicitly.
+    "/api/resume/pdf": ["./node_modules/pdfkit/js/data/*.afm", "./node_modules/pdfkit/js/standard-fonts/**", "./node_modules/pdfkit/lib/**"],
+    "/api/ext/resume": ["./node_modules/pdfkit/js/data/*.afm", "./node_modules/pdfkit/js/standard-fonts/**", "./node_modules/pdfkit/lib/**"],
   },
   async headers() {
     return [
