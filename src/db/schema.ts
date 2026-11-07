@@ -2,6 +2,7 @@ import {
   pgTable, pgEnum, text, integer, boolean, timestamp, jsonb, uniqueIndex, index, primaryKey,
 } from "drizzle-orm/pg-core";
 import { relations } from "drizzle-orm";
+import type { ApplicationDetails, JobPreferences } from "@/lib/profile-fields";
 
 const id = () => text("id").primaryKey().$defaultFn(() => crypto.randomUUID());
 const created = () => timestamp("created_at", { withTimezone: true }).defaultNow().notNull();
@@ -68,6 +69,8 @@ export const profiles = pgTable("profiles", {
   phone: text("phone"),
   rawResume: text("raw_resume"),
   data: jsonb("data").$type<ResumeData>(),
+  applicationDetails: jsonb("application_details").$type<ApplicationDetails>(),
+  preferences: jsonb("preferences").$type<JobPreferences>(),
   updatedAt: updated(),
 });
 
@@ -207,6 +210,22 @@ export const webhookEvents = pgTable("webhook_events", {
   type: text("type").notNull(),
   receivedAt: timestamp("received_at", { withTimezone: true }).defaultNow().notNull(),
 });
+
+/**
+ * One row per metered action (resume upload, referral draft, coach message, autofill...).
+ * Lives in the database because serverless instances do not share memory, so in memory
+ * counters cannot enforce daily or monthly limits.
+ */
+export const usageEvents = pgTable(
+  "usage_events",
+  {
+    id: id(),
+    userId: text("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+    kind: text("kind").notNull(),
+    createdAt: created(),
+  },
+  (t) => [index("usage_events_user_kind_idx").on(t.userId, t.kind, t.createdAt)],
+);
 
 export const contactMessages = pgTable("contact_messages", {
   id: id(),

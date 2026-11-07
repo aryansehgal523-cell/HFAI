@@ -2,6 +2,7 @@ import { z } from "zod";
 import { db } from "@/db";
 import { profiles, type ResumeData } from "@/db/schema";
 import { apiUser, error, json } from "@/lib/api";
+import { applicationDetailsSchema } from "@/lib/profile-fields";
 
 const item = z.looseObject({});
 const schema = z.object({
@@ -15,6 +16,7 @@ const schema = z.object({
     skills: z.array(item),
     achievements: z.array(z.string()),
   }),
+  applicationDetails: applicationDetailsSchema.optional(),
 });
 
 /** Save the structured master profile after the user edits it. */
@@ -22,7 +24,10 @@ export async function PUT(req: Request) {
   const { user, res } = await apiUser();
   if (!user) return res;
   const parsed = schema.safeParse(await req.json().catch(() => ({})));
-  if (!parsed.success) return error("Profile data is incomplete");
+  if (!parsed.success) {
+    const issue = parsed.error.issues[0];
+    return error(issue?.path[0] === "applicationDetails" ? `Application details: ${issue.message}` : "Profile data is incomplete");
+  }
   const values = { ...parsed.data, data: parsed.data.data as unknown as ResumeData };
   await db
     .insert(profiles)

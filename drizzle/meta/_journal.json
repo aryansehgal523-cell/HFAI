@@ -15,6 +15,13 @@
       "when": 1793910747265,
       "tag": "0001_young_iron_lad",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1794048777803,
+      "tag": "0002_phase2_profile_upload",
+      "breakpoints": true
     }
   ]
 }

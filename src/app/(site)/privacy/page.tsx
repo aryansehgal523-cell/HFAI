@@ -20,7 +20,11 @@ export default function Privacy() {
         <thead><tr><th>Data</th><th>Examples</th><th>Why we need it</th></tr></thead>
         <tbody>
           <tr><td>Account data</td><td>Name, email, password (stored only as a secure hash), Google profile name and photo if you sign in with Google</td><td>To create and secure your account</td></tr>
-          <tr><td>Resume data</td><td>Work history, education, skills, projects, contact details you include in your resume</td><td>To build your master resume and tailor it to jobs you choose</td></tr>
+          <tr><td>Resume data</td><td>Work history, education, skills, projects, contact details you include in your resume, and the plain text we extract from a file you upload</td><td>To build your master resume, score it and tailor it to jobs you choose</td></tr>
+          <tr><td>Uploaded resume files</td><td>The PDF or Word file you upload</td><td>Read once to fill your profile, then discarded. We never store the original file</td></tr>
+          <tr><td>Application details</td><td>Phone, city, state, PIN code, profile links, years of experience, current and expected CTC, notice period, work authorisation, relocation, earliest start date, and optional gender, disability and veteran answers (default &ldquo;Prefer not to say&rdquo;)</td><td>To fill job application forms when you ask us to. Optional answers are only used when you choose to fill them</td></tr>
+          <tr><td>Job preferences</td><td>Roles you want, preferred cities, work mode, expected salary, notice period</td><td>To rank jobs for you and score your resume against the roles you want</td></tr>
+          <tr><td>Usage records</td><td>When you used a metered feature such as a resume upload</td><td>To apply fair use limits</td></tr>
           <tr><td>Activity data</td><td>Jobs you save, statuses in your tracker, tailored resumes and cover letters</td><td>To run the tracker and show your history</td></tr>
           <tr><td>Payment data</td><td>Plan, amount, Razorpay payment and subscription IDs, invoice numbers</td><td>To bill you, issue GST invoices and meet tax law</td></tr>
           <tr><td>Technical data</td><td>IP address, browser type, essential cookies, and usage analytics if you allow them</td><td>Security, fraud prevention and keeping you signed in</td></tr>
@@ -33,11 +37,11 @@ export default function Privacy() {
       <p>We process your personal data on the basis of the consent you give when you create an account, and for legitimate uses permitted by law, such as complying with tax and accounting obligations. You can withdraw consent at any time by deleting your account; this does not affect processing that happened before withdrawal.</p>
 
       <h2>4. How we use AI</h2>
-      <p>To parse and tailor your resume we send the relevant resume text and the job description to our AI provider, Anthropic, through its commercial API. Under its commercial terms, Anthropic does not use this data to train its models. We only send what is needed for the request you make. We never use AI to invent facts about you, and we never sell your resume.</p>
+      <p>To parse and tailor your resume we send the relevant resume text, or the resume file you upload, and the job description to our AI provider, Anthropic, through its commercial API. Under its commercial terms, Anthropic does not use this data to train its models. We only send what is needed for the request you make. We never use AI to invent facts about you, and we never sell your resume.</p>
 
       <h2>5. Who we share data with</h2>
       <ul>
-        <li><strong>Service providers</strong> who process data on our behalf under contract: cloud hosting and database (for example Vercel and Neon), AI processing (Anthropic), payments (Razorpay), email delivery, and Google Analytics if you allow analytics.</li>
+        <li><strong>Service providers</strong> who process data on our behalf under contract: cloud hosting and database (Vercel and Supabase), AI processing (Anthropic), payments (Razorpay), email delivery, and Google Analytics if you allow analytics.</li>
         <li><strong>Employers</strong>: never automatically. When you apply, you do so on the employer&apos;s own website and choose what to send.</li>
         <li><strong>Authorities</strong> when required by law, a court order or to protect rights and safety.</li>
       </ul>
@@ -56,7 +60,9 @@ export default function Privacy() {
 
       <h2>7. How long we keep data</h2>
       <ul>
-        <li>Account, resume and tracker data: until you delete your account.</li>
+        <li>Account, resume, application details, preferences and tracker data: until you delete your account.</li>
+        <li>Uploaded resume files: not kept. The file is read in memory and discarded as soon as your profile is filled.</li>
+        <li>Usage records: up to 13 months, then deleted.</li>
         <li>Payment and invoice records: 8 years, as required by Indian tax and company law. These are kept in our accounting system even after account deletion.</li>
         <li>Security logs: up to 1 year.</li>
       </ul>

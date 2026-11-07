@@ -1,5 +1,5 @@
 import { getServerSession } from "next-auth";
-import { redirect } from "next/navigation";
+import { redirect, unstable_rethrow } from "next/navigation";
 import { eq } from "drizzle-orm";
 import { authOptions } from "./auth";
 import { db } from "@/db";
@@ -16,6 +16,8 @@ export async function getCurrentUser() {
   try {
     session = await getServerSession(authOptions);
   } catch (e) {
+    // Next.js signals dynamic rendering, redirects and not found by throwing; let those through.
+    unstable_rethrow(e);
     console.error("[auth] Could not read the session. Check NEXTAUTH_SECRET and NEXTAUTH_URL.", e);
     return null;
   }

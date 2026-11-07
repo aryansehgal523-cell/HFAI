@@ -12,30 +12,46 @@ function anthropic() {
   return client;
 }
 
-const resumeSchema = z.object({
-  name: z.string().optional(),
-  headline: z.string().optional(),
+// Models phrase absent data in different ways (missing key, null, "" or a bare list), so the
+// schema accepts those shapes and normalises them, instead of failing a whole parse because
+// one optional field came back as null. Structure that really matters is still enforced.
+const opt = z.string().nullish().transform((v) => (v == null || v.trim() === "" ? undefined : v));
+const req = z.string().nullish().transform((v) => v ?? "");
+const list = z.array(z.string().nullish()).nullish().transform((v) => (v ?? []).filter((x): x is string => Boolean(x && x.trim())));
+
+const skillsSchema = z
+  .array(z.union([z.string(), z.object({ group: opt, items: list })]))
+  .nullish()
+  .transform((rows) => {
+    const groups: { group: string; items: string[] }[] = [];
+    const loose: string[] = [];
+    for (const r of rows ?? []) {
+      if (typeof r === "string") { if (r.trim()) loose.push(r.trim()); }
+      else if (r.items.length) groups.push({ group: r.group ?? "Skills", items: r.items });
+    }
+    if (loose.length) groups.push({ group: "Skills", items: loose });
+    return groups;
+  });
+
+export const resumeSchema = z.object({
+  name: opt,
+  headline: opt,
   contact: z
-    .object({
-      email: z.string().optional(),
-      phone: z.string().optional(),
-      location: z.string().optional(),
-      links: z.array(z.string()).optional(),
-    })
-    .optional(),
-  summary: z.string().optional(),
+    .object({ email: opt, phone: opt, location: opt, links: list })
+    .nullish()
+    .transform((c) => c ?? undefined),
+  summary: opt,
   experience: z.array(z.object({
-    company: z.string(), title: z.string(), location: z.string().optional(),
-    start: z.string().optional(), end: z.string().optional(), bullets: z.array(z.string()),
-  })).default([]),
+    company: req, title: req, location: opt, start: opt, end: opt, bullets: list,
+  })).nullish().transform((v) => (v ?? []).filter((e) => e.company || e.title || e.bullets.length)),
   projects: z.array(z.object({
-    name: z.string(), tech: z.array(z.string()).optional(), link: z.string().optional(), bullets: z.array(z.string()),
-  })).default([]),
+    name: req, tech: list, link: opt, bullets: list,
+  })).nullish().transform((v) => (v ?? []).filter((p) => p.name || p.bullets.length)),
   education: z.array(z.object({
-    school: z.string(), degree: z.string(), start: z.string().optional(), end: z.string().optional(), score: z.string().optional(),
-  })).default([]),
-  skills: z.array(z.object({ group: z.string(), items: z.array(z.string()) })).default([]),
-  achievements: z.array(z.string()).default([]),
+    school: req, degree: req, start: opt, end: opt, score: opt,
+  })).nullish().transform((v) => (v ?? []).filter((e) => e.school || e.degree)),
+  skills: skillsSchema,
+  achievements: list,
 });
 
 /** Pull the first JSON object out of a model reply. */
@@ -56,14 +72,36 @@ const RESUME_SHAPE = `{"name","headline","contact":{"email","phone","location","
 "education":[{"school","degree","start","end","score"}],
 "skills":[{"group","items":[]}],"achievements":[]}`;
 
+const PARSE_SYSTEM =
+  "You convert resumes into JSON. Copy facts exactly as written. Never invent employers, dates, numbers, skills or links. Omit fields that are absent. Put every URL or profile handle you see (LinkedIn, GitHub, portfolio) in contact.links.";
+
 /** Turn pasted resume text into the structured master profile. */
 export async function parseResume(raw: string): Promise<ResumeData> {
   const msg = await anthropic().messages.create({
     model: FAST,
     max_tokens: 4000,
-    system:
-      "You convert resumes into JSON. Copy facts exactly as written. Never invent employers, dates, numbers, skills or links. Omit fields that are absent.",
+    system: PARSE_SYSTEM,
     messages: [{ role: "user", content: `Return only JSON shaped like ${RESUME_SHAPE}\n\nResume:\n"""${raw.slice(0, 20000)}"""` }],
+  });
+  return parseJson(textOf(msg), resumeSchema) as ResumeData;
+}
+
+/**
+ * Parse a PDF resume directly. Claude reads the PDF itself (text and layout), so
+ * two column layouts and scanned PDFs without a text layer still work.
+ */
+export async function parseResumePdf(pdf: Uint8Array): Promise<ResumeData> {
+  const msg = await anthropic().messages.create({
+    model: FAST,
+    max_tokens: 4000,
+    system: PARSE_SYSTEM,
+    messages: [{
+      role: "user",
+      content: [
+        { type: "document", source: { type: "base64", media_type: "application/pdf", data: Buffer.from(pdf).toString("base64") } },
+        { type: "text", text: `This PDF is a resume. Return only JSON shaped like ${RESUME_SHAPE}` },
+      ],
+    }],
   });
   return parseJson(textOf(msg), resumeSchema) as ResumeData;
 }
@@ -71,10 +109,11 @@ export async function parseResume(raw: string): Promise<ResumeData> {
 const tailorSchema = z.object({
   resume: resumeSchema,
   coverLetter: z.string(),
-  missing: z.array(z.string()).default([]),
+  missing: list,
 });
 
-export type TailorResult = z.infer<typeof tailorSchema> & {
+export type TailorResult = Omit<z.infer<typeof tailorSchema>, "resume"> & {
+  resume: ResumeData;
   model: string;
   inputTokens: number;
   outputTokens: number;
