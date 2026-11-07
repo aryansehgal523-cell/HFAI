@@ -2,6 +2,7 @@ import { db } from "@/db";
 import { profiles } from "@/db/schema";
 import { apiUser, error, json } from "@/lib/api";
 import { preferencesSchema } from "@/lib/profile-fields";
+import { recordMasterScore } from "@/lib/score-store";
 
 /** Save job preferences (target roles, cities, work mode, salary...). Used by matching. */
 export async function PUT(req: Request) {
@@ -16,9 +17,11 @@ export async function PUT(req: Request) {
     cities: [...new Set(parsed.data.cities)],
     workModes: [...new Set(parsed.data.workModes)],
   };
-  await db
+  const [row] = await db
     .insert(profiles)
     .values({ userId: user.id, preferences })
-    .onConflictDoUpdate({ target: profiles.userId, set: { preferences } });
-  return json({ preferences });
+    .onConflictDoUpdate({ target: profiles.userId, set: { preferences } })
+    .returning({ data: profiles.data });
+  const score = row?.data ? await recordMasterScore(user.id, row.data) : null;
+  return json({ preferences, score });
 }

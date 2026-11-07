@@ -1,13 +1,15 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import { AnimatePresence, animate, motion, useMotionValue, useTransform } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Copy, Download, ExternalLink, FileDown, Lock, Pencil, Check, Loader2, HelpCircle } from "lucide-react";
 import type { ResumeData } from "@/db/schema";
 import { ResumeSheet } from "./ResumeSheet";
 import { useToast } from "./Toast";
 import { downloadLetterDocx, downloadResumeDocx } from "@/lib/docx-export";
 import { cn } from "@/lib/utils";
+import { biggestGains, scoreResume, topTips, type ResumeScore, type ScoreJob } from "@/lib/resumeScore";
+import { ScoreBars, ScoreRing, TipList, useDebounced } from "./ResumeScoreUI";
 
 type Props = {
   tailoringId: string;
@@ -17,34 +19,34 @@ type Props = {
   applyUrl: string;
   resume: ResumeData;
   coverLetter: string;
-  atsBefore: number;
-  atsAfter: number;
+  scoreJob: ScoreJob;
+  experienceYears: number;
+  breakdownBefore: ResumeScore;
+  breakdownAfter: ResumeScore;
   missing: string[];
   premium: boolean;
   applied: boolean;
 };
 
-function Score({ before, after }: { before: number; after: number }) {
-  const v = useMotionValue(before);
-  const text = useTransform(v, (n) => Math.round(n).toString());
-  const width = useTransform(v, (n) => `${n}%`);
-  useEffect(() => {
-    const c = animate(v, after, { duration: 1.4, delay: 0.3, ease: [0.2, 0.8, 0.2, 1] });
-    return () => c.stop();
-  }, [after, v]);
+const pts = (n: number) => `${n} ${n === 1 ? "point" : "points"}`;
+
+function BeforeAfter({ before, after }: { before: ResumeScore; after: ResumeScore }) {
+  const gains = biggestGains(before, after);
   return (
     <div>
-      <div className="flex items-end justify-between">
-        <p className="text-sm text-slate">ATS keyword match</p>
-        <p className="font-display text-4xl font-semibold tabular-nums"><motion.span>{text}</motion.span><span className="text-xl text-slate">%</span></p>
+      <p className="text-sm font-semibold text-ink">Resume score for this job</p>
+      <div className="mt-4 flex items-start justify-around gap-2">
+        <ScoreRing value={before.total} size={96} label="Your master resume" animateIn={false} />
+        <ScoreRing value={after.total} from={before.total} size={96} label="Tailored" />
       </div>
-      <div className="relative mt-3 h-2.5 overflow-hidden rounded-full bg-paper">
-        <div className="absolute inset-y-0 left-0 rounded-full bg-marigold/50" style={{ width: `${before}%` }} />
-        <motion.div className="absolute inset-y-0 left-0 rounded-full bg-mint" style={{ width }} />
-      </div>
-      <p className="mt-2 text-xs text-slate">
-        {after > before ? `Up from ${before}% with your master resume.` : after === before ? "Same coverage as your master resume, now ordered for this job." : `Your master resume scored ${before}%.`}
+      <p className="mt-4 text-sm text-ink-soft" aria-live="polite">
+        {after.total > before.total
+          ? `Up ${pts(after.total - before.total)}${gains.length ? `, mostly from ${gains.map((g) => `${g.label.toLowerCase()} (+${g.delta})`).join(" and ")}` : ""}.`
+          : after.total === before.total
+            ? "Same score as your master resume, now ordered for this job."
+            : `Down ${pts(before.total - after.total)} from your master resume. Check the tips below.`}
       </p>
+      <div className="mt-5"><ScoreBars score={after} before={before} compact /></div>
     </div>
   );
 }
@@ -58,6 +60,12 @@ export function TailoredView(p: Props) {
   const [editing, setEditing] = useState(false);
   const [saving, setSaving] = useState(false);
   const [applied, setApplied] = useState(p.applied);
+  // Re-score live while editing, against the same job and with the same function as the server.
+  const debounced = useDebounced(resume, 250);
+  const liveAfter = useMemo(
+    () => (debounced === p.resume ? p.breakdownAfter : scoreResume(debounced, { job: p.scoreJob, experienceYears: p.experienceYears })),
+    [debounced, p.resume, p.breakdownAfter, p.scoreJob, p.experienceYears],
+  );
 
   async function saveEdits() {
     setSaving(true);
@@ -122,7 +130,7 @@ export function TailoredView(p: Props) {
 
       <aside className="no-print space-y-5 lg:sticky lg:top-24 lg:self-start">
         <div className="panel p-6">
-          <Score before={p.atsBefore} after={p.atsAfter} />
+          <BeforeAfter before={p.breakdownBefore} after={liveAfter} />
         </div>
 
         <div className="panel space-y-2.5 p-6">
@@ -149,6 +157,10 @@ export function TailoredView(p: Props) {
           <a href={p.applyUrl} target="_blank" rel="noopener noreferrer nofollow" className="btn-primary w-full">Apply at {p.company} <ExternalLink className="h-4 w-4" /></a>
           <button onClick={markApplied} disabled={applied} className="btn-ghost w-full">{applied ? <><Check className="h-4 w-4 text-mint" />Marked as applied</> : "I've applied"}</button>
         </div>
+
+        {topTips(liveAfter).length > 0 && (
+          <div className="panel p-6"><TipList tips={topTips(liveAfter)} title="Raise it further" /></div>
+        )}
 
         {p.missing.length > 0 && (
           <div className="rounded-2xl bg-marigold-tint p-6">

@@ -3,6 +3,7 @@ import {
 } from "drizzle-orm/pg-core";
 import { relations } from "drizzle-orm";
 import type { ApplicationDetails, JobPreferences } from "@/lib/profile-fields";
+import type { ResumeScore } from "@/lib/resumeScore";
 
 const id = () => text("id").primaryKey().$defaultFn(() => crypto.randomUUID());
 const created = () => timestamp("created_at", { withTimezone: true }).defaultNow().notNull();
@@ -167,6 +168,11 @@ export const tailorings = pgTable(
     coverLetter: text("cover_letter").notNull(),
     atsBefore: integer("ats_before").notNull(),
     atsAfter: integer("ats_after").notNull(),
+    // Resume score (src/lib/resumeScore.ts) of the master and tailored resume against this job.
+    scoreBefore: integer("score_before"),
+    scoreAfter: integer("score_after"),
+    breakdownBefore: jsonb("breakdown_before").$type<ResumeScore>(),
+    breakdownAfter: jsonb("breakdown_after").$type<ResumeScore>(),
     missing: text("missing").array().default([]).notNull(),
     model: text("model").notNull(),
     inputTokens: integer("input_tokens").default(0).notNull(),
@@ -210,6 +216,21 @@ export const webhookEvents = pgTable("webhook_events", {
   type: text("type").notNull(),
   receivedAt: timestamp("received_at", { withTimezone: true }).defaultNow().notNull(),
 });
+
+/** History of resume scores, for the trend line and to keep every screen in agreement. */
+export const resumeScores = pgTable(
+  "resume_scores",
+  {
+    id: id(),
+    userId: text("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+    source: text("source").notNull(), // "master" | "tailoring"
+    refId: text("ref_id"), // tailoring id when source is "tailoring"
+    total: integer("total").notNull(),
+    breakdown: jsonb("breakdown").$type<ResumeScore>().notNull(),
+    createdAt: created(),
+  },
+  (t) => [index("resume_scores_user_idx").on(t.userId, t.source, t.createdAt)],
+);
 
 /**
  * One row per metered action (resume upload, referral draft, coach message, autofill...).

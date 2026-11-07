@@ -1,9 +1,10 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FileText, Loader2, Plus, Trash2, Wand2 } from "lucide-react";
 import type { ResumeData } from "@/db/schema";
+import type { ResumeScore } from "@/lib/resumeScore";
 import { useToast } from "./Toast";
 import {
   EMPTY_DETAILS, GENDER_OPTIONS, NOTICE_LABEL, NOTICE_PERIODS, YES_NO_PREFER, type ApplicationDetails,
@@ -23,6 +24,8 @@ export function ProfileEditor({
   onSaved,
   saveLabel = "Save master resume",
   onImportAgain,
+  onDataChange,
+  onSavedScore,
 }: {
   initial: ResumeData | null;
   initialDetails?: ApplicationDetails | null;
@@ -34,6 +37,10 @@ export function ProfileEditor({
   saveLabel?: string;
   /** Replace the built in paste box, e.g. to go back to the uploader. */
   onImportAgain?: () => void;
+  /** Called on every edit (for the live resume score). */
+  onDataChange?: (data: ResumeData) => void;
+  /** Called with the server's recorded score after a successful save. */
+  onSavedScore?: (score: ResumeScore) => void;
 }) {
   const router = useRouter();
   const toast = useToast();
@@ -54,6 +61,7 @@ export function ProfileEditor({
     setData((d) => fn(structuredClone(d)));
     setDirty(true);
   };
+  useEffect(() => { onDataChange?.(data); }, [data, onDataChange]);
 
   async function importResume() {
     setBusy(true);
@@ -81,6 +89,8 @@ export function ProfileEditor({
       return toast(json.error ?? "Could not save. Try again.", "error");
     }
     setDirty(false);
+    const saved = await res.json().catch(() => ({}));
+    if (saved.score) onSavedScore?.(saved.score);
     toast("Master resume saved");
     if (onSaved) onSaved(data);
     else if (next) router.push(next);

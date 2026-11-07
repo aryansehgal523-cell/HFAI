@@ -11,6 +11,8 @@ import { PreferencesForm } from "./PreferencesForm";
 import { ResumeUploader, type UploadResult } from "./ResumeUploader";
 import { useToast } from "./Toast";
 import { cn } from "@/lib/utils";
+import { topTips, type ResumeScore } from "@/lib/resumeScore";
+import { ScoreRing, TipList } from "./ResumeScoreUI";
 
 export type OnboardingStep = "upload" | "review" | "prefs";
 const STEPS: { key: OnboardingStep; label: string }[] = [
@@ -27,7 +29,6 @@ export function OnboardingFlow({
   initialPreferences,
   aiReady,
   replacing,
-  scorePanel,
 }: {
   firstName: string;
   start: OnboardingStep;
@@ -37,8 +38,6 @@ export function OnboardingFlow({
   aiReady: boolean;
   /** Returning user replacing their resume: finish on the profile page, skip preferences. */
   replacing: boolean;
-  /** Rendered above the review step once a resume is parsed (resume score, Phase 3). */
-  scorePanel?: (data: ResumeData) => React.ReactNode;
 }) {
   const router = useRouter();
   const reduce = useReducedMotion();
@@ -48,12 +47,14 @@ export function OnboardingFlow({
   const [paste, setPaste] = useState(false);
   const [fresh, setFresh] = useState(false); // true right after a parse, to highlight gaps
   const [version, setVersion] = useState(0); // remounts the editor with newly parsed data
+  const [score, setScore] = useState<ResumeScore | null>(null);
   const current = STEPS.findIndex((s) => s.key === step);
   const steps = replacing ? STEPS.slice(0, 2) : STEPS;
 
   function parsed(r: UploadResult) {
     setData(r.data);
     setDetails(r.applicationDetails);
+    setScore(r.score ?? null);
     setFresh(true);
     setVersion((v) => v + 1);
     setPaste(false);
@@ -132,7 +133,7 @@ export function OnboardingFlow({
 
           {step === "review" && (
             <div className="space-y-6">
-              {data && fresh && scorePanel?.(data)}
+              {fresh && score && <FirstScore score={score} />}
               {fresh && (
                 <p className="rounded-xl bg-cobalt-tint px-4 py-3 text-sm text-ink">
                   Here is what we found. Fields marked in yellow came back empty; add them if you have them, then continue.
@@ -209,5 +210,19 @@ function PasteBox({ aiReady, onDone, onBack }: { aiReady: boolean; onDone: (r: U
         <button onClick={onBack} className="btn-ghost">Upload a file instead</button>
       </div>
     </div>
+  );
+}
+
+/** The first look at the resume score, right after an upload. Free for everyone. */
+function FirstScore({ score }: { score: ResumeScore }) {
+  return (
+    <section aria-labelledby="first-score" className="panel grid items-center gap-6 p-6 sm:grid-cols-[auto_1fr] sm:p-8">
+      <ScoreRing value={score.total} label="Resume score" />
+      <div>
+        <h2 id="first-score" className="text-2xl font-semibold">Your resume scores {score.total}</h2>
+        <p className="mt-1 text-sm text-slate">Fix these three things first. Your score updates as you edit, and Premium shows it before and after every tailored resume.</p>
+        <div className="mt-4"><TipList tips={topTips(score)} title="Biggest fixes" /></div>
+      </div>
+    </section>
   );
 }

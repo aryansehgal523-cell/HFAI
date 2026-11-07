@@ -6,6 +6,7 @@ import { eq } from "drizzle-orm";
 import { aiEnabled, parseResume } from "@/lib/ai";
 import { detailsFromResume } from "@/lib/resume-file";
 import { mergeDetails } from "@/lib/profile-fields";
+import { recordMasterScore } from "@/lib/score-store";
 
 const schema = z.object({ text: z.string().min(200, "Paste your full resume (at least a few lines)").max(30000) });
 
@@ -28,7 +29,8 @@ export async function POST(req: Request) {
       headline: data.headline ?? null, location: data.contact?.location ?? null, phone: data.contact?.phone ?? null,
     };
     await db.insert(profiles).values({ userId: user.id, ...values }).onConflictDoUpdate({ target: profiles.userId, set: values });
-    return json({ data, applicationDetails });
+    const score = await recordMasterScore(user.id, data);
+    return json({ data, applicationDetails, score });
   } catch (e) {
     console.error("parseResume failed", e);
     return error("We could not read that resume. Check the text and try again.", 502);

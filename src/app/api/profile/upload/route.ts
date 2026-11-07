@@ -8,6 +8,7 @@ import { aiEnabled, parseResume, parseResumePdf } from "@/lib/ai";
 import { MAX_UPLOAD_BYTES, detailsFromResume, detectResumeFile } from "@/lib/resume-file";
 import { mergeDetails } from "@/lib/profile-fields";
 import { releaseQuota, takeQuota } from "@/lib/usage";
+import { recordMasterScore } from "@/lib/score-store";
 
 export const runtime = "nodejs";
 export const maxDuration = 60;
@@ -80,7 +81,8 @@ export async function POST(req: Request) {
       .values({ userId: user.id, ...values })
       .onConflictDoUpdate({ target: profiles.userId, set: values });
 
-    return json({ data, applicationDetails, fileKind: kind });
+    const score = await recordMasterScore(user.id, data);
+    return json({ data, applicationDetails, fileKind: kind, score });
   } catch (e) {
     console.error("resume upload failed", e);
     await releaseQuota(user.id, "resume_upload");

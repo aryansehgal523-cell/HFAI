@@ -3,6 +3,7 @@ import { db } from "@/db";
 import { profiles, type ResumeData } from "@/db/schema";
 import { apiUser, error, json } from "@/lib/api";
 import { applicationDetailsSchema } from "@/lib/profile-fields";
+import { recordMasterScore } from "@/lib/score-store";
 
 const item = z.looseObject({});
 const schema = z.object({
@@ -33,5 +34,6 @@ export async function PUT(req: Request) {
     .insert(profiles)
     .values({ userId: user.id, ...values })
     .onConflictDoUpdate({ target: profiles.userId, set: values });
-  return json({ ok: true });
+  const score = await recordMasterScore(user.id, values.data);
+  return json({ ok: true, score });
 }

@@ -4,13 +4,14 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { CheckCircle2, FileUp, Loader2, ShieldCheck } from "lucide-react";
 import type { ResumeData } from "@/db/schema";
 import type { ApplicationDetails } from "@/lib/profile-fields";
+import type { ResumeScore } from "@/lib/resumeScore";
 import { cn } from "@/lib/utils";
 
 const MAX_MB = 4;
 const STEPS = ["Reading your resume", "Finding your experience", "Checking skills"];
 const STEP_AT = [0, 5000, 11000]; // ms; the request usually takes 8 to 20 seconds
 
-export type UploadResult = { data: ResumeData; applicationDetails: ApplicationDetails };
+export type UploadResult = { data: ResumeData; applicationDetails: ApplicationDetails; score?: ResumeScore };
 
 /** Drag and drop (or browse) a PDF or Word resume; parsed on the server. */
 export function ResumeUploader({

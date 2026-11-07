@@ -8,6 +8,7 @@ import { atsScore, resumeToText } from "@/lib/ats";
 import { refundCredit, spendCredit } from "@/lib/credits";
 import { getJob } from "@/lib/jobs-query";
 import { PLANS, rupees } from "@/lib/plans";
+import { recordTailoringScore, tailoringScores } from "@/lib/score-store";
 
 export const maxDuration = 60;
 
@@ -57,6 +58,9 @@ export async function POST(req: Request) {
       },
     });
     const after = atsScore(resumeToText(result.resume), jobText, found.job.skills);
+    const scoreJob = { title: found.job.title, description: found.job.description, skills: found.job.skills };
+    const years = profile.applicationDetails?.totalExperienceYears ?? profile.preferences?.experienceYears ?? 0;
+    const scores = tailoringScores(profile.data, result.resume, scoreJob, years);
 
     const values = {
       userId: user.id,
@@ -65,6 +69,10 @@ export async function POST(req: Request) {
       coverLetter: result.coverLetter,
       atsBefore: before.score,
       atsAfter: after.score,
+      scoreBefore: scores.before.total,
+      scoreAfter: scores.after.total,
+      breakdownBefore: scores.before,
+      breakdownAfter: scores.after,
       missing: result.missing,
       model: result.model,
       inputTokens: result.inputTokens,
@@ -75,6 +83,7 @@ export async function POST(req: Request) {
       .values(values)
       .onConflictDoUpdate({ target: [tailorings.userId, tailorings.jobId], set: values })
       .returning({ id: tailorings.id });
+    await recordTailoringScore(user.id, row.id, scores.after);
 
     await db
       .insert(applications)

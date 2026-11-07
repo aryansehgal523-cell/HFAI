@@ -9,6 +9,7 @@ import { requireUser } from "@/lib/session";
 import { getJob } from "@/lib/jobs-query";
 import { TailoredView } from "@/components/TailoredView";
 import { TailorButton } from "@/components/TailorButton";
+import { scoreResume } from "@/lib/resumeScore";
 
 export const metadata: Metadata = { title: "Tailored resume" };
 
@@ -21,8 +22,14 @@ export default async function TailorPage({ params }: { params: Promise<{ jobId: 
   const [[t], [app], [profile]] = await Promise.all([
     db.select().from(tailorings).where(and(eq(tailorings.userId, user.id), eq(tailorings.jobId, jobId))).limit(1),
     db.select().from(applications).where(and(eq(applications.userId, user.id), eq(applications.jobId, jobId))).limit(1),
-    db.select({ id: profiles.id, data: profiles.data }).from(profiles).where(eq(profiles.userId, user.id)).limit(1),
+    db.select({ id: profiles.id, data: profiles.data, details: profiles.applicationDetails, prefs: profiles.preferences }).from(profiles).where(eq(profiles.userId, user.id)).limit(1),
   ]);
+  const scoreJob = { title: found.job.title, description: found.job.description, skills: found.job.skills };
+  const experienceYears = profile?.details?.totalExperienceYears ?? profile?.prefs?.experienceYears ?? 0;
+  // Tailorings made before scores existed: compute them now from the same pure function.
+  const empty = { experience: [], projects: [], education: [], skills: [], achievements: [] };
+  const breakdownBefore = t?.breakdownBefore ?? scoreResume(profile?.data ?? empty, { job: scoreJob, experienceYears });
+  const breakdownAfter = t?.breakdownAfter ?? (t ? scoreResume(t.resume, { job: scoreJob, experienceYears }) : null);
 
   return (
     <div className="container-x py-10">
@@ -51,8 +58,10 @@ export default async function TailorPage({ params }: { params: Promise<{ jobId: 
             applyUrl={found.job.applyUrl}
             resume={t.resume}
             coverLetter={t.coverLetter}
-            atsBefore={t.atsBefore}
-            atsAfter={t.atsAfter}
+            scoreJob={scoreJob}
+            experienceYears={experienceYears}
+            breakdownBefore={breakdownBefore}
+            breakdownAfter={breakdownAfter!}
             missing={t.missing}
             premium={user.plan === "PREMIUM"}
             applied={app?.status === "APPLIED" || app?.status === "INTERVIEWING" || app?.status === "OFFER"}
