@@ -2,8 +2,8 @@ import Anthropic from "@anthropic-ai/sdk";
 import { z } from "zod";
 import type { ResumeData } from "@/db/schema";
 
-const FAST = process.env.ANTHROPIC_FAST_MODEL ?? "claude-haiku-4-5";
-const STRONG = process.env.ANTHROPIC_STRONG_MODEL ?? "claude-sonnet-4-5";
+const FAST = process.env.ANTHROPIC_FAST_MODEL ?? "claude-haiku-5-5";
+const STRONG = process.env.ANTHROPIC_STRONG_MODEL ?? "claude-sonnet-5-5";
 
 let client: Anthropic | null = null;
 function anthropic() {
@@ -288,4 +288,82 @@ ${JSON.stringify({ headline: input.resume.headline, summary: input.resume.summar
 
   const { data, inputTokens, outputTokens } = await callJson({ model: STRONG, effort: "medium", system, messages: [{ role: "user", content: user }] }, referralSchema);
   return { ...data, model: STRONG, inputTokens, outputTokens };
+}
+
+// ─── Job match verdicts (Premium, daily) ─────────────────────
+
+const verdictSchema = z.object({
+  verdicts: z.array(z.object({
+    id: z.string(),
+    verdict: z.enum(["strong", "good", "stretch"]),
+    reason: z.string().min(5),
+  })),
+});
+
+/** One verdict and one sentence per job, from the candidate's real profile. */
+export async function rerankMatches(
+  profile: { resume: ResumeData | null; years?: number; targetRoles?: string[]; cities?: string[]; expectedSalaryLpa?: number },
+  jobs: { id: string; title: string; company: string; location: string; experience: string; skills: string[]; summary: string }[],
+) {
+  const r = profile.resume;
+  const summary = {
+    headline: r?.headline, years: profile.years, wants: profile.targetRoles, cities: profile.cities, expectedLpa: profile.expectedSalaryLpa,
+    recentRoles: r?.experience.slice(0, 3).map((e) => `${e.title} at ${e.company}`),
+    skills: r?.skills.flatMap((s) => s.items).slice(0, 30),
+  };
+  const { data } = await callJson({
+    model: FAST,
+    effort: "low",
+    system: "You are a careful career adviser for Indian job seekers. Judge fit honestly from the facts given. Never invent facts about the candidate or the job.",
+    messages: [{
+      role: "user",
+      content: `Candidate: ${JSON.stringify(summary)}
+
+For EACH job below give a verdict: "strong" (clearly qualified, should apply today), "good" (qualified with small gaps) or "stretch" (worth a shot but real gaps), and ONE plain sentence (under 25 words) naming the main reason. Use the job ids exactly.
+
+Jobs: ${JSON.stringify(jobs)}
+
+Return only JSON: {"verdicts":[{"id":string,"verdict":"strong"|"good"|"stretch","reason":string}]}`,
+    }],
+  }, verdictSchema);
+  return data.verdicts;
+}
+
+// ─── AI coach (streaming, with the in hand estimate tool) ─────
+
+/**
+ * Stream a coach reply. Text is passed to onText as it arrives; if the model calls a tool,
+ * we run it and continue (at most 3 rounds). Returns the full text and token usage.
+ */
+export async function streamCoachReply(input: {
+  system: string;
+  messages: Anthropic.MessageParam[];
+  tools: Anthropic.Tool[];
+  runTool: (name: string, args: unknown) => string;
+  onText: (delta: string) => void;
+}) {
+  let messages = input.messages;
+  let text = "";
+  let inputTokens = 0;
+  let outputTokens = 0;
+  for (let round = 0; round < 3; round++) {
+    const stream = anthropic().messages.stream({
+      model: STRONG,
+      max_tokens: 16000,
+      system: input.system,
+      tools: input.tools,
+      messages,
+      output_config: { effort: "medium" },
+    } as Anthropic.MessageCreateParamsNonStreaming);
+    stream.on("text", (d) => { text += d; input.onText(d); });
+    const msg = await stream.finalMessage();
+    inputTokens += msg.usage.input_tokens;
+    outputTokens += msg.usage.output_tokens;
+    if (msg.stop_reason !== "tool_use") break;
+    const results: Anthropic.ToolResultBlockParam[] = msg.content
+      .filter((b): b is Anthropic.ToolUseBlock => b.type === "tool_use")
+      .map((b) => ({ type: "tool_result", tool_use_id: b.id, content: input.runTool(b.name, b.input) }));
+    messages = [...messages, { role: "assistant", content: msg.content }, { role: "user", content: results }];
+  }
+  return { text, inputTokens, outputTokens, model: STRONG };
 }

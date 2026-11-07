@@ -1,3 +1,5 @@
+import { after } from "next/server";
+import { computeMatchesForUser } from "@/lib/match-store";
 import { db } from "@/db";
 import { profiles } from "@/db/schema";
 import { apiUser, error, json } from "@/lib/api";
@@ -23,5 +25,6 @@ export async function PUT(req: Request) {
     .onConflictDoUpdate({ target: profiles.userId, set: { preferences } })
     .returning({ data: profiles.data });
   const score = row?.data ? await recordMasterScore(user.id, row.data) : null;
+  if (row?.data) after(() => computeMatchesForUser(user.id).catch((e) => console.error("match recompute failed", e)));
   return json({ preferences, score });
 }

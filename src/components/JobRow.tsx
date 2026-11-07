@@ -15,7 +15,9 @@ function expLabel(min: number | null, max: number | null) {
   return `${min} to ${max} yrs`;
 }
 
-export function JobRow({ job, saved, showSave = true, networkCount }: { job: Row; saved?: boolean; showSave?: boolean; networkCount?: number }) {
+export function JobRow({ job, saved, showSave = true, networkCount, matchScore, verdict }: {
+  job: Row; saved?: boolean; showSave?: boolean; networkCount?: number; matchScore?: number; verdict?: string | null;
+}) {
   const salary = formatSalary(job.salaryMin, job.salaryMax, job.salaryCurrency, job.salaryPeriod);
   const exp = expLabel(job.experienceMin, job.experienceMax);
   const fresh = Date.now() - new Date(job.postedAt).getTime() < 2 * 86_400_000;
@@ -32,6 +34,11 @@ export function JobRow({ job, saved, showSave = true, networkCount }: { job: Row
             </h3>
             <p className="mt-0.5 flex flex-wrap items-center gap-2 text-[15px] text-ink-soft">
               {job.companyName}
+              {matchScore !== undefined && (
+                <span className={`rounded-full px-2 py-0.5 text-xs font-medium ${matchScore >= 75 ? "bg-mint-tint text-mint-ink" : matchScore >= 50 ? "bg-marigold-tint text-ink" : "bg-paper text-slate"}`}>
+                  {matchScore}% match{verdict ? ` · ${verdict === "strong" ? "Strong fit" : verdict === "good" ? "Good fit" : "Stretch"}` : ""}
+                </span>
+              )}
               {networkCount ? (
                 <span className="inline-flex items-center gap-1 rounded-full bg-mint-tint px-2 py-0.5 text-xs font-medium text-mint-ink">
                   <Users className="h-3 w-3" aria-hidden />You know {networkCount}

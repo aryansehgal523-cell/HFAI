@@ -32,6 +32,9 @@ export async function Nav() {
                 <Link href="/referrals" className="text-[15px] text-slate transition hover:text-ink">
                   Referrals
                 </Link>
+                <Link href="/coach" className="text-[15px] text-slate transition hover:text-ink">
+                  Coach
+                </Link>
               </>
             )}
           </nav>

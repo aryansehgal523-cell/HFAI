@@ -15,6 +15,8 @@ import { TailorButton } from "@/components/TailorButton";
 import { NetworkCard, type NetworkPerson } from "@/components/NetworkCard";
 import { initialsPreview, networkAt } from "@/lib/referrals/store";
 import { alumniSearchUrl, rankPeople } from "@/lib/referrals/rank";
+import { matchJob } from "@/lib/matching";
+import { matchProfileFor, storedMatches } from "@/lib/match-store";
 
 type Params = Promise<{ id: string }>;
 
@@ -69,6 +71,12 @@ export default async function JobPage({ params }: { params: Params }) {
       alumniUrl: alumniSearchUrl(company.name, profile?.data?.education?.[0]?.school),
     };
   }
+
+  // Why this matches: same pure function as the job list, so the numbers agree.
+  const mp = user ? await matchProfileFor(user.id) : null;
+  const fit = mp ? matchJob(mp.profile, job) : null;
+  const stored = user && fit ? (await storedMatches(user.id, [job.id])).get(job.id) : undefined;
+  const verdict = user?.plan === "PREMIUM" ? stored?.aiVerdict ?? null : null;
 
   const match = profile?.data ? atsScore(resumeToText(profile.data), `${job.title}\n${job.description}`, job.skills) : null;
   const salary = formatSalary(job.salaryMin, job.salaryMax, job.salaryCurrency, job.salaryPeriod);
@@ -134,6 +142,27 @@ export default async function JobPage({ params }: { params: Params }) {
             </div>
           )}
 
+          {fit && (
+            <section aria-labelledby="why-title" className="panel mt-8 p-6">
+              <div className="flex flex-wrap items-baseline justify-between gap-3">
+                <h2 id="why-title" className="text-lg font-semibold">Why this matches</h2>
+                <p className={`font-display text-3xl font-semibold tabular-nums ${fit.score >= 75 ? "text-mint-ink" : fit.score >= 50 ? "text-marigold-deep" : "text-rose"}`}>{fit.score}<span className="text-base text-slate">% match</span></p>
+              </div>
+              {verdict && (
+                <p className="mt-3 rounded-xl bg-cobalt-tint px-4 py-3 text-sm text-ink">
+                  <span className="font-semibold">{verdict === "strong" ? "Strong fit" : verdict === "good" ? "Good fit" : "A stretch"}.</span> {stored?.aiReason}
+                </p>
+              )}
+              <ul className="mt-4 space-y-2 text-[15px] text-ink-soft">
+                {fit.reasons.map((r) => <li key={r} className="flex gap-2"><span aria-hidden className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cobalt" />{r}</li>)}
+              </ul>
+              {fit.missing.length > 0 && (
+                <p className="mt-4 text-sm text-slate">Skills this job asks for that your resume does not show: <span className="text-ink">{fit.missing.join(", ")}</span>. Add them if you have them.</p>
+              )}
+              {user?.plan !== "PREMIUM" && <p className="mt-4 text-xs text-slate"><Link href="/pricing" className="text-cobalt underline underline-offset-2">Premium</Link> adds an AI verdict and a daily top 10 for you.</p>}
+            </section>
+          )}
+
           <div className="mt-10">
             <h2 className="text-lg font-semibold">About the role</h2>
             <div className="mt-4 whitespace-pre-line text-[15.5px] leading-[1.75] text-ink-soft">{job.description}</div>
@@ -175,6 +204,11 @@ export default async function JobPage({ params }: { params: Params }) {
             </div>
           </div>
           {network && <div className="mt-6"><NetworkCard {...network} /></div>}
+          {user && (
+            <Link href={`/coach?job=${job.id}`} className="btn-ghost mt-4 w-full">
+              {user.plan === "PREMIUM" ? "Ask the coach about this job" : "Ask the coach about this job (Premium)"}
+            </Link>
+          )}
           <p className="mt-4 px-1 text-xs leading-relaxed text-slate">
             Listed from {company.name}&apos;s public career page. HireFlow is not the employer and never charges candidates to apply.
           </p>

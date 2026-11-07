@@ -5,6 +5,7 @@ import { and, eq, inArray, ne } from "drizzle-orm";
 import { db } from "@/db";
 import { applications, companies } from "@/db/schema";
 import { networkCountsFor } from "@/lib/referrals/store";
+import { ensureMatches, forYou, storedMatches } from "@/lib/match-store";
 import { JobRow } from "@/components/JobRow";
 import { Filters, SearchBar } from "@/components/Filters";
 import { parseFilters, searchJobs } from "@/lib/jobs-query";
@@ -27,7 +28,10 @@ export default async function JobsPage({ searchParams }: { searchParams: SP }) {
     const counts = await networkCountsFor(user.id, all.map((c) => c.name));
     filters.companyIds = all.filter((c) => counts.has(c.name)).map((c) => c.id);
   }
-  const result = await searchJobs(filters);
+  const tab = sp.tab === "foryou" && user ? "foryou" : "all";
+  const hasProfile = user ? await ensureMatches(user.id) : false;
+  const result = tab === "foryou" && hasProfile ? await forYou(user!.id, filters.page) : await searchJobs(filters);
+  const matches = user && hasProfile ? await storedMatches(user.id, result.rows.map((r) => r.id)) : new Map();
   const networkCounts = user && result.rows.length ? await networkCountsFor(user.id, result.rows.map((r) => r.companyName)) : new Map<string, number>();
 
   let savedIds = new Set<string>();
@@ -46,7 +50,7 @@ export default async function JobsPage({ searchParams }: { searchParams: SP }) {
     return `/jobs?${next.toString()}`;
   };
 
-  const heading = filters.network ? "Jobs where you know someone" : filters.q ? `${filters.q} jobs${filters.location ? ` in ${filters.location}` : ""}` : filters.location ? `Jobs in ${filters.location}` : "All open jobs";
+  const heading = tab === "foryou" && hasProfile ? "Jobs for you" : filters.network ? "Jobs where you know someone" : filters.q ? `${filters.q} jobs${filters.location ? ` in ${filters.location}` : ""}` : filters.location ? `Jobs in ${filters.location}` : "All open jobs";
 
   return (
     <div className="container-x py-10">
@@ -60,6 +64,20 @@ export default async function JobsPage({ searchParams }: { searchParams: SP }) {
         </Suspense>
 
         <section aria-labelledby="results-heading">
+          {user && (
+            <nav aria-label="Job lists" className="mb-5 inline-flex rounded-full border border-line bg-white p-1 text-sm">
+              {[["all", "All jobs", "/jobs"], ["foryou", "For you", "/jobs?tab=foryou"]].map(([k, l, href]) => (
+                <Link key={k} href={href} aria-current={tab === k ? "page" : undefined} className={`rounded-full px-4 py-1.5 ${tab === k ? "bg-ink text-white" : "text-slate hover:text-ink"}`}>{l}</Link>
+              ))}
+            </nav>
+          )}
+          {tab === "foryou" && !hasProfile && (
+            <div className="mb-6 rounded-2xl bg-cobalt-tint p-5 text-ink">
+              <p className="font-semibold">Add your resume to see jobs ranked for you</p>
+              <p className="mt-1 text-sm text-ink-soft">We match your skills, experience, cities and salary to every open job.</p>
+              <Link href="/onboarding" className="btn-primary btn-sm mt-3">Add my resume</Link>
+            </div>
+          )}
           <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-line pb-4">
             <h1 id="results-heading" className="text-3xl font-semibold capitalize-first">{heading}</h1>
             <p className="text-sm text-slate">{result.total.toLocaleString("en-IN")} {result.total === 1 ? "job" : "jobs"}</p>
@@ -74,7 +92,11 @@ export default async function JobsPage({ searchParams }: { searchParams: SP }) {
           ) : (
             <div>
               {result.rows.map((j) => (
-                <JobRow key={j.id} job={j} saved={savedIds.has(j.id)} networkCount={networkCounts.get(j.companyName)} />
+                <JobRow
+                  key={j.id} job={j} saved={savedIds.has(j.id)} networkCount={networkCounts.get(j.companyName)}
+                  matchScore={matches.get(j.id)?.score}
+                  verdict={user?.plan === "PREMIUM" ? matches.get(j.id)?.aiVerdict : null}
+                />
               ))}
             </div>
           )}

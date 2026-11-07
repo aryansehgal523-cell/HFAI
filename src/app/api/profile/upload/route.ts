@@ -1,4 +1,7 @@
 import { eq } from "drizzle-orm";
+import { after } from "next/server";
+import { computeMatchesForUser } from "@/lib/match-store";
+
 import { extractText } from "unpdf";
 import mammoth from "mammoth";
 import { db } from "@/db";
@@ -82,6 +85,7 @@ export async function POST(req: Request) {
       .onConflictDoUpdate({ target: profiles.userId, set: values });
 
     const score = await recordMasterScore(user.id, data);
+    after(() => computeMatchesForUser(user.id).catch((e) => console.error("match recompute failed", e)));
     return json({ data, applicationDetails, fileKind: kind, score });
   } catch (e) {
     console.error("resume upload failed", e);

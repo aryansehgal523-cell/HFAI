@@ -1,4 +1,7 @@
 import { z } from "zod";
+import { after } from "next/server";
+import { computeMatchesForUser } from "@/lib/match-store";
+
 import { db } from "@/db";
 import { profiles, type ResumeData } from "@/db/schema";
 import { apiUser, error, json } from "@/lib/api";
@@ -35,5 +38,6 @@ export async function PUT(req: Request) {
     .values({ userId: user.id, ...values })
     .onConflictDoUpdate({ target: profiles.userId, set: values });
   const score = await recordMasterScore(user.id, values.data);
+  after(() => computeMatchesForUser(user.id).catch((e) => console.error("match recompute failed", e)));
   return json({ ok: true, score });
 }

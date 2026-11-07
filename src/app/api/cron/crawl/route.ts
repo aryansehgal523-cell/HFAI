@@ -2,6 +2,7 @@ import { lt } from "drizzle-orm";
 import { db } from "@/db";
 import { usageEvents } from "@/db/schema";
 import { runCrawl } from "@/lib/ingest/run";
+import { matchNewJobsForActiveUsers } from "@/lib/match-store";
 
 export const maxDuration = 300;
 export const dynamic = "force-dynamic";
@@ -18,5 +19,6 @@ export async function GET(req: Request) {
   // Retention promised in the privacy policy: usage records are kept for 13 months.
   const cutoff = new Date(Date.now() - 395 * 24 * 60 * 60 * 1000);
   const purged = await db.delete(usageEvents).where(lt(usageEvents.createdAt, cutoff)).returning({ id: usageEvents.id });
-  return Response.json({ ...result, usageEventsPurged: purged.length });
+  const matched = await matchNewJobsForActiveUsers().catch((e) => ({ error: String(e) }));
+  return Response.json({ ...result, usageEventsPurged: purged.length, matched });
 }

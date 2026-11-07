@@ -289,6 +289,53 @@ export const referralRequests = pgTable(
   (t) => [index("referral_requests_user_idx").on(t.userId, t.status), index("referral_requests_job_idx").on(t.userId, t.jobId)],
 );
 
+// ─── Job matching and AI coach ──────────────────────────────
+/** Deterministic match score per user and job (src/lib/matching.ts), plus the daily AI verdict. */
+export const jobMatches = pgTable(
+  "job_matches",
+  {
+    userId: text("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+    jobId: text("job_id").notNull().references(() => jobs.id, { onDelete: "cascade" }),
+    score: integer("score").notNull(),
+    reasons: jsonb("reasons").$type<string[]>().notNull(),
+    missing: text("missing").array().default([]).notNull(),
+    aiVerdict: text("ai_verdict"), // strong | good | stretch (Premium)
+    aiReason: text("ai_reason"),
+    aiAt: timestamp("ai_at", { withTimezone: true }),
+    computedAt: timestamp("computed_at", { withTimezone: true }).defaultNow().notNull(),
+  },
+  (t) => [primaryKey({ columns: [t.userId, t.jobId] }), index("job_matches_user_score_idx").on(t.userId, t.score)],
+);
+
+export const coachThreads = pgTable(
+  "coach_threads",
+  {
+    id: id(),
+    userId: text("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+    title: text("title").notNull(),
+    kind: text("kind").notNull().default("chat"), // chat | interview | mock | calls | week | negotiate
+    jobId: text("job_id").references(() => jobs.id, { onDelete: "set null" }),
+    createdAt: created(),
+    updatedAt: updated(),
+  },
+  (t) => [index("coach_threads_user_idx").on(t.userId, t.updatedAt)],
+);
+
+export const coachMessages = pgTable(
+  "coach_messages",
+  {
+    id: id(),
+    threadId: text("thread_id").notNull().references(() => coachThreads.id, { onDelete: "cascade" }),
+    userId: text("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+    role: text("role").notNull(), // user | assistant
+    content: text("content").notNull(),
+    inputTokens: integer("input_tokens").default(0).notNull(),
+    outputTokens: integer("output_tokens").default(0).notNull(),
+    createdAt: created(),
+  },
+  (t) => [index("coach_messages_thread_idx").on(t.threadId, t.createdAt)],
+);
+
 /** History of resume scores, for the trend line and to keep every screen in agreement. */
 export const resumeScores = pgTable(
   "resume_scores",

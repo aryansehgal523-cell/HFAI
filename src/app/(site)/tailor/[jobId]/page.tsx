@@ -42,7 +42,8 @@ export default async function TailorPage({ params }: { params: Promise<{ jobId: 
           <h1 className="text-3xl font-semibold sm:text-4xl">{found.job.title}, {found.company.name}</h1>
         </div>
         {t && (
-          <div className="w-full sm:w-56">
+          <div className="flex w-full flex-col gap-2 sm:w-56">
+            <Link href={`/coach?job=${jobId}`} className="btn-ghost btn-sm w-full">Ask the coach about this job</Link>
             <TailorButton jobId={jobId} loggedIn hasProfile={Boolean(profile?.data)} credits={user.credits} existing regenerate />
           </div>
         )}

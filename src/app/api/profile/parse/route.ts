@@ -1,4 +1,7 @@
 import { z } from "zod";
+import { after } from "next/server";
+import { computeMatchesForUser } from "@/lib/match-store";
+
 import { db } from "@/db";
 import { profiles } from "@/db/schema";
 import { apiUser, error, json, rateLimit } from "@/lib/api";
@@ -30,6 +33,7 @@ export async function POST(req: Request) {
     };
     await db.insert(profiles).values({ userId: user.id, ...values }).onConflictDoUpdate({ target: profiles.userId, set: values });
     const score = await recordMasterScore(user.id, data);
+    after(() => computeMatchesForUser(user.id).catch((e) => console.error("match recompute failed", e)));
     return json({ data, applicationDetails, score });
   } catch (e) {
     console.error("parseResume failed", e);

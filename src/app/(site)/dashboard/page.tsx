@@ -7,6 +7,8 @@ import { applications, companies, jobs, profiles, referralRequests, tailorings }
 import { requireUser } from "@/lib/session";
 import { Tracker, type TrackerItem } from "@/components/Tracker";
 import { PLANS } from "@/lib/plans";
+import { after } from "next/server";
+import { aiRerankIfDue, ensureMatches, forYou } from "@/lib/match-store";
 
 export const metadata: Metadata = { title: "Application tracker" };
 
@@ -45,6 +47,12 @@ export default async function Dashboard() {
     closed: Boolean(r.closedAt),
     referral: referralBy.get(r.jobId) ?? null,
   }));
+  const premium = user.plan === "PREMIUM";
+  const hasMatches = profile?.data ? await ensureMatches(user.id) : false;
+  const top = hasMatches ? (await forYou(user.id, 1, premium ? 10 : 3)).rows : [];
+  // The daily AI verdicts run after this response is sent; they show on the next visit.
+  if (premium && hasMatches) after(() => aiRerankIfDue(user.id).catch((e) => console.error("rerank failed", e)));
+
   const applied = items.filter((i) => ["APPLIED", "INTERVIEWING", "OFFER"].includes(i.status)).length;
   const allowance = user.plan === "PREMIUM" ? PLANS.monthly.monthlyCredits : PLANS.free.monthlyCredits;
   const resetsOn = new Date(new Date(user.creditsResetAt).getTime() + 30 * 86_400_000);
@@ -78,6 +86,29 @@ export default async function Dashboard() {
           <p className="text-ink"><span className="font-semibold">Add your master resume</span> so HireFlow can tailor it to the jobs you save.</p>
           <Link href="/profile" className="btn-primary btn-sm">Add resume</Link>
         </div>
+      )}
+
+      {top.length > 0 && (
+        <section aria-labelledby="top-title" className="panel mt-8 p-6">
+          <div className="flex flex-wrap items-baseline justify-between gap-3">
+            <h2 id="top-title" className="text-xl font-semibold">{premium ? "Top 10 for you today" : "Your best matches"}</h2>
+            <Link href="/jobs?tab=foryou" className="text-sm text-cobalt underline-offset-2 hover:underline">See all matches</Link>
+          </div>
+          <ol className="mt-4 divide-y divide-line">
+            {top.map((j, i) => (
+              <li key={j.id} className="flex items-start gap-4 py-3">
+                <span className="w-6 shrink-0 pt-0.5 font-display text-lg font-semibold text-slate">{i + 1}</span>
+                <div className="min-w-0 flex-1">
+                  <Link href={`/jobs/${j.id}`} className="font-medium hover:text-cobalt">{j.title}</Link>
+                  <p className="text-sm text-slate">{j.companyName} · {j.location}</p>
+                  {premium && j.aiReason && <p className="mt-1 text-sm text-ink-soft">{j.aiVerdict === "strong" ? "Strong fit: " : j.aiVerdict === "good" ? "Good fit: " : "Stretch: "}{j.aiReason}</p>}
+                </div>
+                <span className={`shrink-0 rounded-full px-2.5 py-1 text-xs font-medium ${j.score >= 75 ? "bg-mint-tint text-mint-ink" : "bg-paper text-slate"}`}>{j.score}%</span>
+              </li>
+            ))}
+          </ol>
+          {!premium && <p className="mt-3 text-sm text-slate"><Link href="/pricing" className="text-cobalt underline underline-offset-2">Premium</Link> ranks a fresh top 10 every day with an AI verdict on each.</p>}
+        </section>
       )}
 
       <div className="mt-10">
