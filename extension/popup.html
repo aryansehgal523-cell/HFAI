@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>HireFlow</title>
+  <style>
+    body { width: 300px; margin: 0; padding: 16px; font: 14px/1.45 system-ui, -apple-system, Segoe UI, sans-serif; color: #0f1a2e; background: #f6f7fb; }
+    @media (prefers-color-scheme: dark) { body { background: #0b111e; color: #eceff6; } .card { background: #151e30 !important; border-color: #2a354c !important; } input { background: #0b111e; color: #eceff6; border-color: #2a354c !important; } small, .muted { color: #a4acbe !important; } }
+    h1 { font-size: 16px; margin: 0 0 12px; }
+    .card { background: #fff; border: 1px solid #e2e5ee; border-radius: 14px; padding: 14px; }
+    label { display: block; font-weight: 600; margin-bottom: 6px; }
+    input[type=text] { width: 100%; box-sizing: border-box; font: 600 18px ui-monospace, monospace; letter-spacing: .15em; text-transform: uppercase; padding: 8px 10px; border: 1px solid #e2e5ee; border-radius: 10px; }
+    button { font: 600 14px system-ui, sans-serif; border: 0; border-radius: 999px; padding: 9px 14px; cursor: pointer; background: #3346f2; color: #fff; width: 100%; margin-top: 10px; }
+    button.ghost { background: transparent; color: inherit; border: 1px solid #e2e5ee; }
+    button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid #ffb627; outline-offset: 2px; }
+    .err { color: #cd2b33; min-height: 1em; margin: 6px 0 0; }
+    .muted, small { color: #5b6478; }
+    .switch { display: flex; align-items: center; justify-content: space-between; margin: 12px 0 4px; font-weight: 400; }
+    a { color: #3346f2; }
+    ol { padding-left: 18px; margin: 8px 0 0; }
+  </style>
+</head>
+<body>
+  <h1>HireFlow autofill</h1>
+  <section id="connect" class="card" hidden>
+    <form id="connect-form">
+      <label for="code">Connection code</label>
+      <input id="code" type="text" autocomplete="off" maxlength="9" placeholder="ABCD-EFGH" required />
+      <p id="connect-error" class="err" role="alert"></p>
+      <button type="submit">Connect</button>
+    </form>
+    <ol class="muted">
+      <li>Open <a id="settings" target="_blank" rel="noopener">HireFlow Settings</a>.</li>
+      <li>Press <strong>Connect the Chrome extension</strong> and copy the code.</li>
+    </ol>
+  </section>
+  <section id="account" class="card" hidden>
+    <div><strong id="who">…</strong></div>
+    <div id="plan" class="muted">…</div>
+    <label class="switch">Show the autofill button <input id="enabled" type="checkbox" /></label>
+    <button id="fill-now" type="button">Autofill this page</button>
+    <p id="fill-status" class="muted" role="status"></p>
+    <p><a id="dashboard" target="_blank" rel="noopener">Open my HireFlow tracker</a></p>
+    <button id="disconnect" type="button" class="ghost">Disconnect</button>
+  </section>
+  <p><small>Nothing is read or sent until you press Autofill. HireFlow never submits a form for you.</small></p>
+  <script src="popup.js"></script>
+</body>
+</html>

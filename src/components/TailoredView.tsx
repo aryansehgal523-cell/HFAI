@@ -137,7 +137,8 @@ export function TailoredView(p: Props) {
           <p className="mb-1 text-sm font-semibold">Download</p>
           {tab === "resume" ? (
             <>
-              <a href={`/print/${p.jobId}`} target="_blank" className="btn-ink w-full"><FileDown className="h-4 w-4" />Resume as PDF</a>
+              <a href={`/api/resume/pdf?jobId=${p.jobId}`} download className="btn-ink w-full"><FileDown className="h-4 w-4" />Resume as PDF</a>
+              <a href={`/print/${p.jobId}`} target="_blank" className="block text-center text-xs text-slate underline-offset-2 hover:underline">Or print it from your browser</a>
               <button onClick={premiumOnly(() => downloadResumeDocx(resume, p.company, p.jobTitle))} className="btn-ghost w-full">
                 {p.premium ? <Download className="h-4 w-4" /> : <Lock className="h-4 w-4" />}Resume as Word
               </button>

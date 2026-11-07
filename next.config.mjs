@@ -17,9 +17,14 @@ const nextConfig = {
     minimumCacheTTL: 60 * 60 * 24 * 7,
     remotePatterns: [{ protocol: "https", hostname: "lh3.googleusercontent.com" }],
   },
-  serverExternalPackages: ["pg", "razorpay"],
-  // Ship the font files the share image reads at runtime
-  outputFileTracingIncludes: { "/opengraph-image": ["./node_modules/@fontsource/ibm-plex-sans/files/*.woff"], "/twitter-image": ["./node_modules/@fontsource/ibm-plex-sans/files/*.woff"] },
+  serverExternalPackages: ["pg", "razorpay", "pdfmake", "mammoth"],
+  // Ship files read at runtime: share image fonts, and the PDF standard font metrics (pdfkit)
+  outputFileTracingIncludes: {
+    "/opengraph-image": ["./node_modules/@fontsource/ibm-plex-sans/files/*.woff"],
+    "/twitter-image": ["./node_modules/@fontsource/ibm-plex-sans/files/*.woff"],
+    "/api/resume/pdf": ["./node_modules/pdfkit/js/data/*.afm"],
+    "/api/ext/resume": ["./node_modules/pdfkit/js/data/*.afm"],
+  },
   async headers() {
     return [
       { source: "/(.*)", headers: securityHeaders },

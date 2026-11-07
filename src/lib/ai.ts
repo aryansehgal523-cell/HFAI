@@ -367,3 +367,29 @@ export async function streamCoachReply(input: {
   }
   return { text, inputTokens, outputTokens, model: STRONG };
 }
+
+// ─── Application form answers (extension, Premium) ────────────
+
+/** A short answer to a custom application question, written only from the user's real resume. */
+export async function answerApplicationQuestion(input: {
+  question: string;
+  maxWords: number;
+  resume: ResumeData;
+  job: { title: string; company: string; description: string } | null;
+}) {
+  const { data, inputTokens, outputTokens } = await callJson({
+    model: STRONG,
+    effort: "low",
+    system: "You help Indian job seekers answer application form questions. Write in the first person, plainly and specifically, using ONLY facts from the resume. Never invent experience, numbers or reasons. If the resume cannot support an answer, write a short honest answer the user can edit, and put what they should add in square brackets.",
+    messages: [{
+      role: "user",
+      content: `Question on the form: """${input.question.slice(0, 600)}"""
+Keep it under ${input.maxWords} words.
+${input.job ? `Job: ${input.job.title} at ${input.job.company}\n${input.job.description.slice(0, 4000)}` : "Job: unknown"}
+Resume: ${JSON.stringify({ headline: input.resume.headline, summary: input.resume.summary, experience: input.resume.experience.slice(0, 4), projects: input.resume.projects.slice(0, 3), skills: input.resume.skills })}
+
+Return only JSON: {"answer": string}`,
+    }],
+  }, z.object({ answer: z.string().min(1) }));
+  return { answer: data.answer.trim(), inputTokens, outputTokens };
+}

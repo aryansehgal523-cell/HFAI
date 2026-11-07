@@ -14,3 +14,5 @@ next-env.d.ts
 !.env.example
 *.pem
 .claude/settings.local.json
+
+extension/dist

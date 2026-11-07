@@ -15,7 +15,10 @@
     "lint": "next lint",
     "start": "next start",
     "test": "tsx --test tests/*.test.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "ext:build": "node scripts/build-extension.mjs",
+    "ext:typecheck": "tsc -p extension --noEmit",
+    "ext:test-forms": "node scripts/ext-test-forms.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0",
@@ -43,6 +46,7 @@
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
+    "@types/chrome": "0.3.6",
     "@types/node": "^22.10.0",
     "@types/pdfmake": "0.3.3",
     "@types/pg": "^8.23.1",
@@ -50,6 +54,7 @@
     "@types/react-dom": "^19.0.0",
     "autoprefixer": "^10.4.20",
     "drizzle-kit": "0.31.11",
+    "esbuild": "0.28.2",
     "postcss": "^8.5.32",
     "tailwindcss": "^3.4.15",
     "tsx": "^4.19.2",

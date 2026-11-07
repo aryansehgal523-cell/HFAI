@@ -7,6 +7,7 @@ import { requireUser } from "@/lib/session";
 import { formatINR } from "@/lib/utils";
 import { splitGst } from "@/lib/plans";
 import { CancelPlan, DeleteAccount, DeleteConnections, TopUp } from "@/components/SettingsActions";
+import { ExtensionConnect } from "@/components/ExtensionConnect";
 
 export const metadata: Metadata = { title: "Account and billing" };
 
@@ -85,6 +86,11 @@ export default async function Settings() {
           </div>
         )}
         <p className="mt-4 text-xs text-slate">Need a GST invoice with your company&apos;s GSTIN? <Link href="/contact" className="underline">Contact billing</Link>.</p>
+      </Card>
+
+      <Card title="Chrome extension">
+        <p className="mb-4 text-[15px] text-slate">Fill job application forms in one click with your details and the right resume. <Link href="/extension" className="text-cobalt underline underline-offset-2">How it works</Link></p>
+        <ExtensionConnect />
       </Card>
 
       <Card title="Your network">

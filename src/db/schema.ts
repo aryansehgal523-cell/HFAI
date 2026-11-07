@@ -336,6 +336,31 @@ export const coachMessages = pgTable(
   (t) => [index("coach_messages_thread_idx").on(t.threadId, t.createdAt)],
 );
 
+// ─── Chrome extension ───────────────────────────────────────
+/** Long lived extension tokens. Only a SHA-256 hash is stored; the token is shown to the extension once. */
+export const extensionTokens = pgTable(
+  "extension_tokens",
+  {
+    id: id(),
+    userId: text("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+    tokenHash: text("token_hash").notNull().unique(),
+    name: text("name").notNull(),
+    lastUsedAt: timestamp("last_used_at", { withTimezone: true }),
+    createdAt: created(),
+    revokedAt: timestamp("revoked_at", { withTimezone: true }),
+  },
+  (t) => [index("extension_tokens_user_idx").on(t.userId)],
+);
+
+/** One time 8 character codes from Settings, valid for 10 minutes, exchanged for a token. */
+export const extensionCodes = pgTable("extension_codes", {
+  codeHash: text("code_hash").primaryKey(),
+  userId: text("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+  expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
+  usedAt: timestamp("used_at", { withTimezone: true }),
+  createdAt: created(),
+});
+
 /** History of resume scores, for the trend line and to keep every screen in agreement. */
 export const resumeScores = pgTable(
   "resume_scores",
@@ -391,6 +416,7 @@ export const tailoringsRelations = relations(tailorings, ({ one }) => ({
 
 export type Connection = typeof connections.$inferSelect;
 export type ReferralRequest = typeof referralRequests.$inferSelect;
+export type ExtensionToken = typeof extensionTokens.$inferSelect;
 export type Job = typeof jobs.$inferSelect;
 export type Company = typeof companies.$inferSelect;
 export type User = typeof users.$inferSelect;

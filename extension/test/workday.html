@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8" /><title>Kestrel Pay Careers - Apply (Workday style)</title>
+<style>body{font:15px system-ui;max-width:640px;margin:32px auto;padding:0 16px}[data-automation-id=formField]{margin:14px 0}label,legend{display:block;font-weight:600;margin-bottom:4px}input,select{width:100%;padding:8px;box-sizing:border-box}fieldset{border:0;padding:0}fieldset label{display:inline;font-weight:400;margin-right:12px}fieldset input{width:auto}</style></head>
+<body>
+<h1>Software Engineer, Backend</h1>
+<p id="progress">Step 1 of 2: My Information</p>
+<div id="step"></div>
+<script>
+  // Workday renders one step at a time; the next step's fields appear after "Save and Continue".
+  const steps = [
+    `<div data-automation-id="formField"><label for="name--legalName--firstName">Given Name(s) *</label><input id="name--legalName--firstName" aria-required="true" /></div>
+     <div data-automation-id="formField"><label for="name--legalName--lastName">Family Name *</label><input id="name--legalName--lastName" aria-required="true" /></div>
+     <div data-automation-id="formField"><label for="address--city">City</label><input id="address--city" /></div>
+     <div data-automation-id="formField"><label for="address--postalCode">Postal Code</label><input id="address--postalCode" /></div>
+     <div data-automation-id="formField"><label for="phone-number">Phone Number *</label><input id="phone-number" aria-required="true" /></div>
+     <button id="next" type="button">Save and Continue</button>`,
+    `<div data-automation-id="formField"><label for="exp">Total years of experience</label><input id="exp" /></div>
+     <div data-automation-id="formField"><label for="ctc1">Current CTC (in LPA)</label><input id="ctc1" /></div>
+     <div data-automation-id="formField"><label for="ctc2">Expected CTC (in LPA)</label><input id="ctc2" /></div>
+     <div data-automation-id="formField"><label for="np">Notice Period</label><select id="np"><option>Select One</option><option>Immediate Joiner</option><option>15 Days</option><option>1 Month</option><option>2 Months</option><option>3 Months</option></select></div>
+     <div data-automation-id="formField"><label for="school">School or University</label><input id="school" /></div>
+     <div data-automation-id="formField"><fieldset><legend>Are you authorised to work in India?</legend><label><input type="radio" name="auth" value="yes" /> Yes</label><label><input type="radio" name="auth" value="no" /> No</label></fieldset></div>
+     <div data-automation-id="formField"><fieldset><legend>Are you willing to relocate?</legend><label><input type="radio" name="reloc" value="yes" /> Yes</label><label><input type="radio" name="reloc" value="no" /> No</label></fieldset></div>
+     <div data-automation-id="formField"><label for="start">Earliest start date *</label><input id="start" type="date" aria-required="true" /></div>
+     <button id="submit" type="button">Submit</button>`,
+  ];
+  let i = 0;
+  function render() {
+    document.getElementById("step").innerHTML = steps[i];
+    document.getElementById("progress").textContent = `Step ${i + 1} of 2`;
+    const next = document.getElementById("next");
+    if (next) next.onclick = () => { i++; render(); };
+    const submit = document.getElementById("submit");
+    if (submit) submit.onclick = () => { document.body.innerHTML = "<h1>Application submitted</h1><p>Thank you for your application.</p>"; };
+  }
+  render();
+</script>
+</body>
+</html>

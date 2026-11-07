@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8" /><title>Apply: Software Engineer, Backend at Kestrel Pay (Greenhouse style)</title>
+<style>body{font:15px system-ui;max-width:640px;margin:32px auto;padding:0 16px}.field{margin:14px 0}label{display:block;font-weight:600;margin-bottom:4px}input,select,textarea{width:100%;padding:8px;box-sizing:border-box}</style></head>
+<body>
+<h1>Software Engineer, Backend</h1>
+<form id="application_form" action="#" onsubmit="event.preventDefault(); document.body.innerHTML = '<h1>Thank you for applying!</h1>';">
+  <div class="field"><label for="first_name">First Name <span>*</span></label><input id="first_name" name="job_application[first_name]" required /></div>
+  <div class="field"><label for="last_name">Last Name <span>*</span></label><input id="last_name" name="job_application[last_name]" required /></div>
+  <div class="field"><label for="email">Email <span>*</span></label><input id="email" type="email" name="job_application[email]" required /></div>
+  <div class="field"><label for="phone">Phone</label><input id="phone" type="tel" name="job_application[phone]" /></div>
+  <div class="field"><label for="resume">Resume/CV <span>*</span></label><input id="resume" type="file" name="job_application[resume]" required /></div>
+  <div class="field"><label for="q0">LinkedIn Profile</label><input id="q0" name="job_application[answers_attributes][0][text_value]" /></div>
+  <div class="field"><label for="q1">Website</label><input id="q1" name="job_application[answers_attributes][1][text_value]" /></div>
+  <div class="field"><label for="q2">Are you legally authorized to work in the United States?</label><select id="q2"><option>--</option><option>Yes</option><option>No</option></select></div>
+  <div class="field"><label for="q3">Will you now or in the future require sponsorship for employment visa status?</label><select id="q3"><option>--</option><option>Yes</option><option>No</option></select></div>
+  <div class="field"><label for="q4">Why do you want to work at Kestrel Pay?</label><textarea id="q4" rows="4" required></textarea></div>
+  <div class="field"><label for="q5">Salary history (last 3 years) *</label><input id="q5" required /></div>
+  <div class="field"><label for="gender">Gender</label><select id="gender"><option></option><option>Male</option><option>Female</option><option>Decline To Self Identify</option></select></div>
+  <button type="submit">Submit application</button>
+</form>
+</body>
+</html>
