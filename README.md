@@ -1,6 +1,19 @@
 # HireFlow AI
 
-Real jobs from company career pages, and a resume in Google's XYZ format written for every one.
+Real jobs from company career pages, ranked for you. A resume in Google's XYZ format written for every one, a resume score you can watch go up, one click autofill, and the people who can refer you.
+
+**Apply first** (AI job matching) · **Apply right** (tailored resume, resume score, autofill) · **Get referred** (referral engine)
+
+| Feature | Free | Premium (₹999 / month or ₹7,999 / year) |
+| --- | --- | --- |
+| Job search, ghost job filter, tracker | Yes | Yes |
+| Tailored resumes and cover letters | 3 a month | 30 a month (+ ₹199 for 10 more) |
+| Resume upload (PDF / Word) with autofill of your profile | Yes | Yes |
+| Resume score with fixes | Yes | Yes, before and after every tailoring |
+| Job matching | Score and reasons on every job | Plus AI verdicts and a daily top 10 |
+| Referral engine | Import your network, see how many you know | Names, ranking, drafted requests, tracking |
+| AI coach | Sample conversations | 60 messages a day |
+| Chrome extension autofill | Contact details, 3 applications a month | Every field, resume attached, AI answers |
 
 Built with Next.js 15 (App Router), PostgreSQL + Drizzle ORM, NextAuth (Google + email), Razorpay Subscriptions, the Anthropic API, Tailwind CSS and Framer Motion.
 
@@ -23,7 +36,15 @@ Built with Next.js 15 (App Router), PostgreSQL + Drizzle ORM, NextAuth (Google +
 | Legal: privacy, terms, refund, grievance officer, employer page | `src/app/(site)/{privacy,terms,refund,contact,bot}` |
 | SEO: sitemap, robots, metadata | `src/app/sitemap.ts`, `src/app/robots.ts` |
 | Database schema and migrations | `src/db/schema.ts`, `drizzle/` |
-| Tests (crawler mapping, parsing, ghost score, ATS, invoices) | `tests/` |
+| Resume upload (PDF via Claude + unpdf, DOCX via mammoth), onboarding | `src/app/api/profile/upload`, `src/app/(site)/onboarding`, `src/lib/resume-file.ts` |
+| Resume score (pure, 7 categories) and history | `src/lib/resumeScore.ts`, `src/lib/score-store.ts`, `src/components/ResumeScoreUI.tsx` |
+| Referral engine (LinkedIn CSV, company matching, ranking, drafts, tracking) | `src/lib/referrals`, `src/app/(site)/referrals`, `src/app/api/referrals` |
+| Job matching and daily AI verdicts | `src/lib/matching.ts`, `src/lib/match-store.ts` |
+| AI coach (streaming, in hand pay tool) | `src/app/(site)/coach`, `src/app/api/coach`, `src/lib/coach.ts`, `src/lib/tax.ts` |
+| Server side resume PDF | `src/lib/resume-pdf.ts`, `/api/resume/pdf` |
+| Chrome extension (MV3) and its API | `extension/`, `src/app/api/ext`, `src/lib/ext-auth.ts` |
+| Fair use limits stored in the database | `src/lib/usage.ts` (`usage_events`) |
+| Tests (crawler, parsing, scoring, matching, referrals, tax, field mapping...) | `tests/` |
 
 ## Modern website checklist
 
@@ -102,6 +123,20 @@ Create a key at console.anthropic.com and set `ANTHROPIC_API_KEY`. Model names a
 5. Test the full flow with Razorpay's test cards and test UPI ids, then switch to live keys.
 
 How billing works: Checkout unlocks Premium instantly (signature verified in `/api/billing/verify`), every renewal arrives as `subscription.charged` which records the payment, creates a GST invoice number (`HF/2026-27/000001` style) and resets credits to 30. Cancelling keeps Premium until the period ends. Webhooks are idempotent.
+
+### Chrome extension
+1. `npm run ext:build` builds `extension/dist` for `http://localhost:3000`. For production run `HIREFLOW_API=https://yourdomain npm run ext:build` (the API origin is baked into the build and its host permission).
+2. Chrome → `chrome://extensions` → Developer mode → **Load unpacked** → `extension/dist`. Copy the extension id it shows.
+3. Set `EXTENSION_ID` to that id in production so `/api/ext` only accepts requests from your extension (in development any unpacked extension is allowed).
+4. In HireFlow → Account and billing → **Connect the Chrome extension**, then type the code into the extension.
+5. Try it on the local test forms: `npm run ext:test-forms` and open http://localhost:5178 (Greenhouse, Lever and a two step Workday form).
+6. Chrome Web Store: zip `extension/dist` (after a production build), add 128 px icons and screenshots, and submit. The store listing needs your privacy policy URL and a justification for the `scripting` and host permissions (filling the form the user chooses).
+
+### Resume score, matching and coach
+* Resume score and job matching are pure functions (no AI, no cost). Matches are recomputed after profile changes and for new jobs after each crawl.
+* Premium AI verdicts run at most once a day per user, in the background. The coach uses `ANTHROPIC_STRONG_MODEL`; parsing and verdicts use `ANTHROPIC_FAST_MODEL`.
+* The in hand pay estimate uses the tax slabs in `src/lib/tax.ts` (`TAX_CONFIG`, FY 2025-26). **Check them after every Union Budget.**
+* Development only: `HF_DEV_NOW=2026-12-01` (or `/referrals?asOf=2026-12-01`) pretends it is another date, to test referral follow ups.
 
 ### Analytics (optional)
 Create a Google Analytics 4 property, copy the measurement id (`G-XXXXXXX`) into `NEXT_PUBLIC_GA_ID`. It only loads for visitors who choose "Allow analytics".

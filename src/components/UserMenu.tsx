@@ -41,8 +41,9 @@ export function UserMenu(props: {
         ) : (
           <span className="grid h-7 w-7 place-items-center rounded-full bg-cobalt text-sm font-semibold text-white">{initial}</span>
         )}
-        <span className="text-sm font-medium tabular-nums text-ink">
-          {props.credits} <span className="font-normal text-slate">credits</span>
+        <span className="whitespace-nowrap text-sm font-medium tabular-nums text-ink">
+          {props.credits}
+          <span className="font-normal text-slate"> <span className="sm:hidden" aria-hidden>cr</span><span className="hidden sm:inline">credits</span><span className="sr-only sm:hidden">credits</span></span>
         </span>
       </button>
       <AnimatePresence>

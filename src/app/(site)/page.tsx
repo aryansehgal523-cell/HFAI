@@ -13,16 +13,16 @@ export const revalidate = 300;
 
 const STEPS = [
   {
-    title: "Find a real job",
-    body: "We read company career pages several times a day. Closed, stale and reposted listings are hidden, and every Apply button goes to the company itself.",
+    title: "Apply first",
+    body: "Fresh openings straight from company career pages, ranked for you. Every job shows a match score and the reasons behind it, so you reach the right roles before the crowd does.",
   },
   {
-    title: "Tailor in one click",
-    body: "Your master resume is rewritten for that one job: the right projects first, the job's keywords where they are true, every bullet in XYZ format.",
+    title: "Apply right",
+    body: "A resume rewritten for each job in XYZ format, a resume score you can watch go up, and one click autofill that fills the application with the right resume attached.",
   },
   {
-    title: "Apply and track",
-    body: "Download a clean, ATS safe PDF or Word file with a matching cover letter, apply on the company site, and track every application in one place.",
+    title: "Get referred",
+    body: "See who you know at every company, who to ask first, and send a personal referral request built from your resume. Then track who replied.",
   },
 ];
 
@@ -37,7 +37,8 @@ const FAQ = [
   { q: "Where do the jobs come from?", a: "Directly from company career pages and the public job boards of the hiring systems they use, such as Greenhouse, Lever and Ashby. We never copy listings from LinkedIn, Naukri or Indeed, and every job links to the company's own application page." },
   { q: "Will the AI invent experience I don't have?", a: "No. HireFlow only rearranges and rewrites facts from your master resume. If a bullet would be stronger with a number you haven't given us, it asks you for it rather than guessing." },
   { q: "What is a credit?", a: "One credit gives you a resume and cover letter tailored to one job, with unlimited edits and downloads for that job. Free accounts get 3 credits a month, Premium gets 30." },
-  { q: "Do you apply to jobs for me?", a: "You stay in control. We prepare everything and send you to the company's application page; you review and press submit. Bots that auto apply get accounts banned and annoy recruiters." },
+  { q: "Do you apply to jobs for me?", a: "You stay in control. The Chrome extension fills the form and attaches your resume, but you review it and press submit yourself. Bots that auto apply get accounts banned and annoy recruiters." },
+  { q: "Is my LinkedIn network safe with you?", a: "Your contacts are visible only to you and are never used for anyone else. We never message them or scrape LinkedIn: you upload LinkedIn's own export, and you send every referral request yourself. You can delete your network at any time." },
   { q: "Can I cancel any time?", a: "Yes. Cancel from your account page and Premium stays active until the end of the period you've paid for. See our refund policy for details." },
 ];
 
@@ -61,7 +62,7 @@ export default async function Home() {
               <span className="text-ink-soft">A new resume for every&nbsp;one.</span>
             </h1>
             <p className="mt-6 max-w-[34rem] text-lg text-slate">
-              HireFlow finds fresh openings straight from company career pages, then rewrites your resume in Google&apos;s XYZ format and drafts a cover letter for each job you choose.
+              HireFlow finds fresh openings straight from company career pages, ranks them for you, rewrites your resume for each job, and shows you who can refer you.
             </p>
 
             <div className="mt-8">
@@ -88,7 +89,7 @@ export default async function Home() {
 
       {/* How it works: a real sequence */}
       <section className="container-x py-24">
-        <h2 className="max-w-2xl text-4xl font-semibold sm:text-5xl">From search to submitted in about ten minutes</h2>
+        <h2 className="max-w-2xl text-4xl font-semibold sm:text-5xl">Apply first. Apply right. Get referred.</h2>
         <ol className="mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
           {STEPS.map((s, i) => (
             <li key={s.title} className="relative">
@@ -125,6 +126,59 @@ export default async function Home() {
             </dl>
           </div>
           <XyzCompare />
+        </div>
+      </section>
+
+      {/* Referral engine */}
+      <section id="referrals" className="container-x scroll-mt-20 py-24">
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+          <div>
+            <h2 className="text-4xl font-semibold sm:text-5xl">A referral beats a hundred cold applications</h2>
+            <p className="mt-5 text-lg text-slate">
+              Upload your LinkedIn connections once. On every job, HireFlow shows who you know at that company, ranks who can help most, and drafts a short, personal request that links your best results to the role.
+            </p>
+            <ul className="mt-6 space-y-2 text-ink-soft">
+              <li>• Alumni and ex colleagues first, then team leads, then recruiters</li>
+              <li>• Messages written from your real resume, never invented</li>
+              <li>• Follow up reminders, and a clear view of who replied</li>
+            </ul>
+            <Link href="/referrals" className="btn-ink mt-8">Connect your network</Link>
+          </div>
+          <div className="panel p-6" aria-hidden>
+            <p className="text-sm font-semibold">Your network at Kestrel Pay</p>
+            {[["Ishaan Gupta", "Staff Engineer", "Ex colleague", "Leads a team in this area"], ["Deepa Krishnan", "Backend Developer", "Alumni", "Works in the same area as this role"], ["Kavya Rao", "Talent Acquisition Lead", "", "Recruiter, can tell you about the role"]].map(([n, p, rel, why]) => (
+              <div key={n} className="mt-3 rounded-xl border border-line p-3">
+                <p className="font-medium text-ink">{n}</p>
+                <p className="text-sm text-slate">{p}</p>
+                <div className="mt-1.5 flex flex-wrap gap-1.5">
+                  {rel && <span className="rounded-md bg-mint-tint px-2 py-0.5 text-xs text-mint-ink">{rel}</span>}
+                  <span className="rounded-md bg-cobalt-tint px-2 py-0.5 text-xs text-ink">{why}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Chrome extension */}
+      <section className="bg-white py-24">
+        <div className="container-x grid gap-12 lg:grid-cols-2 lg:items-center">
+          <div className="order-2 lg:order-1 panel p-6" aria-hidden>
+            <p className="text-sm text-mint-ink">Filled 18 fields.</p>
+            <p className="text-sm text-marigold-deep">2 need you: salary history, start date.</p>
+            <p className="mt-2 text-xs text-slate">Your tailored resume for this job was used. Check everything, then submit the form yourself.</p>
+            <div className="mt-4 border-t border-line pt-3">
+              <p className="text-sm text-ink">Why do you want to work here?</p>
+              <span className="mt-2 inline-block rounded-full bg-cobalt-tint px-3 py-1 text-xs font-medium text-cobalt">Write with AI</span>
+            </div>
+          </div>
+          <div className="order-1 lg:order-2">
+            <h2 className="text-4xl font-semibold sm:text-5xl">Fill the application in one click</h2>
+            <p className="mt-5 text-lg text-slate">
+              The HireFlow Chrome extension fills Greenhouse, Lever, Ashby, Workday and other application forms with your details, attaches the resume tailored to that job, and helps you answer the custom questions. You always review and press submit.
+            </p>
+            <Link href="/extension" className="btn-ink mt-8">See how it works</Link>
+          </div>
         </div>
       </section>
 

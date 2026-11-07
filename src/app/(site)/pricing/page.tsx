@@ -31,7 +31,7 @@ export default async function PricingPage() {
     <div className="container-x py-16">
       <div className="mx-auto max-w-2xl text-center">
         <h1 className="text-5xl font-semibold sm:text-6xl">Pay for the applications, not the search</h1>
-        <p className="mt-4 text-lg text-slate">Searching, filtering and tracking are free forever. Premium is for when you&apos;re applying every week.</p>
+        <p className="mt-4 text-lg text-slate">Searching, filtering and tracking are free forever. Premium helps you apply first, apply right and get referred when you&apos;re applying every week.</p>
       </div>
       <div className="mt-12">
         <PricingPlans loggedIn={Boolean(user)} plan={user?.plan ?? null} paymentsReady={razorpayEnabled()} />

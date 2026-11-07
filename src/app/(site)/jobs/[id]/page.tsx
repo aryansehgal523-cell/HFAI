@@ -146,7 +146,7 @@ export default async function JobPage({ params }: { params: Params }) {
             <section aria-labelledby="why-title" className="panel mt-8 p-6">
               <div className="flex flex-wrap items-baseline justify-between gap-3">
                 <h2 id="why-title" className="text-lg font-semibold">Why this matches</h2>
-                <p className={`font-display text-3xl font-semibold tabular-nums ${fit.score >= 75 ? "text-mint-ink" : fit.score >= 50 ? "text-marigold-deep" : "text-rose"}`}>{fit.score}<span className="text-base text-slate">% match</span></p>
+                <p className="text-sm text-slate">The {fit.score}% match comes from</p>
               </div>
               {verdict && (
                 <p className="mt-3 rounded-xl bg-cobalt-tint px-4 py-3 text-sm text-ink">
@@ -171,15 +171,15 @@ export default async function JobPage({ params }: { params: Params }) {
 
         <aside className="lg:sticky lg:top-24 lg:self-start">
           <div className="panel p-6">
-            {match ? (
+            {fit ? (
               <div>
-                <p className="text-sm text-slate">Your current resume matches</p>
-                <p className="mt-1 font-display text-5xl font-semibold tabular-nums">{match.score}<span className="text-2xl text-slate">%</span></p>
+                <p className="text-sm text-slate">Your match for this job</p>
+                <p className="mt-1 font-display text-5xl font-semibold tabular-nums">{fit.score}<span className="text-2xl text-slate">%</span></p>
                 <div className="mt-3 h-2 overflow-hidden rounded-full bg-paper">
-                  <div className={`h-full rounded-full ${match.score >= 70 ? "bg-mint" : match.score >= 40 ? "bg-marigold" : "bg-rose"}`} style={{ width: `${match.score}%` }} />
+                  <div className={`h-full rounded-full ${fit.score >= 75 ? "bg-mint" : fit.score >= 50 ? "bg-marigold" : "bg-rose"}`} style={{ width: `${fit.score}%` }} />
                 </div>
                 <p className="mt-3 text-sm text-slate">
-                  {match.missing.length ? `Missing: ${match.missing.slice(0, 4).map(prettySkill).join(", ")}${match.missing.length > 4 ? " and more" : ""}.` : "You cover every keyword in this job."}
+                  {fit.missing.length ? `Missing: ${fit.missing.slice(0, 4).join(", ")}${fit.missing.length > 4 ? " and more" : ""}.` : "You cover every skill this job mentions."} <a href="#why-title" className="text-cobalt underline-offset-2 hover:underline">Why</a>
                 </p>
               </div>
             ) : (

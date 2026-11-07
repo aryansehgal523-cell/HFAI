@@ -18,7 +18,7 @@ export function Logo({ className, light }: { className?: string; light?: boolean
   return (
     <Link href="/" className={cn("inline-flex items-center gap-2.5", className)} aria-label="HireFlow AI home">
       <LogoMark />
-      <span className={cn("font-display text-[19px] font-semibold tracking-tight", light ? "text-white" : "text-ink")}>
+      <span className={cn("whitespace-nowrap font-display text-[19px] font-semibold tracking-tight", light ? "text-white" : "text-ink")}>
         HireFlow<span className="text-cobalt"> AI</span>
       </span>
     </Link>
