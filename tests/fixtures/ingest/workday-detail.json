@@ -1,0 +1,39 @@
+{
+ "jobPostingInfo": {
+  "id": "330c34c1085d1048f7835b7cb2d40000",
+  "title": "Research Scientist - Nemotron India",
+  "jobDescription": "<p>NVIDIA has continuously reinvented itself. Our invention of the GPU sparked the growth of the PC gaming market, redefined modern computer graphics, and revolutionized parallel computing. Today, research in artificial intelligence is booming worldwide, which calls for highly scalable and massively parallel computation horsepower that NVIDIA GPUs excel. NVIDIA is a “learning machine” that constantly evolves by adapting to new opportunities that are hard to solve, that only we can address, and that matter to the world. This is our life’s work , to amplify human creativity and intelligence. As an NVIDIAN, you’ll be immersed in a diverse, supportive environment where everyone is inspired to do their best work. Come join our diverse team and see how you can make a lasting impact on the world!</p><br /><p>We are looking for Research Scientists passionate about large generative models! We are</p>",
+  "location": "India, Bengaluru",
+  "additionalLocations": [
+   "India, Hyderabad",
+   "India, Pune"
+  ],
+  "postedOn": "Posted 15 Days Ago",
+  "startDate": "2026-10-24",
+  "timeType": "Full time",
+  "jobReqId": "JR2028483",
+  "jobPostingId": "Research-Scientist---Nemotron-India_JR2028483",
+  "jobPostingSiteId": "NVIDIAExternalCareerSite",
+  "country": {
+   "descriptor": "India",
+   "id": "c4f78be1a8f14da0ab49ce1162348a5e"
+  },
+  "canApply": true,
+  "posted": true,
+  "includeResumeParsing": true,
+  "jobRequisitionLocation": {
+   "descriptor": "India, Bengaluru",
+   "country": {
+    "descriptor": "India",
+    "id": "c4f78be1a8f14da0ab49ce1162348a5e",
+    "alpha2Code": "IN"
+   }
+  },
+  "externalUrl": "https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite/job/India-Bengaluru/Research-Scientist---Nemotron-India_JR2028483",
+  "questionnaireId": "2f2764b3a82910064296831695150000"
+ },
+ "hiringOrganization": {
+  "name": "IN01 NVIDIA Graphics Bengaluru",
+  "url": ""
+ }
+}

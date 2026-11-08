@@ -1,0 +1,36 @@
+{
+ "items": [
+  {
+   "TotalJobsCount": 3,
+   "requisitionList": [
+    {
+     "Id": "153747",
+     "Title": "Web QA",
+     "PostedDate": "2026-11-07",
+     "PrimaryLocation": "India",
+     "PrimaryLocationCountry": "IN",
+     "WorkplaceType": "",
+     "secondaryLocations": []
+    },
+    {
+     "Id": "141171",
+     "Title": "Guidewire Technical Architect",
+     "PostedDate": "2026-11-06",
+     "PrimaryLocation": "Atlanta, GA, United States",
+     "PrimaryLocationCountry": "US",
+     "WorkplaceType": "",
+     "secondaryLocations": []
+    },
+    {
+     "Id": "149051",
+     "Title": "Product Owner",
+     "PostedDate": "2026-11-06",
+     "PrimaryLocation": "India",
+     "PrimaryLocationCountry": "IN",
+     "WorkplaceType": "",
+     "secondaryLocations": []
+    }
+   ]
+  }
+ ]
+}

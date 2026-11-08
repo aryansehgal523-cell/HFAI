@@ -1,0 +1,60 @@
+[
+ {
+  "id": 145340,
+  "title": "Security Engineer 3",
+  "description": "<div><strong style=\"color: rgb(0, 0, 0); background-color: rgba(0, 0, 0, 0);\">About Jupiter</strong></div><div><span style=\"color: rgb(0, 0, 0); background-color: rgba(0, 0, 0, 0);\">Jupiter was founded in 2019 by Jitendra Gupta, best known as the founder of Citrus Pay. The idea was simple: why should personal finance be the one experience that isn't customer-centric? That question sparked a mission to build a modern, intuitive platform that puts people in control of their money.</span></div><div><span style=\"color: rgb(0, 0, 0); background-color: rgba(0, 0, 0, 0);\">When we launched in 2021, ov</p>",
+  "departmentIdentifier": "52eb8a95-f16a-4da1-9763-07ccb5f9e446",
+  "departmentName": "Engineering – Risk Tech",
+  "excerpt": "About JupiterJupiter was founded in 2019 by Jitendra Gupta, best known as the founder of Citrus Pay. The idea was simple</p>",
+  "jobLocations": [
+   {
+    "id": 31395,
+    "name": "Europa Bangalore",
+    "city": "Bengaluru",
+    "state": "KA",
+    "countryCode": "IN",
+    "countryName": "India"
+   }
+  ],
+  "jobType": 2,
+  "experience": "5-6 Years",
+  "salaryRange": {
+   "currency": "INR",
+   "salaryPeriod": 0,
+   "cultureInfo": "en-IN"
+  },
+  "salaryRangeFormat": "",
+  "publishedOn": "2026-10-22T10:19:10.517Z",
+  "publishedSinceDays": 17,
+  "skillNames": []
+ },
+ {
+  "id": 134831,
+  "title": "Devops Engineer - SDE 2",
+  "description": "<div>Who we are :</div><div>Money. A subject that’s always on our mind. We go through a rollercoaster of emotions when it comes to money. That’s why at Jupiter, our mission is to enable people to improve their relationship with money.</div><div><br></div><div>We are a financial services platform that leverages technology to offer our customers seamless and user-friendly products related to banking, loans, and investments. So whether it’s a savings account, credit cards, investment and payments, it's all on Jupiter. We also help users cut through the banking jargons, offer smart insights based </p>",
+  "departmentIdentifier": "387a3926-bffc-457f-b061-cbfbf2ecb155",
+  "departmentName": "Engineering",
+  "excerpt": "Who we are :Money. A subject that’s always on our mind. We go through a rollercoaster of emotions when it comes to money</p>",
+  "jobLocations": [
+   {
+    "id": 31395,
+    "name": "Europa Bangalore",
+    "city": "Bengaluru",
+    "state": "KA",
+    "countryCode": "IN",
+    "countryName": "India"
+   }
+  ],
+  "jobType": 2,
+  "experience": "3-5",
+  "salaryRange": {
+   "currency": "INR",
+   "salaryPeriod": 0,
+   "cultureInfo": "en-IN"
+  },
+  "salaryRangeFormat": "",
+  "publishedOn": "2026-07-15T07:26:49.647Z",
+  "publishedSinceDays": 116,
+  "skillNames": []
+ }
+]

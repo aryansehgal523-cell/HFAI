@@ -18,7 +18,9 @@
     "typecheck": "tsc --noEmit",
     "ext:build": "node scripts/build-extension.mjs",
     "ext:typecheck": "tsc -p extension --noEmit",
-    "ext:test-forms": "node scripts/ext-test-forms.mjs"
+    "ext:test-forms": "node scripts/ext-test-forms.mjs",
+    "detect:ats": "tsx scripts/detect-ats.ts",
+    "companies:import": "tsx scripts/import-companies.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0",

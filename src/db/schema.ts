@@ -4,6 +4,7 @@ import {
 import { relations, sql } from "drizzle-orm";
 import type { ApplicationDetails, JobPreferences } from "@/lib/profile-fields";
 import type { ResumeScore } from "@/lib/resumeScore";
+import type { AtsConfig } from "@/lib/ingest/types";
 
 const id = () => text("id").primaryKey().$defaultFn(() => crypto.randomUUID());
 const created = () => timestamp("created_at", { withTimezone: true }).defaultNow().notNull();
@@ -13,7 +14,9 @@ const updated = () =>
 // ─── Enums ───────────────────────────────────────────────────
 export const roleEnum = pgEnum("role", ["USER", "ADMIN"]);
 export const planEnum = pgEnum("plan", ["FREE", "PREMIUM"]);
-export const atsEnum = pgEnum("ats", ["GREENHOUSE", "LEVER", "ASHBY", "MANUAL"]);
+export const atsEnum = pgEnum("ats", [
+  "GREENHOUSE", "LEVER", "ASHBY", "MANUAL", "SMARTRECRUITERS", "WORKABLE", "RECRUITEE", "WORKDAY", "KEKA", "JSONLD", "AGGREGATOR", "ORACLE",
+]);
 export const workModeEnum = pgEnum("work_mode", ["REMOTE", "HYBRID", "ONSITE"]);
 export const appStatusEnum = pgEnum("app_status", [
   "SAVED", "APPLIED", "INTERVIEWING", "OFFER", "REJECTED", "HIDDEN",
@@ -92,10 +95,21 @@ export const companies = pgTable(
     size: text("size"),
     hq: text("hq"),
     active: boolean("active").default(true).notNull(),
+    careersUrl: text("careers_url"),
+    /** Per source settings (Workday data centre and sites, Keka portal id, JSON-LD sitemaps). */
+    atsConfig: jsonb("ats_config").$type<AtsConfig>().default({}).notNull(),
     lastCrawledAt: timestamp("last_crawled_at", { withTimezone: true }),
+    /** "ok", "empty" (worked but no jobs), "error" or "blocked" (robots.txt or a dead host). */
+    lastCrawlStatus: text("last_crawl_status"),
+    lastCrawlJobs: integer("last_crawl_jobs"),
+    lastCrawlError: text("last_crawl_error"),
+    consecutiveFailures: integer("consecutive_failures").default(0).notNull(),
     createdAt: created(),
   },
-  (t) => [uniqueIndex("companies_ats_token_idx").on(t.ats, t.atsToken)],
+  (t) => [
+    uniqueIndex("companies_ats_token_idx").on(t.ats, t.atsToken),
+    index("companies_crawl_order_idx").on(t.active, t.lastCrawledAt),
+  ],
 );
 
 export const jobs = pgTable(
@@ -125,6 +139,8 @@ export const jobs = pgTable(
     closedAt: timestamp("closed_at", { withTimezone: true }),
     ghostScore: integer("ghost_score").default(0).notNull(),
     hash: text("hash").notNull(),
+    /** Where the job came from: the hiring system ("greenhouse", "workday", "jsonld"...) or aggregator. */
+    source: text("source"),
   },
   (t) => [
     uniqueIndex("jobs_company_external_idx").on(t.companyId, t.externalId),
@@ -143,7 +159,24 @@ export const crawlRuns = pgTable("crawl_runs", {
   jobsNew: integer("jobs_new").default(0).notNull(),
   jobsClosed: integer("jobs_closed").default(0).notNull(),
   errors: jsonb("errors").$type<{ company: string; error: string }[]>(),
+  /** Per source counts for monitoring: { greenhouse: { companies, ok, failed, jobsSeen, jobsNew, jobsClosed } }. */
+  stats: jsonb("stats").$type<Record<string, { companies: number; ok: number; failed: number; jobsSeen: number; jobsNew: number; jobsClosed: number }>>(),
 });
+
+/**
+ * Jobs a connector opened but we chose not to store (outside the crawl scope, or pages with no JobPosting).
+ * Remembered so the next crawls don't open them again; entries expire after 30 days and are re-checked.
+ */
+export const crawlSkips = pgTable(
+  "crawl_skips",
+  {
+    companyId: text("company_id").notNull().references(() => companies.id, { onDelete: "cascade" }),
+    externalId: text("external_id").notNull(),
+    reason: text("reason").notNull(),
+    createdAt: created(),
+  },
+  (t) => [primaryKey({ columns: [t.companyId, t.externalId] })],
+);
 
 // ─── Tracker and tailoring ──────────────────────────────────
 export const applications = pgTable(

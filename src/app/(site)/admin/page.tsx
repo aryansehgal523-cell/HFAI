@@ -29,8 +29,14 @@ export default async function Admin() {
     }).from(tailorings),
     db.select({
       id: companies.id, name: companies.name, ats: companies.ats, atsToken: companies.atsToken, active: companies.active, lastCrawledAt: companies.lastCrawledAt,
-      openJobs: sql<number>`(select count(*)::int from jobs where jobs.company_id = ${companies.id} and jobs.closed_at is null)`,
-    }).from(companies).orderBy(companies.name),
+      lastCrawlStatus: companies.lastCrawlStatus, lastCrawlJobs: companies.lastCrawlJobs, lastCrawlError: companies.lastCrawlError,
+      consecutiveFailures: companies.consecutiveFailures, careersUrl: companies.careersUrl,
+      openJobs: sql<number>`coalesce(oj.n, 0)::int`,
+    })
+      .from(companies)
+      .leftJoin(sql`(select company_id, count(*) as n from jobs where closed_at is null group by company_id) oj`, sql`oj.company_id = ${companies.id}`)
+      .where(sql`${companies.ats} <> 'AGGREGATOR'`)
+      .orderBy(companies.name),
     db.select().from(crawlRuns).orderBy(desc(crawlRuns.startedAt)).limit(1),
     db.select().from(contactMessages).orderBy(desc(contactMessages.createdAt)).limit(10),
     db.select({ amount: payments.amount, kind: payments.kind, createdAt: payments.createdAt, email: users.email }).from(payments).innerJoin(users, eq(users.id, payments.userId)).orderBy(desc(payments.createdAt)).limit(10),

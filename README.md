@@ -165,9 +165,39 @@ In your GitHub repo → Settings → Secrets → Actions, add `DATABASE_URL`. Th
 
 ## 5. Growing job coverage
 
-Add companies from `/admin` (name, ATS, board token) and they are crawled immediately, or add them to `src/config/companies.ts` and re-run the seed. To find a company's token, open its careers page and look for links to `boards.greenhouse.io/<token>`, `jobs.lever.co/<token>` or `jobs.ashbyhq.com/<token>`. Indian ATS sites (Darwinbox, Keka, Zoho Recruit) need new connectors in `src/lib/ingest/connectors.ts` following the same `RawJob` shape; add a test with a sample payload in `tests/ingest.test.ts`.
+HireFlow reads jobs straight from employers' own hiring systems. It never scrapes job boards (Naukri, LinkedIn, Indeed, Foundit, Shine).
 
-Crawl politely: one request per company per run, an honest user agent, and remove any company's jobs within 48 hours if they ask (see `/bot`).
+| Source | What we read | Token in `/admin` |
+| --- | --- | --- |
+| Greenhouse, Lever, Ashby | Public job board APIs | Board token (`stripe`) |
+| Workable | Public jobs widget | Account (`remofirst`) |
+| Recruitee | `{company}.recruitee.com/api/offers/` | Subdomain (`bunq`) |
+| Workday | The JSON endpoints the career site itself calls (`/wday/cxs/...`), filtered to India when the site offers it | `tenant.wdN/Site` (`nvidia.wd5/NVIDIAExternalCareerSite`) |
+| Oracle Recruiting Cloud | The REST endpoints the career site calls (`/hcmRestApi/.../recruitingCEJobRequisitions`) | `host/Site` (`fa-etvl-saasfaprod1.fa.ocs.oraclecloud.com/CX_1`) |
+| SmartRecruiters | Public career pages (`careers.smartrecruiters.com/{Company}`); its API host's robots.txt only admits LinkedIn, so we don't use it | Company id (`Experian`) |
+| Keka | `{company}.keka.com/careers/api/embedjobs/...` (robots.txt allows `/careers` only) | Subdomain (`jupiter`) |
+| JSON-LD | schema.org JobPosting pages listed in the careers site's sitemap | Careers host (`careers.unilever.com`) |
+
+Not supported, and why: **Darwinbox** (no public, unauthenticated job feed), **SAP SuccessFactors** career sites (job data comes from `/services/`, which their robots.txt disallows), and career sites that only render jobs in the browser.
+
+**Rules every connector follows** (in `src/lib/ingest/http.ts`): the HireFlowBot user agent with `CRAWLER_CONTACT_EMAIL`, robots.txt checked for every URL, at most one request per second per host, retries with backoff, and a host is skipped for the rest of the run after repeated errors. Detail pages are only opened for jobs we haven't stored yet (at most `--details` per company per run), and jobs outside the crawl scope are remembered for 30 days so they aren't opened again.
+
+**Crawl scope.** `CRAWL_SCOPE=india` (the default) stores jobs in India plus jobs whose location doesn't name a country (usually "Remote"). Jobs clearly located elsewhere, or in regions such as EMEA or AMER, are skipped. Set `CRAWL_SCOPE=all` to keep everything.
+
+**Adding companies**
+
+* One company: in `/admin`, use *Add by careers page* (detects the hiring system) or *Add by hiring system and token*.
+* Many companies: put them in a JSON file (`[{ "name", "careersUrl" }]`) or CSV (`name,careersUrl`) and run
+
+  ```bash
+  npm run detect:ats -- my-companies.csv     # writes data/detected-companies.json and data/detect-unmatched.json
+  npm run companies:import -- --crawl        # adds them to the crawl list and crawls them
+  ```
+
+  With no file, `detect:ats` reads `src/config/companySeeds.json` (about 1,650 companies). It resumes where it stopped; `--retry-unmatched` tries the unmatched ones again and `--finalize` only rebuilds the output files. Matches found by guessing a board token are checked again (the board's name must match, and an Indian company's feed must have Indian jobs) before they are written out.
+* Review `data/detect-unmatched.json` for companies to add by hand.
+
+Remove any company's jobs within 48 hours if they ask (see `/bot`).
 
 ## 6. Useful commands
 
@@ -179,6 +209,8 @@ Crawl politely: one request per company per run, an honest user agent, and remov
 | `npm run db:generate` | Create a migration after editing `src/db/schema.ts` |
 | `npm run db:migrate` | Apply migrations |
 | `npm run db:studio` | Browse the database in the browser |
-| `npm run crawl` | Crawl all active companies now |
+| `npm run crawl` | Crawl active companies, oldest crawl first (`-- --limit 200 --minutes 50 --details 300`) |
+| `npm run detect:ats` | Detect hiring systems for a list of companies (see section 5) |
+| `npm run companies:import` | Import detected companies into the crawl list |
 | `npm test` | Run unit tests |
 | `npm run typecheck` | TypeScript check |

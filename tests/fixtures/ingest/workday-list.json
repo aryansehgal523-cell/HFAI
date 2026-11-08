@@ -1,0 +1,85 @@
+{
+ "total": 2000,
+ "jobPostings": [
+  {
+   "title": "Senior Software Program Manager – CSP Engagements",
+   "externalPath": "/job/US-CA-Santa-Clara/Senior-Software-Program-Manager---CSP-Engagements_JR2013691",
+   "locationsText": "US, CA, Santa Clara",
+   "postedOn": "Posted Today",
+   "bulletFields": [
+    "JR2013691"
+   ]
+  },
+  {
+   "title": "Senior Software Developer, NVIDIA Mission Control integration",
+   "externalPath": "/job/US-CA-Remote/Senior-Software-Developer--NVIDIA-Mission-Control---DGX-Cloud_JR2028682",
+   "locationsText": "6 Locations",
+   "postedOn": "Posted Today",
+   "bulletFields": [
+    "JR2028682"
+   ]
+  },
+  {
+   "title": "Senior Network Reliability Engineer - DGX Cloud",
+   "externalPath": "/job/US-CA-Santa-Clara/Senior-Network-Reliability-Engineer---DGX-Cloud_JR2018113",
+   "locationsText": "2 Locations",
+   "postedOn": "Posted Today",
+   "bulletFields": [
+    "JR2018113"
+   ]
+  }
+ ],
+ "facets": [
+  {
+   "facetParameter": "jobFamilyGroup",
+   "descriptor": "Job Category",
+   "values": []
+  },
+  {
+   "facetParameter": "workerSubType",
+   "descriptor": "Job Type",
+   "values": []
+  },
+  {
+   "facetParameter": "timeType",
+   "descriptor": "Time Type",
+   "values": []
+  },
+  {
+   "facetParameter": "locationMainGroup",
+   "values": [
+    {
+     "facetParameter": "locationHierarchy2",
+     "descriptor": "Location Type",
+     "values": []
+    },
+    {
+     "facetParameter": "locationHierarchy1",
+     "descriptor": "Locations",
+     "values": [
+      {
+       "descriptor": "India",
+       "id": "2fcb99c455831013ea52b82135ba3266",
+       "count": 247
+      },
+      {
+       "descriptor": "Taiwan",
+       "id": "2fcb99c455831013ea52ed162d4932c0",
+       "count": 143
+      },
+      {
+       "descriptor": "United States",
+       "id": "2fcb99c455831013ea52fb338f2932d8",
+       "count": 1477
+      }
+     ]
+    },
+    {
+     "facetParameter": "locations",
+     "descriptor": "Sites",
+     "values": []
+    }
+   ]
+  }
+ ]
+}

@@ -50,6 +50,20 @@
       "when": 1794051780684,
       "tag": "0006_phase6_extension",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1794161709707,
+      "tag": "0007_phase_jobs1_sources",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1794164169871,
+      "tag": "0008_jobs1_oracle",
+      "breakpoints": true
     }
   ]
 }

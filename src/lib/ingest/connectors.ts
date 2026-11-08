@@ -1,23 +1,19 @@
 import type { RawJob } from "./normalize";
+import { getJson } from "./http";
+import type { AtsConfig, Connector, ConnectorResult, CrawlContext } from "./types";
+import { fetchSmartRecruiters } from "./sources/smartrecruiters";
+import { fetchWorkable } from "./sources/workable";
+import { fetchRecruitee } from "./sources/recruitee";
+import { fetchWorkday } from "./sources/workday";
+import { fetchKeka } from "./sources/keka";
+import { fetchJsonLd } from "./sources/jsonld";
+import { fetchOracle } from "./sources/oracle";
 
 /*
- * Connectors for public ATS job board APIs. These feeds are published by the ATS
- * for embedding a company's open jobs on its own career site. We read them politely:
- * one request per company per crawl, with a clear user agent and contact email.
+ * Connectors for public job feeds that employers' hiring systems publish for their own career sites.
+ * Every request goes through http.ts: our user agent, robots.txt, one request per second per host,
+ * retries with backoff and a per host circuit breaker. New sources live in ./sources.
  */
-
-const UA = () =>
-  `HireFlowBot/1.0 (+${process.env.NEXT_PUBLIC_APP_URL ?? "https://hireflow.ai"}/bot; ${process.env.CRAWLER_CONTACT_EMAIL ?? "crawler@hireflow.ai"})`;
-
-async function getJson<T>(url: string): Promise<T> {
-  const res = await fetch(url, {
-    headers: { "User-Agent": UA(), Accept: "application/json" },
-    signal: AbortSignal.timeout(20_000),
-    cache: "no-store",
-  });
-  if (!res.ok) throw new Error(`${res.status} ${res.statusText} for ${url}`);
-  return (await res.json()) as T;
-}
 
 // ── Greenhouse ──────────────────────────────────────────────
 type GreenhouseResp = {
@@ -151,11 +147,23 @@ export async function fetchAshby(token: string) {
   return mapAshby(await getJson<AshbyResp>(`https://api.ashbyhq.com/posting-api/job-board/${encodeURIComponent(token)}?includeCompensation=true`));
 }
 
-export async function fetchJobsFor(ats: "GREENHOUSE" | "LEVER" | "ASHBY" | "MANUAL", token: string): Promise<RawJob[]> {
-  switch (ats) {
-    case "GREENHOUSE": return fetchGreenhouse(token);
-    case "LEVER": return fetchLever(token);
-    case "ASHBY": return fetchAshby(token);
-    default: return [];
-  }
+const simple = (f: (token: string) => Promise<RawJob[]>): Connector => async (token) => ({ jobs: await f(token), stillListed: [] });
+
+export const CONNECTORS: Record<string, Connector> = {
+  GREENHOUSE: simple(fetchGreenhouse),
+  LEVER: simple(fetchLever),
+  ASHBY: simple(fetchAshby),
+  SMARTRECRUITERS: fetchSmartRecruiters,
+  WORKABLE: fetchWorkable,
+  RECRUITEE: fetchRecruitee,
+  WORKDAY: fetchWorkday,
+  KEKA: fetchKeka,
+  ORACLE: fetchOracle,
+  JSONLD: fetchJsonLd,
+};
+
+export async function fetchJobsFor(ats: string, token: string, config: AtsConfig = {}, ctx: CrawlContext): Promise<ConnectorResult> {
+  const connector = CONNECTORS[ats];
+  if (!connector) return { jobs: [], stillListed: [] };
+  return connector(token, config, ctx);
 }

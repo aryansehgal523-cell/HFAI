@@ -1,5 +1,6 @@
 import crypto from "node:crypto";
 import { extractKeywords } from "../ats";
+import { detectCountry } from "./geo";
 
 export type RawJob = {
   externalId: string;
@@ -13,19 +14,42 @@ export type RawJob = {
   applyUrl: string;
   postedAt?: Date | null;
   salary?: { min?: number | null; max?: number | null; currency?: string | null; period?: string | null } | null;
+  /** Two letter country code when the source gives one (structured data beats guessing from text). */
+  country?: string | null;
+  /** Experience text from a structured field, e.g. "5-6 Years". */
+  experience?: string | null;
 };
 
-const ENTITIES: Record<string, string> = { "&amp;": "&", "&lt;": "<", "&gt;": ">", "&quot;": '"', "&#39;": "'", "&nbsp;": " " };
+/** Longest description we store. Keeps the database small at tens of thousands of jobs. */
+export const MAX_DESCRIPTION = 8000;
+
+const ENTITIES: Record<string, string> = { amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " ", ndash: "–", mdash: "—", rsquo: "’", lsquo: "‘", rdquo: "”", ldquo: "“", hellip: "…", bull: "•", middot: "·", rupee: "₹" };
+
+/** Decode named and numeric HTML entities ("&amp;", "&#8217;", "&#x20B9;"). */
+export function decodeEntities(s: string) {
+  return s.replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, (m, e: string) => {
+    if (e[0] === "#") {
+      const code = e[1] === "x" || e[1] === "X" ? parseInt(e.slice(2), 16) : Number(e.slice(1));
+      return Number.isFinite(code) && code > 0 && code < 0x110000 ? String.fromCodePoint(code) : m;
+    }
+    return ENTITIES[e.toLowerCase()] ?? m;
+  });
+}
 
 export function htmlToText(html: string) {
-  const decoded = html.replace(/&(amp|lt|gt|quot|#39|nbsp);/g, (m) => ENTITIES[m] ?? m);
-  return decoded
-    .replace(/<\s*(br|\/p|\/li|\/h[1-6]|\/div)\s*\/?>/gi, "\n")
-    .replace(/<li[^>]*>/gi, "• ")
-    .replace(/<[^>]+>/g, "")
-    .replace(/&(amp|lt|gt|quot|#39|nbsp);/g, (m) => ENTITIES[m] ?? m)
-    .replace(/\n{3,}/g, "\n\n")
+  // Some feeds escape their HTML once ("&lt;p&gt;"), so decode before stripping tags, then decode the text.
+  const decoded = /&lt;\/?[a-z]/i.test(html) ? decodeEntities(html) : html;
+  return decodeEntities(
+    decoded
+      .replace(/<(script|style)[^>]*>[\s\S]*?<\/\1>/gi, "")
+      .replace(/<\s*(br|\/p|\/li|\/h[1-6]|\/div|\/tr)\s*\/?>/gi, "\n")
+      .replace(/<li[^>]*>/gi, "• ")
+      .replace(/<[^>]+>/g, ""),
+  )
+    .replace(/\u00a0/g, " ")
     .replace(/[ \t]+/g, " ")
+    .replace(/ *\n */g, "\n")
+    .replace(/\n{3,}/g, "\n\n")
     .trim();
 }
 
@@ -43,19 +67,7 @@ export function detectWorkMode(location: string, text: string, hint?: string | n
   return "ONSITE";
 }
 
-const COUNTRY_HINTS: [RegExp, string][] = [
-  [/\b(india|bengaluru|bangalore|mumbai|pune|hyderabad|chennai|gurugram|gurgaon|noida|delhi|kolkata|ahmedabad|jaipur|kochi)\b/i, "IN"],
-  [/\b(united states|usa|\bus\b|new york|san francisco|seattle|austin|boston|chicago|los angeles)\b/i, "US"],
-  [/\b(united kingdom|uk|london|manchester)\b/i, "GB"],
-  [/\b(germany|berlin|munich)\b/i, "DE"],
-  [/\b(singapore)\b/i, "SG"],
-  [/\b(canada|toronto|vancouver)\b/i, "CA"],
-];
-
-export function detectCountry(location: string) {
-  for (const [re, code] of COUNTRY_HINTS) if (re.test(location)) return code;
-  return null;
-}
+export { detectCountry };
 
 /** "3+ years", "2 to 5 years", "2-5 yrs" → min / max years. */
 export function detectExperience(text: string): { min: number | null; max: number | null } {
@@ -98,16 +110,17 @@ export function ghostScore(input: { postedAt: Date; description: string; applyUr
 }
 
 export function normalize(companyId: string, raw: RawJob) {
-  const description = raw.descriptionText?.trim() || htmlToText(raw.descriptionHtml ?? "");
-  const location = raw.location?.trim() || "Not specified";
-  const exp = detectExperience(`${raw.title}\n${description}`);
+  const description = (raw.descriptionText?.trim() || htmlToText(raw.descriptionHtml ?? "")).slice(0, MAX_DESCRIPTION);
+  const location = raw.location?.trim().slice(0, 300) || "Not specified";
+  const exp = detectExperience(`${raw.experience ?? ""}\n${raw.title}\n${description}`);
   const inr = !raw.salary?.min && !raw.salary?.max ? detectInrSalary(description) : null;
   return {
     companyId,
     externalId: raw.externalId,
-    title: raw.title.trim(),
+    title: raw.title.trim().slice(0, 300),
     location,
-    country: detectCountry(location),
+    // Structured country first, then the location text, then the title ("Account Executive, India").
+    country: raw.country ?? detectCountry(location) ?? detectCountry(raw.title),
     workMode: raw.workMode ?? detectWorkMode(location, description),
     department: raw.department ?? null,
     employment: raw.employment ?? null,

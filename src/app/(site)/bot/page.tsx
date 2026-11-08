@@ -9,7 +9,14 @@ export default function Bot() {
   return (
     <LegalPage title="For employers" intro="HireFlow lists your public job openings so more qualified candidates find them, and sends every applicant to your own career page.">
       <h2>How we collect listings</h2>
-      <p>Our crawler, HireFlowBot, reads public job board feeds published by applicant tracking systems such as Greenhouse, Lever and Ashby, a few times a day. It identifies itself with the user agent <code>HireFlowBot/1.0</code> and a contact address, makes one request per company per crawl, and respects robots.txt for any page it reads directly.</p>
+      <p>Our crawler, HireFlowBot, reads the public job feeds your hiring system publishes for your own career site (for example Greenhouse, Lever, Ashby, Workday, SmartRecruiters, Workable, Recruitee, Keka and Oracle Recruiting), and the schema.org JobPosting data career sites publish for search engines. It runs a few times a day and identifies itself with the user agent <code>HireFlowBot/1.0</code> and a contact address.</p>
+      <ul>
+        <li>It reads and obeys your robots.txt before every request, on every host.</li>
+        <li>It makes at most one request per second to any host, backs off when a site is busy, and stops calling a host for the rest of that crawl after repeated errors.</li>
+        <li>It only opens individual job pages for listings it has not seen before.</li>
+        <li>It never logs in, never applies to jobs and never reads job boards such as Naukri, LinkedIn or Indeed.</li>
+      </ul>
+      <p>To stop HireFlowBot, add <code>User-agent: HireFlowBot</code> and <code>Disallow: /</code> to your robots.txt, or write to us.</p>
 
       <h2>What we show</h2>
       <ul>

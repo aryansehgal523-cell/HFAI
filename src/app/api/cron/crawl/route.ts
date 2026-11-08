@@ -15,7 +15,8 @@ export async function GET(req: Request) {
   if (!process.env.CRON_SECRET || req.headers.get("authorization") !== `Bearer ${process.env.CRON_SECRET}`) {
     return new Response("unauthorized", { status: 401 });
   }
-  const result = await runCrawl({ concurrency: 6 });
+  // A small top up inside the function time limit; the big crawl runs in GitHub Actions (see README).
+  const result = await runCrawl({ concurrency: 6, timeBudgetMs: 200_000, maxDetails: 50 });
   // Retention promised in the privacy policy: usage records are kept for 13 months.
   const cutoff = new Date(Date.now() - 395 * 24 * 60 * 60 * 1000);
   const purged = await db.delete(usageEvents).where(lt(usageEvents.createdAt, cutoff)).returning({ id: usageEvents.id });
