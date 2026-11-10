@@ -8,7 +8,7 @@ import { networkCountsFor } from "@/lib/referrals/store";
 import { ensureMatches, forYou, storedMatches } from "@/lib/match-store";
 import { JobRow } from "@/components/JobRow";
 import { Filters, SearchBar } from "@/components/Filters";
-import { parseFilters, searchJobs } from "@/lib/jobs-query";
+import { companyTypeCounts, parseFilters, searchJobs } from "@/lib/jobs-query";
 import { getCurrentUser } from "@/lib/session";
 
 export const metadata: Metadata = {
@@ -30,7 +30,10 @@ export default async function JobsPage({ searchParams }: { searchParams: SP }) {
   }
   const tab = sp.tab === "foryou" && user ? "foryou" : "all";
   const hasProfile = user ? await ensureMatches(user.id) : false;
-  const result = tab === "foryou" && hasProfile ? await forYou(user!.id, filters.page) : await searchJobs(filters);
+  const [result, typeCounts] = await Promise.all([
+    tab === "foryou" && hasProfile ? forYou(user!.id, filters.page) : searchJobs(filters),
+    companyTypeCounts(filters),
+  ]);
   const matches = user && hasProfile ? await storedMatches(user.id, result.rows.map((r) => r.id)) : new Map();
   const networkCounts = user && result.rows.length ? await networkCountsFor(user.id, result.rows.map((r) => r.companyName)) : new Map<string, number>();
 
@@ -50,7 +53,8 @@ export default async function JobsPage({ searchParams }: { searchParams: SP }) {
     return `/jobs?${next.toString()}`;
   };
 
-  const heading = tab === "foryou" && hasProfile ? "Jobs for you" : filters.network ? "Jobs where you know someone" : filters.q ? `${filters.q} jobs${filters.location ? ` in ${filters.location}` : ""}` : filters.location ? `Jobs in ${filters.location}` : "All open jobs";
+  const baseHeading = tab === "foryou" && hasProfile ? "Jobs for you" : filters.network ? "Jobs where you know someone" : filters.q ? `${filters.q} jobs${filters.location ? ` in ${filters.location}` : ""}` : filters.location ? `Jobs in ${filters.location}` : "All open jobs";
+  const heading = filters.mnc && tab !== "foryou" ? `${baseHeading} at MNCs` : baseHeading;
 
   return (
     <div className="container-x py-10">
@@ -60,7 +64,7 @@ export default async function JobsPage({ searchParams }: { searchParams: SP }) {
 
       <div className="mt-10 grid gap-10 lg:grid-cols-[250px_1fr]">
         <Suspense>
-          <Filters />
+          <Filters companyCounts={typeCounts} />
         </Suspense>
 
         <section aria-labelledby="results-heading">
@@ -80,7 +84,7 @@ export default async function JobsPage({ searchParams }: { searchParams: SP }) {
           )}
           <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-line pb-4">
             <h1 id="results-heading" className="text-3xl font-semibold capitalize-first">{heading}</h1>
-            <p className="text-sm text-slate">{result.total.toLocaleString("en-IN")} {result.total === 1 ? "job" : "jobs"}</p>
+            <p className="text-sm text-slate">{result.total.toLocaleString("en-IN")}{"capped" in result && result.capped ? "+" : ""} {result.total === 1 ? "job" : "jobs"}</p>
           </div>
 
           {result.rows.length === 0 ? (

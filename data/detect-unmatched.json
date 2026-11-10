@@ -24723,5 +24723,2255 @@
    "jsonld:careers.deere.co.in",
    "jsonld:deere.co.in"
   ]
+ },
+ {
+  "name": "Snap",
+  "website": "https://snap.com",
+  "careersUrl": "https://careers.snap.com/",
+  "tried": [
+   "greenhouse:snap",
+   "workable:snap",
+   "recruitee:snap",
+   "smartrecruiters:snap",
+   "workday:snap",
+   "jsonld:careers.snap.com",
+   "jsonld:snap.com"
+  ]
+ },
+ {
+  "name": "Playtika",
+  "website": "https://playtika.com",
+  "careersUrl": "https://playtika.com/careers",
+  "tried": [
+   "greenhouse:playtika",
+   "ashby:playtika",
+   "lever:playtika",
+   "workable:playtika",
+   "recruitee:playtika",
+   "smartrecruiters:playtika",
+   "keka:playtika",
+   "workday:playtika",
+   "jsonld:careers.playtika.com",
+   "jsonld:playtika.com"
+  ]
+ },
+ {
+  "name": "Miniclip",
+  "website": "https://miniclip.com",
+  "careersUrl": "https://miniclip.com/careers",
+  "tried": [
+   "greenhouse:miniclip",
+   "ashby:miniclip",
+   "lever:miniclip",
+   "workable:miniclip",
+   "recruitee:miniclip",
+   "smartrecruiters:miniclip",
+   "keka:miniclip",
+   "workday:miniclip",
+   "jsonld:miniclip.com",
+   "jsonld:careers.miniclip.com"
+  ]
+ },
+ {
+  "name": "Rovio",
+  "website": "https://rovio.com",
+  "careersUrl": "https://www.rovio.com/careers/",
+  "tried": [
+   "greenhouse:rovio",
+   "workable:rovio",
+   "recruitee:rovio",
+   "smartrecruiters:rovio",
+   "workday:rovio",
+   "jsonld:www.rovio.com",
+   "jsonld:careers.rovio.com",
+   "jsonld:rovio.com"
+  ]
+ },
+ {
+  "name": "Pocket Gems",
+  "website": "https://pocketgems.com",
+  "careersUrl": "https://pocketgems.com/careers",
+  "tried": [
+   "greenhouse:pocketgems",
+   "ashby:pocketgems",
+   "lever:pocketgems",
+   "workable:pocketgems",
+   "recruitee:pocketgems",
+   "smartrecruiters:pocketgems",
+   "keka:pocketgems",
+   "workday:pocketgems",
+   "greenhouse:pocket-gems",
+   "workable:pocket-gems",
+   "recruitee:pocket-gems",
+   "smartrecruiters:pocket-gems",
+   "jsonld:careers.pocketgems.com",
+   "jsonld:pocketgems.com"
+  ]
+ },
+ {
+  "name": "Wikimedia Foundation",
+  "website": "https://wikimediafoundation.org",
+  "careersUrl": "https://wikimediafoundation.org/jobs/",
+  "tried": [
+   "greenhouse:wikimediafoundation",
+   "ashby:wikimediafoundation",
+   "lever:wikimediafoundation",
+   "workable:wikimediafoundation",
+   "recruitee:wikimediafoundation",
+   "smartrecruiters:wikimediafoundation",
+   "keka:wikimediafoundation",
+   "workday:wikimediafoundation",
+   "greenhouse:wikimedia-foundation",
+   "workable:wikimedia-foundation",
+   "recruitee:wikimedia-foundation",
+   "smartrecruiters:wikimedia-foundation",
+   "jsonld:wikimediafoundation.org",
+   "jsonld:careers.wikimediafoundation.org"
+  ]
+ },
+ {
+  "name": "Quizlet",
+  "website": "https://quizlet.com",
+  "careersUrl": "https://quizlet.com/careers",
+  "tried": [
+   "greenhouse:quizlet",
+   "ashby:quizlet",
+   "lever:quizlet",
+   "workable:quizlet",
+   "recruitee:quizlet",
+   "smartrecruiters:quizlet",
+   "keka:quizlet",
+   "workday:quizlet",
+   "jsonld:careers.quizlet.com",
+   "jsonld:quizlet.com"
+  ]
+ },
+ {
+  "name": "Course Hero",
+  "website": "https://coursehero.com",
+  "careersUrl": "https://coursehero.com/careers",
+  "tried": [
+   "greenhouse:coursehero",
+   "ashby:coursehero",
+   "lever:coursehero",
+   "workable:coursehero",
+   "recruitee:coursehero",
+   "smartrecruiters:coursehero",
+   "keka:coursehero",
+   "workday:coursehero",
+   "greenhouse:course-hero",
+   "workable:course-hero",
+   "recruitee:course-hero",
+   "smartrecruiters:course-hero",
+   "jsonld:careers.coursehero.com",
+   "jsonld:coursehero.com"
+  ]
+ },
+ {
+  "name": "MasterClass",
+  "website": "https://masterclass.com",
+  "careersUrl": "https://careers.masterclass.com/",
+  "tried": [
+   "greenhouse:masterclass",
+   "ashby:masterclass",
+   "lever:masterclass",
+   "workable:masterclass",
+   "recruitee:masterclass",
+   "smartrecruiters:masterclass",
+   "keka:masterclass",
+   "workday:masterclass",
+   "jsonld:careers.masterclass.com",
+   "jsonld:masterclass.com"
+  ]
+ },
+ {
+  "name": "Hims & Hers",
+  "website": "https://forhims.com",
+  "careersUrl": "https://forhims.com/careers",
+  "tried": [
+   "greenhouse:himshers",
+   "workable:himshers",
+   "recruitee:himshers",
+   "smartrecruiters:himshers",
+   "greenhouse:hims-hers",
+   "workable:hims-hers",
+   "recruitee:hims-hers",
+   "smartrecruiters:hims-hers",
+   "greenhouse:himsandhers",
+   "ashby:himsandhers",
+   "lever:himsandhers",
+   "workable:himsandhers",
+   "recruitee:himsandhers",
+   "smartrecruiters:himsandhers",
+   "keka:himsandhers",
+   "workday:himsandhers",
+   "greenhouse:forhims",
+   "workable:forhims",
+   "recruitee:forhims",
+   "smartrecruiters:forhims",
+   "workday:forhims",
+   "jsonld:careers.forhims.com",
+   "jsonld:forhims.com"
+  ]
+ },
+ {
+  "name": "Ro",
+  "website": "https://ro.co",
+  "careersUrl": "https://ro.co/careers",
+  "tried": [
+   "jsonld:careers.ro.co",
+   "jsonld:ro.co"
+  ]
+ },
+ {
+  "name": "Oscar Health",
+  "website": "https://hioscar.com",
+  "careersUrl": "https://oscarhealth.com/careers",
+  "tried": [
+   "greenhouse:oscarhealth",
+   "ashby:oscarhealth",
+   "lever:oscarhealth",
+   "workable:oscarhealth",
+   "recruitee:oscarhealth",
+   "smartrecruiters:oscarhealth",
+   "keka:oscarhealth",
+   "workday:oscarhealth",
+   "greenhouse:oscar-health",
+   "workable:oscar-health",
+   "recruitee:oscar-health",
+   "smartrecruiters:oscar-health",
+   "greenhouse:hioscar",
+   "workable:hioscar",
+   "recruitee:hioscar",
+   "smartrecruiters:hioscar",
+   "workday:hioscar",
+   "jsonld:oscarhealth.com",
+   "jsonld:careers.hioscar.com",
+   "jsonld:hioscar.com"
+  ]
+ },
+ {
+  "name": "Root Insurance",
+  "website": "https://joinroot.com",
+  "careersUrl": "https://inc.joinroot.com/careers/",
+  "tried": [
+   "greenhouse:rootinsurance",
+   "ashby:rootinsurance",
+   "lever:rootinsurance",
+   "workable:rootinsurance",
+   "recruitee:rootinsurance",
+   "smartrecruiters:rootinsurance",
+   "keka:rootinsurance",
+   "workday:rootinsurance",
+   "greenhouse:root-insurance",
+   "workable:root-insurance",
+   "recruitee:root-insurance",
+   "smartrecruiters:root-insurance",
+   "greenhouse:joinroot",
+   "workable:joinroot",
+   "recruitee:joinroot",
+   "smartrecruiters:joinroot",
+   "workday:joinroot",
+   "jsonld:inc.joinroot.com",
+   "jsonld:careers.joinroot.com",
+   "jsonld:joinroot.com"
+  ]
+ },
+ {
+  "name": "Hippo",
+  "website": "https://hippo.com",
+  "careersUrl": "https://hippo.com/careers",
+  "tried": [
+   "greenhouse:hippo",
+   "workable:hippo",
+   "recruitee:hippo",
+   "smartrecruiters:hippo",
+   "workday:hippo",
+   "jsonld:careers.hippo.com",
+   "jsonld:hippo.com"
+  ]
+ },
+ {
+  "name": "Spring Health",
+  "website": "https://springhealth.com",
+  "careersUrl": "https://www.springhealth.com/careers",
+  "tried": [
+   "greenhouse:springhealth",
+   "ashby:springhealth",
+   "lever:springhealth",
+   "workable:springhealth",
+   "recruitee:springhealth",
+   "smartrecruiters:springhealth",
+   "keka:springhealth",
+   "workday:springhealth",
+   "greenhouse:spring-health",
+   "workable:spring-health",
+   "recruitee:spring-health",
+   "smartrecruiters:spring-health",
+   "jsonld:www.springhealth.com",
+   "jsonld:careers.springhealth.com",
+   "jsonld:springhealth.com"
+  ]
+ },
+ {
+  "name": "Aurora Innovation",
+  "website": "https://aurora.tech",
+  "careersUrl": "https://aurora.tech/careers",
+  "tried": [
+   "greenhouse:aurorainnovation",
+   "ashby:aurorainnovation",
+   "lever:aurorainnovation",
+   "workable:aurorainnovation",
+   "recruitee:aurorainnovation",
+   "smartrecruiters:aurorainnovation",
+   "keka:aurorainnovation",
+   "workday:aurorainnovation",
+   "greenhouse:aurora-innovation",
+   "workable:aurora-innovation",
+   "recruitee:aurora-innovation",
+   "smartrecruiters:aurora-innovation",
+   "greenhouse:aurora",
+   "workable:aurora",
+   "recruitee:aurora",
+   "smartrecruiters:aurora",
+   "workday:aurora",
+   "jsonld:aurora.tech",
+   "jsonld:careers.aurora.tech"
+  ]
+ },
+ {
+  "name": "Cruise",
+  "website": "https://getcruise.com",
+  "careersUrl": "https://getcruise.com/careers",
+  "tried": [
+   "greenhouse:cruise",
+   "ashby:cruise",
+   "lever:cruise",
+   "workable:cruise",
+   "recruitee:cruise",
+   "smartrecruiters:cruise",
+   "keka:cruise",
+   "workday:cruise",
+   "greenhouse:getcruise",
+   "workable:getcruise",
+   "recruitee:getcruise",
+   "smartrecruiters:getcruise",
+   "workday:getcruise",
+   "jsonld:careers.getcruise.com",
+   "jsonld:getcruise.com"
+  ]
+ },
+ {
+  "name": "Zoox",
+  "website": "https://zoox.com",
+  "careersUrl": "https://zoox.com/careers",
+  "tried": [
+   "greenhouse:zoox",
+   "workable:zoox",
+   "recruitee:zoox",
+   "smartrecruiters:zoox",
+   "workday:zoox",
+   "jsonld:zoox.com",
+   "jsonld:careers.zoox.com"
+  ]
+ },
+ {
+  "name": "Joby Aviation",
+  "website": "https://jobyaviation.com",
+  "careersUrl": "https://www.jobyaviation.com/careers",
+  "tried": [
+   "greenhouse:jobyaviation",
+   "ashby:jobyaviation",
+   "lever:jobyaviation",
+   "workable:jobyaviation",
+   "recruitee:jobyaviation",
+   "smartrecruiters:jobyaviation",
+   "keka:jobyaviation",
+   "workday:jobyaviation",
+   "greenhouse:joby-aviation",
+   "workable:joby-aviation",
+   "recruitee:joby-aviation",
+   "smartrecruiters:joby-aviation",
+   "jsonld:www.jobyaviation.com",
+   "jsonld:careers.jobyaviation.com",
+   "jsonld:jobyaviation.com"
+  ]
+ },
+ {
+  "name": "Archer Aviation",
+  "website": "https://archer.com",
+  "careersUrl": "https://archer.com/careers",
+  "tried": [
+   "greenhouse:archeraviation",
+   "ashby:archeraviation",
+   "lever:archeraviation",
+   "workable:archeraviation",
+   "recruitee:archeraviation",
+   "smartrecruiters:archeraviation",
+   "keka:archeraviation",
+   "workday:archeraviation",
+   "greenhouse:archer-aviation",
+   "workable:archer-aviation",
+   "recruitee:archer-aviation",
+   "smartrecruiters:archer-aviation",
+   "greenhouse:archer",
+   "workable:archer",
+   "recruitee:archer",
+   "smartrecruiters:archer",
+   "workday:archer",
+   "jsonld:archer.com",
+   "jsonld:careers.archer.com"
+  ]
+ },
+ {
+  "name": "Relativity Space",
+  "website": "https://relativityspace.com",
+  "careersUrl": "https://www.relativityspace.com/careers",
+  "tried": [
+   "greenhouse:relativityspace",
+   "ashby:relativityspace",
+   "lever:relativityspace",
+   "workable:relativityspace",
+   "recruitee:relativityspace",
+   "smartrecruiters:relativityspace",
+   "keka:relativityspace",
+   "workday:relativityspace",
+   "greenhouse:relativity-space",
+   "workable:relativity-space",
+   "recruitee:relativity-space",
+   "smartrecruiters:relativity-space",
+   "jsonld:www.relativityspace.com",
+   "jsonld:careers.relativityspace.com",
+   "jsonld:relativityspace.com"
+  ]
+ },
+ {
+  "name": "Anduril",
+  "website": "https://anduril.com",
+  "careersUrl": "https://www.anduril.com/careers",
+  "tried": [
+   "greenhouse:anduril",
+   "ashby:anduril",
+   "lever:anduril",
+   "workable:anduril",
+   "recruitee:anduril",
+   "smartrecruiters:anduril",
+   "keka:anduril",
+   "workday:anduril",
+   "jsonld:www.anduril.com",
+   "jsonld:careers.anduril.com",
+   "jsonld:anduril.com"
+  ]
+ },
+ {
+  "name": "Whatnot",
+  "website": "https://whatnot.com",
+  "careersUrl": "https://whatnot.com/careers",
+  "tried": [
+   "greenhouse:whatnot",
+   "ashby:whatnot",
+   "lever:whatnot",
+   "workable:whatnot",
+   "recruitee:whatnot",
+   "smartrecruiters:whatnot",
+   "keka:whatnot",
+   "workday:whatnot",
+   "jsonld:careers.whatnot.com",
+   "jsonld:whatnot.com"
+  ]
+ },
+ {
+  "name": "Vinted",
+  "website": "https://vinted.com",
+  "careersUrl": "https://careers.vinted.com/",
+  "tried": [
+   "greenhouse:vinted",
+   "ashby:vinted",
+   "lever:vinted",
+   "workable:vinted",
+   "recruitee:vinted",
+   "smartrecruiters:vinted",
+   "keka:vinted",
+   "workday:vinted",
+   "jsonld:careers.vinted.com",
+   "jsonld:vinted.com"
+  ]
+ },
+ {
+  "name": "Depop",
+  "website": "https://depop.com",
+  "careersUrl": "https://depop.com/careers",
+  "tried": [
+   "greenhouse:depop",
+   "workable:depop",
+   "recruitee:depop",
+   "smartrecruiters:depop",
+   "workday:depop",
+   "jsonld:careers.depop.com",
+   "jsonld:depop.com"
+  ]
+ },
+ {
+  "name": "Warby Parker",
+  "website": "https://warbyparker.com",
+  "careersUrl": "https://warbyparker.com/careers",
+  "tried": [
+   "greenhouse:warbyparker",
+   "ashby:warbyparker",
+   "lever:warbyparker",
+   "workable:warbyparker",
+   "recruitee:warbyparker",
+   "smartrecruiters:warbyparker",
+   "keka:warbyparker",
+   "workday:warbyparker",
+   "greenhouse:warby-parker",
+   "workable:warby-parker",
+   "recruitee:warby-parker",
+   "smartrecruiters:warby-parker",
+   "jsonld:careers.warbyparker.com",
+   "jsonld:warbyparker.com"
+  ]
+ },
+ {
+  "name": "Allbirds",
+  "website": "https://allbirds.com",
+  "careersUrl": "https://www.allbirds.com/pages/careers",
+  "tried": [
+   "greenhouse:allbirds",
+   "ashby:allbirds",
+   "lever:allbirds",
+   "workable:allbirds",
+   "recruitee:allbirds",
+   "smartrecruiters:allbirds",
+   "keka:allbirds",
+   "workday:allbirds",
+   "jsonld:www.allbirds.com",
+   "jsonld:careers.allbirds.com",
+   "jsonld:allbirds.com"
+  ]
+ },
+ {
+  "name": "Getir",
+  "website": "https://getir.com",
+  "careersUrl": "https://getir.com/careers",
+  "tried": [
+   "greenhouse:getir",
+   "workable:getir",
+   "recruitee:getir",
+   "smartrecruiters:getir",
+   "workday:getir",
+   "jsonld:careers.getir.com",
+   "jsonld:getir.com"
+  ]
+ },
+ {
+  "name": "Glovo",
+  "website": "https://glovoapp.com",
+  "careersUrl": "https://careers.glovoapp.com/",
+  "tried": [
+   "greenhouse:glovo",
+   "workable:glovo",
+   "recruitee:glovo",
+   "smartrecruiters:glovo",
+   "workday:glovo",
+   "greenhouse:glovoapp",
+   "workable:glovoapp",
+   "recruitee:glovoapp",
+   "smartrecruiters:glovoapp",
+   "workday:glovoapp",
+   "jsonld:careers.glovoapp.com",
+   "jsonld:glovoapp.com"
+  ]
+ },
+ {
+  "name": "Trade Republic",
+  "website": "https://traderepublic.com",
+  "careersUrl": "https://traderepublic.com/en-de/about",
+  "tried": [
+   "greenhouse:traderepublic",
+   "ashby:traderepublic",
+   "lever:traderepublic",
+   "workable:traderepublic",
+   "recruitee:traderepublic",
+   "smartrecruiters:traderepublic",
+   "keka:traderepublic",
+   "workday:traderepublic",
+   "greenhouse:trade-republic",
+   "workable:trade-republic",
+   "recruitee:trade-republic",
+   "smartrecruiters:trade-republic",
+   "jsonld:traderepublic.com",
+   "jsonld:careers.traderepublic.com"
+  ]
+ },
+ {
+  "name": "Qonto",
+  "website": "https://qonto.com",
+  "careersUrl": "https://qonto.com/careers",
+  "tried": [
+   "greenhouse:qonto",
+   "workable:qonto",
+   "recruitee:qonto",
+   "smartrecruiters:qonto",
+   "workday:qonto",
+   "jsonld:careers.qonto.com",
+   "jsonld:qonto.com"
+  ]
+ },
+ {
+  "name": "Zilch",
+  "website": "https://zilch.com",
+  "careersUrl": "https://www.zilch.com/uk/careers/",
+  "tried": [
+   "greenhouse:zilch",
+   "workable:zilch",
+   "recruitee:zilch",
+   "smartrecruiters:zilch",
+   "workday:zilch",
+   "jsonld:www.zilch.com",
+   "jsonld:careers.zilch.com",
+   "jsonld:zilch.com"
+  ]
+ },
+ {
+  "name": "Curve",
+  "website": "https://curve.com",
+  "careersUrl": "https://www.curve.com/careers/",
+  "tried": [
+   "greenhouse:curve",
+   "workable:curve",
+   "recruitee:curve",
+   "smartrecruiters:curve",
+   "workday:curve",
+   "jsonld:www.curve.com",
+   "jsonld:careers.curve.com",
+   "jsonld:curve.com"
+  ]
+ },
+ {
+  "name": "Tabby",
+  "website": "https://tabby.ai",
+  "careersUrl": "https://tabby.ai/en-AE/careers",
+  "tried": [
+   "greenhouse:tabby",
+   "workable:tabby",
+   "recruitee:tabby",
+   "smartrecruiters:tabby",
+   "workday:tabby",
+   "jsonld:tabby.ai",
+   "jsonld:careers.tabby.ai"
+  ]
+ },
+ {
+  "name": "Kredivo",
+  "website": "https://kredivo.com",
+  "careersUrl": "https://kredivo.com/careers",
+  "tried": [
+   "greenhouse:kredivo",
+   "ashby:kredivo",
+   "lever:kredivo",
+   "workable:kredivo",
+   "recruitee:kredivo",
+   "smartrecruiters:kredivo",
+   "keka:kredivo",
+   "workday:kredivo",
+   "jsonld:careers.kredivo.com",
+   "jsonld:kredivo.com"
+  ]
+ },
+ {
+  "name": "Akulaku",
+  "website": "https://akulaku.com",
+  "careersUrl": "https://akulaku.com/careers",
+  "tried": [
+   "greenhouse:akulaku",
+   "ashby:akulaku",
+   "lever:akulaku",
+   "workable:akulaku",
+   "recruitee:akulaku",
+   "smartrecruiters:akulaku",
+   "keka:akulaku",
+   "workday:akulaku",
+   "jsonld:careers.akulaku.com",
+   "jsonld:akulaku.com"
+  ]
+ },
+ {
+  "name": "Coda Payments",
+  "website": "https://coda.co",
+  "careersUrl": "https://www.coda.co/careers/",
+  "tried": [
+   "lever:coda",
+   "greenhouse:codapayments",
+   "ashby:codapayments",
+   "lever:codapayments",
+   "workable:codapayments",
+   "recruitee:codapayments",
+   "smartrecruiters:codapayments",
+   "keka:codapayments",
+   "workday:codapayments",
+   "greenhouse:coda-payments",
+   "workable:coda-payments",
+   "recruitee:coda-payments",
+   "smartrecruiters:coda-payments",
+   "greenhouse:coda",
+   "workable:coda",
+   "recruitee:coda",
+   "smartrecruiters:coda",
+   "workday:coda",
+   "jsonld:www.coda.co",
+   "jsonld:careers.coda.co",
+   "jsonld:coda.co"
+  ]
+ },
+ {
+  "name": "Carousell",
+  "website": "https://carousell.com",
+  "careersUrl": "https://carousell.com/careers",
+  "tried": [
+   "greenhouse:carousell",
+   "ashby:carousell",
+   "lever:carousell",
+   "workable:carousell",
+   "recruitee:carousell",
+   "smartrecruiters:carousell",
+   "keka:carousell",
+   "workday:carousell",
+   "jsonld:careers.carousell.com",
+   "jsonld:carousell.com"
+  ]
+ },
+ {
+  "name": "Traveloka",
+  "website": "https://traveloka.com",
+  "careersUrl": "https://careers.traveloka.com/",
+  "tried": [
+   "greenhouse:traveloka",
+   "ashby:traveloka",
+   "lever:traveloka",
+   "workable:traveloka",
+   "recruitee:traveloka",
+   "smartrecruiters:traveloka",
+   "keka:traveloka",
+   "workday:traveloka",
+   "jsonld:careers.traveloka.com",
+   "jsonld:traveloka.com"
+  ]
+ },
+ {
+  "name": "Tokopedia",
+  "website": "https://tokopedia.com",
+  "careersUrl": "https://tokopedia.com/careers",
+  "tried": [
+   "greenhouse:tokopedia",
+   "ashby:tokopedia",
+   "lever:tokopedia",
+   "workable:tokopedia",
+   "recruitee:tokopedia",
+   "smartrecruiters:tokopedia",
+   "keka:tokopedia",
+   "workday:tokopedia",
+   "jsonld:careers.tokopedia.com",
+   "jsonld:tokopedia.com"
+  ]
+ },
+ {
+  "name": "SafetyCulture",
+  "website": "https://safetyculture.com",
+  "careersUrl": "https://mitti.com/careers",
+  "tried": [
+   "greenhouse:safetyculture",
+   "ashby:safetyculture",
+   "lever:safetyculture",
+   "workable:safetyculture",
+   "recruitee:safetyculture",
+   "smartrecruiters:safetyculture",
+   "keka:safetyculture",
+   "workday:safetyculture",
+   "jsonld:mitti.com",
+   "jsonld:careers.safetyculture.com",
+   "jsonld:safetyculture.com"
+  ]
+ },
+ {
+  "name": "Employment Hero",
+  "website": "https://employmenthero.com",
+  "careersUrl": "https://employmenthero.com/careers/",
+  "tried": [
+   "greenhouse:employmenthero",
+   "ashby:employmenthero",
+   "lever:employmenthero",
+   "workable:employmenthero",
+   "recruitee:employmenthero",
+   "smartrecruiters:employmenthero",
+   "keka:employmenthero",
+   "workday:employmenthero",
+   "greenhouse:employment-hero",
+   "workable:employment-hero",
+   "recruitee:employment-hero",
+   "smartrecruiters:employment-hero",
+   "jsonld:employmenthero.com",
+   "jsonld:careers.employmenthero.com"
+  ]
+ },
+ {
+  "name": "Afterpay",
+  "website": "https://afterpay.com",
+  "careersUrl": "https://www.afterpay.com/global/country-select",
+  "tried": [
+   "greenhouse:afterpay",
+   "ashby:afterpay",
+   "lever:afterpay",
+   "workable:afterpay",
+   "recruitee:afterpay",
+   "smartrecruiters:afterpay",
+   "keka:afterpay",
+   "workday:afterpay",
+   "jsonld:www.afterpay.com",
+   "jsonld:careers.afterpay.com",
+   "jsonld:afterpay.com"
+  ]
+ },
+ {
+  "name": "Xero",
+  "website": "https://xero.com",
+  "careersUrl": "https://xero.com/careers",
+  "tried": [
+   "greenhouse:xero",
+   "workable:xero",
+   "recruitee:xero",
+   "smartrecruiters:xero",
+   "workday:xero",
+   "jsonld:careers.xero.com",
+   "jsonld:xero.com"
+  ]
+ },
+ {
+  "name": "LegalZoom",
+  "website": "https://legalzoom.com",
+  "careersUrl": "https://www.legalzoom.com/careers",
+  "tried": [
+   "greenhouse:legalzoom",
+   "ashby:legalzoom",
+   "lever:legalzoom",
+   "workable:legalzoom",
+   "recruitee:legalzoom",
+   "smartrecruiters:legalzoom",
+   "keka:legalzoom",
+   "workday:legalzoom",
+   "jsonld:www.legalzoom.com",
+   "jsonld:careers.legalzoom.com",
+   "jsonld:legalzoom.com"
+  ]
+ },
+ {
+  "name": "Pilot",
+  "website": "https://pilot.com",
+  "careersUrl": "https://pilot.com/careers",
+  "tried": [
+   "greenhouse:pilot",
+   "workable:pilot",
+   "recruitee:pilot",
+   "smartrecruiters:pilot",
+   "workday:pilot",
+   "jsonld:pilot.com",
+   "jsonld:careers.pilot.com"
+  ]
+ },
+ {
+  "name": "Tipalti",
+  "website": "https://tipalti.com",
+  "careersUrl": "https://tipalti.com/company/careers/",
+  "tried": [
+   "greenhouse:tipalti",
+   "ashby:tipalti",
+   "lever:tipalti",
+   "workable:tipalti",
+   "recruitee:tipalti",
+   "smartrecruiters:tipalti",
+   "keka:tipalti",
+   "workday:tipalti",
+   "jsonld:tipalti.com",
+   "jsonld:careers.tipalti.com"
+  ]
+ },
+ {
+  "name": "Personio",
+  "website": "https://personio.com",
+  "careersUrl": "https://personio.com/careers",
+  "tried": [
+   "greenhouse:personio",
+   "ashby:personio",
+   "lever:personio",
+   "workable:personio",
+   "recruitee:personio",
+   "smartrecruiters:personio",
+   "keka:personio",
+   "workday:personio",
+   "jsonld:careers.personio.com",
+   "jsonld:personio.com"
+  ]
+ },
+ {
+  "name": "Factorial",
+  "website": "https://factorialhr.com",
+  "careersUrl": "https://careers.factorial.com/",
+  "tried": [
+   "greenhouse:factorial",
+   "ashby:factorial",
+   "lever:factorial",
+   "workable:factorial",
+   "recruitee:factorial",
+   "smartrecruiters:factorial",
+   "keka:factorial",
+   "workday:factorial",
+   "greenhouse:factorialhr",
+   "workable:factorialhr",
+   "recruitee:factorialhr",
+   "smartrecruiters:factorialhr",
+   "workday:factorialhr",
+   "jsonld:careers.factorial.com",
+   "jsonld:careers.factorialhr.com",
+   "jsonld:factorialhr.com"
+  ]
+ },
+ {
+  "name": "Papaya Global",
+  "website": "https://papayaglobal.com",
+  "careersUrl": "https://careers.papayaglobal.com/",
+  "tried": [
+   "greenhouse:papayaglobal",
+   "ashby:papayaglobal",
+   "lever:papayaglobal",
+   "workable:papayaglobal",
+   "recruitee:papayaglobal",
+   "smartrecruiters:papayaglobal",
+   "keka:papayaglobal",
+   "workday:papayaglobal",
+   "greenhouse:papaya-global",
+   "workable:papaya-global",
+   "recruitee:papaya-global",
+   "smartrecruiters:papaya-global",
+   "greenhouse:papaya",
+   "workable:papaya",
+   "recruitee:papaya",
+   "smartrecruiters:papaya",
+   "jsonld:careers.papayaglobal.com",
+   "jsonld:papayaglobal.com"
+  ]
+ },
+ {
+  "name": "Multiplier",
+  "website": "https://usemultiplier.com",
+  "careersUrl": "https://usemultiplier.com/careers",
+  "tried": [
+   "greenhouse:multiplier",
+   "ashby:multiplier",
+   "lever:multiplier",
+   "workable:multiplier",
+   "recruitee:multiplier",
+   "smartrecruiters:multiplier",
+   "keka:multiplier",
+   "workday:multiplier",
+   "greenhouse:usemultiplier",
+   "workable:usemultiplier",
+   "recruitee:usemultiplier",
+   "smartrecruiters:usemultiplier",
+   "workday:usemultiplier",
+   "jsonld:careers.usemultiplier.com",
+   "jsonld:usemultiplier.com"
+  ]
+ },
+ {
+  "name": "Globalization Partners",
+  "website": "https://globalization-partners.com",
+  "careersUrl": "https://www.globalization-partners.com/careers/",
+  "tried": [
+   "greenhouse:globalizationpartners",
+   "ashby:globalizationpartners",
+   "lever:globalizationpartners",
+   "workable:globalizationpartners",
+   "recruitee:globalizationpartners",
+   "smartrecruiters:globalizationpartners",
+   "keka:globalizationpartners",
+   "workday:globalizationpartners",
+   "greenhouse:globalization-partners",
+   "workable:globalization-partners",
+   "recruitee:globalization-partners",
+   "smartrecruiters:globalization-partners",
+   "workday:globalization-partners",
+   "jsonld:www.globalization-partners.com",
+   "jsonld:careers.globalization-partners.com",
+   "jsonld:globalization-partners.com"
+  ]
+ },
+ {
+  "name": "Atlas HXM",
+  "website": "https://atlashxm.com",
+  "careersUrl": "https://atlashxm.com/careers",
+  "tried": [
+   "greenhouse:atlashxm",
+   "ashby:atlashxm",
+   "lever:atlashxm",
+   "workable:atlashxm",
+   "recruitee:atlashxm",
+   "smartrecruiters:atlashxm",
+   "keka:atlashxm",
+   "workday:atlashxm",
+   "greenhouse:atlas-hxm",
+   "workable:atlas-hxm",
+   "recruitee:atlas-hxm",
+   "smartrecruiters:atlas-hxm",
+   "jsonld:careers.atlashxm.com",
+   "jsonld:atlashxm.com"
+  ]
+ },
+ {
+  "name": "Retool",
+  "website": "https://retool.com",
+  "careersUrl": "https://retool.com/careers",
+  "tried": [
+   "greenhouse:retool",
+   "ashby:retool",
+   "lever:retool",
+   "workable:retool",
+   "recruitee:retool",
+   "smartrecruiters:retool",
+   "keka:retool",
+   "workday:retool",
+   "jsonld:retool.com",
+   "jsonld:careers.retool.com"
+  ]
+ },
+ {
+  "name": "Framer",
+  "website": "https://framer.com",
+  "careersUrl": "https://www.framer.com/careers/",
+  "tried": [
+   "greenhouse:framer",
+   "ashby:framer",
+   "lever:framer",
+   "workable:framer",
+   "recruitee:framer",
+   "smartrecruiters:framer",
+   "keka:framer",
+   "workday:framer",
+   "jsonld:www.framer.com",
+   "jsonld:careers.framer.com",
+   "jsonld:framer.com"
+  ]
+ },
+ {
+  "name": "Superhuman",
+  "website": "https://superhuman.com",
+  "careersUrl": "https://superhuman.com/company/careers",
+  "tried": [
+   "greenhouse:grammarly",
+   "greenhouse:superhuman",
+   "ashby:superhuman",
+   "lever:superhuman",
+   "workable:superhuman",
+   "recruitee:superhuman",
+   "smartrecruiters:superhuman",
+   "keka:superhuman",
+   "workday:superhuman",
+   "jsonld:superhuman.com",
+   "jsonld:careers.superhuman.com"
+  ]
+ },
+ {
+  "name": "Intercom",
+  "website": "https://intercom.com",
+  "careersUrl": "https://fin.ai/careers",
+  "tried": [
+   "greenhouse:intercom",
+   "ashby:intercom",
+   "lever:intercom",
+   "workable:intercom",
+   "recruitee:intercom",
+   "smartrecruiters:intercom",
+   "keka:intercom",
+   "workday:intercom",
+   "jsonld:fin.ai",
+   "jsonld:careers.intercom.com",
+   "jsonld:intercom.com"
+  ]
+ },
+ {
+  "name": "LivePerson",
+  "website": "https://liveperson.com",
+  "careersUrl": "https://www.liveperson.com/company/careers/",
+  "tried": [
+   "greenhouse:liveperson",
+   "ashby:liveperson",
+   "lever:liveperson",
+   "workable:liveperson",
+   "recruitee:liveperson",
+   "smartrecruiters:liveperson",
+   "keka:liveperson",
+   "workday:liveperson",
+   "jsonld:www.liveperson.com",
+   "jsonld:careers.liveperson.com",
+   "jsonld:liveperson.com"
+  ]
+ },
+ {
+  "name": "Coveo",
+  "website": "https://coveo.com",
+  "careersUrl": "https://www.coveo.com/en/company/careers",
+  "tried": [
+   "greenhouse:coveo",
+   "workable:coveo",
+   "recruitee:coveo",
+   "smartrecruiters:coveo",
+   "workday:coveo",
+   "jsonld:www.coveo.com",
+   "jsonld:careers.coveo.com",
+   "jsonld:coveo.com"
+  ]
+ },
+ {
+  "name": "Vimeo",
+  "website": "https://vimeo.com",
+  "careersUrl": "https://vimeo.com/careers",
+  "tried": [
+   "greenhouse:vimeo",
+   "workable:vimeo",
+   "recruitee:vimeo",
+   "smartrecruiters:vimeo",
+   "workday:vimeo",
+   "jsonld:vimeo.com",
+   "jsonld:careers.vimeo.com"
+  ]
+ },
+ {
+  "name": "Riverside",
+  "website": "https://riverside.fm",
+  "careersUrl": "https://careers.riverside.com/",
+  "tried": [
+   "greenhouse:riverside",
+   "ashby:riverside",
+   "lever:riverside",
+   "workable:riverside",
+   "recruitee:riverside",
+   "smartrecruiters:riverside",
+   "keka:riverside",
+   "workday:riverside",
+   "jsonld:careers.riverside.com",
+   "jsonld:careers.riverside.fm",
+   "jsonld:riverside.fm"
+  ]
+ },
+ {
+  "name": "Mailchimp",
+  "website": "https://mailchimp.com",
+  "careersUrl": "https://mailchimp.com/jobs/",
+  "tried": [
+   "greenhouse:mailchimp",
+   "ashby:mailchimp",
+   "lever:mailchimp",
+   "workable:mailchimp",
+   "recruitee:mailchimp",
+   "smartrecruiters:mailchimp",
+   "keka:mailchimp",
+   "workday:mailchimp",
+   "jsonld:mailchimp.com",
+   "jsonld:careers.mailchimp.com"
+  ]
+ },
+ {
+  "name": "Brevo",
+  "website": "https://brevo.com",
+  "careersUrl": "https://www.brevo.com/careers/",
+  "tried": [
+   "greenhouse:brevo",
+   "workable:brevo",
+   "recruitee:brevo",
+   "smartrecruiters:brevo",
+   "workday:brevo",
+   "jsonld:www.brevo.com",
+   "jsonld:careers.brevo.com",
+   "jsonld:brevo.com"
+  ]
+ },
+ {
+  "name": "Heap",
+  "website": "https://heap.io",
+  "careersUrl": "https://www.heap.io/careers",
+  "tried": [
+   "greenhouse:heap",
+   "workable:heap",
+   "recruitee:heap",
+   "smartrecruiters:heap",
+   "workday:heap",
+   "jsonld:www.heap.io",
+   "jsonld:careers.heap.io",
+   "jsonld:heap.io"
+  ]
+ },
+ {
+  "name": "Productboard",
+  "website": "https://productboard.com",
+  "careersUrl": "https://www.productboard.com/careers/",
+  "tried": [
+   "greenhouse:productboard",
+   "ashby:productboard",
+   "lever:productboard",
+   "workable:productboard",
+   "recruitee:productboard",
+   "smartrecruiters:productboard",
+   "keka:productboard",
+   "workday:productboard",
+   "jsonld:www.productboard.com",
+   "jsonld:careers.productboard.com",
+   "jsonld:productboard.com"
+  ]
+ },
+ {
+  "name": "Aha!",
+  "website": "https://aha.io",
+  "careersUrl": "https://www.aha.io/company/careers",
+  "tried": [
+   "greenhouse:aha",
+   "workable:aha",
+   "recruitee:aha",
+   "smartrecruiters:aha",
+   "jsonld:www.aha.io",
+   "jsonld:careers.aha.io",
+   "jsonld:aha.io"
+  ]
+ },
+ {
+  "name": "LaunchNotes",
+  "website": "https://launchnotes.com",
+  "careersUrl": "https://www.launchnotes.com/about",
+  "tried": [
+   "greenhouse:launchnotes",
+   "ashby:launchnotes",
+   "lever:launchnotes",
+   "workable:launchnotes",
+   "recruitee:launchnotes",
+   "smartrecruiters:launchnotes",
+   "keka:launchnotes",
+   "workday:launchnotes",
+   "jsonld:www.launchnotes.com",
+   "jsonld:careers.launchnotes.com",
+   "jsonld:launchnotes.com"
+  ]
+ },
+ {
+  "name": "GetYourGuide",
+  "website": "https://getyourguide.com",
+  "careersUrl": "https://www.getyourguide.careers/",
+  "tried": [
+   "greenhouse:getyourguide",
+   "ashby:getyourguide",
+   "lever:getyourguide",
+   "workable:getyourguide",
+   "recruitee:getyourguide",
+   "smartrecruiters:getyourguide",
+   "keka:getyourguide",
+   "workday:getyourguide",
+   "jsonld:www.getyourguide.careers",
+   "jsonld:careers.getyourguide.com",
+   "jsonld:getyourguide.com"
+  ]
+ },
+ {
+  "name": "Klook",
+  "website": "https://klook.com",
+  "careersUrl": "https://www.klook.com/careers/",
+  "tried": [
+   "greenhouse:klook",
+   "workable:klook",
+   "recruitee:klook",
+   "smartrecruiters:klook",
+   "workday:klook",
+   "jsonld:www.klook.com",
+   "jsonld:careers.klook.com",
+   "jsonld:klook.com"
+  ]
+ },
+ {
+  "name": "Skyscanner",
+  "website": "https://skyscanner.net",
+  "careersUrl": "https://www.skyscanner.net/sttc/px/captcha-v2/index.html?url=L2NhcmVlcnM/&uuid=b262a5f4-dcfb-11f1-a4bc-77e20f56ed47&vid=",
+  "tried": [
+   "greenhouse:skyscanner",
+   "ashby:skyscanner",
+   "lever:skyscanner",
+   "workable:skyscanner",
+   "recruitee:skyscanner",
+   "smartrecruiters:skyscanner",
+   "keka:skyscanner",
+   "workday:skyscanner",
+   "jsonld:www.skyscanner.net",
+   "jsonld:careers.skyscanner.net",
+   "jsonld:skyscanner.net"
+  ]
+ },
+ {
+  "name": "Kayak",
+  "website": "https://kayak.com",
+  "careersUrl": "https://www.kayak.com/careers",
+  "tried": [
+   "greenhouse:kayak",
+   "workable:kayak",
+   "recruitee:kayak",
+   "smartrecruiters:kayak",
+   "workday:kayak",
+   "jsonld:www.kayak.com",
+   "jsonld:careers.kayak.com",
+   "jsonld:kayak.com"
+  ]
+ },
+ {
+  "name": "Guesty",
+  "website": "https://guesty.com",
+  "careersUrl": "https://www.guesty.com/careers/",
+  "tried": [
+   "greenhouse:guesty",
+   "ashby:guesty",
+   "lever:guesty",
+   "workable:guesty",
+   "recruitee:guesty",
+   "smartrecruiters:guesty",
+   "keka:guesty",
+   "workday:guesty",
+   "jsonld:www.guesty.com",
+   "jsonld:careers.guesty.com",
+   "jsonld:guesty.com"
+  ]
+ },
+ {
+  "name": "Vacasa",
+  "website": "https://vacasa.com",
+  "careersUrl": "https://www.vacasa.com/careers",
+  "tried": [
+   "greenhouse:casago",
+   "greenhouse:vacasa",
+   "ashby:vacasa",
+   "lever:vacasa",
+   "workable:vacasa",
+   "recruitee:vacasa",
+   "smartrecruiters:vacasa",
+   "keka:vacasa",
+   "workday:vacasa",
+   "jsonld:www.vacasa.com",
+   "jsonld:careers.vacasa.com",
+   "jsonld:vacasa.com"
+  ]
+ },
+ {
+  "name": "Compass Inc",
+  "website": "https://compass.com",
+  "careersUrl": "https://www.compass.com/careers/",
+  "tried": [
+   "greenhouse:compass",
+   "ashby:compass",
+   "lever:compass",
+   "workable:compass",
+   "recruitee:compass",
+   "smartrecruiters:compass",
+   "keka:compass",
+   "workday:compass",
+   "jsonld:www.compass.com",
+   "jsonld:careers.compass.com",
+   "jsonld:compass.com"
+  ]
+ },
+ {
+  "name": "Opendoor",
+  "website": "https://opendoor.com",
+  "careersUrl": "https://www.opendoor.com/careers",
+  "tried": [
+   "greenhouse:opendoor",
+   "ashby:opendoor",
+   "lever:opendoor",
+   "workable:opendoor",
+   "recruitee:opendoor",
+   "smartrecruiters:opendoor",
+   "keka:opendoor",
+   "workday:opendoor",
+   "jsonld:www.opendoor.com",
+   "jsonld:careers.opendoor.com",
+   "jsonld:opendoor.com"
+  ]
+ },
+ {
+  "name": "Redfin",
+  "website": "https://redfin.com",
+  "careersUrl": "https://redfin.com/careers",
+  "tried": [
+   "greenhouse:redfin",
+   "ashby:redfin",
+   "lever:redfin",
+   "workable:redfin",
+   "recruitee:redfin",
+   "smartrecruiters:redfin",
+   "keka:redfin",
+   "workday:redfin",
+   "jsonld:careers.redfin.com",
+   "jsonld:redfin.com"
+  ]
+ },
+ {
+  "name": "Rocket Companies",
+  "website": "https://rocketcompanies.com",
+  "careersUrl": "https://rocketcompanies.com/careers",
+  "tried": [
+   "greenhouse:rocketcompanies",
+   "ashby:rocketcompanies",
+   "lever:rocketcompanies",
+   "workable:rocketcompanies",
+   "recruitee:rocketcompanies",
+   "smartrecruiters:rocketcompanies",
+   "keka:rocketcompanies",
+   "workday:rocketcompanies",
+   "greenhouse:rocket-companies",
+   "workable:rocket-companies",
+   "recruitee:rocket-companies",
+   "smartrecruiters:rocket-companies",
+   "jsonld:careers.rocketcompanies.com",
+   "jsonld:rocketcompanies.com"
+  ]
+ },
+ {
+  "name": "nCino",
+  "website": "https://ncino.com",
+  "careersUrl": "https://ncino.com/careers",
+  "tried": [
+   "greenhouse:ncino",
+   "workable:ncino",
+   "recruitee:ncino",
+   "smartrecruiters:ncino",
+   "workday:ncino",
+   "jsonld:careers.ncino.com",
+   "jsonld:ncino.com"
+  ]
+ },
+ {
+  "name": "Q2",
+  "website": "https://q2.com",
+  "careersUrl": "https://q2.com/careers",
+  "tried": [
+   "jsonld:careers.q2.com",
+   "jsonld:q2.com"
+  ]
+ },
+ {
+  "name": "Mambu",
+  "website": "https://mambu.com",
+  "careersUrl": "https://careers.mambu.com/",
+  "tried": [
+   "greenhouse:mambu",
+   "workable:mambu",
+   "recruitee:mambu",
+   "smartrecruiters:mambu",
+   "workday:mambu",
+   "jsonld:careers.mambu.com",
+   "jsonld:mambu.com"
+  ]
+ },
+ {
+  "name": "Galileo Financial",
+  "website": "https://galileo-ft.com",
+  "careersUrl": "https://galileo-ft.com/careers",
+  "tried": [
+   "greenhouse:galileofinancial",
+   "ashby:galileofinancial",
+   "lever:galileofinancial",
+   "workable:galileofinancial",
+   "recruitee:galileofinancial",
+   "smartrecruiters:galileofinancial",
+   "keka:galileofinancial",
+   "workday:galileofinancial",
+   "greenhouse:galileo-financial",
+   "workable:galileo-financial",
+   "recruitee:galileo-financial",
+   "smartrecruiters:galileo-financial",
+   "greenhouse:galileo-ft",
+   "workable:galileo-ft",
+   "recruitee:galileo-ft",
+   "smartrecruiters:galileo-ft",
+   "workday:galileo-ft",
+   "jsonld:careers.galileo-ft.com",
+   "jsonld:galileo-ft.com"
+  ]
+ },
+ {
+  "name": "Unit",
+  "website": "https://unit.co",
+  "careersUrl": "https://www.unit.co/careers",
+  "tried": [
+   "greenhouse:unit",
+   "workable:unit",
+   "recruitee:unit",
+   "smartrecruiters:unit",
+   "workday:unit",
+   "jsonld:www.unit.co",
+   "jsonld:careers.unit.co",
+   "jsonld:unit.co"
+  ]
+ },
+ {
+  "name": "Onfido",
+  "website": "https://onfido.com",
+  "careersUrl": "https://onfido.com/careers",
+  "tried": [
+   "greenhouse:onfido",
+   "ashby:onfido",
+   "lever:onfido",
+   "workable:onfido",
+   "recruitee:onfido",
+   "smartrecruiters:onfido",
+   "keka:onfido",
+   "workday:onfido",
+   "jsonld:careers.onfido.com",
+   "jsonld:onfido.com"
+  ]
+ },
+ {
+  "name": "Featurespace",
+  "website": "https://featurespace.com",
+  "careersUrl": "https://www.featurespace.com/careers",
+  "tried": [
+   "greenhouse:featurespace",
+   "ashby:featurespace",
+   "lever:featurespace",
+   "workable:featurespace",
+   "recruitee:featurespace",
+   "smartrecruiters:featurespace",
+   "keka:featurespace",
+   "workday:featurespace",
+   "jsonld:www.featurespace.com",
+   "jsonld:careers.featurespace.com",
+   "jsonld:featurespace.com"
+  ]
+ },
+ {
+  "name": "Crypto.com",
+  "website": "https://crypto.com",
+  "careersUrl": "https://crypto.com/careers",
+  "tried": [
+   "greenhouse:cryptocom",
+   "ashby:cryptocom",
+   "lever:cryptocom",
+   "workable:cryptocom",
+   "recruitee:cryptocom",
+   "smartrecruiters:cryptocom",
+   "keka:cryptocom",
+   "workday:cryptocom",
+   "greenhouse:crypto-com",
+   "workable:crypto-com",
+   "recruitee:crypto-com",
+   "smartrecruiters:crypto-com",
+   "greenhouse:crypto",
+   "workable:crypto",
+   "recruitee:crypto",
+   "smartrecruiters:crypto",
+   "workday:crypto",
+   "jsonld:careers.crypto.com",
+   "jsonld:crypto.com"
+  ]
+ },
+ {
+  "name": "Uniswap Labs",
+  "website": "https://uniswap.org",
+  "careersUrl": "https://app.uniswap.org/",
+  "tried": [
+   "greenhouse:uniswaplabs",
+   "ashby:uniswaplabs",
+   "lever:uniswaplabs",
+   "workable:uniswaplabs",
+   "recruitee:uniswaplabs",
+   "smartrecruiters:uniswaplabs",
+   "keka:uniswaplabs",
+   "workday:uniswaplabs",
+   "greenhouse:uniswap-labs",
+   "workable:uniswap-labs",
+   "recruitee:uniswap-labs",
+   "smartrecruiters:uniswap-labs",
+   "greenhouse:uniswap",
+   "workable:uniswap",
+   "recruitee:uniswap",
+   "smartrecruiters:uniswap",
+   "workday:uniswap",
+   "jsonld:app.uniswap.org",
+   "jsonld:careers.uniswap.org",
+   "jsonld:uniswap.org"
+  ]
+ },
+ {
+  "name": "Solana Labs",
+  "website": "https://solanalabs.com",
+  "careersUrl": "https://solanalabs.com/careers",
+  "tried": [
+   "greenhouse:solanalabs",
+   "ashby:solanalabs",
+   "lever:solanalabs",
+   "workable:solanalabs",
+   "recruitee:solanalabs",
+   "smartrecruiters:solanalabs",
+   "keka:solanalabs",
+   "workday:solanalabs",
+   "greenhouse:solana-labs",
+   "workable:solana-labs",
+   "recruitee:solana-labs",
+   "smartrecruiters:solana-labs",
+   "greenhouse:solana",
+   "workable:solana",
+   "recruitee:solana",
+   "smartrecruiters:solana",
+   "jsonld:careers.solanalabs.com",
+   "jsonld:solanalabs.com"
+  ]
+ },
+ {
+  "name": "Paxos",
+  "website": "https://paxos.com",
+  "careersUrl": "https://www.paxos.com/careers",
+  "tried": [
+   "greenhouse:paxos",
+   "workable:paxos",
+   "recruitee:paxos",
+   "smartrecruiters:paxos",
+   "workday:paxos",
+   "jsonld:www.paxos.com",
+   "jsonld:careers.paxos.com",
+   "jsonld:paxos.com"
+  ]
+ },
+ {
+  "name": "Stoplight",
+  "website": "https://stoplight.io",
+  "careersUrl": "https://careers.stoplight.io/",
+  "tried": [
+   "greenhouse:stoplight",
+   "ashby:stoplight",
+   "lever:stoplight",
+   "workable:stoplight",
+   "recruitee:stoplight",
+   "smartrecruiters:stoplight",
+   "keka:stoplight",
+   "workday:stoplight",
+   "jsonld:careers.stoplight.io",
+   "jsonld:stoplight.io"
+  ]
+ },
+ {
+  "name": "Strapi",
+  "website": "https://strapi.io",
+  "careersUrl": "https://strapi.io/careers",
+  "tried": [
+   "greenhouse:strapi",
+   "ashby:strapi",
+   "lever:strapi",
+   "workable:strapi",
+   "recruitee:strapi",
+   "smartrecruiters:strapi",
+   "keka:strapi",
+   "workday:strapi",
+   "jsonld:strapi.io",
+   "jsonld:careers.strapi.io"
+  ]
+ },
+ {
+  "name": "Auth0",
+  "website": "https://auth0.com",
+  "careersUrl": "https://www.okta.com/company/careers/",
+  "tried": [
+   "greenhouse:auth0",
+   "workable:auth0",
+   "recruitee:auth0",
+   "smartrecruiters:auth0",
+   "workday:auth0",
+   "jsonld:www.okta.com",
+   "jsonld:careers.auth0.com",
+   "jsonld:auth0.com"
+  ]
+ },
+ {
+  "name": "Stytch",
+  "website": "https://stytch.com",
+  "careersUrl": "https://jobs.twilio.com/careers",
+  "tried": [
+   "greenhouse:stytch",
+   "ashby:stytch",
+   "lever:stytch",
+   "workable:stytch",
+   "recruitee:stytch",
+   "smartrecruiters:stytch",
+   "keka:stytch",
+   "workday:stytch",
+   "jsonld:jobs.twilio.com",
+   "jsonld:careers.stytch.com",
+   "jsonld:stytch.com"
+  ]
+ },
+ {
+  "name": "Lacework",
+  "website": "https://lacework.com",
+  "careersUrl": "https://lacework.com/careers",
+  "tried": [
+   "greenhouse:lacework",
+   "ashby:lacework",
+   "lever:lacework",
+   "workable:lacework",
+   "recruitee:lacework",
+   "smartrecruiters:lacework",
+   "keka:lacework",
+   "workday:lacework",
+   "jsonld:careers.lacework.com",
+   "jsonld:lacework.com"
+  ]
+ },
+ {
+  "name": "Aqua Security",
+  "website": "https://aquasec.com",
+  "careersUrl": "https://www.aquasec.com/careers/",
+  "tried": [
+   "greenhouse:aquasecurity",
+   "ashby:aquasecurity",
+   "lever:aquasecurity",
+   "workable:aquasecurity",
+   "recruitee:aquasecurity",
+   "smartrecruiters:aquasecurity",
+   "keka:aquasecurity",
+   "workday:aquasecurity",
+   "greenhouse:aqua-security",
+   "workable:aqua-security",
+   "recruitee:aqua-security",
+   "smartrecruiters:aqua-security",
+   "greenhouse:aquasec",
+   "workable:aquasec",
+   "recruitee:aquasec",
+   "smartrecruiters:aquasec",
+   "workday:aquasec",
+   "jsonld:www.aquasec.com",
+   "jsonld:careers.aquasec.com",
+   "jsonld:aquasec.com"
+  ]
+ },
+ {
+  "name": "Claroty",
+  "website": "https://claroty.com",
+  "careersUrl": "https://claroty.com/careers",
+  "tried": [
+   "greenhouse:claroty",
+   "ashby:claroty",
+   "lever:claroty",
+   "workable:claroty",
+   "recruitee:claroty",
+   "smartrecruiters:claroty",
+   "keka:claroty",
+   "workday:claroty",
+   "jsonld:claroty.com",
+   "jsonld:careers.claroty.com"
+  ]
+ },
+ {
+  "name": "Blackpoint Cyber",
+  "website": "https://blackpointcyber.com",
+  "careersUrl": "https://blackpointcyber.com/careers",
+  "tried": [
+   "greenhouse:blackpointcyber",
+   "ashby:blackpointcyber",
+   "lever:blackpointcyber",
+   "workable:blackpointcyber",
+   "recruitee:blackpointcyber",
+   "smartrecruiters:blackpointcyber",
+   "keka:blackpointcyber",
+   "workday:blackpointcyber",
+   "greenhouse:blackpoint-cyber",
+   "workable:blackpoint-cyber",
+   "recruitee:blackpoint-cyber",
+   "smartrecruiters:blackpoint-cyber",
+   "jsonld:careers.blackpointcyber.com",
+   "jsonld:blackpointcyber.com"
+  ]
+ },
+ {
+  "name": "At-Bay",
+  "website": "https://at-bay.com",
+  "careersUrl": "https://www.at-bay.com/about/careers/",
+  "tried": [
+   "greenhouse:atbay",
+   "workable:atbay",
+   "recruitee:atbay",
+   "smartrecruiters:atbay",
+   "workday:atbay",
+   "greenhouse:at-bay",
+   "workable:at-bay",
+   "recruitee:at-bay",
+   "smartrecruiters:at-bay",
+   "workday:at-bay",
+   "jsonld:www.at-bay.com",
+   "jsonld:careers.at-bay.com",
+   "jsonld:at-bay.com"
+  ]
+ },
+ {
+  "name": "Cowbell",
+  "website": "https://cowbell.insure",
+  "careersUrl": "https://cowbell.insure/careers/",
+  "tried": [
+   "greenhouse:cowbell",
+   "ashby:cowbell",
+   "lever:cowbell",
+   "workable:cowbell",
+   "recruitee:cowbell",
+   "smartrecruiters:cowbell",
+   "keka:cowbell",
+   "workday:cowbell",
+   "jsonld:cowbell.insure",
+   "jsonld:careers.cowbell.insure"
+  ]
+ },
+ {
+  "name": "Next Insurance",
+  "website": "https://nextinsurance.com",
+  "careersUrl": "https://www.nextinsurance.com/careers/",
+  "tried": [
+   "greenhouse:nextinsurance",
+   "ashby:nextinsurance",
+   "lever:nextinsurance",
+   "workable:nextinsurance",
+   "recruitee:nextinsurance",
+   "smartrecruiters:nextinsurance",
+   "keka:nextinsurance",
+   "workday:nextinsurance",
+   "greenhouse:next-insurance",
+   "workable:next-insurance",
+   "recruitee:next-insurance",
+   "smartrecruiters:next-insurance",
+   "jsonld:www.nextinsurance.com",
+   "jsonld:careers.nextinsurance.com",
+   "jsonld:nextinsurance.com"
+  ]
+ },
+ {
+  "name": "Newfront",
+  "website": "https://newfront.com",
+  "careersUrl": "https://www.newfront.com/careers",
+  "tried": [
+   "greenhouse:newfront",
+   "ashby:newfront",
+   "lever:newfront",
+   "workable:newfront",
+   "recruitee:newfront",
+   "smartrecruiters:newfront",
+   "keka:newfront",
+   "workday:newfront",
+   "jsonld:www.newfront.com",
+   "jsonld:careers.newfront.com",
+   "jsonld:newfront.com"
+  ]
+ },
+ {
+  "name": "Bestow",
+  "website": "https://bestow.com",
+  "careersUrl": "https://www.bestow.com/careers",
+  "tried": [
+   "ashby:bestow",
+   "greenhouse:bestow",
+   "ashby:bestow",
+   "lever:bestow",
+   "workable:bestow",
+   "recruitee:bestow",
+   "smartrecruiters:bestow",
+   "keka:bestow",
+   "workday:bestow",
+   "jsonld:www.bestow.com",
+   "jsonld:careers.bestow.com",
+   "jsonld:bestow.com"
+  ]
+ },
+ {
+  "name": "Policygenius",
+  "website": "https://policygenius.com",
+  "careersUrl": "https://www.policygenius.com/careers/",
+  "tried": [
+   "greenhouse:policygenius",
+   "ashby:policygenius",
+   "lever:policygenius",
+   "workable:policygenius",
+   "recruitee:policygenius",
+   "smartrecruiters:policygenius",
+   "keka:policygenius",
+   "workday:policygenius",
+   "jsonld:www.policygenius.com",
+   "jsonld:careers.policygenius.com",
+   "jsonld:policygenius.com"
+  ]
+ },
+ {
+  "name": "Clearcover",
+  "website": "https://clearcover.com",
+  "careersUrl": "https://clearcover.com/careers",
+  "tried": [
+   "greenhouse:clearcover",
+   "ashby:clearcover",
+   "lever:clearcover",
+   "workable:clearcover",
+   "recruitee:clearcover",
+   "smartrecruiters:clearcover",
+   "keka:clearcover",
+   "workday:clearcover",
+   "jsonld:clearcover.com",
+   "jsonld:careers.clearcover.com"
+  ]
+ },
+ {
+  "name": "Wefox",
+  "website": "https://wefox.com",
+  "careersUrl": "https://www.wefox.com/",
+  "tried": [
+   "greenhouse:wefox",
+   "workable:wefox",
+   "recruitee:wefox",
+   "smartrecruiters:wefox",
+   "workday:wefox",
+   "jsonld:www.wefox.com",
+   "jsonld:careers.wefox.com",
+   "jsonld:wefox.com"
+  ]
+ },
+ {
+  "name": "Babylon",
+  "website": "https://babylonhealth.com",
+  "careersUrl": "https://babylonhealth.com/careers",
+  "tried": [
+   "greenhouse:babylon",
+   "ashby:babylon",
+   "lever:babylon",
+   "workable:babylon",
+   "recruitee:babylon",
+   "smartrecruiters:babylon",
+   "keka:babylon",
+   "workday:babylon",
+   "greenhouse:babylonhealth",
+   "workable:babylonhealth",
+   "recruitee:babylonhealth",
+   "smartrecruiters:babylonhealth",
+   "workday:babylonhealth",
+   "jsonld:careers.babylonhealth.com",
+   "jsonld:babylonhealth.com"
+  ]
+ },
+ {
+  "name": "Huma",
+  "website": "https://huma.com",
+  "careersUrl": "https://www.huma.com/careers",
+  "tried": [
+   "greenhouse:huma",
+   "workable:huma",
+   "recruitee:huma",
+   "smartrecruiters:huma",
+   "workday:huma",
+   "jsonld:www.huma.com",
+   "jsonld:careers.huma.com",
+   "jsonld:huma.com"
+  ]
+ },
+ {
+  "name": "DeepMind",
+  "website": "https://deepmind.google",
+  "careersUrl": "https://deepmind.google/careers/",
+  "tried": [
+   "greenhouse:deepmind",
+   "ashby:deepmind",
+   "lever:deepmind",
+   "workable:deepmind",
+   "recruitee:deepmind",
+   "smartrecruiters:deepmind",
+   "keka:deepmind",
+   "workday:deepmind",
+   "jsonld:deepmind.google",
+   "jsonld:careers.deepmind.google"
+  ]
+ },
+ {
+  "name": "Adept",
+  "website": "https://adept.ai",
+  "careersUrl": "https://adept.ai/careers",
+  "tried": [
+   "greenhouse:adept",
+   "workable:adept",
+   "recruitee:adept",
+   "smartrecruiters:adept",
+   "workday:adept",
+   "jsonld:careers.adept.ai",
+   "jsonld:adept.ai"
+  ]
+ },
+ {
+  "name": "xAI",
+  "website": "https://x.ai",
+  "careersUrl": "https://x.ai/careers",
+  "tried": [
+   "greenhouse:xai",
+   "workable:xai",
+   "recruitee:xai",
+   "smartrecruiters:xai",
+   "jsonld:careers.x.ai",
+   "jsonld:x.ai"
+  ]
+ },
+ {
+  "name": "Safe Superintelligence",
+  "website": "https://ssi.inc",
+  "careersUrl": "https://ssi.inc/careers",
+  "tried": [
+   "greenhouse:safesuperintelligence",
+   "ashby:safesuperintelligence",
+   "lever:safesuperintelligence",
+   "workable:safesuperintelligence",
+   "recruitee:safesuperintelligence",
+   "smartrecruiters:safesuperintelligence",
+   "keka:safesuperintelligence",
+   "workday:safesuperintelligence",
+   "greenhouse:safe-superintelligence",
+   "workable:safe-superintelligence",
+   "recruitee:safe-superintelligence",
+   "smartrecruiters:safe-superintelligence",
+   "greenhouse:ssi",
+   "workable:ssi",
+   "recruitee:ssi",
+   "smartrecruiters:ssi",
+   "jsonld:careers.ssi.inc",
+   "jsonld:ssi.inc"
+  ]
+ },
+ {
+  "name": "Thinking Machines Lab",
+  "website": "https://thinkingmachines.ai",
+  "careersUrl": "https://thinkingmachines.ai/careers",
+  "tried": [
+   "greenhouse:thinkingmachineslab",
+   "ashby:thinkingmachineslab",
+   "lever:thinkingmachineslab",
+   "workable:thinkingmachineslab",
+   "recruitee:thinkingmachineslab",
+   "smartrecruiters:thinkingmachineslab",
+   "keka:thinkingmachineslab",
+   "workday:thinkingmachineslab",
+   "greenhouse:thinking-machines-lab",
+   "workable:thinking-machines-lab",
+   "recruitee:thinking-machines-lab",
+   "smartrecruiters:thinking-machines-lab",
+   "greenhouse:thinkingmachines",
+   "workable:thinkingmachines",
+   "recruitee:thinkingmachines",
+   "smartrecruiters:thinkingmachines",
+   "workday:thinkingmachines",
+   "jsonld:careers.thinkingmachines.ai",
+   "jsonld:thinkingmachines.ai"
+  ]
+ },
+ {
+  "name": "Hippocratic AI",
+  "website": "https://hippocraticai.com",
+  "careersUrl": "https://hippocraticai.com/careers/",
+  "tried": [
+   "greenhouse:hippocraticai",
+   "ashby:hippocraticai",
+   "lever:hippocraticai",
+   "workable:hippocraticai",
+   "recruitee:hippocraticai",
+   "smartrecruiters:hippocraticai",
+   "keka:hippocraticai",
+   "workday:hippocraticai",
+   "greenhouse:hippocratic-ai",
+   "workable:hippocratic-ai",
+   "recruitee:hippocratic-ai",
+   "smartrecruiters:hippocratic-ai",
+   "jsonld:hippocraticai.com",
+   "jsonld:careers.hippocraticai.com"
+  ]
+ },
+ {
+  "name": "Tome",
+  "website": "https://tome.app",
+  "careersUrl": "https://tome.app/careers",
+  "tried": [
+   "greenhouse:tome",
+   "workable:tome",
+   "recruitee:tome",
+   "smartrecruiters:tome",
+   "workday:tome",
+   "jsonld:careers.tome.app",
+   "jsonld:tome.app"
+  ]
+ },
+ {
+  "name": "Gamma",
+  "website": "https://gamma.app",
+  "careersUrl": "https://careers.gamma.app/",
+  "tried": [
+   "greenhouse:gamma",
+   "workable:gamma",
+   "recruitee:gamma",
+   "smartrecruiters:gamma",
+   "workday:gamma",
+   "jsonld:careers.gamma.app",
+   "jsonld:gamma.app"
+  ]
+ },
+ {
+  "name": "Mem",
+  "website": "https://mem.ai",
+  "careersUrl": "https://mem.ai/careers",
+  "tried": [
+   "greenhouse:mem",
+   "workable:mem",
+   "recruitee:mem",
+   "smartrecruiters:mem",
+   "jsonld:mem.ai",
+   "jsonld:careers.mem.ai"
+  ]
+ },
+ {
+  "name": "Fireflies.ai",
+  "website": "https://fireflies.ai",
+  "careersUrl": "https://jobs.gem.com/fireflies",
+  "tried": [
+   "greenhouse:firefliesai",
+   "ashby:firefliesai",
+   "lever:firefliesai",
+   "workable:firefliesai",
+   "recruitee:firefliesai",
+   "smartrecruiters:firefliesai",
+   "keka:firefliesai",
+   "workday:firefliesai",
+   "greenhouse:fireflies-ai",
+   "workable:fireflies-ai",
+   "recruitee:fireflies-ai",
+   "smartrecruiters:fireflies-ai",
+   "greenhouse:fireflies",
+   "workable:fireflies",
+   "recruitee:fireflies",
+   "smartrecruiters:fireflies",
+   "workday:fireflies",
+   "jsonld:jobs.gem.com",
+   "jsonld:careers.fireflies.ai",
+   "jsonld:fireflies.ai"
+  ]
+ },
+ {
+  "name": "Synthflow",
+  "website": "https://synthflow.ai",
+  "careersUrl": "https://jobs.deel.com/synthflow-ai",
+  "tried": [
+   "greenhouse:synthflow",
+   "ashby:synthflow",
+   "lever:synthflow",
+   "workable:synthflow",
+   "recruitee:synthflow",
+   "smartrecruiters:synthflow",
+   "keka:synthflow",
+   "workday:synthflow",
+   "jsonld:jobs.deel.com",
+   "jsonld:careers.synthflow.ai",
+   "jsonld:synthflow.ai"
+  ]
+ },
+ {
+  "name": "Verbit",
+  "website": "https://verbit.ai",
+  "careersUrl": "https://verbit.ai/careers/",
+  "tried": [
+   "greenhouse:verbit",
+   "ashby:verbit",
+   "lever:verbit",
+   "workable:verbit",
+   "recruitee:verbit",
+   "smartrecruiters:verbit",
+   "keka:verbit",
+   "workday:verbit",
+   "jsonld:verbit.ai",
+   "jsonld:careers.verbit.ai"
+  ]
+ },
+ {
+  "name": "Unbabel",
+  "website": "https://unbabel.com",
+  "careersUrl": "https://www.transperfect.com/careers/",
+  "tried": [
+   "greenhouse:unbabel",
+   "ashby:unbabel",
+   "lever:unbabel",
+   "workable:unbabel",
+   "recruitee:unbabel",
+   "smartrecruiters:unbabel",
+   "keka:unbabel",
+   "workday:unbabel",
+   "jsonld:www.transperfect.com",
+   "jsonld:careers.unbabel.com",
+   "jsonld:unbabel.com"
+  ]
+ },
+ {
+  "name": "Clay",
+  "website": "https://clay.com",
+  "careersUrl": "https://www.clay.com/careers",
+  "tried": [
+   "greenhouse:clay",
+   "workable:clay",
+   "recruitee:clay",
+   "smartrecruiters:clay",
+   "workday:clay",
+   "jsonld:www.clay.com",
+   "jsonld:careers.clay.com",
+   "jsonld:clay.com"
+  ]
+ },
+ {
+  "name": "Folk",
+  "website": "https://folk.app",
+  "careersUrl": "https://folk.app/careers",
+  "tried": [
+   "greenhouse:folk",
+   "workable:folk",
+   "recruitee:folk",
+   "smartrecruiters:folk",
+   "workday:folk",
+   "jsonld:careers.folk.app",
+   "jsonld:folk.app"
+  ]
+ },
+ {
+  "name": "Pipedrive",
+  "website": "https://pipedrive.com",
+  "careersUrl": "https://careers.pipedrive.com/auth/login?return_url=https%3A%2F%2Fcareers.pipedrive.com%2F",
+  "tried": [
+   "greenhouse:pipedrive",
+   "ashby:pipedrive",
+   "lever:pipedrive",
+   "workable:pipedrive",
+   "recruitee:pipedrive",
+   "smartrecruiters:pipedrive",
+   "keka:pipedrive",
+   "workday:pipedrive",
+   "jsonld:careers.pipedrive.com",
+   "jsonld:pipedrive.com"
+  ]
+ },
+ {
+  "name": "Freshdesk",
+  "website": "https://freshdesk.com",
+  "careersUrl": "https://freshdesk.com/careers",
+  "tried": [
+   "greenhouse:freshdesk",
+   "ashby:freshdesk",
+   "lever:freshdesk",
+   "workable:freshdesk",
+   "recruitee:freshdesk",
+   "smartrecruiters:freshdesk",
+   "keka:freshdesk",
+   "workday:freshdesk",
+   "jsonld:careers.freshdesk.com",
+   "jsonld:freshdesk.com"
+  ]
  }
 ]

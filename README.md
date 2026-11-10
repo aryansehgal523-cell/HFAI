@@ -178,11 +178,24 @@ HireFlow reads jobs straight from employers' own hiring systems. It never scrape
 | Keka | `{company}.keka.com/careers/api/embedjobs/...` (robots.txt allows `/careers` only) | Subdomain (`jupiter`) |
 | JSON-LD | schema.org JobPosting pages listed in the careers site's sitemap | Careers host (`careers.unilever.com`) |
 
-Not supported, and why: **Darwinbox** (no public, unauthenticated job feed), **SAP SuccessFactors** career sites (job data comes from `/services/`, which their robots.txt disallows), and career sites that only render jobs in the browser.
+**Job search APIs (Phase 2).** To cover every kind of role in every city, the crawl also asks Adzuna and Jooble for 150+ role keywords (tech, sales, finance, HR, operations, support and BPO, teaching, healthcare, logistics, retail, banking, legal, freshers and internships) across the 40 biggest Indian cities plus remote. Each source works through that plan a little each run, inside its daily limit, and continues where it stopped. Aggregator jobs attach to the employer's company when we already crawl it (matched by normalised name), otherwise to a new company marked `AGGREGATOR`. Each job keeps the source's own id and link, and shows "Jobs by Adzuna" or "Jobs by Jooble".
+
+| Key | Where to get it | Terms to check first |
+| --- | --- | --- |
+| `ADZUNA_APP_ID`, `ADZUNA_APP_KEY` | developer.adzuna.com (free key) | Free keys are for evaluation. Commercial products get a 14 day trial, then need a licence from Adzuna. |
+| `JOOBLE_API_KEY` (+ `JOOBLE_HOST`) | jooble.org/api/about (request form) | Jooble's site terms forbid republishing listings without written permission, so get that in writing. |
+
+Careerjet is not used: its API must be called with the IP address of the visitor doing the search, so it can't feed a stored job list. These two APIs are called with our key under their API terms, so the robots.txt check (meant for crawlers) is not applied to them; every employer site still gets it.
+
+**Duplicates.** The same opening often comes from the employer and an aggregator. Jobs with the same company, normalised title and city, posted within 7 days and with overlapping descriptions are one job. We keep the employer's feed, otherwise the aggregator with the fullest description, and list the other links on the job page ("Also listed on").
+
+**Expiry.** An aggregator job closes when 3 complete runs of the query that found it no longer return it, or 30 days after posting.
+
+Not supported, and why: **Darwinbox** (no public, unauthenticated job feed), **SAP SuccessFactors** career sites (job data comes from `/services/`, which their robots.txt disallows), **TurboHire** (its robots.txt admits only Googlebot), **PeopleStrong** (the career portal needs a login session), and career sites that only render jobs in the browser.
 
 **Rules every connector follows** (in `src/lib/ingest/http.ts`): the HireFlowBot user agent with `CRAWLER_CONTACT_EMAIL`, robots.txt checked for every URL, at most one request per second per host, retries with backoff, and a host is skipped for the rest of the run after repeated errors. Detail pages are only opened for jobs we haven't stored yet (at most `--details` per company per run), and jobs outside the crawl scope are remembered for 30 days so they aren't opened again.
 
-**Crawl scope.** `CRAWL_SCOPE=india` (the default) stores jobs in India plus jobs whose location doesn't name a country (usually "Remote"). Jobs clearly located elsewhere, or in regions such as EMEA or AMER, are skipped. Set `CRAWL_SCOPE=all` to keep everything.
+**Crawl scope.** `CRAWL_SCOPE=all` (the default) stores every job worldwide, but each run opens Indian jobs first (Workday's India filter, SmartRecruiters' Indian locations, Indian city names in JSON-LD URLs), so the per run detail budget reaches them first. `CRAWL_SCOPE=india` stores only jobs in India plus jobs whose location doesn't name a country (usually "Remote"); jobs clearly elsewhere, or in regions such as EMEA or AMER, are skipped.
 
 **Adding companies**
 
@@ -197,7 +210,23 @@ Not supported, and why: **Darwinbox** (no public, unauthenticated job feed), **S
   With no file, `detect:ats` reads `src/config/companySeeds.json` (about 1,650 companies). It resumes where it stopped; `--retry-unmatched` tries the unmatched ones again and `--finalize` only rebuilds the output files. Matches found by guessing a board token are checked again (the board's name must match, and an Indian company's feed must have Indian jobs) before they are written out.
 * Review `data/detect-unmatched.json` for companies to add by hand.
 
+**MNC and company type filter (Phase 3).** Every company has a type (MNC, GCC, Indian large, unicorn, startup, government, other) and an MNC flag, used by the "MNCs only" switch and the chips on `/jobs` (`?mnc=1`, `?ctype=UNICORN,GCC`), the MNC badge, and the "Kind of company" matching preference.
+
+* An MNC has at least 5,000 employees and works in several countries, or is on the curated list in `src/config/mncList.json` (Fortune Global 500, Forbes Global 2000, major global tech). Large Indian groups in `src/config/companyLists.json` (Tata, Reliance, Infosys, HCLTech, Wipro, Mahindra and others, including their group companies) are both Indian large and MNC. Foreign MNCs whose India teams are captive centres (banks, insurers, retailers, manufacturers) are typed GCC; technology and consulting firms are typed MNC; both count as MNCs.
+* `npm run companies:enrich` adds employee counts and headquarters from Wikidata (cached in `data/wikidata-companies.json`, entries refreshed after 30 days) and reclassifies every company. Run it monthly (the crawl workflow does). New companies are classified from the seed list and the curated lists as soon as they appear.
+* In `/admin`, the Type dropdown on a company overrides every automatic rule; "Auto" hands it back.
+* Company names are matched with `src/lib/referrals/company.ts` (legal suffixes dropped, aliases such as TCS and Tata Consultancy Services, AWS and Amazon, Meta and Facebook), the same matcher the referral engine uses.
+
 Remove any company's jobs within 48 hours if they ask (see `/bot`).
+
+### Search, functions and the crawl schedule (Phase 4)
+
+* **Search.** `jobs.search` is a generated full text column (title and company weigh most, then skills, then the description) with a GIN index; `pg_trgm` indexes on titles and locations make search and autocomplete forgiving of typos. Results are ranked by relevance and freshness. Every filter column has an index. Migration 0011 enables `pg_trgm` (Supabase allows it).
+* **Job functions.** Every job gets a function (Engineering, Data and AI, Product, Design, Sales, Marketing, Finance, HR, Operations, Customer support, Consulting, Healthcare, Education, Other) from keyword rules in `src/lib/job-function.ts`; titles the rules can't place go to the fast Claude model in batches of 100 (capped per crawl, skipped without `ANTHROPIC_API_KEY`). Filter with `?fn=data-and-ai`.
+* **The big crawl runs in GitHub Actions** (`.github/workflows/crawl.yml`): every 6 hours, oldest crawled companies first, up to about 5 hours, then the job search APIs. It is resumable (the next run continues where this one stopped) and safe to run twice (a lease in `crawl_state` makes a second crawl exit). A summary table is written to the job log. On the 1st of each month it runs `companies:enrich`. Add these repository secrets: `DATABASE_URL` (required), `ANTHROPIC_API_KEY`, `ADZUNA_APP_ID`, `ADZUNA_APP_KEY`, `JOOBLE_API_KEY`, `CRAWLER_CONTACT_EMAIL`. Run it by hand from the Actions tab (mode: all, feeds-only, aggregators-only or enrich). The Vercel cron only does small top ups and skips itself while the big crawl runs.
+* **Migrations are not run by the crawl.** After merging schema changes, run `npm run db:migrate` against production once (as for every release).
+* **Monitoring.** `/admin` shows live jobs by source (and the change since the last crawl), recent crawls with new, closed and duplicate counts, failing sources, whether a crawl is running, and an alert when a source drops more than 50% between crawls.
+* **Sitemaps.** `/sitemap/0.xml`, `/sitemap/1.xml`... hold 45,000 jobs each (ten files are always served, so new jobs need no redeploy); `robots.txt` lists the ones in use.
 
 ## 6. Useful commands
 
@@ -212,5 +241,6 @@ Remove any company's jobs within 48 hours if they ask (see `/bot`).
 | `npm run crawl` | Crawl active companies, oldest crawl first (`-- --limit 200 --minutes 50 --details 300`) |
 | `npm run detect:ats` | Detect hiring systems for a list of companies (see section 5) |
 | `npm run companies:import` | Import detected companies into the crawl list |
+| `npm run companies:enrich` | Classify companies (MNC, GCC, unicorn...) with Wikidata; monthly |
 | `npm test` | Run unit tests |
 | `npm run typecheck` | TypeScript check |

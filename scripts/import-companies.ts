@@ -12,6 +12,7 @@ import { and, eq, inArray } from "drizzle-orm";
 import { db } from "../src/db";
 import { companies } from "../src/db/schema";
 import { runCrawl } from "../src/lib/ingest/run";
+import { classifyUnclassified } from "../src/lib/company-classify-db";
 import { ATS_VALUES, type Ats, type AtsConfig } from "../src/lib/ingest/types";
 import { slugify } from "../src/lib/utils";
 
@@ -64,6 +65,7 @@ async function main() {
     } else skipped++;
   }
   console.log(`Imported ${list.length}: ${added} added, ${updated} updated, ${moved} moved to a new hiring system, ${skipped} skipped`);
+  console.log(`Classified ${await classifyUnclassified()} new companies (run npm run companies:enrich to add Wikidata)`);
 
   if (process.argv.includes("--crawl") && ids.length) {
     const active = await db.select({ id: companies.id }).from(companies).where(and(inArray(companies.id, ids), eq(companies.active, true)));

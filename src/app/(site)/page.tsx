@@ -44,7 +44,7 @@ const FAQ = [
 
 export default async function Home() {
   const [stats, latest] = await Promise.all([
-    siteStats().catch(() => ({ open: 0, companies: 0, today: 0 })),
+    siteStats().catch(() => ({ open: 0, companies: 0, today: 0, mnc: 0, india: 0 })),
     searchJobs({ page: 1 }).catch(() => ({ rows: [] })),
   ]);
   const fmt = (n: number) => n.toLocaleString("en-IN");
@@ -82,7 +82,8 @@ export default async function Home() {
           <p className="max-w-4xl font-display text-xl leading-snug text-ink-soft sm:text-2xl">
             <span className="font-semibold text-ink">{fmt(stats.open)}</span> open jobs from{" "}
             <span className="font-semibold text-ink">{fmt(stats.companies)}</span> companies right now,{" "}
-            <span className="font-semibold text-ink">{fmt(stats.today)}</span> added in the last 24 hours. Every one links to the company&apos;s own career page.
+            <span className="font-semibold text-ink">{fmt(stats.today)}</span> added in the last 24 hours. <span className="font-semibold text-ink">{fmt(stats.india)}</span> are in India and{" "}
+            <span className="font-semibold text-ink">{fmt(stats.mnc)}</span> are at MNCs. Every one links to the original posting.
           </p>
         </div>
       </section>

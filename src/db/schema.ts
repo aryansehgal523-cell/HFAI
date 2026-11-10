@@ -1,5 +1,5 @@
 import {
-  pgTable, pgEnum, text, integer, boolean, timestamp, jsonb, uniqueIndex, index, primaryKey,
+  pgTable, pgEnum, text, integer, boolean, timestamp, jsonb, uniqueIndex, index, primaryKey, customType,
 } from "drizzle-orm/pg-core";
 import { relations, sql } from "drizzle-orm";
 import type { ApplicationDetails, JobPreferences } from "@/lib/profile-fields";
@@ -7,6 +7,7 @@ import type { ResumeScore } from "@/lib/resumeScore";
 import type { AtsConfig } from "@/lib/ingest/types";
 
 const id = () => text("id").primaryKey().$defaultFn(() => crypto.randomUUID());
+const tsvector = customType<{ data: string }>({ dataType: () => "tsvector" });
 const created = () => timestamp("created_at", { withTimezone: true }).defaultNow().notNull();
 const updated = () =>
   timestamp("updated_at", { withTimezone: true }).defaultNow().notNull().$onUpdate(() => new Date());
@@ -18,6 +19,7 @@ export const atsEnum = pgEnum("ats", [
   "GREENHOUSE", "LEVER", "ASHBY", "MANUAL", "SMARTRECRUITERS", "WORKABLE", "RECRUITEE", "WORKDAY", "KEKA", "JSONLD", "AGGREGATOR", "ORACLE",
 ]);
 export const workModeEnum = pgEnum("work_mode", ["REMOTE", "HYBRID", "ONSITE"]);
+export const companyTypeEnum = pgEnum("company_type", ["MNC", "INDIAN_LARGE", "UNICORN", "STARTUP", "GCC", "GOVERNMENT", "OTHER"]);
 export const appStatusEnum = pgEnum("app_status", [
   "SAVED", "APPLIED", "INTERVIEWING", "OFFER", "REJECTED", "HIDDEN",
 ]);
@@ -104,10 +106,22 @@ export const companies = pgTable(
     lastCrawlJobs: integer("last_crawl_jobs"),
     lastCrawlError: text("last_crawl_error"),
     consecutiveFailures: integer("consecutive_failures").default(0).notNull(),
+    /** companyKey(name): used to match aggregator jobs and duplicates to one company. */
+    normalizedName: text("normalized_name"),
+    /** Classification for the MNC and company type filters (see src/lib/company-type.ts). */
+    companyType: companyTypeEnum("company_type"),
+    employeeCount: integer("employee_count"),
+    hqCountry: text("hq_country"),
+    isMnc: boolean("is_mnc").default(false).notNull(),
+    /** "seed", "wikidata", "rule" or "admin". An admin choice wins over every automatic rule. */
+    classifiedBy: text("classified_by"),
     createdAt: created(),
   },
   (t) => [
     uniqueIndex("companies_ats_token_idx").on(t.ats, t.atsToken),
+    index("companies_normalized_name_idx").on(t.normalizedName),
+    index("companies_is_mnc_idx").on(t.isMnc),
+    index("companies_type_idx").on(t.companyType),
     index("companies_crawl_order_idx").on(t.active, t.lastCrawledAt),
   ],
 );
@@ -139,14 +153,45 @@ export const jobs = pgTable(
     closedAt: timestamp("closed_at", { withTimezone: true }),
     ghostScore: integer("ghost_score").default(0).notNull(),
     hash: text("hash").notNull(),
-    /** Where the job came from: the hiring system ("greenhouse", "workday", "jsonld"...) or aggregator. */
+    /** Where the job came from: the hiring system ("greenhouse", "workday", "jsonld"...) or aggregator ("adzuna", "jooble"). */
     source: text("source"),
+    /** The source's own id for the job (aggregators). */
+    sourceJobId: text("source_job_id"),
+    /** Other places the same opening was found: [{ source, url, sourceJobId }]. */
+    otherSources: jsonb("other_sources").$type<{ source: string; url: string; sourceJobId?: string }[]>().default([]).notNull(),
+    /** Company + normalised title + city, shared by duplicates across sources. */
+    dedupeKey: text("dedupe_key"),
+    /** Set when this row was closed because another source has the same opening. */
+    duplicateOf: text("duplicate_of"),
+    /** Aggregators: the query that last returned this job, and how many full runs of it missed the job since. */
+    sourceQuery: text("source_query"),
+    missedCrawls: integer("missed_crawls").default(0).notNull(),
+    /** Copy of the company's name, so full text search can include it. */
+    companyName: text("company_name"),
+    /** Job function (Engineering, Sales...), see src/lib/job-function.ts. */
+    jobFunction: text("job_function"),
+    /** Full text search document: title and company (A), skills (B), description (C). Kept by Postgres. */
+    search: tsvector("search").generatedAlwaysAs(sql`hireflow_search_doc(title, company_name, skills, description)`),
+    /** The same without the description: searches match here first, so a word buried in a description ("work with product managers") doesn't flood results. */
+    searchMain: tsvector("search_main").generatedAlwaysAs(sql`hireflow_search_main(title, company_name, skills)`),
   },
   (t) => [
     uniqueIndex("jobs_company_external_idx").on(t.companyId, t.externalId),
     index("jobs_hash_idx").on(t.hash),
     index("jobs_posted_idx").on(t.postedAt),
     index("jobs_closed_idx").on(t.closedAt),
+    index("jobs_dedupe_idx").on(t.dedupeKey),
+    index("jobs_search_idx").using("gin", t.search),
+    index("jobs_search_main_idx").using("gin", t.searchMain),
+    index("jobs_title_trgm_idx").using("gin", t.title.op("gin_trgm_ops")),
+    index("jobs_location_trgm_idx").using("gin", t.location.op("gin_trgm_ops")),
+    index("jobs_open_posted_idx").on(t.postedAt.desc()).where(sql`closed_at IS NULL`),
+    index("jobs_work_mode_idx").on(t.workMode),
+    index("jobs_country_idx").on(t.country),
+    index("jobs_function_idx").on(t.jobFunction),
+    index("jobs_company_idx").on(t.companyId),
+    index("jobs_ghost_idx").on(t.ghostScore),
+    index("jobs_source_query_idx").on(t.source, t.sourceQuery),
   ],
 );
 
@@ -158,9 +203,20 @@ export const crawlRuns = pgTable("crawl_runs", {
   jobsSeen: integer("jobs_seen").default(0).notNull(),
   jobsNew: integer("jobs_new").default(0).notNull(),
   jobsClosed: integer("jobs_closed").default(0).notNull(),
+  /** Aggregator copies closed because the employer's own feed has the same opening. */
+  duplicatesRemoved: integer("duplicates_removed").default(0).notNull(),
+  /** Open jobs per source when the run finished, to spot a source that suddenly drops. */
+  liveBySource: jsonb("live_by_source").$type<Record<string, number>>(),
   errors: jsonb("errors").$type<{ company: string; error: string }[]>(),
   /** Per source counts for monitoring: { greenhouse: { companies, ok, failed, jobsSeen, jobsNew, jobsClosed } }. */
-  stats: jsonb("stats").$type<Record<string, { companies: number; ok: number; failed: number; jobsSeen: number; jobsNew: number; jobsClosed: number }>>(),
+  stats: jsonb("stats").$type<Record<string, { companies: number; ok: number; failed: number; jobsSeen: number; jobsNew: number; jobsClosed: number; duplicates?: number; calls?: number; skipped?: string }>>(),
+});
+
+/** Small key/value state for the crawler: aggregator query cursors, daily API quotas, the crawl lock. */
+export const crawlState = pgTable("crawl_state", {
+  key: text("key").primaryKey(),
+  value: jsonb("value").$type<Record<string, unknown>>().notNull(),
+  updatedAt: updated(),
 });
 
 /**

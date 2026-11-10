@@ -1,4 +1,4 @@
-import { and, desc, eq, ilike, isNull, sql } from "drizzle-orm";
+import { and, desc, eq, ilike, isNull, or, sql } from "drizzle-orm";
 import { headers } from "next/headers";
 import { db } from "@/db";
 import { companies, jobs } from "@/db/schema";
@@ -24,9 +24,9 @@ export async function GET(req: Request) {
     const rows = await db
       .select({ label: jobs.location, count: sql<number>`count(*)::int` })
       .from(jobs)
-      .where(and(open, ilike(jobs.location, like)))
+      .where(and(open, or(ilike(jobs.location, like), sql`${q} <% ${jobs.location}`)))
       .groupBy(jobs.location)
-      .orderBy(desc(sql`count(*)`))
+      .orderBy(desc(sql`max(word_similarity(${q}, ${jobs.location}))`), desc(sql`count(*)`))
       .limit(6);
     suggestions = rows.map((r) => ({ type: "location", ...r }));
   } else {
@@ -34,9 +34,9 @@ export async function GET(req: Request) {
       db
         .select({ label: jobs.title, count: sql<number>`count(*)::int` })
         .from(jobs)
-        .where(and(open, ilike(jobs.title, like)))
+        .where(and(open, or(ilike(jobs.title, like), sql`${q} <% ${jobs.title}`)))
         .groupBy(jobs.title)
-        .orderBy(desc(sql`count(*)`))
+        .orderBy(desc(sql`max(word_similarity(${q}, ${jobs.title}))`), desc(sql`count(*)`))
         .limit(5),
       db
         .select({ label: companies.name, count: sql<number>`count(${jobs.id})::int` })

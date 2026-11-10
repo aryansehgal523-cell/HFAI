@@ -1,0 +1,4885 @@
+{
+ "updatedAt": "2026-11-10T11:58:58.036Z",
+ "companies": {
+  "one97 communications": {
+   "qid": "Q19757718",
+   "employees": null,
+   "hqCountry": "IN",
+   "website": "https://www.paytm.com",
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "razorpay": {
+   "qid": "Q109985545",
+   "employees": null,
+   "hqCountry": "IN",
+   "website": "https://razorpay.com",
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "groww": {
+   "qid": "Q85764693",
+   "employees": null,
+   "hqCountry": "IN",
+   "website": "https://groww.in",
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "upstox": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "meesho": {
+   "qid": "Q55622683",
+   "employees": null,
+   "hqCountry": "IN",
+   "website": "https://meesho.com",
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "unacademy": {
+   "qid": "Q42417624",
+   "employees": null,
+   "hqCountry": "IN",
+   "website": "http://www.unacademy.com/",
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "cars24": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "ixigo": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "freshworks": {
+   "qid": "Q117782453",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.freshworks.com/",
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "postman": {
+   "qid": "Q105538901",
+   "employees": null,
+   "hqCountry": "IN",
+   "website": "https://www.postman.com",
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "druva": {
+   "qid": "Q96376660",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.druva.com/",
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "experian": {
+   "qid": "Q692157",
+   "employees": 17000,
+   "hqCountry": "IE",
+   "website": "https://www.experian.com/",
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "adobe": {
+   "qid": "Q11463",
+   "employees": 25988,
+   "hqCountry": "US",
+   "website": "https://www.adobe.com/",
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "nvidia": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "mastercard": {
+   "qid": "Q489921",
+   "employees": 33400,
+   "hqCountry": "US",
+   "website": "https://www.mastercard.com/",
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "unilever": {
+   "qid": "Q157062",
+   "employees": 148000,
+   "hqCountry": "GB",
+   "website": "https://unilever.com",
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "databricks": {
+   "qid": "Q18350420",
+   "employees": 4000,
+   "hqCountry": "US",
+   "website": "http://databricks.com/",
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "gitlab": {
+   "qid": "Q16639197",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://about.gitlab.com/",
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "figma": {
+   "qid": "Q96186334",
+   "employees": 324,
+   "hqCountry": "US",
+   "website": "https://www.figma.com",
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "openai": {
+   "qid": "Q21708200",
+   "employees": 4500,
+   "hqCountry": "US",
+   "website": "https://openai.com/",
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "linear": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "ramp": {
+   "qid": "Q123190361",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://ramp.com/",
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "palantir": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "keka": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "zenoti": {
+   "qid": "Q55476816",
+   "employees": 250,
+   "hqCountry": "US",
+   "website": "https://www.zenoti.com",
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "mindtickle": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "whatfix": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "uniphore": {
+   "qid": "Q28169245",
+   "employees": null,
+   "hqCountry": "IN",
+   "website": "http://www.uniphore.com/",
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "sprinklr": {
+   "qid": "Q18636409",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.sprinklr.com",
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "highradius": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "sigmoid": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "inmobi": {
+   "qid": "Q6008783",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://japan.inmobi.com",
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "glance": {
+   "qid": "Q105334142",
+   "employees": null,
+   "hqCountry": null,
+   "website": "http://www.glance.com",
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "pocket fm": {
+   "qid": "Q124153646",
+   "employees": null,
+   "hqCountry": "IN",
+   "website": "https://pocketfm.com/gb",
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "jupiter money": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "lendingkart": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "turtlemint": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "freshersworld": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "instahyre": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "cutshort": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:19.664Z"
+  },
+  "nobroker": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "housing com": {
+   "qid": "Q18125739",
+   "employees": null,
+   "hqCountry": "IN",
+   "website": "https://housing.com/",
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "loginext": {
+   "qid": "Q138086915",
+   "employees": 200,
+   "hqCountry": "US",
+   "website": "https://www.loginextsolutions.com/",
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "toddle": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "interviewbit": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "signzy": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "mintifi": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "route mobile": {
+   "qid": "Q105319885",
+   "employees": null,
+   "hqCountry": "IN",
+   "website": "https://routemobile.com/",
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "eclerx": {
+   "qid": "Q5332969",
+   "employees": null,
+   "hqCountry": null,
+   "website": "http://www.eclerx.com/",
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "teamlease": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "star health insurance": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "nippon india mutual fund": {
+   "qid": "Q139926147",
+   "employees": null,
+   "hqCountry": null,
+   "website": "https://mf.nipponindiaim.com/",
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "royal enfield": {
+   "qid": "Q1507823",
+   "employees": null,
+   "hqCountry": "GB",
+   "website": "https://www.royalenfield.com/uk/en/",
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "v mart": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "narayana health": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "times internet": {
+   "qid": "Q6024198",
+   "employees": null,
+   "hqCountry": "IN",
+   "website": "https://timesinternet.in/",
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "jiostar": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "boston consulting": {
+   "qid": "Q135635",
+   "employees": 18500,
+   "hqCountry": "US",
+   "website": "https://www.bcg.com/",
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "oliver wyman": {
+   "qid": "Q1726060",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.oliverwyman.com/",
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "genpact": {
+   "qid": "Q1007000",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.genpact.com/",
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "exl": {
+   "qid": "Q5324689",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.exlservice.com/",
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "concentrix": {
+   "qid": "Q19647854",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.concentrix.com",
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "taskus": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "startek": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "sutherland": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "ttec": {
+   "qid": "Q7695737",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.ttec.com/",
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "conduent": {
+   "qid": "Q28404490",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://conduent.com",
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "dxc": {
+   "qid": "Q28782856",
+   "employees": 170500,
+   "hqCountry": "US",
+   "website": "https://dxc.com/us/en",
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "ntt data": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "kyndryl": {
+   "qid": "Q106581385",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.kyndryl.com/de/de",
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "endava": {
+   "qid": "Q12727645",
+   "employees": null,
+   "hqCountry": "GB",
+   "website": "https://www.endava.com/",
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "thoughtworks": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "synechron": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "quest": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "iris": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "xoriant": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "mastech": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "valuelabs": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "photon": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "bristlecone": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:20.821Z"
+  },
+  "mott macdonald": {
+   "qid": "Q3325340",
+   "employees": null,
+   "hqCountry": "GB",
+   "website": "http://www.mottmac.com",
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "fluor": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "technip energies": {
+   "qid": "Q106314555",
+   "employees": null,
+   "hqCountry": "FR",
+   "website": "http://www.technipenergies.com/",
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "mcdermott": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "jll": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "knight frank": {
+   "qid": "Q3197998",
+   "employees": null,
+   "hqCountry": "GB",
+   "website": "https://www.knightfrank.com/",
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "marsh mclennan": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "wtw": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "gartner": {
+   "qid": "Q174198",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.gartner.com/",
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "forrester": {
+   "qid": "Q829961",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.forrester.com/",
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "iqvia": {
+   "qid": "Q1543633",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.iqvia.com/",
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "nielsen": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "nielseniq": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "kantar": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "dun and bradstreet": {
+   "qid": "Q1265181",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.dnb.com/",
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "moody s": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "s and p": {
+   "qid": "Q868587",
+   "employees": 35000,
+   "hqCountry": "US",
+   "website": "https://www.spglobal.com/en",
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "msci": {
+   "qid": "Q768773",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.msci.com",
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "factset": {
+   "qid": "Q1885491",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.factset.com/",
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "lseg": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "thomson reuters": {
+   "qid": "Q1141267",
+   "employees": 24000,
+   "hqCountry": "CA",
+   "website": "https://thomsonreuters.com",
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "relx": {
+   "qid": "Q141817573",
+   "employees": null,
+   "hqCountry": null,
+   "website": "https://www.relx.com/",
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "wolters kluwer": {
+   "qid": "Q249798",
+   "employees": 21000,
+   "hqCountry": null,
+   "website": "https://www.wolterskluwer.com/",
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "verisk": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "transunion": {
+   "qid": "Q7833641",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.transunion.com/",
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "fair isaac": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "quantiphi": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "insight": {
+   "qid": "Q6038080",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.insight.com/",
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "unisys": {
+   "qid": "Q518016",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.unisys.com/",
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "sopra steria": {
+   "qid": "Q21021580",
+   "employees": 50000,
+   "hqCountry": "FR",
+   "website": "http://www.soprasteria.com/",
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "tietoevry": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "temenos": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "finastra": {
+   "qid": "Q1939341",
+   "employees": null,
+   "hqCountry": "GB",
+   "website": "https://www.finastra.com/",
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "fis": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "fiserv": {
+   "qid": "Q1420513",
+   "employees": 21000,
+   "hqCountry": "US",
+   "website": "https://www.fiserv.com",
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "jack henry": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "broadridge": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "simcorp": {
+   "qid": "Q3424662",
+   "employees": null,
+   "hqCountry": "DK",
+   "website": "http://www.simcorp.com/",
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "murex": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "kiya ai": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:21.946Z"
+  },
+  "netcracker": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "mavenir": {
+   "qid": "Q54437388",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://mavenir.com",
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "ciena": {
+   "qid": "Q1091783",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.ciena.com",
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "juniper networks": {
+   "qid": "Q1049080",
+   "employees": 9419,
+   "hqCountry": "US",
+   "website": "https://juniper.net",
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "f5": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "extreme networks": {
+   "qid": "Q2034659",
+   "employees": 2713,
+   "hqCountry": "US",
+   "website": "https://www.extremenetworks.com/",
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "alten": {
+   "qid": "Q294520",
+   "employees": null,
+   "hqCountry": "FR",
+   "website": "http://www.alten.com",
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "akkodis": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "qualcomm": {
+   "qid": "Q544847",
+   "employees": 45000,
+   "hqCountry": "US",
+   "website": "https://www.qualcomm.com/",
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "broadcom": {
+   "qid": "Q555925",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.broadcom.com/",
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "marvell": {
+   "qid": "Q1347782",
+   "employees": 7000,
+   "hqCountry": "US",
+   "website": "https://www.marvell.com/",
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "renesas electronics": {
+   "qid": "Q1196269",
+   "employees": 21204,
+   "hqCountry": "JP",
+   "website": "https://www.renesas.com/",
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "microchip": {
+   "qid": "Q1545076",
+   "employees": 19500,
+   "hqCountry": "US",
+   "website": "https://www.microchip.com/",
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "synopsys": {
+   "qid": "Q2303478",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.synopsys.com/",
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "bp": {
+   "qid": "Q152057",
+   "employees": 70100,
+   "hqCountry": "GB",
+   "website": "https://bp.com",
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "kla": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "samsung": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "lg electronics": {
+   "qid": "Q162345",
+   "employees": 90578,
+   "hqCountry": "KR",
+   "website": "https://lg.com/de",
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "xiaomi": {
+   "qid": "Q1636958",
+   "employees": 16683,
+   "hqCountry": "CN",
+   "website": "https://www.mi.com/",
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "hewlett packard enterprise": {
+   "qid": "Q19923099",
+   "employees": 60000,
+   "hqCountry": "US",
+   "website": "https://www.hpe.com/",
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "cisco": {
+   "qid": "Q173395",
+   "employees": 86200,
+   "hqCountry": "US",
+   "website": "https://www.cisco.com/",
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "netapp": {
+   "qid": "Q727883",
+   "employees": 12000,
+   "hqCountry": "US",
+   "website": "https://www.netapp.com/",
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "servicenow": {
+   "qid": "Q7455653",
+   "employees": 10371,
+   "hqCountry": "US",
+   "website": "https://www.servicenow.com",
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "workday": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "arm": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "dassault systemes": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "uber": {
+   "qid": "Q780442",
+   "employees": 12000,
+   "hqCountry": "US",
+   "website": "https://www.uber.com/",
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "expedia": {
+   "qid": "Q8085893",
+   "employees": 16000,
+   "hqCountry": "US",
+   "website": "https://www.expediagroup.com/",
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "sabre": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "travelport": {
+   "qid": "Q7836092",
+   "employees": null,
+   "hqCountry": "GB",
+   "website": "http://www.travelport.com/",
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "linkedin": {
+   "qid": "Q213660",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.linkedin.com",
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "visa": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "wise": {
+   "qid": "Q7833987",
+   "employees": null,
+   "hqCountry": "GB",
+   "website": "https://wise.com/",
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "coinbase": {
+   "qid": "Q16972754",
+   "employees": 1249,
+   "hqCountry": "US",
+   "website": "https://www.coinbase.com",
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "ebay": {
+   "qid": "Q58024",
+   "employees": 12600,
+   "hqCountry": "US",
+   "website": "https://www.ebay.com",
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "target": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "home depot": {
+   "qid": "Q136447200",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.homedepot.com/l/Westbury-Square/TX/Houston/77035/578",
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "marks and spencer": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "ikea": {
+   "qid": "Q54078",
+   "employees": null,
+   "hqCountry": null,
+   "website": "https://www.ikea.com",
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "nike": {
+   "qid": "Q483915",
+   "employees": 76700,
+   "hqCountry": "US",
+   "website": "https://www.nike.com/",
+   "fetchedAt": "2026-11-10T11:58:23.048Z"
+  },
+  "shell": {
+   "qid": "Q154950",
+   "employees": 90000,
+   "hqCountry": "GB",
+   "website": "https://www.shell.com/",
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "block": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "autodesk": {
+   "qid": "Q628051",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.autodesk.com/",
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "chevron": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "halliburton": {
+   "qid": "Q656165",
+   "employees": 70000,
+   "hqCountry": "US",
+   "website": "http://www.halliburton.com/",
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "baker hughes": {
+   "qid": "Q804353",
+   "employees": 59400,
+   "hqCountry": "US",
+   "website": "https://www.bakerhughes.com/",
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "ge vernova": {
+   "qid": "Q118957699",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.gevernova.com/",
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "ge healthcare": {
+   "qid": "Q1152374",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.gehealthcare.com",
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "honeywell": {
+   "qid": "Q898208",
+   "employees": 99000,
+   "hqCountry": "US",
+   "website": "https://www.honeywell.com/",
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "siemens healthineers": {
+   "qid": "Q472451",
+   "employees": null,
+   "hqCountry": "DE",
+   "website": "http://siemens-healthineers.com",
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "philips": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "emerson": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "eaton": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "johnson controls": {
+   "qid": "Q667865",
+   "employees": 120000,
+   "hqCountry": "IE",
+   "website": "https://www.johnsoncontrols.com/",
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "carrier": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "trane": {
+   "qid": "Q131744111",
+   "employees": null,
+   "hqCountry": "IE",
+   "website": "https://www.tranetechnologies.com",
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "otis": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "caterpillar": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "deere and": {
+   "qid": "Q496302",
+   "employees": 67000,
+   "hqCountry": "US",
+   "website": "https://www.deere.com/",
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "cummins": {
+   "qid": "Q173476",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.cummins.com",
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "rolls royce": {
+   "qid": "Q85623218",
+   "employees": null,
+   "hqCountry": "GB",
+   "website": "https://www.rolls-royce.com/",
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "thales": {
+   "qid": "Q29110552",
+   "employees": null,
+   "hqCountry": "GB",
+   "website": "https://www.thalesgroup.com/en/united-kingdom",
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "rtx": {
+   "qid": "Q89368734",
+   "employees": 182000,
+   "hqCountry": "US",
+   "website": "https://www.rtx.com/",
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "continental": {
+   "qid": "Q2995655",
+   "employees": null,
+   "hqCountry": null,
+   "website": "http://continental.com/magazine",
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "stellantis": {
+   "qid": "Q97439162",
+   "employees": 258275,
+   "hqCountry": null,
+   "website": "https://www.stellantis.com/",
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "ford": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "general motors": {
+   "qid": "Q81965",
+   "employees": 164000,
+   "hqCountry": "US",
+   "website": "https://www.gm.com/",
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "valeo": {
+   "qid": "Q1305281",
+   "employees": null,
+   "hqCountry": "FR",
+   "website": "https://www.valeo.com",
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "aptiv": {
+   "qid": "Q643626",
+   "employees": null,
+   "hqCountry": "IE",
+   "website": "https://www.aptiv.com/",
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "procter and gamble": {
+   "qid": "Q212405",
+   "employees": 105000,
+   "hqCountry": "US",
+   "website": "http://www.pg.com/",
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "pepsico": {
+   "qid": "Q334800",
+   "employees": 309000,
+   "hqCountry": "US",
+   "website": "https://www.pepsico.com/",
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "mars": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "kimberly clark": {
+   "qid": "Q1741634",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.kimberly-clark.com",
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "l oreal": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "estee lauder": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "haleon": {
+   "qid": "Q112860932",
+   "employees": null,
+   "hqCountry": "GB",
+   "website": "https://www.haleon.com/",
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "kenvue": {
+   "qid": "Q118905792",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.kenvue.com/",
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "diageo": {
+   "qid": "Q161140",
+   "employees": 29860,
+   "hqCountry": "GB",
+   "website": "http://www.diageo.com",
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "pernod ricard": {
+   "qid": "Q837049",
+   "employees": 18421,
+   "hqCountry": "FR",
+   "website": "http://pernod-ricard.com/",
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "cargill": {
+   "qid": "Q113465008",
+   "employees": null,
+   "hqCountry": "DE",
+   "website": "http://www.cargill.com/",
+   "fetchedAt": "2026-11-10T11:58:24.759Z"
+  },
+  "dupont": {
+   "qid": "Q221062",
+   "employees": 98000,
+   "hqCountry": "US",
+   "website": "https://www.dupont.com/",
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "saint gobain": {
+   "qid": "Q678565",
+   "employees": 171000,
+   "hqCountry": "FR",
+   "website": "https://www.saint-gobain.com/",
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "pfizer": {
+   "qid": "Q206921",
+   "employees": 88300,
+   "hqCountry": "US",
+   "website": "https://www.pfizer.com/",
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "novartis": {
+   "qid": "Q507154",
+   "employees": 119418,
+   "hqCountry": "CH",
+   "website": "http://www.novartis.com/",
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "sanofi": {
+   "qid": "Q158205",
+   "employees": 106566,
+   "hqCountry": "FR",
+   "website": "https://www.sanofi.com/",
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "astrazeneca": {
+   "qid": "Q731938",
+   "employees": 70600,
+   "hqCountry": "GB",
+   "website": "http://www.astrazeneca.com/",
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "merck": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "merck kgaa": {
+   "qid": "Q156959",
+   "employees": 60348,
+   "hqCountry": "DE",
+   "website": "https://www.merckgroup.com/",
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "eli lilly": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "bristol myers squibb": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "amgen": {
+   "qid": "Q470517",
+   "employees": 17900,
+   "hqCountry": "US",
+   "website": "http://www.amgen.com/",
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "viatris": {
+   "qid": "Q101983981",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.viatris.com/en",
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "sandoz": {
+   "qid": "Q528468",
+   "employees": 5724,
+   "hqCountry": "CH",
+   "website": "https://www.sandoz.com",
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "medtronic": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "stryker": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "akzonobel": {
+   "qid": "Q50912",
+   "employees": 35700,
+   "hqCountry": null,
+   "website": "https://www.akzonobel.com/",
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "danaher": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "illumina": {
+   "qid": "Q2068984",
+   "employees": 9250,
+   "hqCountry": "US",
+   "website": "https://www.illumina.com/",
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "zimmer biomet": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "resmed": {
+   "qid": "Q7314903",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.resmed.com/",
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "unitedhealth": {
+   "qid": "Q2103926",
+   "employees": 58000,
+   "hqCountry": "US",
+   "website": "http://www.unitedhealthgroup.com/",
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "cvs health": {
+   "qid": "Q624375",
+   "employees": 300000,
+   "hqCountry": "US",
+   "website": "https://cvshealth.com/",
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "cigna": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "evernorth": {
+   "qid": "Q112130817",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.evernorth.com",
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "humana": {
+   "qid": "Q910866",
+   "employees": 51600,
+   "hqCountry": "US",
+   "website": "https://www.humana.com/",
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "mckesson": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "cardinal health": {
+   "qid": "Q902397",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.cardinalhealth.com/",
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "maersk": {
+   "qid": "Q18224",
+   "employees": 80220,
+   "hqCountry": "DK",
+   "website": "https://www.maersk.com/",
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "dp world": {
+   "qid": "Q1154956",
+   "employees": 100000,
+   "hqCountry": "AE",
+   "website": "http://www.dpworld.com",
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "expeditors": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "c h robinson": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "marriott": {
+   "qid": "Q1141173",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.marriott.com/default.mi",
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "hilton": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "sodexo": {
+   "qid": "Q1475554",
+   "employees": 420000,
+   "hqCountry": "FR",
+   "website": "https://www.sodexo.com",
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "bank of america": {
+   "qid": "Q487907",
+   "employees": 213000,
+   "hqCountry": "US",
+   "website": "https://www.bankofamerica.com/",
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "randstad": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "hays": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "paychex": {
+   "qid": "Q946080",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.paychex.com/",
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "ukg": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "jpmorgan": {
+   "qid": "Q192314",
+   "employees": 271025,
+   "hqCountry": "US",
+   "website": "https://www.jpmorganchase.com/",
+   "fetchedAt": "2026-11-10T11:58:26.953Z"
+  },
+  "citi": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "baxter": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "adecco": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "barclays": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "ing": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "lloyds banking": {
+   "qid": "Q1152764",
+   "employees": 75306,
+   "hqCountry": "GB",
+   "website": "https://lloydsbankinggroup.com/",
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "santander": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "mizuho": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "dbs bank": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "ocbc": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "uob": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "commonwealth bank": {
+   "qid": "Q285328",
+   "employees": 53754,
+   "hqCountry": "AU",
+   "website": "https://www.commbank.com.au/",
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "royal bank of canada": {
+   "qid": "Q735261",
+   "employees": null,
+   "hqCountry": "CA",
+   "website": "https://rbc.com",
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "td bank": {
+   "qid": "Q7669891",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.td.com/",
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "cibc": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "capital one": {
+   "qid": "Q1034654",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.capitalone.com/",
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "u s bank": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "pnc": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "truist": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "state street": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "northern trust": {
+   "qid": "Q970695",
+   "employees": 20900,
+   "hqCountry": "US",
+   "website": "http://www.northerntrust.com/",
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "vanguard": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "blackrock": {
+   "qid": "Q219635",
+   "employees": 19800,
+   "hqCountry": "US",
+   "website": "https://www.blackrock.com",
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "invesco": {
+   "qid": "Q522617",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.invesco.com",
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "franklin templeton": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "t rowe price": {
+   "qid": "Q3511946",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.troweprice.com/",
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "schroders": {
+   "qid": "Q1142797",
+   "employees": 3500,
+   "hqCountry": "GB",
+   "website": "http://www.schroders.com",
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "abrdn": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "toast": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "brex": {
+   "qid": "Q60741065",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://brex.com/",
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "prudential": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "aig": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "aviva": {
+   "qid": "Q791179",
+   "employees": 27873,
+   "hqCountry": "GB",
+   "website": "https://aviva.co.uk",
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "metlife": {
+   "qid": "Q607131",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.metlife.com",
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "allianz": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "travelers": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "principal financial": {
+   "qid": "Q3403513",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.principal.com/",
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "sun life": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "manulife": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "cme": {
+   "qid": "Q1023876",
+   "employees": 2300,
+   "hqCountry": "US",
+   "website": "https://www.cmegroup.com",
+   "fetchedAt": "2026-11-10T11:58:27.554Z"
+  },
+  "nasdaq": {
+   "qid": "Q82059",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.nasdaq.com",
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "swift": {
+   "qid": "Q257597",
+   "employees": 3240,
+   "hqCountry": "BE",
+   "website": "https://www.swift.com/",
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "western union": {
+   "qid": "Q861042",
+   "employees": 11000,
+   "hqCountry": "US",
+   "website": "https://www.westernunion.com",
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "checkout com": {
+   "qid": "Q110815500",
+   "employees": null,
+   "hqCountry": null,
+   "website": "https://www.checkout.com/",
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "airwallex": {
+   "qid": "Q112228127",
+   "employees": 2300,
+   "hqCountry": "US",
+   "website": "http://www.airwallex.com/",
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "sofi": {
+   "qid": "Q17020720",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://sofi.com/",
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "robinhood": {
+   "qid": "Q18155123",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.robinhood.com",
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "plaid": {
+   "qid": "Q30610132",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://plaid.com/kk/LOCKSMITHSourcegoogleIdiumEARTOIBM_campaignGEMranxactntMmPACIFICTIMEm_term=plaidcreative=43040524513lid=IoAJ5nL6gIVEB-tBh0LLgPdpjneAAEghhjD_drpn",
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "payoneer": {
+   "qid": "Q7156870",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.payoneer.com/",
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "axa": {
+   "qid": "Q160054",
+   "employees": 110477,
+   "hqCountry": "FR",
+   "website": "https://www.axa.com/",
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "tide": {
+   "qid": "Q63076799",
+   "employees": null,
+   "hqCountry": "GB",
+   "website": "https://www.tide.co/",
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "monzo": {
+   "qid": "Q25206290",
+   "employees": null,
+   "hqCountry": "GB",
+   "website": "https://monzo.com",
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "n26": {
+   "qid": "Q27479372",
+   "employees": 1500,
+   "hqCountry": "DE",
+   "website": "https://n26.com/fr-fr",
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "nubank": {
+   "qid": "Q25422888",
+   "employees": null,
+   "hqCountry": "MX",
+   "website": "https://nu.com.co/",
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "grab": {
+   "qid": "Q20873932",
+   "employees": null,
+   "hqCountry": "SG",
+   "website": "https://www.grab.com",
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "careem": {
+   "qid": "Q25112257",
+   "employees": null,
+   "hqCountry": "AE",
+   "website": "https://www.careem.com",
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "talabat": {
+   "qid": "Q39058477",
+   "employees": null,
+   "hqCountry": null,
+   "website": "https://www.talabat.com/",
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "delivery hero": {
+   "qid": "Q23384493",
+   "employees": 47981,
+   "hqCountry": "DE",
+   "website": "https://www.deliveryhero.com/",
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "affirm": {
+   "qid": "Q65085822",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.affirm.com/",
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "instacart": {
+   "qid": "Q22909236",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://instacart.com/",
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "lyft": {
+   "qid": "Q17077936",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.lyft.com/",
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "costco": {
+   "qid": "Q715583",
+   "employees": 316000,
+   "hqCountry": "US",
+   "website": "https://www.costco.com/",
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "nordstrom": {
+   "qid": "Q174310",
+   "employees": 72501,
+   "hqCountry": "US",
+   "website": "http://www.nordstrom.com",
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "gap": {
+   "qid": "Q420822",
+   "employees": 152000,
+   "hqCountry": "US",
+   "website": "https://www.gapinc.com",
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "kohl s": {
+   "qid": "Q967265",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.kohls.com/",
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "wayfair": {
+   "qid": "Q3540193",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.wayfair.com/",
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "etsy": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "chewy": {
+   "qid": "Q28130158",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.chewy.com",
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "zalando": {
+   "qid": "Q136570",
+   "employees": 14194,
+   "hqCountry": "DE",
+   "website": "https://corporate.zalando.com/",
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "bytedance": {
+   "qid": "Q55606242",
+   "employees": null,
+   "hqCountry": "CN",
+   "website": "https://bytedance.com/",
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "tencent": {
+   "qid": "Q860580",
+   "employees": 62885,
+   "hqCountry": "GB",
+   "website": "https://www.tencent.com/",
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "comcast": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "orange": {
+   "qid": "Q1431486",
+   "employees": 127000,
+   "hqCountry": "FR",
+   "website": "https://www.orange.com/",
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "warner bros discovery": {
+   "qid": "Q107074885",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.wbd.com/",
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "spotify": {
+   "qid": "Q87067874",
+   "employees": null,
+   "hqCountry": "SE",
+   "website": "https://www.spotify.com",
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "epic games": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "roblox": {
+   "qid": "Q692989",
+   "employees": null,
+   "hqCountry": null,
+   "website": "https://www.roblox.com/",
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "krafton": {
+   "qid": "Q4035237",
+   "employees": null,
+   "hqCountry": "KR",
+   "website": "https://www.krafton.com/",
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "rockstar games": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "mcgraw hill": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:28.580Z"
+  },
+  "cengage": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "wiley": {
+   "qid": "Q1479654",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.wiley.com/",
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "springer nature": {
+   "qid": "Q21096327",
+   "employees": null,
+   "hqCountry": "DE",
+   "website": "https://www.springernature.com/gp",
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "coursera": {
+   "qid": "Q499962",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.coursera.org",
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "udemy": {
+   "qid": "Q7877165",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.udemy.com/",
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "duolingo": {
+   "qid": "Q2918660",
+   "employees": null,
+   "hqCountry": null,
+   "website": "https://en.duolingo.com",
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "snowflake": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "ahold delhaize": {
+   "qid": "Q20539261",
+   "employees": 372000,
+   "hqCountry": null,
+   "website": "https://www.aholddelhaize.com/",
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "mongodb": {
+   "qid": "Q1165204",
+   "employees": null,
+   "hqCountry": null,
+   "website": "https://www.mongodb.com/products/platform",
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "elastic": {
+   "qid": "Q22074922",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.elastic.co/",
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "datadog": {
+   "qid": "Q16248637",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.datadoghq.com/",
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "splunk": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "new relic": {
+   "qid": "Q7011152",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://newrelic.com/",
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "dynatrace": {
+   "qid": "Q25048844",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.dynatrace.com",
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "sumo logic": {
+   "qid": "Q7638010",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.sumologic.com",
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "grafana": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "pagerduty": {
+   "qid": "Q48989804",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.pagerduty.com",
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "jetbrains": {
+   "qid": "Q1688472",
+   "employees": 168,
+   "hqCountry": "CZ",
+   "website": "https://www.jetbrains.com/",
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "docker": {
+   "qid": "Q15206305",
+   "employees": null,
+   "hqCountry": null,
+   "website": "https://www.docker.com",
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "vercel": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "fastly": {
+   "qid": "Q34045622",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.fastly.com",
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "twilio": {
+   "qid": "Q7858039",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.authy.com",
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "vonage": {
+   "qid": "Q866972",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.vonage.com/",
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "ringcentral": {
+   "qid": "Q7334682",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.ringcentral.com",
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "dropbox": {
+   "qid": "Q142539",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.dropbox.com",
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "docusign": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "zendesk": {
+   "qid": "Q15401349",
+   "employees": 3830,
+   "hqCountry": "US",
+   "website": "https://www.zendesk.co.jp/",
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "okta": {
+   "qid": "Q55627388",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.okta.com/uk/?ir=1",
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "palo alto networks": {
+   "qid": "Q7128508",
+   "employees": 13900,
+   "hqCountry": "US",
+   "website": "https://www.paloaltonetworks.com",
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "zscaler": {
+   "qid": "Q8074786",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.zscaler.com/",
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "rubrik": {
+   "qid": "Q55632076",
+   "employees": 2500,
+   "hqCountry": "US",
+   "website": "https://www.rubrik.com/",
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "commvault": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "veeam": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "tenable": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "rapid7": {
+   "qid": "Q85874460",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.rapid7.com/",
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "sophos": {
+   "qid": "Q1934568",
+   "employees": null,
+   "hqCountry": "GB",
+   "website": "https://www.sophos.com",
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "gen": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "proofpoint": {
+   "qid": "Q7250022",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.proofpoint.com/us",
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "sailpoint": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "netskope": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:29.600Z"
+  },
+  "illumio": {
+   "qid": "Q19881127",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.illumio.com",
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "gusto": {
+   "qid": "Q20540697",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://gusto.com/",
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "lattice": {
+   "qid": "Q99939433",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://lattice.com/",
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "canva": {
+   "qid": "Q23498528",
+   "employees": null,
+   "hqCountry": "AU",
+   "website": "https://www.canva.com/",
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "bigcommerce": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "smartsheet": {
+   "qid": "Q7544153",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.smartsheet.com",
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "clickup": {
+   "qid": "Q123524232",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://clickup.com/",
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "zapier": {
+   "qid": "Q27150165",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://zapier.com",
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "calendly": {
+   "qid": "Q111946817",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://calendly.com/",
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "asana": {
+   "qid": "Q4468073",
+   "employees": null,
+   "hqCountry": null,
+   "website": "https://asana.com",
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "cohere": {
+   "qid": "Q110363143",
+   "employees": null,
+   "hqCountry": "CA",
+   "website": "https://cohere.com/",
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "mistral ai": {
+   "qid": "Q119718658",
+   "employees": 350,
+   "hqCountry": "FR",
+   "website": "https://mistral.ai/fr",
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "scale ai": {
+   "qid": "Q112629176",
+   "employees": 900,
+   "hqCountry": "US",
+   "website": "https://www.scale.com",
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "perplexity": {
+   "qid": "Q123403392",
+   "employees": null,
+   "hqCountry": null,
+   "website": "https://www.perplexity.ai/",
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "sarvam ai": {
+   "qid": "Q134437782",
+   "employees": null,
+   "hqCountry": "IN",
+   "website": "https://www.sarvam.ai/",
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "glean": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "observe ai": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "level ai": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "ema": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "composio": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "turing": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "toptal": {
+   "qid": "Q21462713",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.toptal.com/",
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "anthropic": {
+   "qid": "Q116758847",
+   "employees": 5300,
+   "hqCountry": "US",
+   "website": "https://www.anthropic.com/",
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "squarespace": {
+   "qid": "Q7582097",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.squarespace.com",
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "braze": {
+   "qid": "Q20880554",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.braze.com/",
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "klaviyo": {
+   "qid": "Q106631196",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.klaviyo.com",
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "anaplan": {
+   "qid": "Q4751571",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.anaplan.com/",
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "mixpanel": {
+   "qid": "Q25048114",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://mixpanel.com",
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "contentful": {
+   "qid": "Q18348837",
+   "employees": null,
+   "hqCountry": "DE",
+   "website": "https://www.contentful.com",
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "sitecore": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "zuora": {
+   "qid": "Q8075320",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://zuora.com/",
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "andela": {
+   "qid": "Q28186691",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://andela.com/",
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "amplitude": {
+   "qid": "Q81969219",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://amplitude.com/",
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "procore": {
+   "qid": "Q25831309",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.procore.com",
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "athenahealth": {
+   "qid": "Q4813401",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.athenahealth.com/",
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "duck creek": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "binance": {
+   "qid": "Q51403327",
+   "employees": null,
+   "hqCountry": "AE",
+   "website": "http://binance.com",
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "uipath": {
+   "qid": "Q55080120",
+   "employees": 4000,
+   "hqCountry": "US",
+   "website": "https://www.uipath.com/",
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "celonis": {
+   "qid": "Q63725648",
+   "employees": null,
+   "hqCountry": "DE",
+   "website": "https://www.celonis.com/",
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "teradata": {
+   "qid": "Q430745",
+   "employees": 8300,
+   "hqCountry": "US",
+   "website": "https://www.teradata.com",
+   "fetchedAt": "2026-11-10T11:58:46.294Z"
+  },
+  "fivetran": {
+   "qid": "Q109827378",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.fivetran.com/",
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "starburst": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "neo4j": {
+   "qid": "Q1628290",
+   "employees": null,
+   "hqCountry": null,
+   "website": "https://neo4j.com/",
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "yugabyte": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "singlestore": {
+   "qid": "Q15275385",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.singlestore.com",
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "cockroach": {
+   "qid": "Q20857873",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.cockroachlabs.com/",
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "circleci": {
+   "qid": "Q38922434",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://circleci.com/",
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "jfrog": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "sentry": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "launchdarkly": {
+   "qid": "Q140599516",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://launchdarkly.com/",
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "kong": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "supabase": {
+   "qid": "Q136776342",
+   "employees": 120,
+   "hqCountry": "SG",
+   "website": "https://supabase.com/",
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "mercury": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "gemini": {
+   "qid": "Q22908594",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://gemini.com/",
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "consensys": {
+   "qid": "Q24192769",
+   "employees": 900,
+   "hqCountry": "US",
+   "website": "http://www.consensys.io",
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "circle": {
+   "qid": "Q17007851",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.circle.com/",
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "fireblocks": {
+   "qid": "Q108896760",
+   "employees": null,
+   "hqCountry": "IL",
+   "website": "https://www.fireblocks.com/",
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "hackerrank": {
+   "qid": "Q20926425",
+   "employees": 250,
+   "hqCountry": "US",
+   "website": "https://www.hackerrank.com",
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "mercer mettl": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "hevo data": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "spotdraft": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "scrut automation": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "ppg": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "appian": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "webengage": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "fampay": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "tata motors finance": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "prosus": {
+   "qid": "Q67389109",
+   "employees": 21048,
+   "hqCountry": null,
+   "website": "https://www.prosus.com/about",
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "wework": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "castrol": {
+   "qid": "Q5050816",
+   "employees": null,
+   "hqCountry": "IN",
+   "website": "https://www.castrol.com/en_in/india/home.html",
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "sandvik": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "borgwarner": {
+   "qid": "Q825943",
+   "employees": 49000,
+   "hqCountry": "US",
+   "website": "http://www.BorgWarner.com",
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "jabil": {
+   "qid": "Q2171646",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.jabil.com/",
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "syrma sgs": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "dodla dairy": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "loop health": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "eka care": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "truemeds": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "onsemi": {
+   "qid": "Q1671509",
+   "employees": 26400,
+   "hqCountry": "US",
+   "website": "https://www.onsemi.com/",
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "tenstorrent": {
+   "qid": "Q126456640",
+   "employees": null,
+   "hqCountry": "CA",
+   "website": "https://tenstorrent.com/",
+   "fetchedAt": "2026-11-10T11:58:46.872Z"
+  },
+  "sifive": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "keysight": {
+   "qid": "Q17551096",
+   "employees": 9500,
+   "hqCountry": "US",
+   "website": "http://www.keysight.com/",
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "zebra": {
+   "qid": "Q2443609",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.zebra.com/",
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "garmin": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "logitech": {
+   "qid": "Q223127",
+   "employees": 7300,
+   "hqCountry": "US",
+   "website": "https://www.logitech.com/",
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "itron": {
+   "qid": "Q5923178",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.itron.com/",
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "dexcom": {
+   "qid": "Q15109865",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://dexcom.com/",
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "intuitive surgical": {
+   "qid": "Q2743863",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.intuitive.com",
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "tapestry": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "vf": {
+   "qid": "Q457960",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://vfc.com/",
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "ecolab": {
+   "qid": "Q1282031",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://ecolab.com",
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "sherwin williams": {
+   "qid": "Q48881",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.sherwin-williams.com.mx",
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "avery dennison": {
+   "qid": "Q790650",
+   "employees": 36000,
+   "hqCountry": "US",
+   "website": "http://www.avery.com/",
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "pentair": {
+   "qid": "Q7165001",
+   "employees": null,
+   "hqCountry": "IE",
+   "website": "http://www.pentair.com/",
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "dover": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "illinois tool works": {
+   "qid": "Q1510378",
+   "employees": 51000,
+   "hqCountry": "US",
+   "website": "https://www.itw.com/",
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "ncr voyix": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "ncr atleos": {
+   "qid": "Q127433244",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.ncratleos.com/",
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "diebold nixdorf": {
+   "qid": "Q1220078",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.dieboldnixdorf.com/en-us/",
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "equinix": {
+   "qid": "Q851641",
+   "employees": 8378,
+   "hqCountry": "US",
+   "website": "https://www.equinix.com",
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "iron mountain": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "zillow": {
+   "qid": "Q8071921",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.zillow.com/",
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "tripadvisor": {
+   "qid": "Q1770710",
+   "employees": 3,
+   "hqCountry": "US",
+   "website": "https://www.tripadvisor.com/",
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "united airlines": {
+   "qid": "Q174769",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.united.com",
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "molina healthcare": {
+   "qid": "Q6896175",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://molinahealthcare.com/",
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "centene": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "sedgwick": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "r1 rcm": {
+   "qid": "Q4672868",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.r1rcm.com",
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "ensemble health partners": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "omega healthcare": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "syneos health": {
+   "qid": "Q18153430",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.syneoshealth.com",
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "parexel": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "icon": {
+   "qid": "Q78151302",
+   "employees": null,
+   "hqCountry": "IE",
+   "website": "https://iconplc.com/",
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "labcorp": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "quest diagnostics": {
+   "qid": "Q7271456",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.questdiagnostics.com/",
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "fortrea": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "certara": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "zelis": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "bitwarden": {
+   "qid": "Q56319818",
+   "employees": null,
+   "hqCountry": null,
+   "website": "https://bitwarden.com/",
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "inovalon": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:47.881Z"
+  },
+  "veradigm": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "tower research capital": {
+   "qid": "Q7829724",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.tower-research.com",
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "graviton research capital": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "imc trading": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "worldquant": {
+   "qid": "Q48740825",
+   "employees": null,
+   "hqCountry": null,
+   "website": "https://www.worldquant.com/home/",
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "gainsight": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "entrata": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "tekion": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "model n": {
+   "qid": "Q6888259",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.modeln.com",
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "eloelo": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "zeta": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "veritas": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "samsara": {
+   "qid": "Q79543668",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://samsara.com/",
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "motive": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "verkada": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "chainguard": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "tailscale": {
+   "qid": "Q141088012",
+   "employees": null,
+   "hqCountry": null,
+   "website": "https://tailscale.com",
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "gong": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "outreach": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "availity": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "zoominfo": {
+   "qid": "Q8074134",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.zoominfo.com",
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "apollo io": {
+   "qid": "Q121497191",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.apollo.io/",
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "sprout social": {
+   "qid": "Q17082977",
+   "employees": 1421,
+   "hqCountry": "US",
+   "website": "http://sproutsocial.com/",
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "hootsuite": {
+   "qid": "Q2749075",
+   "employees": null,
+   "hqCountry": "CA",
+   "website": "https://www.hootsuite.com/",
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "yext": {
+   "qid": "Q8053341",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://yext.com",
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "qualtrics": {
+   "qid": "Q7268803",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.qualtrics.com/",
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "medallia": {
+   "qid": "Q16951161",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.medallia.com",
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "surveymonkey": {
+   "qid": "Q162852",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.surveymonkey.com/",
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "6sense": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "abbvie": {
+   "qid": "Q14662364",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.abbvie.com",
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "airbyte": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "accor": {
+   "qid": "Q212599",
+   "employees": 19198,
+   "hqCountry": "FR",
+   "website": "https://all.accor.com/",
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "asos": {
+   "qid": "Q211951",
+   "employees": null,
+   "hqCountry": "GB",
+   "website": "https://www.asos.com",
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "agoda": {
+   "qid": "Q395182",
+   "employees": null,
+   "hqCountry": "SG",
+   "website": "https://www.agoda.com/",
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "aveva": {
+   "qid": "Q847869",
+   "employees": null,
+   "hqCountry": "GB",
+   "website": "http://www.aveva.com/",
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "adyen": {
+   "qid": "Q4686934",
+   "employees": null,
+   "hqCountry": null,
+   "website": "https://www.adyen.com/",
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "acquia": {
+   "qid": "Q4674765",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://acquia.com/",
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "typeform": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "freshpaint": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "posthog": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.336Z"
+  },
+  "airbnb": {
+   "qid": "Q63327",
+   "employees": 5597,
+   "hqCountry": "US",
+   "website": "https://www.airbnb.com/",
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "pinecone": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "planetscale": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "render": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "railway": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "replit": {
+   "qid": "Q60768699",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://replit.com/",
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "sourcegraph": {
+   "qid": "Q108106907",
+   "employees": null,
+   "hqCountry": null,
+   "website": "https://sourcegraph.com",
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "cursor": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "together ai": {
+   "qid": "Q124071418",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.together.ai/",
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "fireworks ai": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "cerebras": {
+   "qid": "Q66604886",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.cerebras.ai/",
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "lightning ai": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "labelbox": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "snorkel ai": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "writer": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "jasper": {
+   "qid": "Q141717472",
+   "employees": null,
+   "hqCountry": null,
+   "website": "https://www.jasper.ai",
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "runway": {
+   "qid": "Q123367593",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://runwayml.com/",
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "elevenlabs": {
+   "qid": "Q116798355",
+   "employees": 1000,
+   "hqCountry": null,
+   "website": "https://elevenlabs.io/",
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "synthesia": {
+   "qid": "Q117322900",
+   "employees": null,
+   "hqCountry": "GB",
+   "website": "https://www.synthesia.io",
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "harvey": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "decagon": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "1password": {
+   "qid": "Q2150861",
+   "employees": null,
+   "hqCountry": null,
+   "website": "https://1password.com",
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "abbott": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "agilent": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "ericsson": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "bloomberg": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "avalara": {
+   "qid": "Q117189001",
+   "employees": 4302,
+   "hqCountry": null,
+   "website": "https://www.avalara.com/us/en/index.html",
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "boeing": {
+   "qid": "Q66",
+   "employees": 171000,
+   "hqCountry": "US",
+   "website": "https://boeing.com/",
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "airbus": {
+   "qid": "Q2311",
+   "employees": 156921,
+   "hqCountry": "FR",
+   "website": "https://airbus.com",
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "aster dm healthcare": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "analog devices": {
+   "qid": "Q484930",
+   "employees": 9200,
+   "hqCountry": "US",
+   "website": "https://www.analog.com/",
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "fedex": {
+   "qid": "Q459477",
+   "employees": 400000,
+   "hqCountry": "US",
+   "website": "https://www.fedex.com/",
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "bbva": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "albertsons": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "fidelity": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "apna": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "cloudflare": {
+   "qid": "Q4778915",
+   "employees": 2440,
+   "hqCountry": "US",
+   "website": "https://www.cloudflare.com/",
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "crowdstrike": {
+   "qid": "Q24890758",
+   "employees": 7925,
+   "hqCountry": "US",
+   "website": "https://www.crowdstrike.com/",
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "bmo": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "alfa laval": {
+   "qid": "Q686030",
+   "employees": 18574,
+   "hqCountry": "SE",
+   "website": "https://www.alfalaval.com/",
+   "fetchedAt": "2026-11-10T11:58:49.904Z"
+  },
+  "allstate": {
+   "qid": "Q2645636",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.allstate.com/",
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "conagra brands": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "demandbase": {
+   "qid": "Q16834870",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.demandbase.com",
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "codeium": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "alorica": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "alteryx": {
+   "qid": "Q73883753",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.alteryx.com/",
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "newton school": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "vyapar": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "piramal pharma": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "morningstar": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "salesforce": {
+   "qid": "Q115602131",
+   "employees": null,
+   "hqCountry": null,
+   "website": "https://www.salesforce.com/products/",
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "intel": {
+   "qid": "Q248",
+   "employees": 121100,
+   "hqCountry": "US",
+   "website": "https://www.intel.com",
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "western": {
+   "qid": "Q738770",
+   "employees": 76449,
+   "hqCountry": "US",
+   "website": "https://www.westerndigital.com",
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "hitachi": {
+   "qid": "Q53238",
+   "employees": 287901,
+   "hqCountry": "JP",
+   "website": "https://www.hitachi.com/",
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "tesco": {
+   "qid": "Q138040632",
+   "employees": null,
+   "hqCountry": "GB",
+   "website": "https://www.tesco.com/store-locator/welling/tesco-express?srsltid=AfmBOopcDo0O3TdN6QS9K5WhuKBjXe5nV5_ZSm1JBxl3zRW4qGovxQAb",
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "roche": {
+   "qid": "Q100956267",
+   "employees": null,
+   "hqCountry": "TN",
+   "website": "https://www.roche.com/",
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "gilead sciences": {
+   "qid": "Q663596",
+   "employees": 17000,
+   "hqCountry": "US",
+   "website": "https://www.gilead.com/",
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "thermo fisher scientific": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "munich re": {
+   "qid": "Q166637",
+   "employees": 39662,
+   "hqCountry": "DE",
+   "website": "http://www.munichre.com",
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "hartford": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "rakuten": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "qualys": {
+   "qid": "Q7268802",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.qualys.com/",
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "trellix": {
+   "qid": "Q7838012",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.trellix.com/en-us/index.html",
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "oyster hr": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "greenhouse": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "notion": {
+   "qid": "Q89269703",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.notion.so/",
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "veeva": {
+   "qid": "Q24204493",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.veeva.com/",
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "phenom": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "motorola": {
+   "qid": "Q634815",
+   "employees": 18000,
+   "hqCountry": "US",
+   "website": "https://www.motorolasolutions.com/",
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "waystar": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "nextgen healthcare": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "prefect": {
+   "qid": "Q141613821",
+   "employees": null,
+   "hqCountry": null,
+   "website": "https://www.prefect.io/",
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "weaviate": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "browserstack": {
+   "qid": "Q22906936",
+   "employees": null,
+   "hqCountry": null,
+   "website": "https://www.browserstack.com",
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "tiger analytics": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "kuku fm": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "tejas networks": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "colliers": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "rackspace": {
+   "qid": "Q2990586",
+   "employees": 4852,
+   "hqCountry": "US",
+   "website": "https://www.rackspace.com/",
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "micron": {
+   "qid": "Q1197548",
+   "employees": 48000,
+   "hqCountry": "US",
+   "website": "https://www.micron.com/",
+   "fetchedAt": "2026-11-10T11:58:50.942Z"
+  },
+  "stripe": {
+   "qid": "Q7624104",
+   "employees": 8000,
+   "hqCountry": "US",
+   "website": "https://stripe.com/",
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "rockwell automation": {
+   "qid": "Q1529234",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.rockwellautomation.com",
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "general mills": {
+   "qid": "Q629998",
+   "employees": 35000,
+   "hqCountry": "US",
+   "website": "http://www.generalmills.com",
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "becton dickinson": {
+   "qid": "Q813780",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.bd.com/",
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "elevance health": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "national australia bank": {
+   "qid": "Q1430985",
+   "employees": 39048,
+   "hqCountry": "AU",
+   "website": "https://www.nab.com.au/",
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "chubb": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "bentley": {
+   "qid": "Q818314",
+   "employees": 2700,
+   "hqCountry": "US",
+   "website": "https://www.bentley.com/",
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "pearson": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "fortinet": {
+   "qid": "Q2749364",
+   "employees": 15109,
+   "hqCountry": "US",
+   "website": "http://www.fortinet.com/",
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "activision blizzard": {
+   "qid": "Q344341",
+   "employees": 9000,
+   "hqCountry": "US",
+   "website": "https://www.activisionblizzard.com/",
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "blackline": {
+   "qid": "Q28222794",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.blackline.com/",
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "cloudera": {
+   "qid": "Q2979728",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.cloudera.com",
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "temporal": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "flex": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "trimble": {
+   "qid": "Q2297063",
+   "employees": 11000,
+   "hqCountry": "US",
+   "website": "http://www.trimble.com",
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "stanley black and decker": {
+   "qid": "Q706094",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.stanleyblackanddecker.com",
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "airtable": {
+   "qid": "Q23016614",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://airtable.com",
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "teachmint": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "fractal analytics": {
+   "qid": "Q5477463",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.fractal.ai",
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "zensar": {
+   "qid": "Q8069225",
+   "employees": null,
+   "hqCountry": "IN",
+   "website": "http://www.zensar.com/",
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "accenture": {
+   "qid": "Q338825",
+   "employees": 779000,
+   "hqCountry": "IE",
+   "website": "https://www.accenture.com/",
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "automation anywhere": {
+   "qid": "Q4826627",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.automationanywhere.com/",
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "cadence design": {
+   "qid": "Q608776",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.cadence.com/",
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "lam research": {
+   "qid": "Q1342041",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.lamresearch.com/",
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "ge aerospace": {
+   "qid": "Q1485061",
+   "employees": 333000,
+   "hqCountry": "US",
+   "website": "https://www.geaerospace.com/",
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "bridgestone": {
+   "qid": "Q179433",
+   "employees": 115716,
+   "hqCountry": "JP",
+   "website": "https://www.bridgestone.com/",
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "edwards lifesciences": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "westpac": {
+   "qid": "Q2031726",
+   "employees": 37032,
+   "hqCountry": "AU",
+   "website": "https://www.westpac.com.au/",
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "bny": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "keywords studios": {
+   "qid": "Q64141679",
+   "employees": null,
+   "hqCountry": "IE",
+   "website": "https://www.keywordsstudios.com",
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "netlify": {
+   "qid": "Q56102498",
+   "employees": 200,
+   "hqCountry": "US",
+   "website": "https://www.netlify.com",
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "ping identity": {
+   "qid": "Q85793376",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.pingidentity.com/",
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "zluri": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "costar": {
+   "qid": "Q16988748",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.costargroup.com/",
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "servicetitan": {
+   "qid": "Q102229056",
+   "employees": 2802,
+   "hqCountry": "US",
+   "website": "https://servicetitan.com",
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "clickhouse": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "sierra": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "lucid motors": {
+   "qid": "Q28027517",
+   "employees": 6500,
+   "hqCountry": "US",
+   "website": "https://lucidmotors.com/",
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "planet": {
+   "qid": "Q17085620",
+   "employees": 600,
+   "hqCountry": "US",
+   "website": "https://www.planet.com/",
+   "fetchedAt": "2026-11-10T11:58:51.955Z"
+  },
+  "rocket": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "amd": {
+   "qid": "Q128896",
+   "employees": 15500,
+   "hqCountry": "US",
+   "website": "https://www.amd.com/",
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "benchling": {
+   "qid": "Q63417942",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.benchling.com/",
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "calm": {
+   "qid": "Q30668026",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.calm.com/",
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "brilliant": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "classdojo": {
+   "qid": "Q13645977",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.classdojo.com/",
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "discord": {
+   "qid": "Q22907849",
+   "employees": null,
+   "hqCountry": null,
+   "website": "https://discord.gg",
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "doximity": {
+   "qid": "Q5303699",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.doximity.com/",
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "goodrx": {
+   "qid": "Q30640316",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.goodrx.com/",
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "ginkgo bioworks": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "headspace": {
+   "qid": "Q16927669",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.headspace.com/",
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "kahoot": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "jam city": {
+   "qid": "Q16927706",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://jamcity.com",
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "lemonade": {
+   "qid": "Q37019245",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.lemonade.com/",
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "komodo health": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "moon active": {
+   "qid": "Q117359481",
+   "employees": null,
+   "hqCountry": "IL",
+   "website": "https://www.moonactive.com",
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "lyra health": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "mozilla": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "outschool": {
+   "qid": "Q107292206",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.outschool.com",
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "noom": {
+   "qid": "Q107377464",
+   "employees": null,
+   "hqCountry": null,
+   "website": "https://www.noom.com/",
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "nuro": {
+   "qid": "Q55627135",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://nuro.ai/",
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "peloton": {
+   "qid": "Q56276186",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.onepeloton.com",
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "reddit": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "riot games": {
+   "qid": "Q123347422",
+   "employees": null,
+   "hqCountry": "JP",
+   "website": "https://www.riotgames.com/ja",
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "scopely": {
+   "qid": "Q17108073",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://scopely.com",
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "supercell": {
+   "qid": "Q1438774",
+   "employees": 300,
+   "hqCountry": "FI",
+   "website": "https://supercell.com/en/",
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "niantic": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "voodoo": {
+   "qid": "Q64814857",
+   "employees": null,
+   "hqCountry": "FR",
+   "website": "https://www.voodoo.io/",
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "waymo": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "n8n": {
+   "qid": "Q130305687",
+   "employees": null,
+   "hqCountry": "DE",
+   "website": "https://n8n.io",
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "zocdoc": {
+   "qid": "Q8073202",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.zocdoc.com/",
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "access healthcare": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "rivian": {
+   "qid": "Q125552500",
+   "employees": null,
+   "hqCountry": null,
+   "website": "https://rivian.com",
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "tempus": {
+   "qid": "Q48965497",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.tempus.com/",
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "arctic wolf": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "bunq": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "carta": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "cleo": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "culture amp": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "expensify": {
+   "qid": "Q21178592",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.expensify.com/",
+   "fetchedAt": "2026-11-10T11:58:53.622Z"
+  },
+  "ebury": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "faire": {
+   "qid": "Q139785345",
+   "employees": 920,
+   "hqCountry": "US",
+   "website": "https://www.faire.com/",
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "goat": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "ironclad": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "glossier": {
+   "qid": "Q85865456",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.glossier.com/",
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "gocardless": {
+   "qid": "Q111418549",
+   "employees": null,
+   "hqCountry": "GB",
+   "website": "https://gocardless.com/",
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "hellofresh": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "gopuff": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "lalamove": {
+   "qid": "Q25112301",
+   "employees": null,
+   "hqCountry": "CN",
+   "website": "https://www.lalamove.com/",
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "marshmallow": {
+   "qid": "Q120967812",
+   "employees": 220,
+   "hqCountry": "GB",
+   "website": null,
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "mollie": {
+   "qid": "Q95552428",
+   "employees": null,
+   "hqCountry": null,
+   "website": "https://www.mollie.com/",
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "make": {
+   "qid": "Q134866480",
+   "employees": null,
+   "hqCountry": "DE",
+   "website": "https://www.make.com/en",
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "ninja van": {
+   "qid": "Q107272402",
+   "employees": null,
+   "hqCountry": null,
+   "website": "https://www.ninjavan.co/",
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "nium": {
+   "qid": "Q43080755",
+   "employees": null,
+   "hqCountry": "SG",
+   "website": "https://www.nium.com/",
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "paddle": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "payhawk": {
+   "qid": "Q133271159",
+   "employees": 305,
+   "hqCountry": "GB",
+   "website": "https://payhawk.com/",
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "pleo": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "poshmark": {
+   "qid": "Q17051868",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.poshmark.com",
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "rocket lawyer": {
+   "qid": "Q7355117",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.rocketlawyer.com/",
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "stockx": {
+   "qid": "Q55775893",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://stockx.com/",
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "tamara": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "thunes": {
+   "qid": "Q137124054",
+   "employees": null,
+   "hqCountry": "SG",
+   "website": "https://www.thunes.com/",
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "tray io": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "propertyguru": {
+   "qid": "Q56244551",
+   "employees": null,
+   "hqCountry": null,
+   "website": "https://www.propertyguru.com.sg/",
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "workato": {
+   "qid": "Q85816189",
+   "employees": null,
+   "hqCountry": null,
+   "website": "http://www.workato.com/",
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "spendesk": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "scalable capital": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "thredup": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "wolt": {
+   "qid": "Q30024526",
+   "employees": null,
+   "hqCountry": "FI",
+   "website": "https://wolt.com/",
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "aircall": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "ahrefs": {
+   "qid": "Q107533769",
+   "employees": null,
+   "hqCountry": "SG",
+   "website": "https://ahrefs.com/",
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "appcues": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "attentive": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "babbel": {
+   "qid": "Q264351",
+   "employees": null,
+   "hqCountry": "DE",
+   "website": "https://babbel.com",
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "blend": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "better": {
+   "qid": "Q108297819",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://better.com/",
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "activecampaign": {
+   "qid": "Q65063411",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.activecampaign.com/",
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "contentsquare": {
+   "qid": "Q86676634",
+   "employees": null,
+   "hqCountry": "FR",
+   "website": "https://contentsquare.com",
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "deepl": {
+   "qid": "Q43968444",
+   "employees": null,
+   "hqCountry": "DE",
+   "website": "https://www.deepl.com/",
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "descript": {
+   "qid": "Q132134653",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.descript.com/",
+   "fetchedAt": "2026-11-10T11:58:54.237Z"
+  },
+  "dialpad": {
+   "qid": "Q5270627",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.dialpad.com",
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "front": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "fullstory": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "expel": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "five9": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "hopper": {
+   "qid": "Q16995859",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.hopper.com/",
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "hostaway": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "iterable": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "kustomer": {
+   "qid": "Q105713843",
+   "employees": null,
+   "hqCountry": null,
+   "website": "https://www.kustomer.com/",
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "lokalise": {
+   "qid": "Q107090653",
+   "employees": 250,
+   "hqCountry": "US",
+   "website": "https://lokalise.com",
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "lucid": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "nice": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "phrase": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "pitch": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "genesys": {
+   "qid": "Q5532852",
+   "employees": 3218,
+   "hqCountry": "US",
+   "website": "http://www.genesys.com",
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "postscript": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "sonder": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "similarweb": {
+   "qid": "Q17538813",
+   "employees": 1017,
+   "hqCountry": "IL",
+   "website": "https://www.similarweb.com/",
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "semrush": {
+   "qid": "Q48818116",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.semrush.com",
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "talkdesk": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "trivago": {
+   "qid": "Q265286",
+   "employees": 709,
+   "hqCountry": "DE",
+   "website": "https://www.trivago.com/",
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "walkme": {
+   "qid": "Q18156830",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.walkme.com/",
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "wistia": {
+   "qid": "Q8027755",
+   "employees": 87,
+   "hqCountry": "GB",
+   "website": "https://www.wistia.com/",
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "yotpo": {
+   "qid": "Q58207104",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.yotpo.com",
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "10x banking": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "aikido security": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "alchemy": {
+   "qid": "Q141774321",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.alchemy.com",
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "alloy": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "aptos": {
+   "qid": "Q131417882",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://aptoslabs.com/",
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "armis": {
+   "qid": "Q39574127",
+   "employees": null,
+   "hqCountry": null,
+   "website": "https://www.armis.com/",
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "axonius": {
+   "qid": "Q134100736",
+   "employees": null,
+   "hqCountry": "IL",
+   "website": "https://www.axonius.com/",
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "bybit": {
+   "qid": "Q109424729",
+   "employees": null,
+   "hqCountry": "AE",
+   "website": "https://www.bybit.com/en/",
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "anchorage": {
+   "qid": "Q110660778",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.anchorage.com/",
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "clerk": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "contentstack": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "doppler": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "elliptic": {
+   "qid": "Q65043718",
+   "employees": null,
+   "hqCountry": "GB",
+   "website": "https://www.elliptic.co/",
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "feedzai": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "forter": {
+   "qid": "Q20988642",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.forter.com/",
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "ledger": {
+   "qid": "Q65770312",
+   "employees": 700,
+   "hqCountry": "FR",
+   "website": "https://www.ledger.com/",
+   "fetchedAt": "2026-11-10T11:58:55.201Z"
+  },
+  "jumio": {
+   "qid": "Q16988433",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.jumio.com",
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "mux": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "moonpay": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "persona": {
+   "qid": "Q136812606",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://withpersona.com/",
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "okx": {
+   "qid": "Q55627184",
+   "employees": null,
+   "hqCountry": "CN",
+   "website": "https://www.okx.com/cn",
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "orca security": {
+   "qid": "Q108836932",
+   "employees": null,
+   "hqCountry": "IL",
+   "website": "https://orca.security/",
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "sanity": {
+   "qid": "Q56242360",
+   "employees": null,
+   "hqCountry": "NO",
+   "website": "https://www.sanity.io/",
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "semgrep": {
+   "qid": "Q105563018",
+   "employees": null,
+   "hqCountry": null,
+   "website": "https://semgrep.dev/",
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "ripple": {
+   "qid": "Q16904931",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://ripple.com/",
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "sift": {
+   "qid": "Q117358528",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://sift.com/",
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "socket": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "socure": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "teleport": {
+   "qid": "Q96407919",
+   "employees": null,
+   "hqCountry": null,
+   "website": "https://goteleport.com",
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "tanium": {
+   "qid": "Q28222607",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.tanium.com",
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "thought machine": {
+   "qid": "Q120972962",
+   "employees": null,
+   "hqCountry": "GB",
+   "website": "https://www.thoughtmachine.net/",
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "sysdig": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "veriff": {
+   "qid": "Q65256461",
+   "employees": null,
+   "hqCountry": "EE",
+   "website": "https://veriff.com/",
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "workos": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "sumsub": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "abridge": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "alan": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "aleph alpha": {
+   "qid": "Q123368857",
+   "employees": null,
+   "hqCountry": "DE",
+   "website": "https://aleph-alpha.com/de/",
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "assemblyai": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "attio": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "bland ai": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "branch insurance": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "character ai": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "coalition": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "cohere health": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "deepgram": {
+   "qid": "Q115770008",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://deepgram.com/",
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "doctolib": {
+   "qid": "Q22248343",
+   "employees": 1800,
+   "hqCountry": "FR",
+   "website": "https://www.doctolib.de/",
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "fathom": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "ethos": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "hebbia": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "kin insurance": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "imbue": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "luma ai": {
+   "qid": "Q141817105",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://lumalabs.ai/",
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "knowbe4": {
+   "qid": "Q133289460",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.knowbe4.com",
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "midjourney": {
+   "qid": "Q113070628",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.midjourney.com/",
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "openly": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:56.269Z"
+  },
+  "owkin": {
+   "qid": "Q110542856",
+   "employees": null,
+   "hqCountry": "FR",
+   "website": "https://owkin.com/",
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "otter ai": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "pika": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "poolside": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "read ai": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "rev": {
+   "qid": "Q34390729",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.rev.com",
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "kry": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "suno": {
+   "qid": "Q124313865",
+   "employees": null,
+   "hqCountry": null,
+   "website": "https://suno.com",
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "speechmatics": {
+   "qid": "Q55099392",
+   "employees": 113,
+   "hqCountry": "GB",
+   "website": "https://www.speechmatics.com/",
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "stability ai": {
+   "qid": "Q123592234",
+   "employees": null,
+   "hqCountry": "GB",
+   "website": "https://www.stability.ai",
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "vapi": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "typeface": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "vouch": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "you com": {
+   "qid": "Q111598768",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://you.com/",
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "algolia": {
+   "qid": "Q17150241",
+   "employees": null,
+   "hqCountry": "FR",
+   "website": "http://www.algolia.com",
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "ambience healthcare": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "bloomreach": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "cloudinary": {
+   "qid": "Q27150151",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://cloudinary.com/",
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "close": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "complyadvantage": {
+   "qid": "Q105102789",
+   "employees": null,
+   "hqCountry": "GB",
+   "website": "https://www.complyadvantage.com/",
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "constant contact": {
+   "qid": "Q5163620",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://www.constantcontact.com/",
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "deliveroo": {
+   "qid": "Q22000919",
+   "employees": null,
+   "hqCountry": "GB",
+   "website": "https://deliveroo.co.uk/",
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "alkami": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "gorgias": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "flatiron health": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "hibob": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "huntress": {
+   "qid": "Q135927706",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://huntress.com",
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "inflection ai": {
+   "qid": "Q113270365",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://inflection.ai/",
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "isomorphic": {
+   "qid": "Q109536010",
+   "employees": null,
+   "hqCountry": "GB",
+   "website": "https://www.isomorphiclabs.com",
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "clio": {
+   "qid": "Q66623296",
+   "employees": null,
+   "hqCountry": "CA",
+   "website": "https://www.clio.com/",
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "khan academy": {
+   "qid": "Q94887",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://khanacademy.org",
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "modern treasury": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "king": {
+   "qid": "Q2680856",
+   "employees": null,
+   "hqCountry": "GB",
+   "website": "https://www.king.com",
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "pendo": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "pie insurance": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "pinterest": {
+   "qid": "Q41691947",
+   "employees": null,
+   "hqCountry": null,
+   "website": "http://www.pinterest.com",
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "retell ai": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "recorded future": {
+   "qid": "Q7302875",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.recordedfuture.com",
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "recursion": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "riskified": {
+   "qid": "Q22908338",
+   "employees": null,
+   "hqCountry": "IL",
+   "website": "http://www.riskified.com/",
+   "fetchedAt": "2026-11-10T11:58:57.239Z"
+  },
+  "shield ai": {
+   "qid": "Q114658539",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://shield.ai/",
+   "fetchedAt": "2026-11-10T11:58:58.036Z"
+  },
+  "smartling": {
+   "qid": "Q48740902",
+   "employees": null,
+   "hqCountry": null,
+   "website": "https://www.smartling.com",
+   "fetchedAt": "2026-11-10T11:58:58.036Z"
+  },
+  "cera care": {
+   "qid": "Q48699722",
+   "employees": null,
+   "hqCountry": "GB",
+   "website": "http://www.ceracare.co.uk",
+   "fetchedAt": "2026-11-10T11:58:58.036Z"
+  },
+  "sweetgreen": {
+   "qid": "Q18636413",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "http://sweetgreen.com/",
+   "fetchedAt": "2026-11-10T11:58:58.036Z"
+  },
+  "twitch": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:58.036Z"
+  },
+  "webflow": {
+   "qid": "Q20160951",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://webflow.com",
+   "fetchedAt": "2026-11-10T11:58:58.036Z"
+  },
+  "xendit": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:58.036Z"
+  },
+  "spacex": {
+   "qid": "Q193701",
+   "employees": 22000,
+   "hqCountry": "US",
+   "website": "https://spacex.com",
+   "fetchedAt": "2026-11-10T11:58:58.036Z"
+  },
+  "velocity": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:58.036Z"
+  },
+  "zipline": {
+   "none": true,
+   "fetchedAt": "2026-11-10T11:58:58.036Z"
+  },
+  "ally financial": {
+   "qid": "Q2032800",
+   "employees": null,
+   "hqCountry": "US",
+   "website": "https://www.ally.com/",
+   "fetchedAt": "2026-11-10T11:58:58.036Z"
+  }
+ }
+}

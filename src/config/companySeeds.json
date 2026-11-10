@@ -14742,5 +14742,2677 @@
   "industry": "Aerospace",
   "hqCountry": "US",
   "size": "large"
+ },
+ {
+  "name": "Pinterest",
+  "website": "https://pinterest.com",
+  "careersUrl": "https://pinterest.com/careers",
+  "industry": "Internet",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Reddit",
+  "website": "https://redditinc.com",
+  "careersUrl": "https://redditinc.com/careers",
+  "industry": "Internet",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Discord",
+  "website": "https://discord.com",
+  "careersUrl": "https://discord.com/careers",
+  "industry": "Internet",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Snap",
+  "website": "https://snap.com",
+  "careersUrl": "https://snap.com/careers",
+  "industry": "Internet",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Twitch",
+  "website": "https://twitch.tv",
+  "careersUrl": "https://twitch.tv/careers",
+  "industry": "Media",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Peloton",
+  "website": "https://onepeloton.com",
+  "careersUrl": "https://onepeloton.com/careers",
+  "industry": "Consumer tech",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Niantic",
+  "website": "https://nianticlabs.com",
+  "careersUrl": "https://nianticlabs.com/careers",
+  "industry": "Gaming",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Riot Games",
+  "website": "https://riotgames.com",
+  "careersUrl": "https://riotgames.com/careers",
+  "industry": "Gaming",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Scopely",
+  "website": "https://scopely.com",
+  "careersUrl": "https://scopely.com/careers",
+  "industry": "Gaming",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Supercell",
+  "website": "https://supercell.com",
+  "careersUrl": "https://supercell.com/careers",
+  "industry": "Gaming",
+  "hqCountry": "FI",
+  "size": "mid"
+ },
+ {
+  "name": "King",
+  "website": "https://king.com",
+  "careersUrl": "https://king.com/careers",
+  "industry": "Gaming",
+  "hqCountry": "SE",
+  "size": "large"
+ },
+ {
+  "name": "Playtika",
+  "website": "https://playtika.com",
+  "careersUrl": "https://playtika.com/careers",
+  "industry": "Gaming",
+  "hqCountry": "IL",
+  "size": "large"
+ },
+ {
+  "name": "Moon Active",
+  "website": "https://moonactive.com",
+  "careersUrl": "https://moonactive.com/careers",
+  "industry": "Gaming",
+  "hqCountry": "IL",
+  "size": "mid"
+ },
+ {
+  "name": "Miniclip",
+  "website": "https://miniclip.com",
+  "careersUrl": "https://miniclip.com/careers",
+  "industry": "Gaming",
+  "hqCountry": "GB",
+  "size": "mid"
+ },
+ {
+  "name": "Voodoo",
+  "website": "https://voodoo.io",
+  "careersUrl": "https://voodoo.io/careers",
+  "industry": "Gaming",
+  "hqCountry": "FR",
+  "size": "mid"
+ },
+ {
+  "name": "Rovio",
+  "website": "https://rovio.com",
+  "careersUrl": "https://rovio.com/careers",
+  "industry": "Gaming",
+  "hqCountry": "FI",
+  "size": "mid"
+ },
+ {
+  "name": "Pocket Gems",
+  "website": "https://pocketgems.com",
+  "careersUrl": "https://pocketgems.com/careers",
+  "industry": "Gaming",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Jam City",
+  "website": "https://jamcity.com",
+  "careersUrl": "https://jamcity.com/careers",
+  "industry": "Gaming",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Mozilla",
+  "website": "https://mozilla.org",
+  "careersUrl": "https://mozilla.org/careers",
+  "industry": "Software",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Wikimedia Foundation",
+  "website": "https://wikimediafoundation.org",
+  "careersUrl": "https://wikimediafoundation.org/careers",
+  "industry": "Nonprofit",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Khan Academy",
+  "website": "https://khanacademy.org",
+  "careersUrl": "https://khanacademy.org/careers",
+  "industry": "Edtech",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Brilliant",
+  "website": "https://brilliant.org",
+  "careersUrl": "https://brilliant.org/careers",
+  "industry": "Edtech",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Quizlet",
+  "website": "https://quizlet.com",
+  "careersUrl": "https://quizlet.com/careers",
+  "industry": "Edtech",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Course Hero",
+  "website": "https://coursehero.com",
+  "careersUrl": "https://coursehero.com/careers",
+  "industry": "Edtech",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "MasterClass",
+  "website": "https://masterclass.com",
+  "careersUrl": "https://masterclass.com/careers",
+  "industry": "Edtech",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Outschool",
+  "website": "https://outschool.com",
+  "careersUrl": "https://outschool.com/careers",
+  "industry": "Edtech",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "ClassDojo",
+  "website": "https://classdojo.com",
+  "careersUrl": "https://classdojo.com/careers",
+  "industry": "Edtech",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Kahoot",
+  "website": "https://kahoot.com",
+  "careersUrl": "https://kahoot.com/careers",
+  "industry": "Edtech",
+  "hqCountry": "NO",
+  "size": "mid"
+ },
+ {
+  "name": "GoodRx",
+  "website": "https://goodrx.com",
+  "careersUrl": "https://goodrx.com/careers",
+  "industry": "Healthtech",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Hims & Hers",
+  "website": "https://forhims.com",
+  "careersUrl": "https://forhims.com/careers",
+  "industry": "Healthtech",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Ro",
+  "website": "https://ro.co",
+  "careersUrl": "https://ro.co/careers",
+  "industry": "Healthtech",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Oscar Health",
+  "website": "https://hioscar.com",
+  "careersUrl": "https://hioscar.com/careers",
+  "industry": "Insurtech",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Lemonade",
+  "website": "https://lemonade.com",
+  "careersUrl": "https://lemonade.com/careers",
+  "industry": "Insurtech",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Root Insurance",
+  "website": "https://joinroot.com",
+  "careersUrl": "https://joinroot.com/careers",
+  "industry": "Insurtech",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Hippo",
+  "website": "https://hippo.com",
+  "careersUrl": "https://hippo.com/careers",
+  "industry": "Insurtech",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Zocdoc",
+  "website": "https://zocdoc.com",
+  "careersUrl": "https://zocdoc.com/careers",
+  "industry": "Healthtech",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Headspace",
+  "website": "https://headspace.com",
+  "careersUrl": "https://headspace.com/careers",
+  "industry": "Healthtech",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Calm",
+  "website": "https://calm.com",
+  "careersUrl": "https://calm.com/careers",
+  "industry": "Healthtech",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Noom",
+  "website": "https://noom.com",
+  "careersUrl": "https://noom.com/careers",
+  "industry": "Healthtech",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Spring Health",
+  "website": "https://springhealth.com",
+  "careersUrl": "https://springhealth.com/careers",
+  "industry": "Healthtech",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Lyra Health",
+  "website": "https://lyrahealth.com",
+  "careersUrl": "https://lyrahealth.com/careers",
+  "industry": "Healthtech",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Tempus",
+  "website": "https://tempus.com",
+  "careersUrl": "https://tempus.com/careers",
+  "industry": "Healthtech",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Flatiron Health",
+  "website": "https://flatiron.com",
+  "careersUrl": "https://flatiron.com/careers",
+  "industry": "Healthtech",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Komodo Health",
+  "website": "https://komodohealth.com",
+  "careersUrl": "https://komodohealth.com/careers",
+  "industry": "Healthtech",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Doximity",
+  "website": "https://doximity.com",
+  "careersUrl": "https://doximity.com/careers",
+  "industry": "Healthtech",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Benchling",
+  "website": "https://benchling.com",
+  "careersUrl": "https://benchling.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Recursion",
+  "website": "https://recursion.com",
+  "careersUrl": "https://recursion.com/careers",
+  "industry": "Biotechnology",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Ginkgo Bioworks",
+  "website": "https://ginkgobioworks.com",
+  "careersUrl": "https://ginkgobioworks.com/careers",
+  "industry": "Biotechnology",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Zipline",
+  "website": "https://flyzipline.com",
+  "careersUrl": "https://flyzipline.com/careers",
+  "industry": "Logistics",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Nuro",
+  "website": "https://nuro.ai",
+  "careersUrl": "https://nuro.ai/careers",
+  "industry": "Autonomous vehicles",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Aurora Innovation",
+  "website": "https://aurora.tech",
+  "careersUrl": "https://aurora.tech/careers",
+  "industry": "Autonomous vehicles",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Waymo",
+  "website": "https://waymo.com",
+  "careersUrl": "https://waymo.com/careers",
+  "industry": "Autonomous vehicles",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Cruise",
+  "website": "https://getcruise.com",
+  "careersUrl": "https://getcruise.com/careers",
+  "industry": "Autonomous vehicles",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Zoox",
+  "website": "https://zoox.com",
+  "careersUrl": "https://zoox.com/careers",
+  "industry": "Autonomous vehicles",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Rivian",
+  "website": "https://rivian.com",
+  "careersUrl": "https://rivian.com/careers",
+  "industry": "Electric vehicles",
+  "hqCountry": "US",
+  "size": "enterprise"
+ },
+ {
+  "name": "Lucid Motors",
+  "website": "https://lucidmotors.com",
+  "careersUrl": "https://lucidmotors.com/careers",
+  "industry": "Electric vehicles",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Joby Aviation",
+  "website": "https://jobyaviation.com",
+  "careersUrl": "https://jobyaviation.com/careers",
+  "industry": "Aerospace",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Archer Aviation",
+  "website": "https://archer.com",
+  "careersUrl": "https://archer.com/careers",
+  "industry": "Aerospace",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "SpaceX",
+  "website": "https://spacex.com",
+  "careersUrl": "https://spacex.com/careers",
+  "industry": "Aerospace",
+  "hqCountry": "US",
+  "size": "enterprise"
+ },
+ {
+  "name": "Rocket Lab",
+  "website": "https://rocketlabusa.com",
+  "careersUrl": "https://rocketlabusa.com/careers",
+  "industry": "Aerospace",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Relativity Space",
+  "website": "https://relativityspace.com",
+  "careersUrl": "https://relativityspace.com/careers",
+  "industry": "Aerospace",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Planet Labs",
+  "website": "https://planet.com",
+  "careersUrl": "https://planet.com/careers",
+  "industry": "Space tech",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Anduril",
+  "website": "https://anduril.com",
+  "careersUrl": "https://anduril.com/careers",
+  "industry": "Defence technology",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Shield AI",
+  "website": "https://shield.ai",
+  "careersUrl": "https://shield.ai/careers",
+  "industry": "Defence technology",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Palantir Technologies",
+  "website": "https://palantir.com",
+  "careersUrl": "https://palantir.com/careers",
+  "industry": "Software",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Faire",
+  "website": "https://faire.com",
+  "careersUrl": "https://faire.com/careers",
+  "industry": "E-commerce",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Poshmark",
+  "website": "https://poshmark.com",
+  "careersUrl": "https://poshmark.com/careers",
+  "industry": "E-commerce",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "ThredUp",
+  "website": "https://thredup.com",
+  "careersUrl": "https://thredup.com/careers",
+  "industry": "E-commerce",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "StockX",
+  "website": "https://stockx.com",
+  "careersUrl": "https://stockx.com/careers",
+  "industry": "E-commerce",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "GOAT Group",
+  "website": "https://goat.com",
+  "careersUrl": "https://goat.com/careers",
+  "industry": "E-commerce",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Whatnot",
+  "website": "https://whatnot.com",
+  "careersUrl": "https://whatnot.com/careers",
+  "industry": "E-commerce",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Vinted",
+  "website": "https://vinted.com",
+  "careersUrl": "https://vinted.com/careers",
+  "industry": "E-commerce",
+  "hqCountry": "LT",
+  "size": "large"
+ },
+ {
+  "name": "Depop",
+  "website": "https://depop.com",
+  "careersUrl": "https://depop.com/careers",
+  "industry": "E-commerce",
+  "hqCountry": "GB",
+  "size": "mid"
+ },
+ {
+  "name": "Glossier",
+  "website": "https://glossier.com",
+  "careersUrl": "https://glossier.com/careers",
+  "industry": "Consumer goods",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Warby Parker",
+  "website": "https://warbyparker.com",
+  "careersUrl": "https://warbyparker.com/careers",
+  "industry": "Retail",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Allbirds",
+  "website": "https://allbirds.com",
+  "careersUrl": "https://allbirds.com/careers",
+  "industry": "Retail",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Sweetgreen",
+  "website": "https://sweetgreen.com",
+  "careersUrl": "https://sweetgreen.com/careers",
+  "industry": "Food service",
+  "hqCountry": "US",
+  "size": "enterprise"
+ },
+ {
+  "name": "Gopuff",
+  "website": "https://gopuff.com",
+  "careersUrl": "https://gopuff.com/careers",
+  "industry": "Quick commerce",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Getir",
+  "website": "https://getir.com",
+  "careersUrl": "https://getir.com/careers",
+  "industry": "Quick commerce",
+  "hqCountry": "TR",
+  "size": "large"
+ },
+ {
+  "name": "Deliveroo",
+  "website": "https://deliveroo.co.uk",
+  "careersUrl": "https://deliveroo.co.uk/careers",
+  "industry": "Food delivery",
+  "hqCountry": "GB",
+  "size": "large"
+ },
+ {
+  "name": "Wolt",
+  "website": "https://wolt.com",
+  "careersUrl": "https://wolt.com/careers",
+  "industry": "Food delivery",
+  "hqCountry": "FI",
+  "size": "large"
+ },
+ {
+  "name": "Glovo",
+  "website": "https://glovoapp.com",
+  "careersUrl": "https://glovoapp.com/careers",
+  "industry": "Food delivery",
+  "hqCountry": "ES",
+  "size": "large"
+ },
+ {
+  "name": "HelloFresh",
+  "website": "https://hellofresh.com",
+  "careersUrl": "https://hellofresh.com/careers",
+  "industry": "Food",
+  "hqCountry": "DE",
+  "size": "enterprise"
+ },
+ {
+  "name": "Trade Republic",
+  "website": "https://traderepublic.com",
+  "careersUrl": "https://traderepublic.com/careers",
+  "industry": "Fintech",
+  "hqCountry": "DE",
+  "size": "mid"
+ },
+ {
+  "name": "Scalable Capital",
+  "website": "https://scalable.capital",
+  "careersUrl": "https://scalable.capital/careers",
+  "industry": "Fintech",
+  "hqCountry": "DE",
+  "size": "mid"
+ },
+ {
+  "name": "Bunq",
+  "website": "https://bunq.com",
+  "careersUrl": "https://bunq.com/careers",
+  "industry": "Banking",
+  "hqCountry": "NL",
+  "size": "mid"
+ },
+ {
+  "name": "Qonto",
+  "website": "https://qonto.com",
+  "careersUrl": "https://qonto.com/careers",
+  "industry": "Fintech",
+  "hqCountry": "FR",
+  "size": "mid"
+ },
+ {
+  "name": "Pleo",
+  "website": "https://pleo.io",
+  "careersUrl": "https://pleo.io/careers",
+  "industry": "Fintech",
+  "hqCountry": "DK",
+  "size": "mid"
+ },
+ {
+  "name": "Spendesk",
+  "website": "https://spendesk.com",
+  "careersUrl": "https://spendesk.com/careers",
+  "industry": "Fintech",
+  "hqCountry": "FR",
+  "size": "mid"
+ },
+ {
+  "name": "Mollie",
+  "website": "https://mollie.com",
+  "careersUrl": "https://mollie.com/careers",
+  "industry": "Fintech",
+  "hqCountry": "NL",
+  "size": "mid"
+ },
+ {
+  "name": "GoCardless",
+  "website": "https://gocardless.com",
+  "careersUrl": "https://gocardless.com/careers",
+  "industry": "Fintech",
+  "hqCountry": "GB",
+  "size": "mid"
+ },
+ {
+  "name": "Paddle",
+  "website": "https://paddle.com",
+  "careersUrl": "https://paddle.com/careers",
+  "industry": "Fintech",
+  "hqCountry": "GB",
+  "size": "mid"
+ },
+ {
+  "name": "Ebury",
+  "website": "https://ebury.com",
+  "careersUrl": "https://ebury.com/careers",
+  "industry": "Fintech",
+  "hqCountry": "GB",
+  "size": "large"
+ },
+ {
+  "name": "Zilch",
+  "website": "https://zilch.com",
+  "careersUrl": "https://zilch.com/careers",
+  "industry": "Fintech",
+  "hqCountry": "GB",
+  "size": "mid"
+ },
+ {
+  "name": "Curve",
+  "website": "https://curve.com",
+  "careersUrl": "https://curve.com/careers",
+  "industry": "Fintech",
+  "hqCountry": "GB",
+  "size": "small"
+ },
+ {
+  "name": "Marshmallow",
+  "website": "https://marshmallow.com",
+  "careersUrl": "https://marshmallow.com/careers",
+  "industry": "Insurtech",
+  "hqCountry": "GB",
+  "size": "small"
+ },
+ {
+  "name": "Cleo",
+  "website": "https://meetcleo.com",
+  "careersUrl": "https://meetcleo.com/careers",
+  "industry": "Fintech",
+  "hqCountry": "GB",
+  "size": "small"
+ },
+ {
+  "name": "Nium",
+  "website": "https://nium.com",
+  "careersUrl": "https://nium.com/careers",
+  "industry": "Fintech",
+  "hqCountry": "SG",
+  "size": "mid"
+ },
+ {
+  "name": "Thunes",
+  "website": "https://thunes.com",
+  "careersUrl": "https://thunes.com/careers",
+  "industry": "Fintech",
+  "hqCountry": "SG",
+  "size": "mid"
+ },
+ {
+  "name": "Xendit",
+  "website": "https://xendit.co",
+  "careersUrl": "https://xendit.co/careers",
+  "industry": "Fintech",
+  "hqCountry": "ID",
+  "size": "mid"
+ },
+ {
+  "name": "Tabby",
+  "website": "https://tabby.ai",
+  "careersUrl": "https://tabby.ai/careers",
+  "industry": "Fintech",
+  "hqCountry": "AE",
+  "size": "mid"
+ },
+ {
+  "name": "Tamara",
+  "website": "https://tamara.co",
+  "careersUrl": "https://tamara.co/careers",
+  "industry": "Fintech",
+  "hqCountry": "SA",
+  "size": "mid"
+ },
+ {
+  "name": "Kredivo",
+  "website": "https://kredivo.com",
+  "careersUrl": "https://kredivo.com/careers",
+  "industry": "Fintech",
+  "hqCountry": "ID",
+  "size": "mid"
+ },
+ {
+  "name": "Akulaku",
+  "website": "https://akulaku.com",
+  "careersUrl": "https://akulaku.com/careers",
+  "industry": "Fintech",
+  "hqCountry": "ID",
+  "size": "mid"
+ },
+ {
+  "name": "Coda Payments",
+  "website": "https://coda.co",
+  "careersUrl": "https://coda.co/careers",
+  "industry": "Fintech",
+  "hqCountry": "SG",
+  "size": "mid"
+ },
+ {
+  "name": "Carousell",
+  "website": "https://carousell.com",
+  "careersUrl": "https://carousell.com/careers",
+  "industry": "E-commerce",
+  "hqCountry": "SG",
+  "size": "mid"
+ },
+ {
+  "name": "PropertyGuru",
+  "website": "https://propertyguru.com.sg",
+  "careersUrl": "https://propertyguru.com.sg/careers",
+  "industry": "Real estate",
+  "hqCountry": "SG",
+  "size": "mid"
+ },
+ {
+  "name": "Ninja Van",
+  "website": "https://ninjavan.co",
+  "careersUrl": "https://ninjavan.co/careers",
+  "industry": "Logistics",
+  "hqCountry": "SG",
+  "size": "large"
+ },
+ {
+  "name": "Lalamove",
+  "website": "https://lalamove.com",
+  "careersUrl": "https://lalamove.com/careers",
+  "industry": "Logistics",
+  "hqCountry": "HK",
+  "size": "large"
+ },
+ {
+  "name": "Traveloka",
+  "website": "https://traveloka.com",
+  "careersUrl": "https://traveloka.com/careers",
+  "industry": "Travel",
+  "hqCountry": "ID",
+  "size": "large"
+ },
+ {
+  "name": "Tokopedia",
+  "website": "https://tokopedia.com",
+  "careersUrl": "https://tokopedia.com/careers",
+  "industry": "E-commerce",
+  "hqCountry": "ID",
+  "size": "large"
+ },
+ {
+  "name": "SafetyCulture",
+  "website": "https://safetyculture.com",
+  "careersUrl": "https://safetyculture.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "AU",
+  "size": "mid"
+ },
+ {
+  "name": "Culture Amp",
+  "website": "https://cultureamp.com",
+  "careersUrl": "https://cultureamp.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "AU",
+  "size": "mid"
+ },
+ {
+  "name": "Employment Hero",
+  "website": "https://employmenthero.com",
+  "careersUrl": "https://employmenthero.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "AU",
+  "size": "mid"
+ },
+ {
+  "name": "Afterpay",
+  "website": "https://afterpay.com",
+  "careersUrl": "https://afterpay.com/careers",
+  "industry": "Fintech",
+  "hqCountry": "AU",
+  "size": "large"
+ },
+ {
+  "name": "Xero",
+  "website": "https://xero.com",
+  "careersUrl": "https://xero.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "NZ",
+  "size": "large"
+ },
+ {
+  "name": "Rocket Lawyer",
+  "website": "https://rocketlawyer.com",
+  "careersUrl": "https://rocketlawyer.com/careers",
+  "industry": "Legal tech",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Clio",
+  "website": "https://clio.com",
+  "careersUrl": "https://clio.com/careers",
+  "industry": "Legal tech",
+  "hqCountry": "CA",
+  "size": "mid"
+ },
+ {
+  "name": "Ironclad",
+  "website": "https://ironcladapp.com",
+  "careersUrl": "https://ironcladapp.com/careers",
+  "industry": "Legal tech",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "LegalZoom",
+  "website": "https://legalzoom.com",
+  "careersUrl": "https://legalzoom.com/careers",
+  "industry": "Legal tech",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Carta",
+  "website": "https://carta.com",
+  "careersUrl": "https://carta.com/careers",
+  "industry": "Fintech SaaS",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Pilot",
+  "website": "https://pilot.com",
+  "careersUrl": "https://pilot.com/careers",
+  "industry": "Fintech SaaS",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Expensify",
+  "website": "https://expensify.com",
+  "careersUrl": "https://expensify.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Tipalti",
+  "website": "https://tipalti.com",
+  "careersUrl": "https://tipalti.com/careers",
+  "industry": "Fintech SaaS",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Payhawk",
+  "website": "https://payhawk.com",
+  "careersUrl": "https://payhawk.com/careers",
+  "industry": "Fintech",
+  "hqCountry": "BG",
+  "size": "mid"
+ },
+ {
+  "name": "Personio",
+  "website": "https://personio.com",
+  "careersUrl": "https://personio.com/careers",
+  "industry": "HR tech",
+  "hqCountry": "DE",
+  "size": "large"
+ },
+ {
+  "name": "HiBob",
+  "website": "https://hibob.com",
+  "careersUrl": "https://hibob.com/careers",
+  "industry": "HR tech",
+  "hqCountry": "IL",
+  "size": "mid"
+ },
+ {
+  "name": "Factorial",
+  "website": "https://factorialhr.com",
+  "careersUrl": "https://factorialhr.com/careers",
+  "industry": "HR tech",
+  "hqCountry": "ES",
+  "size": "mid"
+ },
+ {
+  "name": "Papaya Global",
+  "website": "https://papayaglobal.com",
+  "careersUrl": "https://papayaglobal.com/careers",
+  "industry": "HR tech",
+  "hqCountry": "IL",
+  "size": "mid"
+ },
+ {
+  "name": "Multiplier",
+  "website": "https://usemultiplier.com",
+  "careersUrl": "https://usemultiplier.com/careers",
+  "industry": "HR tech",
+  "hqCountry": "SG",
+  "size": "mid"
+ },
+ {
+  "name": "Velocity Global",
+  "website": "https://velocityglobal.com",
+  "careersUrl": "https://velocityglobal.com/careers",
+  "industry": "HR tech",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Globalization Partners",
+  "website": "https://globalization-partners.com",
+  "careersUrl": "https://globalization-partners.com/careers",
+  "industry": "HR tech",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Atlas HXM",
+  "website": "https://atlashxm.com",
+  "careersUrl": "https://atlashxm.com/careers",
+  "industry": "HR tech",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Workato",
+  "website": "https://workato.com",
+  "careersUrl": "https://workato.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Tray.io",
+  "website": "https://tray.io",
+  "careersUrl": "https://tray.io/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Make",
+  "website": "https://make.com",
+  "careersUrl": "https://make.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "CZ",
+  "size": "small"
+ },
+ {
+  "name": "n8n",
+  "website": "https://n8n.io",
+  "careersUrl": "https://n8n.io/careers",
+  "industry": "SaaS",
+  "hqCountry": "DE",
+  "size": "small"
+ },
+ {
+  "name": "Retool",
+  "website": "https://retool.com",
+  "careersUrl": "https://retool.com/careers",
+  "industry": "Developer tools",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Webflow",
+  "website": "https://webflow.com",
+  "careersUrl": "https://webflow.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Framer",
+  "website": "https://framer.com",
+  "careersUrl": "https://framer.com/careers",
+  "industry": "Design software",
+  "hqCountry": "NL",
+  "size": "small"
+ },
+ {
+  "name": "Pitch",
+  "website": "https://pitch.com",
+  "careersUrl": "https://pitch.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "DE",
+  "size": "small"
+ },
+ {
+  "name": "Superhuman",
+  "website": "https://superhuman.com",
+  "careersUrl": "https://superhuman.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Front",
+  "website": "https://front.com",
+  "careersUrl": "https://front.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Intercom",
+  "website": "https://intercom.com",
+  "careersUrl": "https://intercom.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "IE",
+  "size": "large"
+ },
+ {
+  "name": "Gorgias",
+  "website": "https://gorgias.com",
+  "careersUrl": "https://gorgias.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Kustomer",
+  "website": "https://kustomer.com",
+  "careersUrl": "https://kustomer.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Dialpad",
+  "website": "https://dialpad.com",
+  "careersUrl": "https://dialpad.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Aircall",
+  "website": "https://aircall.io",
+  "careersUrl": "https://aircall.io/careers",
+  "industry": "SaaS",
+  "hqCountry": "FR",
+  "size": "mid"
+ },
+ {
+  "name": "Talkdesk",
+  "website": "https://talkdesk.com",
+  "careersUrl": "https://talkdesk.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Five9",
+  "website": "https://five9.com",
+  "careersUrl": "https://five9.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Genesys",
+  "website": "https://genesys.com",
+  "careersUrl": "https://genesys.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "enterprise"
+ },
+ {
+  "name": "NICE",
+  "website": "https://nice.com",
+  "careersUrl": "https://nice.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "IL",
+  "size": "enterprise"
+ },
+ {
+  "name": "LivePerson",
+  "website": "https://liveperson.com",
+  "careersUrl": "https://liveperson.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Iterable",
+  "website": "https://iterable.com",
+  "careersUrl": "https://iterable.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Attentive",
+  "website": "https://attentive.com",
+  "careersUrl": "https://attentive.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Postscript",
+  "website": "https://postscript.io",
+  "careersUrl": "https://postscript.io/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Yotpo",
+  "website": "https://yotpo.com",
+  "careersUrl": "https://yotpo.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "IL",
+  "size": "mid"
+ },
+ {
+  "name": "Bloomreach",
+  "website": "https://bloomreach.com",
+  "careersUrl": "https://bloomreach.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Algolia",
+  "website": "https://algolia.com",
+  "careersUrl": "https://algolia.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Coveo",
+  "website": "https://coveo.com",
+  "careersUrl": "https://coveo.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "CA",
+  "size": "mid"
+ },
+ {
+  "name": "Lucid Software",
+  "website": "https://lucid.co",
+  "careersUrl": "https://lucid.co/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Vimeo",
+  "website": "https://vimeo.com",
+  "careersUrl": "https://vimeo.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Wistia",
+  "website": "https://wistia.com",
+  "careersUrl": "https://wistia.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Descript",
+  "website": "https://descript.com",
+  "careersUrl": "https://descript.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Riverside",
+  "website": "https://riverside.fm",
+  "careersUrl": "https://riverside.fm/careers",
+  "industry": "SaaS",
+  "hqCountry": "IL",
+  "size": "small"
+ },
+ {
+  "name": "Mailchimp",
+  "website": "https://mailchimp.com",
+  "careersUrl": "https://mailchimp.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Constant Contact",
+  "website": "https://constantcontact.com",
+  "careersUrl": "https://constantcontact.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "ActiveCampaign",
+  "website": "https://activecampaign.com",
+  "careersUrl": "https://activecampaign.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Brevo",
+  "website": "https://brevo.com",
+  "careersUrl": "https://brevo.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "FR",
+  "size": "mid"
+ },
+ {
+  "name": "Semrush",
+  "website": "https://semrush.com",
+  "careersUrl": "https://semrush.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Ahrefs",
+  "website": "https://ahrefs.com",
+  "careersUrl": "https://ahrefs.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "SG",
+  "size": "small"
+ },
+ {
+  "name": "Similarweb",
+  "website": "https://similarweb.com",
+  "careersUrl": "https://similarweb.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "IL",
+  "size": "large"
+ },
+ {
+  "name": "Contentsquare",
+  "website": "https://contentsquare.com",
+  "careersUrl": "https://contentsquare.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "FR",
+  "size": "large"
+ },
+ {
+  "name": "FullStory",
+  "website": "https://fullstory.com",
+  "careersUrl": "https://fullstory.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Heap",
+  "website": "https://heap.io",
+  "careersUrl": "https://heap.io/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Pendo",
+  "website": "https://pendo.io",
+  "careersUrl": "https://pendo.io/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "WalkMe",
+  "website": "https://walkme.com",
+  "careersUrl": "https://walkme.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Appcues",
+  "website": "https://appcues.com",
+  "careersUrl": "https://appcues.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Productboard",
+  "website": "https://productboard.com",
+  "careersUrl": "https://productboard.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Aha!",
+  "website": "https://aha.io",
+  "careersUrl": "https://aha.io/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "LaunchNotes",
+  "website": "https://launchnotes.com",
+  "careersUrl": "https://launchnotes.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Smartling",
+  "website": "https://smartling.com",
+  "careersUrl": "https://smartling.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Lokalise",
+  "website": "https://lokalise.com",
+  "careersUrl": "https://lokalise.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "LV",
+  "size": "small"
+ },
+ {
+  "name": "Phrase",
+  "website": "https://phrase.com",
+  "careersUrl": "https://phrase.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "DE",
+  "size": "small"
+ },
+ {
+  "name": "DeepL",
+  "website": "https://deepl.com",
+  "careersUrl": "https://deepl.com/careers",
+  "industry": "AI",
+  "hqCountry": "DE",
+  "size": "mid"
+ },
+ {
+  "name": "Babbel",
+  "website": "https://babbel.com",
+  "careersUrl": "https://babbel.com/careers",
+  "industry": "Edtech",
+  "hqCountry": "DE",
+  "size": "mid"
+ },
+ {
+  "name": "GetYourGuide",
+  "website": "https://getyourguide.com",
+  "careersUrl": "https://getyourguide.com/careers",
+  "industry": "Travel",
+  "hqCountry": "DE",
+  "size": "large"
+ },
+ {
+  "name": "Klook",
+  "website": "https://klook.com",
+  "careersUrl": "https://klook.com/careers",
+  "industry": "Travel",
+  "hqCountry": "HK",
+  "size": "large"
+ },
+ {
+  "name": "Hopper",
+  "website": "https://hopper.com",
+  "careersUrl": "https://hopper.com/careers",
+  "industry": "Travel",
+  "hqCountry": "CA",
+  "size": "mid"
+ },
+ {
+  "name": "Skyscanner",
+  "website": "https://skyscanner.net",
+  "careersUrl": "https://skyscanner.net/careers",
+  "industry": "Travel",
+  "hqCountry": "GB",
+  "size": "large"
+ },
+ {
+  "name": "Trivago",
+  "website": "https://trivago.com",
+  "careersUrl": "https://trivago.com/careers",
+  "industry": "Travel",
+  "hqCountry": "DE",
+  "size": "mid"
+ },
+ {
+  "name": "Kayak",
+  "website": "https://kayak.com",
+  "careersUrl": "https://kayak.com/careers",
+  "industry": "Travel",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Hostaway",
+  "website": "https://hostaway.com",
+  "careersUrl": "https://hostaway.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Guesty",
+  "website": "https://guesty.com",
+  "careersUrl": "https://guesty.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "IL",
+  "size": "mid"
+ },
+ {
+  "name": "Sonder",
+  "website": "https://sonder.com",
+  "careersUrl": "https://sonder.com/careers",
+  "industry": "Hospitality",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Vacasa",
+  "website": "https://vacasa.com",
+  "careersUrl": "https://vacasa.com/careers",
+  "industry": "Hospitality",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Compass Inc",
+  "website": "https://compass.com",
+  "careersUrl": "https://compass.com/careers",
+  "industry": "Real estate",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Opendoor",
+  "website": "https://opendoor.com",
+  "careersUrl": "https://opendoor.com/careers",
+  "industry": "Real estate",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Redfin",
+  "website": "https://redfin.com",
+  "careersUrl": "https://redfin.com/careers",
+  "industry": "Real estate",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Better",
+  "website": "https://better.com",
+  "careersUrl": "https://better.com/careers",
+  "industry": "Fintech",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Rocket Companies",
+  "website": "https://rocketcompanies.com",
+  "careersUrl": "https://rocketcompanies.com/careers",
+  "industry": "Fintech",
+  "hqCountry": "US",
+  "size": "enterprise"
+ },
+ {
+  "name": "Blend",
+  "website": "https://blend.com",
+  "careersUrl": "https://blend.com/careers",
+  "industry": "Fintech SaaS",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "nCino",
+  "website": "https://ncino.com",
+  "careersUrl": "https://ncino.com/careers",
+  "industry": "Fintech SaaS",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Q2",
+  "website": "https://q2.com",
+  "careersUrl": "https://q2.com/careers",
+  "industry": "Fintech SaaS",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Alkami",
+  "website": "https://alkami.com",
+  "careersUrl": "https://alkami.com/careers",
+  "industry": "Fintech SaaS",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Mambu",
+  "website": "https://mambu.com",
+  "careersUrl": "https://mambu.com/careers",
+  "industry": "Fintech SaaS",
+  "hqCountry": "DE",
+  "size": "mid"
+ },
+ {
+  "name": "Thought Machine",
+  "website": "https://thoughtmachine.net",
+  "careersUrl": "https://thoughtmachine.net/careers",
+  "industry": "Fintech SaaS",
+  "hqCountry": "GB",
+  "size": "mid"
+ },
+ {
+  "name": "10x Banking",
+  "website": "https://10xbanking.com",
+  "careersUrl": "https://10xbanking.com/careers",
+  "industry": "Fintech SaaS",
+  "hqCountry": "GB",
+  "size": "mid"
+ },
+ {
+  "name": "Galileo Financial",
+  "website": "https://galileo-ft.com",
+  "careersUrl": "https://galileo-ft.com/careers",
+  "industry": "Fintech",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Unit",
+  "website": "https://unit.co",
+  "careersUrl": "https://unit.co/careers",
+  "industry": "Fintech",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Modern Treasury",
+  "website": "https://moderntreasury.com",
+  "careersUrl": "https://moderntreasury.com/careers",
+  "industry": "Fintech",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Alloy",
+  "website": "https://alloy.com",
+  "careersUrl": "https://alloy.com/careers",
+  "industry": "Fintech",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Socure",
+  "website": "https://socure.com",
+  "careersUrl": "https://socure.com/careers",
+  "industry": "Fintech",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Persona",
+  "website": "https://withpersona.com",
+  "careersUrl": "https://withpersona.com/careers",
+  "industry": "Security",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Onfido",
+  "website": "https://onfido.com",
+  "careersUrl": "https://onfido.com/careers",
+  "industry": "Security",
+  "hqCountry": "GB",
+  "size": "mid"
+ },
+ {
+  "name": "Sumsub",
+  "website": "https://sumsub.com",
+  "careersUrl": "https://sumsub.com/careers",
+  "industry": "Security",
+  "hqCountry": "GB",
+  "size": "mid"
+ },
+ {
+  "name": "Veriff",
+  "website": "https://veriff.com",
+  "careersUrl": "https://veriff.com/careers",
+  "industry": "Security",
+  "hqCountry": "EE",
+  "size": "mid"
+ },
+ {
+  "name": "Jumio",
+  "website": "https://jumio.com",
+  "careersUrl": "https://jumio.com/careers",
+  "industry": "Security",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Forter",
+  "website": "https://forter.com",
+  "careersUrl": "https://forter.com/careers",
+  "industry": "Fintech",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Riskified",
+  "website": "https://riskified.com",
+  "careersUrl": "https://riskified.com/careers",
+  "industry": "Fintech",
+  "hqCountry": "IL",
+  "size": "mid"
+ },
+ {
+  "name": "Sift",
+  "website": "https://sift.com",
+  "careersUrl": "https://sift.com/careers",
+  "industry": "Security",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Feedzai",
+  "website": "https://feedzai.com",
+  "careersUrl": "https://feedzai.com/careers",
+  "industry": "Fintech",
+  "hqCountry": "PT",
+  "size": "mid"
+ },
+ {
+  "name": "Featurespace",
+  "website": "https://featurespace.com",
+  "careersUrl": "https://featurespace.com/careers",
+  "industry": "Fintech",
+  "hqCountry": "GB",
+  "size": "small"
+ },
+ {
+  "name": "ComplyAdvantage",
+  "website": "https://complyadvantage.com",
+  "careersUrl": "https://complyadvantage.com/careers",
+  "industry": "Fintech",
+  "hqCountry": "GB",
+  "size": "mid"
+ },
+ {
+  "name": "Elliptic",
+  "website": "https://elliptic.co",
+  "careersUrl": "https://elliptic.co/careers",
+  "industry": "Crypto",
+  "hqCountry": "GB",
+  "size": "small"
+ },
+ {
+  "name": "Ledger",
+  "website": "https://ledger.com",
+  "careersUrl": "https://ledger.com/careers",
+  "industry": "Crypto",
+  "hqCountry": "FR",
+  "size": "mid"
+ },
+ {
+  "name": "OKX",
+  "website": "https://okx.com",
+  "careersUrl": "https://okx.com/careers",
+  "industry": "Crypto",
+  "hqCountry": "SC",
+  "size": "large"
+ },
+ {
+  "name": "Bybit",
+  "website": "https://bybit.com",
+  "careersUrl": "https://bybit.com/careers",
+  "industry": "Crypto",
+  "hqCountry": "AE",
+  "size": "large"
+ },
+ {
+  "name": "Crypto.com",
+  "website": "https://crypto.com",
+  "careersUrl": "https://crypto.com/careers",
+  "industry": "Crypto",
+  "hqCountry": "SG",
+  "size": "large"
+ },
+ {
+  "name": "Uniswap Labs",
+  "website": "https://uniswap.org",
+  "careersUrl": "https://uniswap.org/careers",
+  "industry": "Crypto",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Alchemy",
+  "website": "https://alchemy.com",
+  "careersUrl": "https://alchemy.com/careers",
+  "industry": "Blockchain",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Solana Labs",
+  "website": "https://solanalabs.com",
+  "careersUrl": "https://solanalabs.com/careers",
+  "industry": "Blockchain",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Aptos Labs",
+  "website": "https://aptoslabs.com",
+  "careersUrl": "https://aptoslabs.com/careers",
+  "industry": "Blockchain",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Ripple",
+  "website": "https://ripple.com",
+  "careersUrl": "https://ripple.com/careers",
+  "industry": "Crypto",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Anchorage Digital",
+  "website": "https://anchorage.com",
+  "careersUrl": "https://anchorage.com/careers",
+  "industry": "Crypto",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Paxos",
+  "website": "https://paxos.com",
+  "careersUrl": "https://paxos.com/careers",
+  "industry": "Crypto",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "MoonPay",
+  "website": "https://moonpay.com",
+  "careersUrl": "https://moonpay.com/careers",
+  "industry": "Crypto",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Postman Inc",
+  "website": "https://getpostman.com",
+  "careersUrl": "https://getpostman.com/careers",
+  "industry": "Developer tools",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Stoplight",
+  "website": "https://stoplight.io",
+  "careersUrl": "https://stoplight.io/careers",
+  "industry": "Developer tools",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Mux",
+  "website": "https://mux.com",
+  "careersUrl": "https://mux.com/careers",
+  "industry": "Developer tools",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Cloudinary",
+  "website": "https://cloudinary.com",
+  "careersUrl": "https://cloudinary.com/careers",
+  "industry": "Developer tools",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Contentstack",
+  "website": "https://contentstack.com",
+  "careersUrl": "https://contentstack.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Sanity",
+  "website": "https://sanity.io",
+  "careersUrl": "https://sanity.io/careers",
+  "industry": "SaaS",
+  "hqCountry": "NO",
+  "size": "small"
+ },
+ {
+  "name": "Strapi",
+  "website": "https://strapi.io",
+  "careersUrl": "https://strapi.io/careers",
+  "industry": "Developer tools",
+  "hqCountry": "FR",
+  "size": "small"
+ },
+ {
+  "name": "Auth0",
+  "website": "https://auth0.com",
+  "careersUrl": "https://auth0.com/careers",
+  "industry": "Security",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Clerk",
+  "website": "https://clerk.com",
+  "careersUrl": "https://clerk.com/careers",
+  "industry": "Developer tools",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Stytch",
+  "website": "https://stytch.com",
+  "careersUrl": "https://stytch.com/careers",
+  "industry": "Developer tools",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "WorkOS",
+  "website": "https://workos.com",
+  "careersUrl": "https://workos.com/careers",
+  "industry": "Developer tools",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Teleport",
+  "website": "https://goteleport.com",
+  "careersUrl": "https://goteleport.com/careers",
+  "industry": "Security",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Doppler",
+  "website": "https://doppler.com",
+  "careersUrl": "https://doppler.com/careers",
+  "industry": "Security",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Semgrep",
+  "website": "https://semgrep.dev",
+  "careersUrl": "https://semgrep.dev/careers",
+  "industry": "Security",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Socket",
+  "website": "https://socket.dev",
+  "careersUrl": "https://socket.dev/careers",
+  "industry": "Security",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Aikido Security",
+  "website": "https://aikido.dev",
+  "careersUrl": "https://aikido.dev/careers",
+  "industry": "Security",
+  "hqCountry": "BE",
+  "size": "small"
+ },
+ {
+  "name": "Orca Security",
+  "website": "https://orca.security",
+  "careersUrl": "https://orca.security/careers",
+  "industry": "Security",
+  "hqCountry": "IL",
+  "size": "mid"
+ },
+ {
+  "name": "Lacework",
+  "website": "https://lacework.com",
+  "careersUrl": "https://lacework.com/careers",
+  "industry": "Security",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Sysdig",
+  "website": "https://sysdig.com",
+  "careersUrl": "https://sysdig.com/careers",
+  "industry": "Security",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Aqua Security",
+  "website": "https://aquasec.com",
+  "careersUrl": "https://aquasec.com/careers",
+  "industry": "Security",
+  "hqCountry": "IL",
+  "size": "mid"
+ },
+ {
+  "name": "Armis",
+  "website": "https://armis.com",
+  "careersUrl": "https://armis.com/careers",
+  "industry": "Security",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Claroty",
+  "website": "https://claroty.com",
+  "careersUrl": "https://claroty.com/careers",
+  "industry": "Security",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Axonius",
+  "website": "https://axonius.com",
+  "careersUrl": "https://axonius.com/careers",
+  "industry": "Security",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Tanium",
+  "website": "https://tanium.com",
+  "careersUrl": "https://tanium.com/careers",
+  "industry": "Security",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Recorded Future",
+  "website": "https://recordedfuture.com",
+  "careersUrl": "https://recordedfuture.com/careers",
+  "industry": "Security",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Expel",
+  "website": "https://expel.com",
+  "careersUrl": "https://expel.com/careers",
+  "industry": "Security",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Huntress",
+  "website": "https://huntress.com",
+  "careersUrl": "https://huntress.com/careers",
+  "industry": "Security",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Blackpoint Cyber",
+  "website": "https://blackpointcyber.com",
+  "careersUrl": "https://blackpointcyber.com/careers",
+  "industry": "Security",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "KnowBe4",
+  "website": "https://knowbe4.com",
+  "careersUrl": "https://knowbe4.com/careers",
+  "industry": "Security",
+  "hqCountry": "US",
+  "size": "large"
+ },
+ {
+  "name": "Coalition",
+  "website": "https://coalitioninc.com",
+  "careersUrl": "https://coalitioninc.com/careers",
+  "industry": "Insurtech",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "At-Bay",
+  "website": "https://at-bay.com",
+  "careersUrl": "https://at-bay.com/careers",
+  "industry": "Insurtech",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Cowbell",
+  "website": "https://cowbell.insure",
+  "careersUrl": "https://cowbell.insure/careers",
+  "industry": "Insurtech",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Next Insurance",
+  "website": "https://nextinsurance.com",
+  "careersUrl": "https://nextinsurance.com/careers",
+  "industry": "Insurtech",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Pie Insurance",
+  "website": "https://pieinsurance.com",
+  "careersUrl": "https://pieinsurance.com/careers",
+  "industry": "Insurtech",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Vouch",
+  "website": "https://vouch.us",
+  "careersUrl": "https://vouch.us/careers",
+  "industry": "Insurtech",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Newfront",
+  "website": "https://newfront.com",
+  "careersUrl": "https://newfront.com/careers",
+  "industry": "Insurtech",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Bestow",
+  "website": "https://bestow.com",
+  "careersUrl": "https://bestow.com/careers",
+  "industry": "Insurtech",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Ethos",
+  "website": "https://ethos.com",
+  "careersUrl": "https://ethos.com/careers",
+  "industry": "Insurtech",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Policygenius",
+  "website": "https://policygenius.com",
+  "careersUrl": "https://policygenius.com/careers",
+  "industry": "Insurtech",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Kin Insurance",
+  "website": "https://kin.com",
+  "careersUrl": "https://kin.com/careers",
+  "industry": "Insurtech",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Openly",
+  "website": "https://openly.com",
+  "careersUrl": "https://openly.com/careers",
+  "industry": "Insurtech",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Branch Insurance",
+  "website": "https://ourbranch.com",
+  "careersUrl": "https://ourbranch.com/careers",
+  "industry": "Insurtech",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Clearcover",
+  "website": "https://clearcover.com",
+  "careersUrl": "https://clearcover.com/careers",
+  "industry": "Insurtech",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Wefox",
+  "website": "https://wefox.com",
+  "careersUrl": "https://wefox.com/careers",
+  "industry": "Insurtech",
+  "hqCountry": "DE",
+  "size": "mid"
+ },
+ {
+  "name": "Alan",
+  "website": "https://alan.com",
+  "careersUrl": "https://alan.com/careers",
+  "industry": "Insurtech",
+  "hqCountry": "FR",
+  "size": "mid"
+ },
+ {
+  "name": "Doctolib",
+  "website": "https://doctolib.com",
+  "careersUrl": "https://doctolib.com/careers",
+  "industry": "Healthtech",
+  "hqCountry": "FR",
+  "size": "large"
+ },
+ {
+  "name": "Kry",
+  "website": "https://kry.se",
+  "careersUrl": "https://kry.se/careers",
+  "industry": "Healthtech",
+  "hqCountry": "SE",
+  "size": "mid"
+ },
+ {
+  "name": "Babylon",
+  "website": "https://babylonhealth.com",
+  "careersUrl": "https://babylonhealth.com/careers",
+  "industry": "Healthtech",
+  "hqCountry": "GB",
+  "size": "mid"
+ },
+ {
+  "name": "Cera Care",
+  "website": "https://ceracare.co.uk",
+  "careersUrl": "https://ceracare.co.uk/careers",
+  "industry": "Healthtech",
+  "hqCountry": "GB",
+  "size": "large"
+ },
+ {
+  "name": "Huma",
+  "website": "https://huma.com",
+  "careersUrl": "https://huma.com/careers",
+  "industry": "Healthtech",
+  "hqCountry": "GB",
+  "size": "small"
+ },
+ {
+  "name": "Owkin",
+  "website": "https://owkin.com",
+  "careersUrl": "https://owkin.com/careers",
+  "industry": "AI",
+  "hqCountry": "FR",
+  "size": "small"
+ },
+ {
+  "name": "Isomorphic Labs",
+  "website": "https://isomorphiclabs.com",
+  "careersUrl": "https://isomorphiclabs.com/careers",
+  "industry": "AI",
+  "hqCountry": "GB",
+  "size": "small"
+ },
+ {
+  "name": "DeepMind",
+  "website": "https://deepmind.google",
+  "careersUrl": "https://deepmind.google/careers",
+  "industry": "AI research",
+  "hqCountry": "GB",
+  "size": "mid"
+ },
+ {
+  "name": "Stability AI",
+  "website": "https://stability.ai",
+  "careersUrl": "https://stability.ai/careers",
+  "industry": "AI",
+  "hqCountry": "GB",
+  "size": "small"
+ },
+ {
+  "name": "Aleph Alpha",
+  "website": "https://aleph-alpha.com",
+  "careersUrl": "https://aleph-alpha.com/careers",
+  "industry": "AI",
+  "hqCountry": "DE",
+  "size": "small"
+ },
+ {
+  "name": "Poolside",
+  "website": "https://poolside.ai",
+  "careersUrl": "https://poolside.ai/careers",
+  "industry": "AI",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Character.AI",
+  "website": "https://character.ai",
+  "careersUrl": "https://character.ai/careers",
+  "industry": "AI",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Inflection AI",
+  "website": "https://inflection.ai",
+  "careersUrl": "https://inflection.ai/careers",
+  "industry": "AI",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Adept",
+  "website": "https://adept.ai",
+  "careersUrl": "https://adept.ai/careers",
+  "industry": "AI",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Imbue",
+  "website": "https://imbue.com",
+  "careersUrl": "https://imbue.com/careers",
+  "industry": "AI",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "xAI",
+  "website": "https://x.ai",
+  "careersUrl": "https://x.ai/careers",
+  "industry": "AI",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Safe Superintelligence",
+  "website": "https://ssi.inc",
+  "careersUrl": "https://ssi.inc/careers",
+  "industry": "AI",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Thinking Machines Lab",
+  "website": "https://thinkingmachines.ai",
+  "careersUrl": "https://thinkingmachines.ai/careers",
+  "industry": "AI",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Midjourney",
+  "website": "https://midjourney.com",
+  "careersUrl": "https://midjourney.com/careers",
+  "industry": "AI",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Pika",
+  "website": "https://pika.art",
+  "careersUrl": "https://pika.art/careers",
+  "industry": "AI",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Suno",
+  "website": "https://suno.com",
+  "careersUrl": "https://suno.com/careers",
+  "industry": "AI",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Luma AI",
+  "website": "https://lumalabs.ai",
+  "careersUrl": "https://lumalabs.ai/careers",
+  "industry": "AI",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Hebbia",
+  "website": "https://hebbia.ai",
+  "careersUrl": "https://hebbia.ai/careers",
+  "industry": "AI",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Abridge",
+  "website": "https://abridge.com",
+  "careersUrl": "https://abridge.com/careers",
+  "industry": "AI",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Hippocratic AI",
+  "website": "https://hippocraticai.com",
+  "careersUrl": "https://hippocraticai.com/careers",
+  "industry": "AI",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Ambience Healthcare",
+  "website": "https://ambiencehealthcare.com",
+  "careersUrl": "https://ambiencehealthcare.com/careers",
+  "industry": "AI",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Cohere Health",
+  "website": "https://coherehealth.com",
+  "careersUrl": "https://coherehealth.com/careers",
+  "industry": "Healthtech",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "You.com",
+  "website": "https://you.com",
+  "careersUrl": "https://you.com/careers",
+  "industry": "AI",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Typeface",
+  "website": "https://typeface.ai",
+  "careersUrl": "https://typeface.ai/careers",
+  "industry": "AI",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Tome",
+  "website": "https://tome.app",
+  "careersUrl": "https://tome.app/careers",
+  "industry": "AI",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Gamma",
+  "website": "https://gamma.app",
+  "careersUrl": "https://gamma.app/careers",
+  "industry": "AI",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Mem",
+  "website": "https://mem.ai",
+  "careersUrl": "https://mem.ai/careers",
+  "industry": "AI",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Otter.ai",
+  "website": "https://otter.ai",
+  "careersUrl": "https://otter.ai/careers",
+  "industry": "AI",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Fireflies.ai",
+  "website": "https://fireflies.ai",
+  "careersUrl": "https://fireflies.ai/careers",
+  "industry": "AI",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Read AI",
+  "website": "https://read.ai",
+  "careersUrl": "https://read.ai/careers",
+  "industry": "AI",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Fathom",
+  "website": "https://fathom.video",
+  "careersUrl": "https://fathom.video/careers",
+  "industry": "AI",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Synthflow",
+  "website": "https://synthflow.ai",
+  "careersUrl": "https://synthflow.ai/careers",
+  "industry": "AI",
+  "hqCountry": "DE",
+  "size": "small"
+ },
+ {
+  "name": "Vapi",
+  "website": "https://vapi.ai",
+  "careersUrl": "https://vapi.ai/careers",
+  "industry": "AI",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Retell AI",
+  "website": "https://retellai.com",
+  "careersUrl": "https://retellai.com/careers",
+  "industry": "AI",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Bland AI",
+  "website": "https://bland.ai",
+  "careersUrl": "https://bland.ai/careers",
+  "industry": "AI",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Deepgram",
+  "website": "https://deepgram.com",
+  "careersUrl": "https://deepgram.com/careers",
+  "industry": "AI",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "AssemblyAI",
+  "website": "https://assemblyai.com",
+  "careersUrl": "https://assemblyai.com/careers",
+  "industry": "AI",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Speechmatics",
+  "website": "https://speechmatics.com",
+  "careersUrl": "https://speechmatics.com/careers",
+  "industry": "AI",
+  "hqCountry": "GB",
+  "size": "small"
+ },
+ {
+  "name": "Rev",
+  "website": "https://rev.com",
+  "careersUrl": "https://rev.com/careers",
+  "industry": "AI",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Verbit",
+  "website": "https://verbit.ai",
+  "careersUrl": "https://verbit.ai/careers",
+  "industry": "AI",
+  "hqCountry": "US",
+  "size": "mid"
+ },
+ {
+  "name": "Unbabel",
+  "website": "https://unbabel.com",
+  "careersUrl": "https://unbabel.com/careers",
+  "industry": "AI",
+  "hqCountry": "PT",
+  "size": "small"
+ },
+ {
+  "name": "Clay",
+  "website": "https://clay.com",
+  "careersUrl": "https://clay.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Attio",
+  "website": "https://attio.com",
+  "careersUrl": "https://attio.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "GB",
+  "size": "small"
+ },
+ {
+  "name": "Folk",
+  "website": "https://folk.app",
+  "careersUrl": "https://folk.app/careers",
+  "industry": "SaaS",
+  "hqCountry": "FR",
+  "size": "small"
+ },
+ {
+  "name": "Close",
+  "website": "https://close.com",
+  "careersUrl": "https://close.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "small"
+ },
+ {
+  "name": "Pipedrive",
+  "website": "https://pipedrive.com",
+  "careersUrl": "https://pipedrive.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "EE",
+  "size": "large"
+ },
+ {
+  "name": "Freshdesk",
+  "website": "https://freshdesk.com",
+  "careersUrl": "https://freshdesk.com/careers",
+  "industry": "SaaS",
+  "hqCountry": "US",
+  "size": "large"
  }
 ]

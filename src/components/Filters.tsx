@@ -5,6 +5,11 @@ import { Search, MapPin, SlidersHorizontal, X, Loader2 } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { AutocompleteInput } from "./AutocompleteInput";
 import { cn } from "@/lib/utils";
+import { COMPANY_TYPE_LABEL, FILTER_TYPES, type CompanyType } from "@/lib/company-type";
+import { JOB_FUNCTIONS, functionSlug } from "@/lib/job-function";
+
+const TYPE_CHIP: Partial<Record<CompanyType, string>> = { INDIAN_LARGE: "Indian large", UNICORN: "Unicorns", STARTUP: "Startups", GCC: "GCCs" };
+const fmt = (n: number | undefined) => (n ?? 0).toLocaleString("en-IN");
 
 const MODES = [["REMOTE", "Remote"], ["HYBRID", "Hybrid"], ["ONSITE", "On site"]] as const;
 const EXP = [["0-1", "Fresher"], ["1-3", "1 to 3 yrs"], ["3-5", "3 to 5 yrs"], ["5-8", "5 to 8 yrs"], ["8+", "8+ yrs"]] as const;
@@ -70,7 +75,7 @@ export function SearchBar({ target, hero }: { target?: string; hero?: boolean })
   );
 }
 
-export function Filters() {
+export function Filters({ companyCounts }: { companyCounts?: { byType: Partial<Record<CompanyType, number>>; mnc: number } }) {
   const router = useRouter();
   const pathname = usePathname();
   const sp = useSearchParams();
@@ -80,6 +85,11 @@ export function Filters() {
   useEffect(() => setOpen(false), [sp]);
 
   const modes = (sp.get("mode") ?? "").split(",").filter(Boolean);
+  const ctypes = (sp.get("ctype") ?? "").split(",").filter(Boolean);
+  const toggleType = (t: string) => {
+    const next = ctypes.includes(t) ? ctypes.filter((x) => x !== t) : [...ctypes, t];
+    set("ctype", next.length ? next.join(",") : null);
+  };
 
   function set(key: string, value: string | null) {
     const next = new URLSearchParams(sp.toString());
@@ -91,10 +101,29 @@ export function Filters() {
     const nextModes = modes.includes(m) ? modes.filter((x) => x !== m) : [...modes, m];
     set("mode", nextModes.length ? nextModes.join(",") : null);
   };
-  const activeCount = ["mode", "exp", "posted", "salary", "ghost"].filter((k) => sp.get(k)).length;
+  const activeCount = ["mode", "exp", "posted", "salary", "ghost", "mnc", "ctype", "fn"].filter((k) => sp.get(k)).length;
 
   const body = (
     <div className="space-y-7">
+      <Group title="Company type">
+        <div className="w-full">
+          <Toggle label={`MNCs only${companyCounts ? ` (${fmt(companyCounts.mnc)})` : ""}`} on={sp.get("mnc") === "1"} onChange={(on) => set("mnc", on ? "1" : null)} />
+        </div>
+        {FILTER_TYPES.map((t) => (
+          <button key={t} data-on={ctypes.includes(t)} onClick={() => toggleType(t)} className="chip" title={COMPANY_TYPE_LABEL[t]}>
+            {TYPE_CHIP[t]}
+            {companyCounts && <span className="ml-1 tabular-nums opacity-70">{fmt(companyCounts.byType[t])}</span>}
+          </button>
+        ))}
+      </Group>
+      <Group title="Function">
+        {JOB_FUNCTIONS.filter((f) => f !== "Other").map((f) => {
+          const slug = functionSlug(f);
+          return (
+            <button key={f} data-on={sp.get("fn") === slug} onClick={() => set("fn", sp.get("fn") === slug ? null : slug)} className="chip">{f}</button>
+          );
+        })}
+      </Group>
       <Group title="Work setting">
         {MODES.map(([v, l]) => (
           <button key={v} data-on={modes.includes(v)} onClick={() => toggleMode(v)} className="chip">{l}</button>

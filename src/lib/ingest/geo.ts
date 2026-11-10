@@ -134,6 +134,16 @@ const OTHER_COUNTRIES: [string, string[]][] = [
  */
 const FOREIGN_REGIONS = ["amer", "americas", "north america", "noram", "namer", "latam", "latin america", "south america", "emea", "europe", "eu", "dach", "nordics", "benelux", "uk&i", "ukie", "anz", "oceania", "mena", "middle east", "africa", "sea", "southeast asia", "south east asia", "cee"];
 
+const CODE_TO_NAME = new Map<string, string>([["IN", "India"], ...OTHER_COUNTRIES.map(([code, words]) => [code, words[0]] as [string, string])]);
+const titleCase = (s: string) => s.replace(/\b([a-z])/g, (m) => m.toUpperCase()).replace(/\bOf\b/g, "of");
+
+/** "IT" → "Italy", "US" → "United States"; null for unknown codes. */
+export function countryName(code: string | null | undefined): string | null {
+  if (!code) return null;
+  const n = CODE_TO_NAME.get(code.toUpperCase());
+  return n ? (n.length <= 3 ? n.toUpperCase() : titleCase(n)) : null;
+}
+
 /** ISO codes we accept as country hints from structured data (addressCountry, countryCode...). */
 const COUNTRY_NAME_TO_CODE = new Map<string, string>(
   [["india", "IN"], ...OTHER_COUNTRIES.map(([code, words]) => [words[0], code] as [string, string])],
@@ -174,12 +184,15 @@ export function countryCode(value: string | null | undefined): string | null {
   return COUNTRY_NAME_TO_CODE.get(v.toLowerCase()) ?? detectCountry(v);
 }
 
+/** CRAWL_SCOPE: "all" (default) or "india". */
+export const crawlScope = (): "all" | "india" => (process.env.CRAWL_SCOPE === "india" ? "india" : "all");
+
 /**
- * Crawl scope. "india" (the default) keeps jobs in India plus jobs whose country we can't tell
+ * Crawl scope. "all" (the default) keeps every job. "india" keeps jobs in India plus jobs whose country we can't tell
  * (typically "Remote" or "Multiple locations"). Jobs clearly located in another country are skipped,
  * which keeps the database focused on what our users can apply for. "all" keeps everything.
  */
-export function inCrawlScope(country: string | null, scope = process.env.CRAWL_SCOPE ?? "india"): boolean {
+export function inCrawlScope(country: string | null, scope = crawlScope()): boolean {
   if (scope === "all") return true;
   return country === null || country === "IN";
 }
@@ -192,12 +205,12 @@ export function isForeignRegion(location: string): boolean {
 }
 
 /** Should a job with this country and location be stored? (Country decides; regions break ties when it is unknown.) */
-export function jobInScope(country: string | null, location: string, scope = process.env.CRAWL_SCOPE ?? "india"): boolean {
+export function jobInScope(country: string | null, location: string, scope = crawlScope()): boolean {
   if (!inCrawlScope(country, scope)) return false;
   return scope === "all" || country === "IN" || !isForeignRegion(location);
 }
 
 /** Quick check on a listing line before paying for a detail request. */
-export function locationLooksInScope(location: string, scope = process.env.CRAWL_SCOPE ?? "india"): boolean {
+export function locationLooksInScope(location: string, scope = crawlScope()): boolean {
   return jobInScope(detectCountry(location), location, scope);
 }

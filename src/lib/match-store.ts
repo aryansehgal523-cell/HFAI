@@ -4,12 +4,21 @@ import { companies, jobMatches, jobs, profiles } from "@/db/schema";
 import { matchJob, type MatchProfile } from "./matching";
 import { rerankMatches } from "./ai";
 
-export async function matchProfileFor(userId: string): Promise<{ profile: MatchProfile; updatedAt: Date } | null> {
+/** Company filters from the user's preferences, as SQL over the companies table (null when there are none). */
+export function companyPreferenceSql(prefs: { mncOnly?: boolean; companyTypes?: string[] } | null | undefined) {
+  const parts = [];
+  if (prefs?.mncOnly) parts.push(sql`${companies.isMnc} = true`);
+  if (prefs?.companyTypes?.length) parts.push(sql`${companies.companyType} IN (${sql.join(prefs.companyTypes.map((t) => sql`${t}`), sql`, `)})`);
+  return parts.length ? sql.join(parts, sql` AND `) : null;
+}
+
+export async function matchProfileFor(userId: string): Promise<{ profile: MatchProfile; updatedAt: Date; companyFilter: ReturnType<typeof companyPreferenceSql> } | null> {
   const [p] = await db.select().from(profiles).where(eq(profiles.userId, userId)).limit(1);
   if (!p?.data) return null;
   const prefs = p.preferences;
   return {
     updatedAt: p.updatedAt,
+    companyFilter: companyPreferenceSql(prefs),
     profile: {
       resume: p.data,
       years: p.applicationDetails?.totalExperienceYears ?? prefs?.experienceYears,
@@ -35,7 +44,13 @@ export async function computeMatchesForUser(userId: string, jobIds?: string[]) {
       salaryCurrency: jobs.salaryCurrency, salaryPeriod: jobs.salaryPeriod, postedAt: jobs.postedAt,
     })
     .from(jobs)
-    .where(jobIds ? and(openJobs, inArray(jobs.id, jobIds)) : openJobs);
+    .innerJoin(companies, eq(companies.id, jobs.companyId))
+    .where(and(jobIds ? and(openJobs, inArray(jobs.id, jobIds)) : openJobs, mp.companyFilter ?? sql`true`));
+  if (!jobIds && mp.companyFilter) {
+    // Preferences changed to exclude some companies: drop their stored matches.
+    await db.execute(sql`DELETE FROM job_matches WHERE user_id = ${userId} AND job_id IN (
+      SELECT jobs.id FROM jobs JOIN companies ON companies.id = jobs.company_id WHERE NOT (${mp.companyFilter}))`);
+  }
   const now = new Date();
   const values = rows.map((j) => {
     const m = matchJob(mp.profile, j, now);
@@ -74,7 +89,7 @@ export async function forYou(userId: string, page = 1, pageSize = 20) {
       salaryMin: jobs.salaryMin, salaryMax: jobs.salaryMax, salaryCurrency: jobs.salaryCurrency, salaryPeriod: jobs.salaryPeriod,
       experienceMin: jobs.experienceMin, experienceMax: jobs.experienceMax, skills: jobs.skills,
       postedAt: jobs.postedAt, employment: jobs.employment, ghostScore: jobs.ghostScore,
-      companyName: companies.name, companySlug: companies.slug, companyIndustry: companies.industry,
+      companyName: companies.name, companySlug: companies.slug, companyIndustry: companies.industry, source: jobs.source, companyIsMnc: companies.isMnc,
       score: jobMatches.score, reasons: jobMatches.reasons, aiVerdict: jobMatches.aiVerdict, aiReason: jobMatches.aiReason,
     })
       .from(jobMatches)

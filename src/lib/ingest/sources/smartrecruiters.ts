@@ -5,10 +5,10 @@
  *   https://careers.smartrecruiters.com/{Company}/api/groups?page=N   further location groups
  *   https://careers.smartrecruiters.com/{Company}/api/more?type=location&value=...&page=N   more jobs in one location
  *   https://jobs.smartrecruiters.com/{Company}/{id}-{slug}        one job, with schema.org microdata
- * Only groups whose location is in our crawl scope are expanded, and only new jobs are opened.
+ * Groups in India are expanded first; groups outside the crawl scope are skipped; only new jobs are opened.
  */
 import { getText } from "../http";
-import { locationLooksInScope } from "../geo";
+import { detectCountry, locationLooksInScope } from "../geo";
 import { mapJobPosting, microdataJobPosting } from "../jobposting";
 import { decodeEntities, type RawJob } from "../normalize";
 import type { Connector } from "../types";
@@ -58,6 +58,9 @@ export const fetchSmartRecruiters: Connector = async (company, _config, ctx) => 
     groups.push(...parseSrGroups(await getText(`${base}/api/groups?page=${p}`), company).groups);
   }
 
+  // Indian locations first, so the per run detail budget reaches them first.
+  const isIndia = (g: SrGroup) => (detectCountry(g.location) === "IN" ? 0 : 1);
+  groups.sort((a, b) => isIndia(a) - isIndia(b));
   const listed = new Map<string, SrListedJob & { location: string }>();
   for (const g of groups) {
     if (!locationLooksInScope(g.location)) continue;

@@ -9,7 +9,9 @@ import { getJob } from "@/lib/jobs-query";
 import { getCurrentUser } from "@/lib/session";
 import { atsScore, prettySkill, resumeToText } from "@/lib/ats";
 import { formatSalary, timeAgo } from "@/lib/utils";
+import { attributionFor } from "@/lib/sources";
 import { CompanyAvatar } from "@/components/CompanyAvatar";
+import { MncBadge } from "@/components/JobRow";
 import { SaveButton } from "@/components/SaveButton";
 import { TailorButton } from "@/components/TailorButton";
 import { NetworkCard, type NetworkPerson } from "@/components/NetworkCard";
@@ -80,6 +82,8 @@ export default async function JobPage({ params }: { params: Params }) {
 
   const match = profile?.data ? atsScore(resumeToText(profile.data), `${job.title}\n${job.description}`, job.skills) : null;
   const salary = formatSalary(job.salaryMin, job.salaryMax, job.salaryCurrency, job.salaryPeriod);
+  const via = attributionFor(job.source);
+  const otherLinks = (job.otherSources ?? []).filter((o) => o.url && o.url !== job.applyUrl);
 
   // Google for Jobs structured data
   const jsonLd = {
@@ -108,7 +112,10 @@ export default async function JobPage({ params }: { params: Params }) {
             <CompanyAvatar name={company.name} className="h-14 w-14 text-2xl" />
             <div>
               <h1 className="text-3xl font-semibold leading-tight sm:text-4xl">{job.title}</h1>
-              <p className="mt-1 text-lg text-ink-soft">{company.name}{company.industry ? `, ${company.industry}` : ""}</p>
+              <p className="mt-1 flex flex-wrap items-center gap-2 text-lg text-ink-soft">
+                {company.name}{company.industry ? `, ${company.industry}` : ""}
+                {company.isMnc && <MncBadge />}
+              </p>
             </div>
           </div>
 
@@ -119,8 +126,14 @@ export default async function JobPage({ params }: { params: Params }) {
             {salary && <span className="font-medium text-ink">{salary}</span>}
           </div>
 
-          {job.closedAt && (
-            <p className="mt-6 flex items-center gap-2 rounded-xl bg-rose-tint px-4 py-3 text-sm text-rose"><AlertTriangle className="h-4 w-4" />This job was removed from the company&apos;s career page and is likely closed.</p>
+          {job.closedAt && job.duplicateOf && (
+            <p className="mt-6 flex items-center gap-2 rounded-xl bg-cobalt-tint px-4 py-3 text-sm text-ink">
+              <AlertTriangle className="h-4 w-4 text-cobalt" />We found this opening on the employer&apos;s own career page.{" "}
+              <Link href={`/jobs/${job.duplicateOf}`} className="font-medium text-cobalt underline underline-offset-2">See that listing</Link>
+            </p>
+          )}
+          {job.closedAt && !job.duplicateOf && (
+            <p className="mt-6 flex items-center gap-2 rounded-xl bg-rose-tint px-4 py-3 text-sm text-rose"><AlertTriangle className="h-4 w-4" />This job was removed from {via ? via.name : "the company's career page"} and is likely closed.</p>
           )}
           {!job.closedAt && job.ghostScore > 40 && (
             <p className="mt-6 flex items-center gap-2 rounded-xl bg-marigold-tint px-4 py-3 text-sm text-ink"><AlertTriangle className="h-4 w-4 text-marigold-deep" />This listing is old or has been reposted several times. It may not be actively hiring.</p>
@@ -198,7 +211,7 @@ export default async function JobPage({ params }: { params: Params }) {
 
             <div className="mt-4 grid grid-cols-[1fr_auto] gap-2">
               <a href={job.applyUrl} target="_blank" rel="noopener noreferrer nofollow" className="btn-ink">
-                Apply on company site <ExternalLink className="h-4 w-4" />
+                {via ? `Apply via ${via.name}` : "Apply on company site"} <ExternalLink className="h-4 w-4" />
               </a>
               <SaveButton jobId={job.id} initial={Boolean(app && app.status !== "HIDDEN")} />
             </div>
@@ -209,8 +222,27 @@ export default async function JobPage({ params }: { params: Params }) {
               {user.plan === "PREMIUM" ? "Ask the coach about this job" : "Ask the coach about this job (Premium)"}
             </Link>
           )}
+          {otherLinks.length > 0 && (
+            <p className="mt-4 px-1 text-xs leading-relaxed text-slate">
+              Also listed on{" "}
+              {otherLinks.map((o, i) => (
+                <span key={o.url}>
+                  {i > 0 && ", "}
+                  <a href={o.url} target="_blank" rel="noopener noreferrer nofollow" className="underline underline-offset-2 hover:text-ink">{attributionFor(o.source)?.name ?? o.source}</a>
+                </span>
+              ))}
+              .
+            </p>
+          )}
           <p className="mt-4 px-1 text-xs leading-relaxed text-slate">
-            Listed from {company.name}&apos;s public career page. HireFlow is not the employer and never charges candidates to apply.
+            {via ? (
+              <>
+                <a href={via.href} target="_blank" rel="noopener noreferrer" className="font-medium text-ink underline underline-offset-2">{via.label}</a>. Applying takes you to {via.name}, which links to the employer.
+              </>
+            ) : (
+              <>Listed from {company.name}&apos;s public career page.</>
+            )}{" "}
+            HireFlow is not the employer and never charges candidates to apply.
           </p>
         </aside>
       </div>

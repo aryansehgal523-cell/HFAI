@@ -16,7 +16,7 @@ const BOT_TOKEN = "hireflowbot";
 
 export class BlockedByRobotsError extends Error {
   constructor(url: string) {
-    super(`robots.txt disallows ${url}`);
+    super(`robots.txt disallows ${redactUrl(url)}`);
     this.name = "BlockedByRobotsError";
   }
 }
@@ -26,9 +26,17 @@ export class HostUnavailableError extends Error {
     this.name = "HostUnavailableError";
   }
 }
+/** Hide API keys before a URL reaches an error message or a log (crawl logs can be public). */
+export function redactUrl(url: string): string {
+  return url
+    .replace(/([?&](?:app_key|app_id|api_key|apikey|key|token)=)[^&#]*/gi, "$1***")
+    .replace(/(jooble\.org\/api\/)[^/?#]+/i, "$1***");
+}
+
 export class HttpError extends Error {
   constructor(public status: number, public url: string) {
-    super(`${status} for ${url}`);
+    super(`${status} for ${redactUrl(url)}`);
+    this.url = redactUrl(url);
     this.name = "HttpError";
   }
 }
@@ -136,7 +144,12 @@ export async function allowedByRobots(url: string) {
 
 // ── per host rate limit and circuit breaker ─────────────────
 
-const hostInterval = () => Number(process.env.CRAWL_HOST_INTERVAL_MS ?? 1000);
+const hostOverrides = new Map<string, number>();
+/** A slower pace for one host (e.g. an API with a per minute limit). Never faster than the global setting. */
+export function setHostInterval(host: string, ms: number) {
+  hostOverrides.set(host, ms);
+}
+const hostInterval = (host: string) => Math.max(Number(process.env.CRAWL_HOST_INTERVAL_MS ?? 1000), hostOverrides.get(host) ?? 0);
 const nextSlot = new Map<string, number>();
 const failures = new Map<string, number>();
 const MAX_HOST_FAILURES = 5;
@@ -145,7 +158,7 @@ async function throttled<T>(urlOrOrigin: string, fn: () => Promise<T>): Promise<
   const host = new URL(urlOrOrigin).host;
   const now = Date.now();
   const slot = Math.max(now, nextSlot.get(host) ?? 0);
-  nextSlot.set(host, slot + hostInterval());
+  nextSlot.set(host, slot + hostInterval(host));
   if (slot > now) await new Promise((r) => setTimeout(r, slot - now));
   return fn();
 }
@@ -166,9 +179,14 @@ export function resetHttpState() {
 type RequestOptions = {
   method?: "GET" | "POST";
   body?: unknown;
+  /** Form fields, sent as application/x-www-form-urlencoded (instead of a JSON body). */
+  form?: Record<string, string>;
   accept?: string;
   headers?: Record<string, string>;
-  /** Skip the robots.txt check (only for documented public APIs whose host has no robots file meant for them). */
+  /**
+   * Skip the robots.txt check. Only for official APIs called with our own key under the provider's API terms
+   * (Adzuna, Jooble): robots.txt governs crawlers reading web pages, and those terms grant the access.
+   */
   ignoreRobots?: boolean;
   retries?: number;
   timeoutMs?: number;
@@ -194,9 +212,10 @@ export async function politeFetch(url: string, opts: RequestOptions = {}): Promi
             "User-Agent": crawlerUserAgent(),
             Accept: opts.accept ?? "application/json",
             ...(opts.body !== undefined ? { "Content-Type": "application/json" } : {}),
+            ...(opts.form ? { "Content-Type": "application/x-www-form-urlencoded" } : {}),
             ...opts.headers,
           },
-          body: opts.body !== undefined ? JSON.stringify(opts.body) : undefined,
+          body: opts.form ? new URLSearchParams(opts.form).toString() : opts.body !== undefined ? JSON.stringify(opts.body) : undefined,
           signal: AbortSignal.timeout(opts.timeoutMs ?? 25_000),
           redirect: "follow",
           cache: "no-store",
@@ -219,7 +238,8 @@ export async function politeFetch(url: string, opts: RequestOptions = {}): Promi
     }
   }
   failures.set(host, (failures.get(host) ?? 0) + 1);
-  throw lastError instanceof Error ? lastError : new Error(String(lastError));
+  if (lastError instanceof HttpError) throw lastError;
+  throw new Error(redactUrl(lastError instanceof Error ? lastError.message : String(lastError)));
 }
 
 export async function getJson<T>(url: string, opts: RequestOptions = {}): Promise<T> {
@@ -230,6 +250,14 @@ export async function getJson<T>(url: string, opts: RequestOptions = {}): Promis
 
 export async function postJson<T>(url: string, body: unknown, opts: RequestOptions = {}): Promise<T> {
   return getJson<T>(url, { ...opts, method: "POST", body });
+}
+
+/**
+ * POST a form to an official API (e.g. Wikidata's SPARQL endpoint, whose robots.txt is for crawlers; its
+ * usage policy allows automated queries that identify themselves).
+ */
+export async function postForm<T>(url: string, form: Record<string, string>, accept = "application/json"): Promise<T> {
+  return getJson<T>(url, { method: "POST", form, accept, ignoreRobots: true, timeoutMs: 60_000 });
 }
 
 export async function getText(url: string, opts: RequestOptions = {}): Promise<string> {

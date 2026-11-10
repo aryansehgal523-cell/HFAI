@@ -84,7 +84,7 @@ export function legalName(name: string): string {
 /** Board tokens to try for a company: full compact name, hyphenated name, the shorter referral key, domain stem. */
 export function slugCandidates(name: string, website?: string): string[] {
   const words = legalName(name).split(" ").filter((w) => w !== "and");
-  const key = companyKey(name).replace(/and/g, " ").trim().split(/\s+/).join("");
+  const key = companyKey(name).replace(/\band\b/g, " ").trim().split(/\s+/).join("");
   let stem = "";
   try {
     if (website) stem = new URL(website).hostname.replace(/^www\./, "").split(".")[0];

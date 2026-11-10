@@ -2,7 +2,7 @@
  * schema.org JobPosting: the structured data employers publish on job pages for search engines.
  * We read it from JSON-LD blocks and, for sites that use it (SmartRecruiters), from microdata.
  */
-import { countryCode } from "./geo";
+import { countryCode, countryName } from "./geo";
 import { decodeEntities, type RawJob } from "./normalize";
 
 type Json = Record<string, unknown>;
@@ -51,7 +51,9 @@ function addressOf(place: unknown): { text: string; country: string | null } {
   const a = ((p.address ?? p) as Json) || {};
   const countryRaw = a.addressCountry;
   const country = str(countryRaw) ?? str((countryRaw as Json | undefined)?.name) ?? null;
-  const parts = [str(a.addressLocality), str(a.addressRegion), country].filter(Boolean) as string[];
+  // A bare country code ("IT") reads like a department; spell the country out.
+  const countryText = country && /^[A-Za-z]{2,3}$/.test(country) ? countryName(countryCode(country)) ?? country : country;
+  const parts = [str(a.addressLocality), str(a.addressRegion), countryText].filter(Boolean) as string[];
   const text = parts.join(", ") || str(p.name) || "";
   return { text, country: countryCode(country) };
 }

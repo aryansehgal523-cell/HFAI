@@ -1,6 +1,8 @@
 import crypto from "node:crypto";
 import { extractKeywords } from "../ats";
 import { detectCountry } from "./geo";
+import { dedupeKey } from "./dedupe";
+import { functionByRules } from "../job-function";
 
 export type RawJob = {
   externalId: string;
@@ -136,5 +138,7 @@ export function normalize(companyId: string, raw: RawJob) {
     applyUrl: raw.applyUrl,
     postedAt: raw.postedAt ?? new Date(),
     hash: jobHash(companyId, raw.title, location),
+    dedupeKey: dedupeKey(companyId, raw.title, location),
+    jobFunction: functionByRules(raw.title, raw.department),
   };
 }

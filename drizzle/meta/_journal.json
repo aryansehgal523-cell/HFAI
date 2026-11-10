@@ -64,6 +64,34 @@
       "when": 1794164169871,
       "tag": "0008_jobs1_oracle",
       "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1794310946829,
+      "tag": "0009_jobs2_aggregators",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1794311664971,
+      "tag": "0010_jobs3_company_type",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "7",
+      "when": 1794312550312,
+      "tag": "0011_jobs4_search",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "7",
+      "when": 1794329352680,
+      "tag": "0012_jobs4_search_main",
+      "breakpoints": true
     }
   ]
 }

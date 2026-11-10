@@ -148,6 +148,27 @@ test("workday connector: applies the India facet, skips known jobs and respects 
   assert.ok(requests.every((q) => !q.includes("talentcommunity")));
 });
 
+test("workday connector, scope all: India jobs first, then every job", async () => {
+  process.env.CRAWL_SCOPE = "all";
+  const list = json<WorkdayListResp>("workday-list.json");
+  const facetsSeen: unknown[] = [];
+  serve([
+    [/robots\.txt$/, () => ({ status: 404, body: "", type: "text/plain" })],
+    [/\/jobs$/, (_u, init) => {
+      const body = JSON.parse(String(init?.body));
+      facetsSeen.push(body.appliedFacets);
+      const india = Object.keys(body.appliedFacets).length > 0;
+      const postings = india ? list.jobPostings.slice(0, 1) : list.jobPostings;
+      return { body: JSON.stringify({ ...list, total: postings.length, jobPostings: body.offset === 0 ? postings : [] }) };
+    }],
+    [/\/job\//, () => ({ body: fixture("workday-detail.json") })],
+  ]);
+  const r = await fetchWorkday("nvidia", { dc: "wd5", sites: ["S"] }, ctx({ maxDetails: 10 }));
+  assert.deepEqual(facetsSeen.slice(0, 2), [{}, { locationHierarchy1: ["2fcb99c455831013ea52b82135ba3266"] }]);
+  assert.equal(r.jobs.length, list.jobPostings.length, "every job is fetched once");
+  assert.equal(r.jobs[0].externalId, list.jobPostings[0].externalPath, "the India job comes first");
+});
+
 // ── SmartRecruiters ─────────────────────────────────────────
 test("smartrecruiters: parses location groups, counts and the show more value", () => {
   const { groups, groupPages } = parseSrGroups(fixture("smartrecruiters-groups.html"), "WesternDigital");

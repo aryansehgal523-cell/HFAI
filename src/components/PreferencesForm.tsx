@@ -4,7 +4,7 @@ import { Loader2 } from "lucide-react";
 import { TagInput } from "./TagInput";
 import { useToast } from "./Toast";
 import {
-  EMPTY_PREFERENCES, NOTICE_LABEL, NOTICE_PERIODS, WORK_MODES, WORK_MODE_LABEL, type JobPreferences,
+  EMPTY_PREFERENCES, NOTICE_LABEL, NOTICE_PERIODS, PREF_COMPANY_TYPES, PREF_COMPANY_TYPE_LABEL, WORK_MODES, WORK_MODE_LABEL, type JobPreferences,
 } from "@/lib/profile-fields";
 
 const num = (v: string) => (v.trim() === "" || Number.isNaN(Number(v)) ? undefined : Number(v));
@@ -65,6 +65,33 @@ export function PreferencesForm({
           })}
         </div>
         <p className="mt-1.5 text-xs text-slate">Pick all that suit you.</p>
+      </fieldset>
+
+      <fieldset>
+        <legend className="label">Kind of company</legend>
+        <label className="mb-3 flex cursor-pointer items-center gap-2.5 text-sm text-ink">
+          <input type="checkbox" className="h-4 w-4 accent-[#3346F2]" checked={Boolean(p.mncOnly)} onChange={(e) => set("mncOnly", e.target.checked)} />
+          Only MNCs (multinationals with 5,000+ people)
+        </label>
+        <div className="flex flex-wrap gap-2">
+          {PREF_COMPANY_TYPES.map((t) => {
+            const types = p.companyTypes ?? [];
+            const on = types.includes(t);
+            return (
+              <button
+                key={t}
+                type="button"
+                className="chip"
+                data-on={on}
+                aria-pressed={on}
+                onClick={() => set("companyTypes", on ? types.filter((x) => x !== t) : [...types, t])}
+              >
+                {PREF_COMPANY_TYPE_LABEL[t]}
+              </button>
+            );
+          })}
+        </div>
+        <p className="mt-1.5 text-xs text-slate">Leave empty to match jobs at any company.</p>
       </fieldset>
 
       <div className="grid gap-4 sm:grid-cols-3">

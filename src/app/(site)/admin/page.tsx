@@ -5,13 +5,17 @@ import { companies, connections, contactMessages, crawlRuns, jobs, payments, ref
 import { requireAdmin } from "@/lib/session";
 import { formatINR, timeAgo } from "@/lib/utils";
 import { AdminCompanies } from "@/components/AdminCompanies";
+import { CrawlerHealth } from "@/components/CrawlerHealth";
+import { liveJobsBySource } from "@/lib/ingest/run";
+import { lockStatus } from "@/lib/ingest/lock";
+import { sourceDropAlerts } from "@/lib/ingest/monitor";
 
 export const metadata: Metadata = { title: "Admin" };
 export const dynamic = "force-dynamic";
 
 export default async function Admin() {
   await requireAdmin();
-  const [[u], [j], [rev], [ai], companyRows, [lastRun], messages, recentPays, [ref]] = await Promise.all([
+  const [[u], [j], [rev], [ai], companyRows, runs, messages, recentPays, [ref], live, failingRows, running] = await Promise.all([
     db.select({
       total: sql<number>`count(*)::int`,
       premium: sql<number>`count(*) filter (where ${users.plan} = 'PREMIUM')::int`,
@@ -31,13 +35,14 @@ export default async function Admin() {
       id: companies.id, name: companies.name, ats: companies.ats, atsToken: companies.atsToken, active: companies.active, lastCrawledAt: companies.lastCrawledAt,
       lastCrawlStatus: companies.lastCrawlStatus, lastCrawlJobs: companies.lastCrawlJobs, lastCrawlError: companies.lastCrawlError,
       consecutiveFailures: companies.consecutiveFailures, careersUrl: companies.careersUrl,
+      companyType: companies.companyType, isMnc: companies.isMnc, classifiedBy: companies.classifiedBy,
       openJobs: sql<number>`coalesce(oj.n, 0)::int`,
     })
       .from(companies)
       .leftJoin(sql`(select company_id, count(*) as n from jobs where closed_at is null group by company_id) oj`, sql`oj.company_id = ${companies.id}`)
       .where(sql`${companies.ats} <> 'AGGREGATOR'`)
       .orderBy(companies.name),
-    db.select().from(crawlRuns).orderBy(desc(crawlRuns.startedAt)).limit(1),
+    db.select().from(crawlRuns).orderBy(desc(crawlRuns.startedAt)).limit(10),
     db.select().from(contactMessages).orderBy(desc(contactMessages.createdAt)).limit(10),
     db.select({ amount: payments.amount, kind: payments.kind, createdAt: payments.createdAt, email: users.email }).from(payments).innerJoin(users, eq(users.id, payments.userId)).orderBy(desc(payments.createdAt)).limit(10),
     db.select({
@@ -46,7 +51,18 @@ export default async function Admin() {
       referred: sql<number>`count(*) filter (where ${referralRequests.status} = 'referred')::int`,
       networks: sql<number>`(select count(distinct ${connections.userId})::int from ${connections})`,
     }).from(referralRequests),
+    liveJobsBySource(),
+    db.select({ source: sql<string>`lower(${companies.ats}::text)`, n: sql<number>`count(*)::int`, sample: sql<string | null>`max(${companies.name} || ': ' || left(coalesce(${companies.lastCrawlError}, ''), 120))` })
+      .from(companies)
+      .where(sql`${companies.active} AND ${companies.lastCrawlStatus} IN ('error', 'blocked')`)
+      .groupBy(companies.ats)
+      .orderBy(desc(sql`count(*)`)),
+    lockStatus("crawl"),
   ]);
+  const lastRun = runs[0];
+  // Compare the two most recent runs that recorded live jobs per source.
+  const snapshots = runs.filter((r) => r.liveBySource);
+  const drops = sourceDropAlerts(snapshots[1]?.liveBySource, snapshots[0]?.liveBySource);
 
   const stats = [
     ["Users", u.total.toLocaleString("en-IN"), `${u.week} new this week`],
@@ -70,6 +86,20 @@ export default async function Admin() {
           </div>
         ))}
       </div>
+
+      <section className="panel mt-8 p-6">
+        <h2 className="text-xl font-semibold">Crawler health</h2>
+        <div className="mt-5">
+          <CrawlerHealth
+            live={live}
+            previous={snapshots[1]?.liveBySource ?? null}
+            runs={runs}
+            failing={failingRows.map((f) => ({ source: f.source, companies: f.n, sample: f.sample }))}
+            drops={drops}
+            running={running}
+          />
+        </div>
+      </section>
 
       <section className="panel mt-8 p-6">
         <div className="flex flex-wrap items-baseline justify-between gap-2">

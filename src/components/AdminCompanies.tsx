@@ -7,7 +7,10 @@ import { useToast } from "./Toast";
 type Row = {
   id: string; name: string; ats: string; atsToken: string; active: boolean; lastCrawledAt: string | null; openJobs: number;
   lastCrawlStatus: string | null; lastCrawlJobs: number | null; lastCrawlError: string | null; consecutiveFailures: number; careersUrl: string | null;
+  companyType: string | null; isMnc: boolean; classifiedBy: string | null;
 };
+
+const TYPE_OPTIONS = [["MNC", "MNC"], ["GCC", "GCC"], ["INDIAN_LARGE", "Indian large"], ["UNICORN", "Unicorn"], ["STARTUP", "Startup"], ["GOVERNMENT", "Government"], ["OTHER", "Other"]] as const;
 type Filter = "all" | "failing" | "nojobs" | "inactive";
 
 const PAGE = 100;
@@ -159,7 +162,7 @@ export function AdminCompanies({ rows }: { rows: Row[] }) {
       )}
 
       <div className="mt-3 overflow-x-auto">
-        <table className="w-full min-w-[760px] text-left text-sm">
+        <table className="w-full min-w-[900px] text-left text-sm">
           <thead className="text-slate">
             <tr>
               <th className="w-8 py-2">
@@ -170,6 +173,7 @@ export function AdminCompanies({ rows }: { rows: Row[] }) {
               <th className="py-2 font-medium">Source</th>
               <th className="px-3 py-2 text-right font-medium">Open jobs</th>
               <th className="py-2 font-medium">Last crawl</th>
+              <th className="py-2 font-medium">Type</th>
               <th className="py-2 font-medium">Active</th>
               <th />
             </tr>
@@ -194,6 +198,18 @@ export function AdminCompanies({ rows }: { rows: Row[] }) {
                   {failing(r) && r.lastCrawlError && <span className="block truncate text-xs text-slate" title={r.lastCrawlError}>{r.lastCrawlError}</span>}
                 </td>
                 <td className="py-2.5">
+                  <select
+                    className="field w-36 py-1 text-xs"
+                    aria-label={`${r.name} company type`}
+                    value={r.classifiedBy === "admin" ? r.companyType ?? "AUTO" : "AUTO"}
+                    onChange={(e) => call({ action: "classify", id: r.id, type: e.target.value }, `t${r.id}`)}
+                    disabled={busy === `t${r.id}`}
+                  >
+                    <option value="AUTO">Auto: {TYPE_OPTIONS.find(([v]) => v === r.companyType)?.[1] ?? "not set"}{r.isMnc ? " (MNC)" : ""}</option>
+                    {TYPE_OPTIONS.map(([v, l]) => <option key={v} value={v}>{l}</option>)}
+                  </select>
+                </td>
+                <td className="py-2.5">
                   <input type="checkbox" checked={r.active} onChange={(e) => call({ action: "toggle", id: r.id, active: e.target.checked }, r.id)} className="h-4 w-4 accent-[#3346F2]" aria-label={`${r.name} active`} />
                 </td>
                 <td className="py-2.5 text-right">
@@ -206,7 +222,7 @@ export function AdminCompanies({ rows }: { rows: Row[] }) {
               </tr>
             ))}
             {pageRows.length === 0 && (
-              <tr><td colSpan={7} className="py-6 text-center text-slate">No companies match.</td></tr>
+              <tr><td colSpan={8} className="py-6 text-center text-slate">No companies match.</td></tr>
             )}
           </tbody>
         </table>

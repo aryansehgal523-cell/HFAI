@@ -393,3 +393,27 @@ Return only JSON: {"answer": string}`,
   }, z.object({ answer: z.string().min(1) }));
   return { answer: data.answer.trim(), inputTokens, outputTokens };
 }
+
+// ─── Job functions ───────────────────────────────────────────
+
+/**
+ * Job function for titles the keyword rules could not place (src/lib/job-function.ts).
+ * One call classifies up to 100 titles; anything the model returns outside the list becomes "Other".
+ */
+export async function classifyJobFunctions(items: { title: string; department?: string | null }[], functions: readonly string[]) {
+  const list = items.map((it, i) => `${i}. ${it.title.slice(0, 120)}${it.department ? ` (department: ${it.department.slice(0, 60)})` : ""}`).join("\n");
+  const { data, inputTokens, outputTokens } = await callJson({
+    model: FAST,
+    effort: "low",
+    messages: [{
+      role: "user",
+      content: `Classify each job title into exactly one job function from this list: ${functions.join(", ")}.\nReturn only JSON {"functions": string[]} with one function per title, in the same order (${items.length} items).\n\n${list}`,
+    }],
+  }, z.object({ functions: z.array(z.string()) }));
+  const allowed = new Set(functions);
+  return {
+    functions: items.map((_, i) => (allowed.has(data.functions[i]) ? data.functions[i] : "Other")),
+    inputTokens,
+    outputTokens,
+  };
+}

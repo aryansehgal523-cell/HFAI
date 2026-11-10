@@ -1,0 +1,46 @@
+{
+ "__CLASS__": "Adzuna::API::Response::JobSearchResults",
+ "count": 2,
+ "mean": 812345.6,
+ "results": [
+  {
+   "__CLASS__": "Adzuna::API::Response::Job",
+   "id": "4512398765",
+   "title": "Senior <strong>Java</strong> Developer",
+   "description": "We are hiring a Senior Java Developer with 5+ years of experience in Spring Boot, Kafka and microservices for our Bengaluru team. You will design and build payment APIs...",
+   "created": "2026-11-05T09:12:44Z",
+   "redirect_url": "https://www.adzuna.in/land/ad/4512398765?se=abc&utm_medium=api&utm_source=hireflow&v=XYZ",
+   "salary_min": 1800000,
+   "salary_max": 2600000,
+   "salary_is_predicted": "0",
+   "contract_type": "permanent",
+   "contract_time": "full_time",
+   "company": { "__CLASS__": "Adzuna::API::Response::Company", "display_name": "Infosys Limited" },
+   "location": { "__CLASS__": "Adzuna::API::Response::Location", "area": ["India", "Karnataka", "Bengaluru"], "display_name": "Bengaluru, Karnataka" },
+   "category": { "__CLASS__": "Adzuna::API::Response::Category", "label": "IT Jobs", "tag": "it-jobs" }
+  },
+  {
+   "__CLASS__": "Adzuna::API::Response::Job",
+   "id": "4512398999",
+   "title": "Telesales Executive (Fresher)",
+   "description": "Freshers welcome. Outbound calling for insurance products, Hindi and English required. Fixed salary plus incentives.",
+   "created": "2026-11-06T04:00:00Z",
+   "redirect_url": "https://www.adzuna.in/land/ad/4512398999?se=def&v=ABC",
+   "salary_min": 216000,
+   "salary_max": 300000,
+   "salary_is_predicted": "1",
+   "contract_time": "full_time",
+   "company": { "display_name": "PolicyNest Insurance Brokers" },
+   "location": { "area": ["India", "Maharashtra", "Mumbai"], "display_name": "Mumbai, Maharashtra" },
+   "category": { "label": "Sales Jobs", "tag": "sales-jobs" }
+  },
+  {
+   "id": "4512399000",
+   "title": "Ad without a company",
+   "description": "x",
+   "created": "2026-11-06T04:00:00Z",
+   "redirect_url": "https://www.adzuna.in/land/ad/4512399000",
+   "location": { "area": ["India"], "display_name": "India" }
+  }
+ ]
+}

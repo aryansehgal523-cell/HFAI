@@ -5,6 +5,11 @@ import { fetchJobsFor } from "./connectors";
 import { jobInScope } from "./geo";
 import { BlockedByRobotsError, HostUnavailableError } from "./http";
 import { ghostScore, normalize } from "./normalize";
+import { dedupeKey } from "./dedupe";
+import { dedupeAgainstEmployerFeeds } from "./aggregators/run";
+import { classifyUnclassified } from "@/lib/company-classify-db";
+import { fillJobFunctions } from "./functions";
+import { companyKey } from "@/lib/referrals/company";
 import type { AtsConfig } from "./types";
 
 type Options = {
@@ -17,6 +22,8 @@ type Options = {
   timeBudgetMs?: number;
   /** Max detail page requests per company per run (Workday, SmartRecruiters, JSON-LD). */
   maxDetails?: number;
+  /** Max jobs whose function the AI model may classify this run (0 to skip). */
+  functionAiLimit?: number;
 };
 
 type SourceStats = { companies: number; ok: number; failed: number; jobsSeen: number; jobsNew: number; jobsClosed: number };
@@ -43,7 +50,7 @@ export async function crawlCompany(company: CompanyRow, opts: { maxDetails: numb
   const config = (company.atsConfig ?? {}) as AtsConfig;
   try {
     const [stored, skips] = await Promise.all([
-      db.select({ externalId: jobs.externalId }).from(jobs).where(eq(jobs.companyId, company.id)),
+      db.select({ externalId: jobs.externalId }).from(jobs).where(and(eq(jobs.companyId, company.id), sql`(${jobs.source} = ${company.ats.toLowerCase()} OR ${jobs.source} IS NULL)`)),
       db.select({ externalId: crawlSkips.externalId }).from(crawlSkips).where(eq(crawlSkips.companyId, company.id)),
     ]);
     const storedIds = new Set(stored.map((r) => r.externalId));
@@ -69,7 +76,7 @@ export async function crawlCompany(company: CompanyRow, opts: { maxDetails: numb
     for (const batch of chunk([...rows.values()], BATCH)) {
       const out = await db
         .insert(jobs)
-        .values(batch.map((r) => ({ ...r, source: company.ats.toLowerCase() })))
+        .values(batch.map((r) => ({ ...r, source: company.ats.toLowerCase(), companyName: company.name })))
         .onConflictDoUpdate({
           target: [jobs.companyId, jobs.externalId],
           set: {
@@ -78,7 +85,8 @@ export async function crawlCompany(company: CompanyRow, opts: { maxDetails: numb
             applyUrl: sql`excluded.apply_url`, skills: sql`excluded.skills`, salaryMin: sql`excluded.salary_min`, salaryMax: sql`excluded.salary_max`,
             salaryCurrency: sql`excluded.salary_currency`, salaryPeriod: sql`excluded.salary_period`,
             experienceMin: sql`excluded.experience_min`, experienceMax: sql`excluded.experience_max`, hash: sql`excluded.hash`,
-            source: sql`excluded.source`, lastSeenAt: new Date(), closedAt: null,
+            source: sql`excluded.source`, dedupeKey: sql`excluded.dedupe_key`, companyName: sql`excluded.company_name`,
+            jobFunction: sql`COALESCE(excluded.job_function, jobs.job_function)`, lastSeenAt: new Date(), closedAt: null, duplicateOf: null,
           },
         })
         .returning({ inserted: sql<boolean>`(xmax = 0)` });
@@ -98,14 +106,23 @@ export async function crawlCompany(company: CompanyRow, opts: { maxDetails: numb
       }
     }
 
-    // Close jobs that vanished from the listing. Only when the listing was complete.
+    // Close jobs that vanished from the listing. Only when the listing was complete, and only this
+    // source's jobs: aggregator jobs attached to the same company are closed by their own rules.
     let closed = 0;
     const listedIds = [...rows.keys(), ...still];
+    const source = company.ats.toLowerCase();
     if (result.complete !== false && listedIds.length < 30_000) {
       const out = await db
         .update(jobs)
         .set({ closedAt: new Date() })
-        .where(and(eq(jobs.companyId, company.id), isNull(jobs.closedAt), listedIds.length ? notInArray(jobs.externalId, listedIds) : sql`true`))
+        .where(
+          and(
+            eq(jobs.companyId, company.id),
+            isNull(jobs.closedAt),
+            sql`(${jobs.source} = ${source} OR ${jobs.source} IS NULL)`,
+            listedIds.length ? notInArray(jobs.externalId, listedIds) : sql`true`,
+          ),
+        )
         .returning({ id: jobs.id });
       closed = out.length;
     }
@@ -122,7 +139,7 @@ export async function crawlCompany(company: CompanyRow, opts: { maxDetails: numb
 
     return { status, listed, seen: rows.size, inserted, closed, skipped: skipped.length, deferred: result.deferred ?? 0 };
   } catch (e) {
-    const error = e instanceof Error ? e.message : String(e);
+    const error = crawlErrorMessage(e);
     const status = e instanceof BlockedByRobotsError || e instanceof HostUnavailableError ? "blocked" : "error";
     await db
       .update(companies)
@@ -133,13 +150,25 @@ export async function crawlCompany(company: CompanyRow, opts: { maxDetails: numb
 }
 
 /**
+ * A short, useful error: database errors carry the whole query in their message, so prefer the
+ * driver's cause ("value too long for type...", "connection terminated").
+ */
+export function crawlErrorMessage(e: unknown): string {
+  const err = e as { message?: string; cause?: { message?: string; code?: string } };
+  if (err?.cause?.message) return `database: ${err.cause.message}${err.cause.code ? ` (${err.cause.code})` : ""}`.slice(0, 300);
+  const msg = err?.message ?? String(e);
+  return (msg.startsWith("Failed query:") ? "database query failed" : msg).slice(0, 300);
+}
+
+/**
  * Crawl active companies (oldest crawl first), upsert their jobs, close jobs that disappeared,
  * and refresh ghost scores. Safe to run repeatedly (idempotent). Every company's outcome is
  * recorded on the company row, so a failing source is always visible in the admin panel.
  */
-export async function runCrawl({ companyIds, concurrency = 4, log = () => {}, limit, timeBudgetMs, maxDetails = 300 }: Options = {}) {
+export async function runCrawl({ companyIds, concurrency = 4, log = () => {}, limit, timeBudgetMs, maxDetails = 300, functionAiLimit }: Options = {}) {
   const started = Date.now();
   const [run] = await db.insert(crawlRuns).values({}).returning();
+  await backfillKeys();
   await db.delete(crawlSkips).where(lt(crawlSkips.createdAt, new Date(Date.now() - SKIP_TTL_DAYS * 86_400_000)));
 
   const base = db
@@ -184,14 +213,79 @@ export async function runCrawl({ companyIds, concurrency = 4, log = () => {}, li
   }
   await Promise.all(Array.from({ length: Math.max(1, concurrency) }, worker));
 
+  // Aggregator copies of jobs we now have straight from the employer.
+  const duplicatesRemoved = await dedupeAgainstEmployerFeeds();
+  await classifyUnclassified();
+  await trimClosedJobs();
+  await fillJobFunctions({ log, maxJobs: functionAiLimit }).catch((e) => log(`  functions failed: ${crawlErrorMessage(e)}`));
   await refreshGhostScores();
 
   await db
     .update(crawlRuns)
-    .set({ finishedAt: new Date(), companies: crawled, jobsSeen, jobsNew, jobsClosed, errors, stats })
+    .set({ finishedAt: new Date(), companies: crawled, jobsSeen, jobsNew, jobsClosed, duplicatesRemoved, errors, stats, liveBySource: await liveJobsBySource() })
     .where(eq(crawlRuns.id, run.id));
 
-  return { companies: crawled, pending: list.length - crawled, jobsSeen, jobsNew, jobsClosed, errors, stats };
+  return { runId: run.id, companies: crawled, pending: list.length - crawled, jobsSeen, jobsNew, jobsClosed, duplicatesRemoved, errors, stats };
+}
+
+/**
+ * Keep the database small: a job closed for more than 30 days keeps its row (users' saved jobs and
+ * applications point at it) but loses its description, which is most of its size.
+ */
+export async function trimClosedJobs(days = 30): Promise<number> {
+  const out = await db.execute(sql`UPDATE jobs SET description = '' WHERE closed_at < now() - make_interval(days => ${days}) AND description <> ''`);
+  return out.rowCount ?? 0;
+}
+
+/** Open jobs per source right now (stored on each crawl run for the "source dropped" alert). */
+export async function liveJobsBySource(): Promise<Record<string, number>> {
+  const rows = await db.execute<{ source: string | null; n: number }>(sql`SELECT source, count(*)::int AS n FROM jobs WHERE closed_at IS NULL GROUP BY source`);
+  return Object.fromEntries(rows.rows.map((r) => [r.source ?? "unknown", Number(r.n)]));
+}
+
+type AggStats = { calls: number; jobsSeen: number; jobsNew: number; duplicates: number; errors: number; skipped?: string };
+
+/** Add the job search API results to a crawl run's record (or a new record when only the APIs ran). */
+export async function recordAggregatorRun(runId: string | null, sources: Record<string, AggStats>) {
+  const extra: Record<string, { companies: number; ok: number; failed: number; jobsSeen: number; jobsNew: number; jobsClosed: number; duplicates?: number; calls?: number; skipped?: string }> = {};
+  let dups = 0;
+  for (const [id, s] of Object.entries(sources)) {
+    extra[id] = { companies: 0, ok: s.skipped || s.errors ? 0 : 1, failed: s.errors ? 1 : 0, jobsSeen: s.jobsSeen, jobsNew: s.jobsNew, jobsClosed: 0, duplicates: s.duplicates, calls: s.calls, skipped: s.skipped };
+    dups += s.duplicates;
+  }
+  const live = await liveJobsBySource();
+  const newJobs = Object.values(sources).reduce((a, s) => a + s.jobsNew, 0);
+  if (!runId) {
+    await db.insert(crawlRuns).values({ finishedAt: new Date(), stats: extra, jobsNew: newJobs, duplicatesRemoved: dups, liveBySource: live });
+    return;
+  }
+  const [run] = await db.select().from(crawlRuns).where(eq(crawlRuns.id, runId));
+  await db.update(crawlRuns).set({
+    stats: { ...(run?.stats ?? {}), ...extra },
+    jobsNew: (run?.jobsNew ?? 0) + newJobs,
+    duplicatesRemoved: (run?.duplicatesRemoved ?? 0) + dups,
+    liveBySource: live,
+    finishedAt: new Date(),
+  }).where(eq(crawlRuns.id, runId));
+}
+
+/**
+ * Fill in keys added after rows were created: companies.normalized_name (for matching aggregator jobs)
+ * and jobs.dedupe_key (for cross source duplicates). Cheap when there is nothing to do.
+ */
+export async function backfillKeys() {
+  const unnamed = await db.select({ id: companies.id, name: companies.name }).from(companies).where(isNull(companies.normalizedName)).limit(5000);
+  for (const c of unnamed) await db.update(companies).set({ normalizedName: companyKey(c.name) }).where(eq(companies.id, c.id));
+  for (;;) {
+    const rows = await db
+      .select({ id: jobs.id, companyId: jobs.companyId, title: jobs.title, location: jobs.location })
+      .from(jobs)
+      .where(isNull(jobs.dedupeKey))
+      .limit(1000);
+    if (!rows.length) break;
+    const values = rows.map((r) => sql`(${r.id}, ${dedupeKey(r.companyId, r.title, r.location)})`);
+    await db.execute(sql`UPDATE jobs SET dedupe_key = v.k FROM (VALUES ${sql.join(values, sql`, `)}) AS v(id, k) WHERE jobs.id = v.id`);
+  }
 }
 
 /**

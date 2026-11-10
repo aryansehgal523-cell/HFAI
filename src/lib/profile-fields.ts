@@ -58,6 +58,12 @@ export const applicationDetailsSchema = z.object({
 });
 export type ApplicationDetails = z.infer<typeof applicationDetailsSchema>;
 
+/** Company types a user can limit matches to (same values as src/lib/company-type.ts). */
+export const PREF_COMPANY_TYPES = ["INDIAN_LARGE", "UNICORN", "STARTUP", "GCC", "MNC", "GOVERNMENT"] as const;
+export const PREF_COMPANY_TYPE_LABEL: Record<(typeof PREF_COMPANY_TYPES)[number], string> = {
+  INDIAN_LARGE: "Indian large", UNICORN: "Unicorns", STARTUP: "Startups", GCC: "GCCs", MNC: "Global tech and consulting", GOVERNMENT: "Government",
+};
+
 export const preferencesSchema = z.object({
   targetRoles: z.array(text(80).min(1)).max(5, "Pick up to 5 roles").default([]),
   cities: z.array(text(80).min(1)).max(10).default([]),
@@ -66,11 +72,15 @@ export const preferencesSchema = z.object({
   expectedSalaryLpa: lpa,
   noticePeriod: z.enum(NOTICE_PERIODS).optional(),
   openToRelocation: z.boolean().optional(),
+  /** Only match jobs at MNCs. */
+  mncOnly: z.boolean().optional(),
+  /** Only match jobs at these kinds of company (empty means any). */
+  companyTypes: z.array(z.enum(PREF_COMPANY_TYPES)).max(PREF_COMPANY_TYPES.length).default([]),
 });
 export type JobPreferences = z.infer<typeof preferencesSchema>;
 
 export const EMPTY_DETAILS: ApplicationDetails = { gender: PREFER_NOT, disability: PREFER_NOT, veteran: PREFER_NOT };
-export const EMPTY_PREFERENCES: JobPreferences = { targetRoles: [], cities: [], workModes: [] };
+export const EMPTY_PREFERENCES: JobPreferences = { targetRoles: [], cities: [], workModes: [], companyTypes: [] };
 
 /** Keep everything the user already set; only fill gaps from `found`. */
 export function mergeDetails(current: ApplicationDetails | null | undefined, found: Partial<ApplicationDetails>): ApplicationDetails {

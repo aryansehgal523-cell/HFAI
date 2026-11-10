@@ -41,7 +41,8 @@ async function main() {
     const { PGlite } = await import("@electric-sql/pglite");
     const { PGLiteSocketServer } = await import("@electric-sql/pglite-socket");
     mkdirSync(DATA_DIR, { recursive: true });
-    const pg = await PGlite.create(DATA_DIR);
+    const { pg_trgm } = await import("@electric-sql/pglite/contrib/pg_trgm");
+    const pg = await PGlite.create(DATA_DIR, { extensions: { pg_trgm } });
     const server = new PGLiteSocketServer({ db: pg, port: DB_PORT, host: "127.0.0.1", maxConnections: 20 });
     await server.start();
     env.DATABASE_URL = `postgres://postgres:postgres@127.0.0.1:${DB_PORT}/postgres`;

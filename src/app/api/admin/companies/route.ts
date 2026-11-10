@@ -8,6 +8,15 @@ import { slugify } from "@/lib/utils";
 import { runCrawl } from "@/lib/ingest/run";
 import { detectCompany } from "@/lib/ingest/detect";
 import { FEEDS, parseToken } from "@/lib/ingest/tokens";
+import { COMPANY_TYPES, classifyCompany } from "@/lib/company-type";
+import { companyKey } from "@/lib/referrals/company";
+import seeds from "@/config/companySeeds.json";
+
+const seedFor = (name: string, website: string | null) => {
+  const k = companyKey(name);
+  const host = website ? website.replace(/^https?:\/\/(www\.)?/, "").split("/")[0] : null;
+  return seeds.find((s) => companyKey(s.name) === k || (host && s.website.includes(host))) ?? null;
+};
 
 export const maxDuration = 300;
 
@@ -21,6 +30,7 @@ const addSchema = z.object({
 const detectSchema = z.object({ action: z.literal("detect"), name: z.string().trim().min(2).max(120), careersUrl: z.string().url().max(500) });
 const toggleSchema = z.object({ action: z.literal("toggle"), id: z.string(), active: z.boolean() });
 const crawlSchema = z.object({ action: z.literal("crawl"), id: z.string() });
+const classifySchema = z.object({ action: z.literal("classify"), id: z.string(), type: z.enum([...COMPANY_TYPES, "AUTO"]) });
 const bulkSchema = z.object({ action: z.literal("bulk"), op: z.enum(["crawl", "deactivate", "activate"]), ids: z.array(z.string()).min(1).max(2000) });
 
 export async function POST(req: Request) {
@@ -74,6 +84,24 @@ export async function POST(req: Request) {
 
   const crawl = crawlSchema.safeParse(body);
   if (crawl.success) return json(await runCrawl({ companyIds: [crawl.data.id], timeBudgetMs: 240_000 }));
+
+  const classify = classifySchema.safeParse(body);
+  if (classify.success) {
+    const { id, type } = classify.data;
+    const [c] = await db.select().from(companies).where(eq(companies.id, id));
+    if (!c) return error("Company not found", 404);
+    if (type === "AUTO") {
+      // Hand the company back to the automatic rules (seed data and lists; `npm run companies:enrich` adds Wikidata).
+      const seed = seedFor(c.name, c.website);
+      const r = classifyCompany({ name: c.name, industry: c.industry ?? seed?.industry, seedSize: seed?.size, seedHq: seed?.hqCountry, jobCountries: [] });
+      await db.update(companies).set(r).where(eq(companies.id, id));
+      return json({ ok: true, classification: r });
+    }
+    // An admin choice wins over every automatic rule; MNC, GCC and Indian large groups count as MNCs.
+    const isMnc = type === "MNC" || type === "GCC" || type === "INDIAN_LARGE";
+    await db.update(companies).set({ companyType: type, isMnc, classifiedBy: "admin" }).where(eq(companies.id, id));
+    return json({ ok: true });
+  }
 
   const bulk = bulkSchema.safeParse(body);
   if (bulk.success) {

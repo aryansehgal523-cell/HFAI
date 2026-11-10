@@ -1,13 +1,13 @@
 /*
  * Workday. Each employer's career site (https://{tenant}.{dc}.myworkdayjobs.com/{site}) loads its
  * jobs from public JSON endpoints under /wday/cxs/{tenant}/{site}/. We use those same endpoints:
- *   POST .../jobs           list, 20 per page, with facets (we apply the "India" location facet when present)
+ *   POST .../jobs           list, 20 per page, with facets (India jobs are listed first when the site has an India facet)
  *   GET  .../job/{path}     one job with its full description
  * Workday tenants publish robots.txt that allows their career sites; http.ts checks it for every URL.
  * Detail requests are only made for jobs we have not stored yet, capped per run (ctx.maxDetails).
  */
 import { getJson, postJson } from "../http";
-import { countryCode, locationLooksInScope } from "../geo";
+import { countryCode, crawlScope, locationLooksInScope } from "../geo";
 import type { RawJob } from "../normalize";
 import type { Connector } from "../types";
 
@@ -95,45 +95,51 @@ export const fetchWorkday: Connector = async (tenant, config, ctx) => {
   let deferred = 0;
   let complete = true;
 
+  const handle = async (base: string, site: string, p: WorkdayListResp["jobPostings"][number]) => {
+    if (!p.externalPath || seen.has(p.externalPath)) return;
+    seen.add(p.externalPath);
+    if (ctx.known.has(p.externalPath)) {
+      stillListed.push(p.externalPath);
+      return;
+    }
+    if (!listingInScope(p.locationsText)) return;
+    if (details >= ctx.maxDetails) {
+      deferred++;
+      return;
+    }
+    details++;
+    try {
+      const d = await getJson<WorkdayDetailResp>(`${base}/job${p.externalPath.replace(/^\/job/, "")}`);
+      jobs.push(mapWorkdayDetail(host, site, p.externalPath, d));
+    } catch (e) {
+      // One broken posting should not fail the whole company.
+      ctx.log(`  workday detail failed for ${p.externalPath}: ${e instanceof Error ? e.message : e}`);
+    }
+  };
+
   for (const site of config.sites) {
     const base = `https://${host}/wday/cxs/${encodeURIComponent(tenant)}/${encodeURIComponent(site)}`;
-    let appliedFacets: Record<string, string[]> = {};
-    let total = Infinity;
-    for (let offset = 0; offset < Math.min(total, MAX_LISTED); offset += PAGE) {
-      const page = await postJson<WorkdayListResp>(`${base}/jobs`, { appliedFacets, limit: PAGE, offset, searchText: "" });
-      if (offset === 0) {
-        // Narrow to India when the site offers a country or location facet for it (and our scope is India).
-        const india = (process.env.CRAWL_SCOPE ?? "india") === "india" ? findIndiaFacet(page.facets) : null;
-        if (india && !appliedFacets[india.parameter]) {
-          appliedFacets = { [india.parameter]: [india.id] };
-          offset = -PAGE; // restart with the facet applied
-          continue;
+    const first = await postJson<WorkdayListResp>(`${base}/jobs`, { appliedFacets: {}, limit: PAGE, offset: 0, searchText: "" });
+    const india = findIndiaFacet(first.facets);
+    // Pass 1: India jobs first (when the site has an India facet), so the detail budget goes to them first.
+    // Pass 2: every job (only when the scope is "all"). Already seen jobs are skipped.
+    const passes: Record<string, string[]>[] = [];
+    if (india) passes.push({ [india.parameter]: [india.id] });
+    if (crawlScope() === "all" || !india) passes.push({});
+    for (const appliedFacets of passes) {
+      let total = Infinity;
+      for (let offset = 0; offset < Math.min(total, MAX_LISTED); offset += PAGE) {
+        const page =
+          offset === 0 && Object.keys(appliedFacets).length === 0
+            ? first
+            : await postJson<WorkdayListResp>(`${base}/jobs`, { appliedFacets, limit: PAGE, offset, searchText: "" });
+        if (offset === 0) {
+          total = page.total ?? 0;
+          // Workday reports at most 2,000 results, so a total at the cap may hide more: don't close anything then.
+          if (total >= MAX_LISTED) complete = false;
         }
-        total = page.total ?? 0;
-        // Workday reports at most 2,000 results, so a total at the cap may hide more: don't close anything then.
-        if (total >= MAX_LISTED) complete = false;
-      }
-      if (!page.jobPostings?.length) break;
-      for (const p of page.jobPostings) {
-        if (!p.externalPath || seen.has(p.externalPath)) continue;
-        seen.add(p.externalPath);
-        if (ctx.known.has(p.externalPath)) {
-          stillListed.push(p.externalPath);
-          continue;
-        }
-        if (!listingInScope(p.locationsText)) continue;
-        if (details >= ctx.maxDetails) {
-          deferred++;
-          continue;
-        }
-        details++;
-        try {
-          const d = await getJson<WorkdayDetailResp>(`${base}/job${p.externalPath.replace(/^\/job/, "")}`);
-          jobs.push(mapWorkdayDetail(host, site, p.externalPath, d));
-        } catch (e) {
-          // One broken posting should not fail the whole company.
-          ctx.log(`  workday detail failed for ${p.externalPath}: ${e instanceof Error ? e.message : e}`);
-        }
+        if (!page.jobPostings?.length) break;
+        for (const p of page.jobPostings) await handle(base, site, p);
       }
     }
   }

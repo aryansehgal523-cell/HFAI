@@ -20,7 +20,8 @@
     "ext:typecheck": "tsc -p extension --noEmit",
     "ext:test-forms": "node scripts/ext-test-forms.mjs",
     "detect:ats": "tsx scripts/detect-ats.ts",
-    "companies:import": "tsx scripts/import-companies.ts"
+    "companies:import": "tsx scripts/import-companies.ts",
+    "companies:enrich": "tsx scripts/enrich-companies.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0",
